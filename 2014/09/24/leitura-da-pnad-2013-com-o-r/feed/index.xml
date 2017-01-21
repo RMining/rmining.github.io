@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>Comentários sobre: Leitura da PNAD 2013 com o R</title>
+	<atom:link href="./index.html" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Mineração de Dados, Estatística, Tecnologia</description>
+	<lastBuildDate>Thu, 22 Dec 2016 18:35:36 +0000</lastBuildDate>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.7.1</generator>
+	<item>
+		<title>Por: Silas Melo</title>
+		<link>./../index.html#comment-52</link>
+		<dc:creator><![CDATA[Silas Melo]]></dc:creator>
+		<pubDate>Tue, 28 Oct 2014 18:37:00 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=437#comment-52</guid>
+		<description><![CDATA[Era isso mesmo Flavio! Muito obrigado! 
+Consegui fazer a leitura. Mas um outro probleminha e que so consigo ver os dados da primeira UF (11 - Rondonia). Alguma outra dica?...rs. Abc!]]></description>
+		<content:encoded><![CDATA[<p>Era isso mesmo Flavio! Muito obrigado!<br />
+Consegui fazer a leitura. Mas um outro probleminha e que so consigo ver os dados da primeira UF (11 &#8211; Rondonia). Alguma outra dica?&#8230;rs. Abc!</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Por: Silas Melo</title>
+		<link>./../index.html#comment-51</link>
+		<dc:creator><![CDATA[Silas Melo]]></dc:creator>
+		<pubDate>Tue, 28 Oct 2014 17:49:00 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=437#comment-51</guid>
+		<description><![CDATA[Era isso mesmo Flavio! Muito obrigado! Abc]]></description>
+		<content:encoded><![CDATA[<p>Era isso mesmo Flavio! Muito obrigado! Abc</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Por: Flavio Barros</title>
+		<link>./../index.html#comment-50</link>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+		<pubDate>Mon, 27 Oct 2014 23:45:00 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=437#comment-50</guid>
+		<description><![CDATA[Oi Silas. Provavelmente o problema dever ser com o arquivo de dicionário. O primeiro campo se eu não me engano é ano, veja se ele começa em 1 e termina em 4.]]></description>
+		<content:encoded><![CDATA[<p>Oi Silas. Provavelmente o problema dever ser com o arquivo de dicionário. O primeiro campo se eu não me engano é ano, veja se ele começa em 1 e termina em 4.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Por: Silas Melo</title>
+		<link>./../index.html#comment-49</link>
+		<dc:creator><![CDATA[Silas Melo]]></dc:creator>
+		<pubDate>Mon, 27 Oct 2014 23:20:00 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=437#comment-49</guid>
+		<description><![CDATA[Oi Flavio! Na minha etapa &quot;## Parâmetro com o final de cada campo&quot;  esta gerando apenas NA`s. Acho que isto esta impossibilitando as demais estapas. Alguma dica? Abc]]></description>
+		<content:encoded><![CDATA[<p>Oi Flavio! Na minha etapa &#8220;## Parâmetro com o final de cada campo&#8221;  esta gerando apenas NA`s. Acho que isto esta impossibilitando as demais estapas. Alguma dica? Abc</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Por: Flavio Barros</title>
+		<link>./../index.html#comment-48</link>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+		<pubDate>Sat, 25 Oct 2014 16:18:00 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=437#comment-48</guid>
+		<description><![CDATA[Obrigado Leonardo pelo toque! De fato para analisar os dados da PNAD, além de tomar cuidados como você explicitou, também seria necessário incluir o plano amostral e etc. Eu não fiz nada disso, só coloquei mesmo o mecanismo para a leitura. Acredito que em outro post seria melhor mostrar o que deve ser feito a partir daqui para utilizar corretamente esses dados já que é a segunda pessoa que me alerta a respeito do pós-processamento. De qualquer forma obrigado por ler e obrigado pela crítica. abç!]]></description>
+		<content:encoded><![CDATA[<p>Obrigado Leonardo pelo toque! De fato para analisar os dados da PNAD, além de tomar cuidados como você explicitou, também seria necessário incluir o plano amostral e etc. Eu não fiz nada disso, só coloquei mesmo o mecanismo para a leitura. Acredito que em outro post seria melhor mostrar o que deve ser feito a partir daqui para utilizar corretamente esses dados já que é a segunda pessoa que me alerta a respeito do pós-processamento. De qualquer forma obrigado por ler e obrigado pela crítica. abç!</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Por: Leonardo Fontenelle</title>
+		<link>./../index.html#comment-47</link>
+		<dc:creator><![CDATA[Leonardo Fontenelle]]></dc:creator>
+		<pubDate>Sat, 25 Oct 2014 14:06:00 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=437#comment-47</guid>
+		<description><![CDATA[Flávio, não cheguei a explorar os dados da PNAD 2013, só os da 2008, mas talvez o aviso sirva para ambas. Na PNAD 2008, existem domicílios que seriam excluídos pelo uso de &quot;complete.cases&quot; mas que a pessoa pode ter interesse em manter nas análises. Por exemplo, muitas variáveis sobre as condições do domicílio (por exemplo, existência de banheiro) só estão disponíveis para domicílios permanentes, e não para os improvisados. Além disso, a variável televisão em preto e branco só está disponível para os domicílios sem televisão em cores. Por isso, com a PNAD 2008 tenho usado &quot;V0104 == 1&quot; em vez do &quot;complete.cases&quot;.
+
+Em tempo: ops, o uso de complete.cases era para o dicionário, não para o banco de dados!]]></description>
+		<content:encoded><![CDATA[<p>Flávio, não cheguei a explorar os dados da PNAD 2013, só os da 2008, mas talvez o aviso sirva para ambas. Na PNAD 2008, existem domicílios que seriam excluídos pelo uso de &#8220;complete.cases&#8221; mas que a pessoa pode ter interesse em manter nas análises. Por exemplo, muitas variáveis sobre as condições do domicílio (por exemplo, existência de banheiro) só estão disponíveis para domicílios permanentes, e não para os improvisados. Além disso, a variável televisão em preto e branco só está disponível para os domicílios sem televisão em cores. Por isso, com a PNAD 2008 tenho usado &#8220;V0104 == 1&#8221; em vez do &#8220;complete.cases&#8221;.</p>
+<p>Em tempo: ops, o uso de complete.cases era para o dicionário, não para o banco de dados!</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Por: Leitura da PNAD 2013 com o R &#124; Mineração de Dados</title>
+		<link>./../index.html#comment-46</link>
+		<dc:creator><![CDATA[Leitura da PNAD 2013 com o R &#124; Mineração de Dados]]></dc:creator>
+		<pubDate>Sun, 19 Oct 2014 02:48:46 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=437#comment-46</guid>
+		<description><![CDATA[[&#8230;] Aqui no excelente blog do Flávio Barros, ele explica como realizar a leitura dos dados da PNAD 2013&#8230; [&#8230;]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] Aqui no excelente blog do Flávio Barros, ele explica como realizar a leitura dos dados da PNAD 2013&#8230; [&#8230;]</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Por: Henrique Gomide</title>
+		<link>./../index.html#comment-40</link>
+		<dc:creator><![CDATA[Henrique Gomide]]></dc:creator>
+		<pubDate>Wed, 08 Oct 2014 13:11:00 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=437#comment-40</guid>
+		<description><![CDATA[Excelente dica. Extremamente mais rápido que o pacote SAScii. Muito obrigado!!]]></description>
+		<content:encoded><![CDATA[<p>Excelente dica. Extremamente mais rápido que o pacote SAScii. Muito obrigado!!</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Por: Flavio Barros</title>
+		<link>./../index.html#comment-35</link>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+		<pubDate>Sat, 27 Sep 2014 21:50:00 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=437#comment-35</guid>
+		<description><![CDATA[Oi Marcia. Não sei se seria possível replicar o erro da PNAD 2013, pois parece que eles trocaram até os microdados. Assim, com esses microdados baixados agora, até os pesos amostrais já estão corrigidos.]]></description>
+		<content:encoded><![CDATA[<p>Oi Marcia. Não sei se seria possível replicar o erro da PNAD 2013, pois parece que eles trocaram até os microdados. Assim, com esses microdados baixados agora, até os pesos amostrais já estão corrigidos.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Por: Marcia</title>
+		<link>./../index.html#comment-34</link>
+		<dc:creator><![CDATA[Marcia]]></dc:creator>
+		<pubDate>Sat, 27 Sep 2014 13:44:00 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=437#comment-34</guid>
+		<description><![CDATA[Você pode fazer um post para explicar a confusão com o fator de expansão]]></description>
+		<content:encoded><![CDATA[<p>Você pode fazer um post para explicar a confusão com o fator de expansão</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

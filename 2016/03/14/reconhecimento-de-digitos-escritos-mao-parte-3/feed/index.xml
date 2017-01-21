@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>Comentários sobre: RECONHECIMENTO DE DÍGITOS ESCRITOS A MÃO – PARTE 3</title>
+	<atom:link href="./index.html" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Mineração de Dados, Estatística, Tecnologia</description>
+	<lastBuildDate>Thu, 22 Dec 2016 18:35:36 +0000</lastBuildDate>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.7.1</generator>
+	<item>
+		<title>Por: Reconhecimento computacional de dígitos: modelagem completa - Peguei do</title>
+		<link>./../index.html#comment-117</link>
+		<dc:creator><![CDATA[Reconhecimento computacional de dígitos: modelagem completa - Peguei do]]></dc:creator>
+		<pubDate>Tue, 22 Mar 2016 16:09:24 +0000</pubDate>
+		<guid isPermaLink="false">./../../../../../index.html?p=851#comment-117</guid>
+		<description><![CDATA[[&#8230;] Nessa última parte da sequência sobre como criar modelos preditivos para predição de imagens de dígitos, vou mostrar como é possível treinar melhores modelos com muito mais dados e como é possível melhorar a performance dos algoritmos com melhores hiperparâmetros. Referência: rmining.net [&#8230;]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] Nessa última parte da sequência sobre como criar modelos preditivos para predição de imagens de dígitos, vou mostrar como é possível treinar melhores modelos com muito mais dados e como é possível melhorar a performance dos algoritmos com melhores hiperparâmetros. Referência: rmining.net [&#8230;]</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

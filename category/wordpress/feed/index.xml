@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Wordpress &#8211; R Mining</title>
+	<atom:link href="./index.html" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Mineração de Dados, Estatística, Tecnologia</description>
+	<lastBuildDate>Tue, 17 Jan 2017 10:04:59 +0000</lastBuildDate>
+	<language>pt-BR</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.7.1</generator>
+	<item>
+		<title>WordPress do Digital Ocean</title>
+		<link>./../../../2014/12/03/wordpress-do-digital-ocean/index.html</link>
+		<comments>./../../../2014/12/03/wordpress-do-digital-ocean/index.html#comments</comments>
+		<pubDate>Wed, 03 Dec 2014 20:18:47 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Digital Ocean]]></category>
+		<category><![CDATA[Linux]]></category>
+		<category><![CDATA[Wordpress]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=463</guid>
+		<description><![CDATA[Atualização IMPORTANTE: Para quem quiser experimentar com o  DIGITAL OCEAN, eu ATUALIZEI todos os links para o programa de “referral” deles. O que é isso? Se você se cadastrar por um destes links vai ganhar U$10,00 em créditos para brincar com o Digital Ocean! Isto representa 2 meses de um máquina virtual mais simples. Participe! Só para testar eu fiz a inscrição usando o e-mail da universidade: Naturalmente eu não vou confirmar o e-mail uma vez...]]></description>
+				<content:encoded><![CDATA[<p>Atualização IMPORTANTE: Para quem quiser experimentar com o  <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://www.digitalocean.com/?refcode=c3521662d5e6">DIGITAL OCEAN</a></span>, eu ATUALIZEI todos os links para o programa de “referral” deles. O que é isso? Se você se cadastrar por um destes links vai ganhar U$10,00 em créditos para brincar com o <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://www.digitalocean.com/?refcode=c3521662d5e6">Digital Ocean</a></span>! Isto representa 2 meses de um máquina virtual mais simples. Participe! Só para testar eu fiz a inscrição usando o e-mail da universidade:</p>
+<p><span id="more-463"></span></p>
+<p><a href="./../../../wp-content/uploads/2014/12/creditoDO1.png"><img class="aligncenter wp-image-464 size-full" src="./../../../wp-content/uploads/2014/12/creditoDO1.png" width="829" height="367" srcset="./../../../wp-content/uploads/2014/12/creditoDO1.png 829w, ./../../../wp-content/uploads/2014/12/creditoDO1-300x132.png 300w, ./../../../wp-content/uploads/2014/12/creditoDO1-624x276.png 624w" sizes="(max-width: 829px) 100vw, 829px" /></a></p>
+<p>Naturalmente eu não vou confirmar o e-mail uma vez que sou cliente da plataforma há mais de 6 meses. Só enviei mesmo para mostrar que a promoção é válida. Happy coding!</p>
+<p>Aqui nesse tutorial vou mostrar brevemente como funciona o <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://www.digitalocean.com/?refcode=c3521662d5e6">Digital Ocean</a></span> e como você pode criar em minutos uma instalação do WordPress em seu próprio VPS (Vritual Private Server). Eu dividi o tutorial em duas partes, sendo que na primeira eu mostro como funciona a interface do Digital Ocean e na segunda eu mostro a instalação do WordPress.</p>
+<p>Eu optei por colocar esse tutorial em vídeo, uma vez que é bem mais simples para ver e entender o processo. Mas, de qualquer forma, no próprio site da <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://www.digitalocean.com/?refcode=c3521662d5e6">Digital Ocean</a></span> existem tutoriais escritos para ajuda-lo em qualquer dúvida. Por fim, se você gostou do tutorial e pretende criar suas aplicações no <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://www.digitalocean.com/?refcode=c3521662d5e6">Digital Ocean</a></span>, use qualquer link neste post tal que você ganhará U$10,00 de créditos.</p>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/jOD-Xy9mP_Y?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/xPo5onhpSiA?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<p>LEMBRANDO, SE QUISER EXPERIMENTAR O <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://www.digitalocean.com/?refcode=c3521662d5e6">DIGITAL OCEAN</a></span> USE OS LINKS DESTE POST OK?</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2014/12/03/wordpress-do-digital-ocean/feed/index.html</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+	</channel>
+</rss>

@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="./../../../../xmlrpc.php">
+
+<title>RECONHECIMENTO DE DÍGITOS ESCRITOS A MÃO – PARTE 3 &#8211; R Mining</title>
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Feed para R Mining &raquo;" href="./../../../../feed/index.html" />
+<link rel="alternate" type="application/rss+xml" title="Feed de comentários para R Mining &raquo;" href="./../../../../comments/feed/index.html" />
+<link rel="alternate" type="application/rss+xml" title="Feed de comentários para R Mining &raquo; RECONHECIMENTO DE DÍGITOS ESCRITOS A MÃO – PARTE 3" href="./feed/index.html" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/svg\/","svgExt":".svg","source":{"concatemoji":".\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.7.1"}};
+			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),!(j.toDataURL().length<3e3)&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,65039,8205,55356,57096),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,55356,57096),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55357,56425,55356,57341,8205,55357,56507),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55357,56425,55356,57341,55357,56507),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='profitmag-font-awesome-css'  href='./../../../../wp-content/themes/profitmag/css/font-awesome.min.css?ver=4.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-bxslider-style-css'  href='./../../../../wp-content/themes/profitmag/css/jquery.bxslider.css?ver=4.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-ticker-style-css'  href='./../../../../wp-content/themes/profitmag/css/ticker-style.css?ver=4.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-noivolightbox-style-css'  href='./../../../../wp-content/themes/profitmag/css/nivo-lightbox.css?ver=4.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-scrollcss-css'  href='./../../../../wp-content/themes/profitmag/css/jquery.mCustomScrollbar.css?ver=4.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-google-font-css'  href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic&#038;subset=latin,latin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-style-css'  href='./../../../../wp-content/themes/profitmag/style.css?ver=4.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-responsive-css'  href='./../../../../wp-content/themes/profitmag/css/responsive.css?ver=4.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-color-scheme-css'  href='./../../../../wp-content/themes/profitmag/css/orange.css' type='text/css' media='all' />
+<script type='text/javascript' src='./../../../../wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='./../../../../wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript' src='./../../../../wp-content/themes/profitmag/js/nivo-lightbox.min.js?ver=4.7.1'></script>
+<script type='text/javascript' src='./../../../../wp-content/themes/profitmag/js/jquery.slicknav.min.js?ver=4.7.1'></script>
+<script type='text/javascript' src='./../../../../wp-content/themes/profitmag/js/modernizr.min.js?ver=2.6.2'></script>
+<link rel='https://api.w.org/' href='./../../../../wp-json/index.html' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="./../../../../xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="./../../../../wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Livros recomendados &#8211; Data Science' href='./../../12/livros-recomendados-data-science/index.html' />
+<link rel='next' title='Impeachment &#8211; Análise das Intenções' href='./../../../04/04/impeachment-analise-das-intencoes/index.html' />
+<meta name="generator" content="WordPress 4.7.1" />
+<link rel="canonical" href="./index.html" />
+<link rel='shortlink' href='./../../../../index.html?p=851' />
+<link rel="alternate" type="application/json+oembed" href="./../../../../wp-json/oembed/1.0/embed/index.html?url=http%3A%2F%2F%2F2016%2F03%2F14%2Freconhecimento-de-digitos-escritos-mao-parte-3%2F" />
+<link rel="alternate" type="text/xml+oembed" href="./../../../../wp-json/oembed/1.0/embed/index.html?url=http%3A%2F%2F%2F2016%2F03%2F14%2Freconhecimento-de-digitos-escritos-mao-parte-3%2F&#038;format=xml" />
+<style type="text/css"></style></head>
+
+<body class="post-template-default single single-post postid-851 single-format-standard group-blog right_sidebar">
+
+<div id="page" class="hfeed site">
+	
+
+	<header id="masthead" class="site-header clearfix" role="banner">
+        <div class="top-header-block clearfix">
+            <div class="wrapper">
+                        
+                        <div class="right-header f-right">
+                                                    </div>
+             </div>          
+         </div><!-- .top-header-block -->
+
+        <div class="wrapper header-wrapper clearfix">
+        		<div class="header-container"> 
+                
+                    
+                    
+                    <div class="site-branding clearfix">
+            			<div class="site-logo f-left">
+                           
+                                
+                                     <a href="./../../../../index.html" rel="home" class="site-title">
+
+                                        R Mining                                    </a> 
+                                    
+                                        <p class="site-description">Mineração de Dados, Estatística, Tecnologia</p>
+
+                                                               
+                        </div>
+                        
+                                                			
+            		</div>
+
+                                
+            		<nav id="site-navigation" class="main-navigation home-nav-icon clearfix menu-left" role="navigation" >
+            			<div class="desktop-menu clearfix">
+                                                        <div class="home-icon">
+                                    <a href="./../../../../index.html" title="R Mining"><i class="fa fa-home"></i></a>
+                                </div>
+                                <div class="menu-links-container"><ul id="menu-links" class="menu"><li id="menu-item-173" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-173"><a href="http://www.r-bloggers.com/">R-Bloggers! Dicas e códigos para R.</a></li>
+<li id="menu-item-846" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-846"><a href="./../../../../sobre-mim/index.html">Sobre mim</a></li>
+<li id="menu-item-822" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-822"><a href="./../../../../newsletter/index.html">newsletter</a></li>
+</ul></div>
+                        <div class="search-block">
+                                                            <form role="search" method="get" id="searchform" class="searchform" action="./../../../../index.html" >
+    <div><label class="screen-reader-text" for="s"></label>
+    <input type="text" value="" name="s" id="s" placeholder="Search" />
+    <input type="submit" id="searchsubmit" value="Search" />
+    </div>
+    </form>                                                    </div>
+                        </div>
+                        <div class="responsive-slick-menu clearfix"></div>
+                        
+            		</nav><!-- #site-navigation -->
+        
+                </div> <!-- .header-container -->
+        </div><!-- header-wrapper-->
+        
+	</header><!-- #masthead -->
+    
+
+    <div class="wrapper content-wrapper clearfix">
+
+        <div class="slider-feature-wrap clearfix">
+            <!-- Slider -->
+                        
+            <!-- Featured Post Beside Slider -->
+                    	
+                    </div>    
+            <div id="content" class="site-content">
+    
+   
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+
+		            
+			
+<article id="post-851" class="post-851 post type-post status-publish format-standard has-post-thumbnail hentry category-aprendizado-de-maquina category-data-mining category-educacao category-estatistica category-machine-learning category-mineracao-de-dados category-preparacao-de-dados category-r-e-rstudio">
+	<header class="entry-header">
+		<h1 class="entry-title">RECONHECIMENTO DE DÍGITOS ESCRITOS A MÃO – PARTE 3</h1>
+		<div class="entry-meta">
+			<span class="posted-on">Posted on <a href="./index.html" rel="bookmark"><time class="entry-date published" datetime="2016-03-14T23:54:32+00:00">março 14, 2016</time><time class="updated" datetime="2017-01-17T07:36:18+00:00">janeiro 17, 2017</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="./../../../../author/admin/index.html">Flavio Barros</a></span></span>		</div><!-- .entry-meta -->
+	</header><!-- .entry-header -->
+
+	<div class="single-feat clearfix">
+        <figure class="single-thumb">
+            <img width="353" height="353" src="./../../../../wp-content/uploads/2016/03/todos_digitos-1.png" class="attachment-single-thumb size-single-thumb wp-post-image" alt="" srcset="./../../../../wp-content/uploads/2016/03/todos_digitos-1.png 480w, ./../../../../wp-content/uploads/2016/03/todos_digitos-1-150x150.png 150w, ./../../../../wp-content/uploads/2016/03/todos_digitos-1-300x300.png 300w, ./../../../../wp-content/uploads/2016/03/todos_digitos-1-65x65.png 65w" sizes="(max-width: 353px) 100vw, 353px" />        </figure>
+        
+        <div class="related-post">
+            <h2 class="block-title"><span class="bordertitle-red"></span>Related Post</h2>
+            <ul>                
+                    <li><a href="./../../../10/15/usando-r-com-o-monetdb/index.html" title="Usando R com o MonetDB">Usando R com o MonetDB</a></li> 
+                   
+                    
+                    <li><a href="./../../../09/27/como-fazer-um-carometro-em-shiny/index.html" title="Como fazer um carômetro em Shiny">Como fazer um carômetro em Shiny</a></li> 
+                   
+                    
+                    <li><a href="./../../../09/22/use-o-stackoverflow/index.html" title="Use o stackoverflow!">Use o stackoverflow!</a></li> 
+                   
+                    
+                    <li><a href="./../../../04/21/onde-estudar-estatistica/index.html" title="Onde estudar Estatística?">Onde estudar Estatística?</a></li> 
+                   
+                    
+                    <li><a href="./../../../04/04/impeachment-analise-das-intencoes/index.html" title="Impeachment &#8211; Análise das Intenções">Impeachment &#8211; Análise das Intenções</a></li> 
+                   
+    </ul>    
+                <ul>
+                
+            </ul>
+        </div>
+    </div>
+    
+    <div class="entry-content">
+		
+        <figure></figure>
+        <p style="text-align: justify;">Na <a href="./../../../../2014/12/22/reconhecimento-de-digitos-escritos-mao-parte-1/index.html">Parte 1</a> desse post (que já publiquei faz um tempão!) eu fiz uma classificação de imagens de dígitos escritos a mão usando o <a href="https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm">k-nn</a> (algoritmo dos vizinhos mais próximos) usando as informações das imagens sem nenhum tipo de tratamento, isto é, sem nenhum método de preparação. Como foi mostrado, o <a href="https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm">k-nn</a> só foi capaz de classificar razoavelmente bem com com k = 1 e conseguiu uma acurácia de apenas 78%, algo muito distante do que ainda pode ser conseguido.</p>
+<p style="text-align: justify;">Na <a href="./../../../../2015/09/14/reconhecimento-de-digitos-escritos-a-mao-parte-2/index.html">Parte 2</a> eu trabalhei com um método de redução de dimensionalidade, o PCA, e também foram explorados diversos outros classificadores, como o Random Forest, o SVM e etc. O resumo dos resultados foi o seguinte:</p>
+<ul style="text-align: justify;">
+<li style="text-align: justify;">k-nn com k = 1: 84%</li>
+<li style="text-align: justify;">Regressão linear: 14%</li>
+<li style="text-align: justify;">Regressão Logística Multinomial: 64%</li>
+<li style="text-align: justify;">Árvores de decisão: 24%</li>
+<li style="text-align: justify;">RandomForest: 72%</li>
+</ul>
+<p style="text-align: justify;">E a conclusão geral foi que não foi possível bater o k-NN ou ainda mais chegar aos resultados reportados na literatura, superiores a 95% de acurácia na tarefa. Como foi mencionado anteriormente, os possíveis problemas foram:</p>
+<ol style="text-align: justify;">
+<li>Conjunto pequeno de imagens.</li>
+<li>Modelos com parâmetros default.</li>
+</ol>
+<p style="text-align: justify;">Assim, nessa última parte vou mostrar como é possível treinar melhores modelos com muito mais dados e como é possível melhorar a performance dos algoritmos com melhores hiperparâmetros. Outro ponto importante que eu queria mostrar também é o uso do pacote <a href="http://caret.r-forge.r-project.org/">caret</a> para automatizar diversas tarefas desse processo.</p>
+<h2 style="text-align: justify;">1.Dados e visualização</h2>
+<p style="text-align: justify;">Como eu comentei antes, vamos nessa parte tentar utilizar um conjunto maior de imagens. Para tanto, ao invés desse pequeno conjunto de teste e treino que foi fornecido na <a href="./../../../../2014/12/22/reconhecimento-de-digitos-escritos-mao-parte-1/index.html">Parte 1</a>, vamos utilizar um conjunto muito maior de images de dígitos escritos a mão, o famoso data set <a href="http://yann.lecun.com/exdb/mnist/">MNIST</a>. Se você verificar nesse link, você vai encontrar diversas informações com respeito a esse conjunto de dados e também você pode baixa-lo e utilizar nas análises que se seguem, caso queira reproduzir o que você está vendo aqui. ENTRETANTO, para poupar o seu trabalho e o meu, ao invés de pegar os dados diretamente deste site, vamos utilizar esse mesmo conjunto de dados já tratado e preparado pela equipe do <a href="https://www.kaggle.com/c/digit-recognizer">Kaggle</a>. A vantagem é que o arquivos já estão no formato csv e não será mais necessária a etapa de preparação realizada na <a href="./../../../../2014/12/22/reconhecimento-de-digitos-escritos-mao-parte-1/index.html">Parte 1</a> e na <a href="./../../../../2015/09/14/reconhecimento-de-digitos-escritos-a-mao-parte-2/index.html">Parte 2</a> desta série. Outra vantagem é que após você rodar estes modelos, se você quiser, você pode submeter seus resultados no Leaderboard para experimentar como funciona esse site de competição.</p>
+<p style="text-align: justify;">Na <a href="./../../../../2015/09/14/reconhecimento-de-digitos-escritos-a-mao-parte-2/index.html">Parte 2</a>, como eu peguei diretamente as imagens e converti em uma matriz, agora você poderia ficar confuso e se perguntar: mas e aí, como são estas imagens? como eu vou ver se já está em csv? Para você não ficar com dúvida, vamos &#8220;imprimir&#8221; as imagens.</p>
+<pre class="lang:r decode:true">############ Explorando as imagens ###############################
+## Contando o número de imagens por dígito
+barplot(table(treino$label), ylim = c(0,5000))
+
+## Transformando em uma matriz
+treino &lt;- as.matrix(treino)
+
+## Imprimindo uma imagem
+matriz_imagem &lt;- matrix(treino[1000,-1], ncol = 28)
+matriz_imagem &lt;- matriz_imagem[,28:1] ## invertendo a imagem
+image(1:28, 1:28, matriz_imagem, col = c('white', 'black'))</pre>
+<p><a href="./../../../../wp-content/uploads/2016/03/digito4.png" rel="attachment wp-att-867"><img class="aligncenter size-full wp-image-867" src="./../../../../wp-content/uploads/2016/03/digito4.png" alt="digito4" width="480" height="480" srcset="./../../../../wp-content/uploads/2016/03/digito4.png 480w, ./../../../../wp-content/uploads/2016/03/digito4-150x150.png 150w, ./../../../../wp-content/uploads/2016/03/digito4-300x300.png 300w, ./../../../../wp-content/uploads/2016/03/digito4-65x65.png 65w" sizes="(max-width: 480px) 100vw, 480px" /></a></p>
+<p>Veja que eu peguei a primeira linha do conjunto de treino, transformei em uma matriz e imprimi a matriz como uma imagem. Nesse caso é o dígito 4. Assim, apesar de agora você estar usando um arquivo em csv preparado eles fizeram a mesma coisa que eu fiz anteriormente. Se você quiser entender melhor como cada imagem virou uma linha dessa tabela dá uma olhada na Parte 1 dessa série. Só para mostrar que os dígitos estão ok, eu vou imprimir uma &#8220;imagem média&#8221;, onde em cada imagem eu tenho um valor médio em cada píxel considerando todas as imagens do conjunto de dados.</p>
+<pre class="lang:r decode:true">## Plotando uma imagem média para cada dígito
+## Definindo uma escala de cor, indo do branco ao preto
+colors &lt;- c('white','black')
+cus_col &lt;- colorRampPalette(colors=colors)
+
+## Plot de cada imagem média
+## Divindo a tela
+png('todos_digitos.png')
+par(mfrow=c(4,3),pty='s',mar=c(1,1,1,1),xaxt='n',yaxt='n')
+
+## Criando um array para armazenar as matrizes de cada imagem média
+all_img &lt;- array(dim=c(10,28*28))
+
+## Recuperando todas as imagens por dígito e calculando a média
+for(di in 0:9) {
+  print(di)
+  all_img[di+1,] &lt;- apply(treino[treino[,1]==di,-1],2,sum)
+  all_img[di+1,] &lt;- all_img[di+1,]/max(all_img[di+1,])*255
+  
+  z&lt;-array(all_img[di+1,],dim=c(28,28))
+  z&lt;-z[,28:1] ##right side up
+  image(1:28,1:28,z,main=di,col=cus_col(256))
+}</pre>
+<p><a href="./../../../../wp-content/uploads/2016/03/todos_digitos-1.png" rel="attachment wp-att-869"><img class="aligncenter size-full wp-image-869" src="./../../../../wp-content/uploads/2016/03/todos_digitos-1.png" alt="todos_digitos" width="480" height="480" srcset="./../../../../wp-content/uploads/2016/03/todos_digitos-1.png 480w, ./../../../../wp-content/uploads/2016/03/todos_digitos-1-150x150.png 150w, ./../../../../wp-content/uploads/2016/03/todos_digitos-1-300x300.png 300w, ./../../../../wp-content/uploads/2016/03/todos_digitos-1-65x65.png 65w" sizes="(max-width: 480px) 100vw, 480px" /></a></p>
+<p style="text-align: justify;">Até há uma certa variação (por isso que há uma sombra) mas no geral os mesmos píxels tem uma intensidade maior considerando cada dígito diferente que foi escrito na imagem. Isso nos leva a crer que os modelos devem conseguir distinguir um dígito do outro.</p>
+<h2 style="text-align: justify;">2. Preparação com PCA</h2>
+<p style="text-align: justify;">Depois que você baixar os arquivos train.csv e test.csv do Kaggle já podemos efetuar a leitura dos arquivos e a preparação por meio do PCA. O que vamos fazer é aplicar o PCA e retendo somente o número de componentes necessário para alcançar 95% da variância total. Os detalhes sobre isso eu discuti na Parte 2.</p>
+<pre class="lang:r decode:true">## Leitura dos conjuntos de dados de treino e de teste
+treino = read.csv('train.csv', header = T)
+teste = read.csv('test.csv', header = T)
+
+############ APlicação do PCA ####################################
+## Obtendo componentes principais
+pc &lt;- prcomp(treino[,-1])
+treino_pc &lt;- pc$x
+
+## Obtendo as variâncias acumuladas
+vars = pc$sdev^2
+props = vars/sum(vars)
+varAcum = cumsum(props)
+which.min(varAcum &lt; 0.90)
+
+## Aplicando a rotação nos dados de teste
+teste_pc &lt;- predict(pc, newdata = teste)
+
+## Salvando treino e teste com PCA
+save(treino_pc, file = 'treino_pc.rda')
+save(teste_pc, file = 'teste_pc.rda')</pre>
+<p style="text-align: justify;">eu costumo salvar os arquivos após cada etapa de preparação de forma a não precisar realizar o processo posteriormente. Outro ponto importante é que salvando os objetos no formato nativo do R, caso você precise recarregar os dados, o processo é muito mais rápido que a leitura em csv.</p>
+<h2 style="text-align: justify;">3. Árvore de Decisão</h2>
+<p style="text-align: justify;">Como uma primeira tentativa, vamos utilizar o algoritmo para árvores de decisão do pacote <a href="https://cran.r-project.org/web/packages/rpart/index.html">rpart</a>. Vamos utilizar todas as PC&#8217;s e treinar a árvore em 3/4 dos dados. O teste será realizado no 1/4 que foi separado.</p>
+<pre class="lang:r decode:true">#################################################################
+## Teste com árvore de decisão
+library(rpart)
+
+## Separando o conjunto treino em dois para avaliação
+set.seed(1)
+inTrain &lt;- createDataPartition(treino$label, p = 3/4, list = F)
+train &lt;- treino_pc[inTrain,]
+evaluation &lt;- treino_pc[-inTrain,]
+
+## Data frame de treino e teste
+treino_arvore = as.data.frame(cbind(train[,1:784]))
+treino_arvore$classes = as.factor(treino$label[inTrain])
+
+## Conjunto de teste para avaliação
+teste_arvore = as.data.frame(evaluation[,1:784])
+
+## Criando uma árvore
+arvore &lt;- rpart(classes ~ ., data = treino_arvore)
+
+## Calculando a matriz de confusão
+confusionMatrix(predict(arvore, teste_arvore, type = 'class'), treino$label[-inTrain])
+</pre>
+<p>e o resultado da matriz de confusão:</p>
+<pre class="lang:r decode:true">Confusion Matrix and Statistics
+
+          Reference
+Prediction   0   1   2   3   4   5   6   7   8   9
+         0 637   2  13  20   3  66  17  12   0   2
+         1   0 995   9   7  28   7   3  75   6  53
+         2  60  54 741  61  30  97 130  16  93  10
+         3 185  45 111 803  13 270 106  29  89  30
+         4   3   0  16  10 796  73  16  82  16 471
+         5  86  13  46  88  36 341  31  61 185  49
+         6  24  16  47  45  21  40 725   4  13  43
+         7  17   0   4   2  20  16   2 652  10  85
+         8  18  46  40  27  11  60  12  18 532  13
+         9  14   0   6  10  74   6  13 103  57 305
+
+Overall Statistics
+                                         
+               Accuracy : 0.6217         
+                 95% CI : (0.6124, 0.631)
+    No Information Rate : 0.1115         
+    P-Value [Acc &gt; NIR] : &lt; 2.2e-16      
+                                         
+                  Kappa : 0.5796         
+ Mcnemar's Test P-Value : &lt; 2.2e-16</pre>
+<p style="text-align: justify;">mostra que o desempenho ainda está longe do satisfatório. Com uma acurácia global de apenas 62% estamos ainda muito longe da meta de 95%. Veja que utilizamos a estratégia <a href="http://stats.stackexchange.com/questions/104713/hold-out-validation-vs-k-fold-validation">holdout</a>, e com relação a <a href="./../../../../2015/09/14/reconhecimento-de-digitos-escritos-a-mao-parte-2/index.html">Parte 2</a> desta série a única mudança é o fato de estarmos trabalhando com imagens com mais resolução e um conjunto maior. Parece que isso ainda não é o suficiente, assim vamos explorar outros algoritmos e vamos utilizar métodos de validação cruzada para encontrar os melhores hiperparâmetros.</p>
+<h2>4. RandomForest</h2>
+<p style="text-align: justify;">O <a href="https://en.wikipedia.org/wiki/Random_forest">randomforest</a> é um dos algoritmos de machine learning <a href="https://www.quora.com/What-are-the-top-10-data-mining-or-machine-learning-algorithms">mais utilizados na indústria</a>. Seu sucesso advém do fato de ser robusto, facilmente paralelizável e apresentar um desempenho muito bom em uma grande quantidade de problemas diferentes. Assim, vamos experimentar esse classificador procurando ajustar os melhores hiperperâmetros por validação cruzada. No caso do RF temos que definir qual o melhor m, um parâmetro que determina quantas variáveis são sorteadas na escolha do split em cada nó, de cada árvore de decisão do comitê. Se não ficou claro para você o que significa este hiperparâmetro não tem problema, não é difícil encontrar material onde você pode entender os detalhes do RF. O importante aqui é você entender que o valor do hiperparâmetro será escolhido com base no próprio conjunto de dados, utilizando validação cruzada.</p>
+<pre class="lang:r decode:true">#################################################################
+## Teste com RandomForest
+library(randomForest)
+
+## Separando o conjunto treino em dois para avaliação
+set.seed(1)
+inTrain &lt;- createDataPartition(treino$label, p = 3/4, list = F)
+train &lt;- treino_pc[inTrain,]
+evaluation &lt;- treino_pc[-inTrain,]
+
+## Data frame de treino e teste, aqui retendo somente 160 PC's, equivalente a 95% de ## variância.
+treino_arvore = as.data.frame(cbind(train[,1:160]))
+treino_arvore$classes = as.factor(treino$label[inTrain])
+
+## Conjunto de teste para avaliação
+teste_arvore = as.data.frame(evaluation[,1:160])
+
+## Modelagem
+fitControl &lt;- trainControl(method = "oob", verboseIter = T,
+                           
+                           ## Estimate class probabilities
+                           classProbs = F)
+
+set.seed(825)
+rfFit &lt;- train(classes ~ ., data = treino_arvore, verbose = T,
+                method = "rf",
+                trControl = fitControl,
+                tuneLength = 8,
+                metric = "Accuracy")
+save(rfFit, file = 'rfFit.rda')
+                
+## Calculando a matriz de confusão
+confusionMatrix(predict(rfFit, teste_arvore, type = 'raw'), treino$label[-inTrain])
+</pre>
+<p>e a matriz de confusão:</p>
+<pre class="lang:r decode:true">Confusion Matrix and Statistics
+
+          Reference
+Prediction    0    1    2    3    4    5    6    7    8    9
+         0 1048    0    3    0    1    1    1    0    0    1
+         1    0 1130    2    0    1    1    0    2    3    0
+         2    0    3 1021   10    4    2    1    6    2    0
+         3    0    1    5 1073    3   12    0    1    8   11
+         4    1    0    6    0  970    4    1    1    4   18
+         5    0    0    0    8    2  932    6    0    4    6
+         6    6    1    3    2    5    3 1023    1    2    0
+         7    1    1    4    4    0    0    0 1077    3    7
+         8    0    0    5    4    5    2    1    2  967    4
+         9    2    2    3    2   11    2    0    1    2 1020
+
+Overall Statistics
+                                          
+               Accuracy : 0.9774          
+                 95% CI : (0.9744, 0.9802)
+    No Information Rate : 0.1084          
+    P-Value [Acc &gt; NIR] : &lt; 2.2e-16       
+                                          
+                  Kappa : 0.9749</pre>
+<p>e enfim chegamos a 97%!</p>
+<h2 style="text-align: justify;">5. SVM (Máquina de vertores de suporte)</h2>
+<p style="text-align: justify;">O SVM é um algoritmo do tipo &#8220;caixa preta&#8221;. O princípio por detrás do algoritmo é criar hiperplanos separadores em dimensões maiores do que as presentes no conjunto de dados. A ideia é que se os pontos são linearmente separáveis, isto é, se um hiperplano como fronteira de decisão conseguiria separar completamente as classes, então o SVM é um método que pode ser utilizado para encontrar esse hiperplano. ENTRETANTO, ocorre que muitos problemas não são linearmente separáveis, e ainda que fossem não valeria a pena usar o SVM. Quando o problema não é linearmente separável o SVM, de uma certa forma, projeta os dados em um espaço onde é possível criar um hiperplano separador. Também, ele aceita um certo grau de &#8220;impurezas&#8221; dentro das fronteiras de decisão. Enfim, é um algoritmo do tipo &#8220;caixa preta&#8221;, que não tem origem na estatística já que é basicamente um algoritmo de otimização. Mas o fato é que o SVM apresenta resultados muito bons e uma grande quantidade de problemas e vamos ver isso aqui nesse teste.</p>
+<pre class="lang:r decode:true">#################################################################
+## Teste com SVM RBF
+## Carregando os pacotes
+library(caret)
+
+## Modelagem
+fitControl &lt;- trainControl(method = "cv", verboseIter = T,
+                           
+                           ## Estimate class probabilities
+                           classProbs = F)
+
+set.seed(825)
+svmFit &lt;- train(classes ~ ., data = treino_arvore,
+                method = "svmRadial",
+                trControl = fitControl,
+                preProc = c("center", "scale"),
+                tuneLength = 8,
+                metric = "Accuracy")
+save(svmFit, file = 'svmFit2.rda')
+
+## Calculando a matriz de confusão
+confusionMatrix(predict(svmFit, teste_arvore, type = 'raw'), treino$label[-inTrain])
+</pre>
+<p>e avaliando no conjunto de avaliação:</p>
+<pre class="lang:r decode:true">Confusion Matrix and Statistics
+
+          Reference
+Prediction    0    1    2    3    4    5    6    7    8    9
+         0 1046    0    3    0    1    3    5    1    3    6
+         1    1 1128    1    2    2    0    1    3    2    1
+         2    0    3 1015   13    4    3    1   15    4    1
+         3    1    1    4 1058    0   13    0    1    7    9
+         4    2    2   10    1  972    1    4   10    1   21
+         5    0    1    2   12    0  924    7    0    3    5
+         6    5    0    2    1    5   10 1010    0    4    0
+         7    0    0    5    7    0    0    0 1051    0   13
+         8    3    2    9    4    0    2    5    1  967    3
+         9    0    1    1    5   18    3    0    9    4 1008
+
+Overall Statistics
+                                          
+               Accuracy : 0.9696          
+                 95% CI : (0.9661, 0.9728)
+    No Information Rate : 0.1084          
+    P-Value [Acc &gt; NIR] : &lt; 2.2e-16       
+                                          
+                  Kappa : 0.9662</pre>
+<p>e novamente conseguimos algo em torno de 97%. Para ser honesto, depois que eu criei os modelos com os melhores hiperparâmetros, submetendo no Kaggle o SVM supera os 98%. Foi o modelo com melhor desempenho nessa tarefa.</p>
+<h2>Conclusão</h2>
+<p style="text-align: justify;">Acho que depois da Parte 1, Parte 2 e Parte 3 (esta aqui!) você viu como se trabalha com classificação de imagens, como se prepara esse tipo de dado e como é possível alcançar altíssima acurácia utilizando os modelos de machine learning que você encontra por aí. Se você for reproduzir os exemplos, fique ciente que a etapa de modelagem pode demorar muito. No meu caso alguns destes modelos demoraram mais de 8 horas para o ajuste com os melhore hiperparâmetros! Outro ponto que eu não abordei é como o caret seleciona os melhores hiperparâmetros por validação cruzada. Isso vou deixar para falar com maior detalhe em outra oportunidade. Também gostaria de salientar que uma modelagem como essa é algo tipicamente diferente do que se espera em uma análise estatística tradicional. Aqui não estávamos interessados em inferência, mas sim em produzir modelos com o maior poder preditivo possível. Em casos como esse, trabalhar com métodos &#8220;caixa preta&#8221; não é em si um problema. O ponto principal é ter certeza que seu modelo apresentará um bom desempenho no futuro, com novos dados. POR FIM, esses modelos não são o estado da arte nesta tarefa, já que com <a href="https://en.wikipedia.org/wiki/Deep_learning">deep learning</a> é possível passar dos 99% de acurácia.</p>
+			</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		
+						<span class="cat-links">
+				Posted in <a href="./../../../../category/aprendizado-de-maquina/index.html" rel="category tag">Aprendizado de Máquina</a>, <a href="./../../../../category/data-mining/index.html" rel="category tag">Data Mining</a>, <a href="./../../../../category/educacao/index.html" rel="category tag">Educação</a>, <a href="./../../../../category/estatistica/index.html" rel="category tag">Estatística</a>, <a href="./../../../../category/machine-learning/index.html" rel="category tag">Machine Learning</a>, <a href="./../../../../category/mineracao-de-dados/index.html" rel="category tag">Mineração de Dados</a>, <a href="./../../../../category/preparacao-de-dados/index.html" rel="category tag">Preparação de Dados</a>, <a href="./../../../../category/r-e-rstudio/index.html" rel="category tag">R e RStudio</a>			</span>
+			
+					     
+	
+
+			</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+
+			
+	<nav class="navigation post-navigation" role="navigation">
+		<h2 class="screen-reader-text">Navegação de Post</h2>
+		<div class="nav-links"><div class="nav-previous"><a href="./../../12/livros-recomendados-data-science/index.html" rel="prev">Livros recomendados &#8211; Data Science</a></div><div class="nav-next"><a href="./../../../04/04/impeachment-analise-das-intencoes/index.html" rel="next">Impeachment &#8211; Análise das Intenções</a></div></div>
+	</nav>
+			
+<div id="comments" class="comments-area">
+
+	
+			<h2 class="comments-title">
+			<span class="bordertitle-red"></span>			
+			COMMENTS		</h2>
+
+		
+		<ul class="comment-list">
+			    <li class="pingback even thread-even depth-1" id="comment-117">
+        <div id="div-comment-117" class="comment-body clearfix">
+        <div class="comment-author vcard">
+        <cite class="fn"><a href='http://www.pegueido.com.br/reconhecimento-computacional-de-digitos-modelagem-completa/' rel='external nofollow' class='url'>Reconhecimento computacional de dígitos: modelagem completa - Peguei do</a></cite>    </div>
+    
+    <div class="comment-meta commentmetadata"><a href="./index.html#comment-117">
+        <i class="fa fa-clock-o"></i>
+março 22, 2016 at 1:09 pm</a>    </div>
+
+    <p>[&#8230;] Nessa última parte da sequência sobre como criar modelos preditivos para predição de imagens de dígitos, vou mostrar como é possível treinar melhores modelos com muito mais dados e como é possível melhorar a performance dos algoritmos com melhores hiperparâmetros. Referência: rmining.net [&#8230;]</p>
+
+    <div class="reply">
+    <i class="fa fa-thumbs-up"></i>
+    <i class="fa fa-thumbs-down"></i>
+        </div>
+        </div>
+    </li><!-- #comment-## -->
+		</ul><!-- .comment-list -->
+
+		
+	
+			<p class="no-comments">Comments are closed.</p>
+	
+	
+</div><!-- #comments -->
+                        
+            
+            
+		
+		</main><!-- #main -->
+	</div><!-- #primary -->
+
+
+    
+            <div id="secondary-right" class="widget-area secondary-sidebar f-right clearfix" role="complementary">
+                        <div id="sidebar-section-top" class="widget-area sidebar clearfix">
+                 		<aside id="profitmag-popular-posts-3" class="widget profitmag_widget_popular_entries">		<h3 class="widget-title"><span>Popular</span></h3>		<ul>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./../../../09/27/como-fazer-um-carometro-em-shiny/index.html"><img src="./../../../../wp-content/uploads/2016/09/tiririca.jpg" alt="Como fazer um carômetro em Shiny" title="Como fazer um carômetro em Shiny" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./../../../09/27/como-fazer-um-carometro-em-shiny/index.html">Como fazer um carômetro em Shiny</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>setembro 27, 2016</div>
+			
+			</li>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./../../12/livros-recomendados-data-science/index.html"><img src="./../../../../wp-content/uploads/2016/03/data_smart.jpg" alt="Livros recomendados &#8211; Data Science" title="Livros recomendados &#8211; Data Science" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./../../12/livros-recomendados-data-science/index.html">Livros recomendados &#8211; Data Science</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>março 12, 2016</div>
+			
+			</li>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./../../../../2013/06/10/anova-e-teste-de-tukey-no-r/index.html"><img src="./../../../../wp-content/uploads/2013/06/ANOVA-193x112.png" alt="ANOVA e  teste de Tukey no R" title="ANOVA e  teste de Tukey no R" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./../../../../2013/06/10/anova-e-teste-de-tukey-no-r/index.html">ANOVA e  teste de Tukey no R</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>junho 10, 2013</div>
+			
+			</li>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./../../../../2014/10/14/como-fazer-mapas-eleitorais/index.html"><img src="./../../../../wp-content/uploads/2014/10/sampa.png" alt="Como fazer mapas eleitorais" title="Como fazer mapas eleitorais" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./../../../../2014/10/14/como-fazer-mapas-eleitorais/index.html">Como fazer mapas eleitorais</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>outubro 14, 2014</div>
+			
+			</li>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./../../../../2014/02/25/genetic-data-large-matrices-glmnet/index.html"><img src="./../../../../wp-content/uploads/2014/02/geneticdata-193x112.jpg" alt="Genetic data, large matrices and glmnet()" title="Genetic data, large matrices and glmnet()" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./../../../../2014/02/25/genetic-data-large-matrices-glmnet/index.html">Genetic data, large matrices and glmnet()</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>fevereiro 25, 2014</div>
+			
+			</li>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./../../../../2015/04/30/dockerizando-shiny-apps/index.html"><img src="./../../../../wp-content/uploads/2017/01/shiny-193x112.png" alt="Dockerizando Shiny Apps" title="Dockerizando Shiny Apps" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./../../../../2015/04/30/dockerizando-shiny-apps/index.html">Dockerizando Shiny Apps</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>abril 30, 2015</div>
+			
+			</li>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./../../../10/15/usando-r-com-o-monetdb/index.html"><img src="./../../../../wp-content/uploads/2016/10/monetdb-final-500.png" alt="Usando R com o MonetDB" title="Usando R com o MonetDB" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./../../../10/15/usando-r-com-o-monetdb/index.html">Usando R com o MonetDB</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>outubro 15, 2016</div>
+			
+			</li>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./../../../../2015/04/30/dockerizing-a-shiny-app/index.html"><img src="./../../../../wp-content/uploads/2017/01/shiny-193x112.png" alt="Dockerizing a Shiny App" title="Dockerizing a Shiny App" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./../../../../2015/04/30/dockerizing-a-shiny-app/index.html">Dockerizing a Shiny App</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>abril 30, 2015</div>
+			
+			</li>
+				</ul>
+		</aside><aside id="categories-7" class="widget widget_categories"><h3 class="widget-title"><span>Categorias</span></h3>		<ul>
+	<li class="cat-item cat-item-41"><a href="./../../../../category/aprendizado-de-maquina/index.html" >Aprendizado de Máquina</a>
+</li>
+	<li class="cat-item cat-item-58"><a href="./../../../../category/data-mining/index.html" >Data Mining</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="./../../../../category/digital-ocean/index.html" >Digital Ocean</a>
+</li>
+	<li class="cat-item cat-item-49"><a href="./../../../../category/django/index.html" >Django</a>
+</li>
+	<li class="cat-item cat-item-46"><a href="./../../../../category/docker/index.html" >Docker</a>
+</li>
+	<li class="cat-item cat-item-6"><a href="./../../../../category/educacao/index.html" >Educação</a>
+</li>
+	<li class="cat-item cat-item-13"><a href="./../../../../category/english/index.html" >English</a>
+</li>
+	<li class="cat-item cat-item-4"><a href="./../../../../category/estatistica/index.html" >Estatística</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="./../../../../category/git-github/index.html" >Git &amp; Github</a>
+</li>
+	<li class="cat-item cat-item-67"><a href="./../../../../category/linux/index.html" >Linux</a>
+</li>
+	<li class="cat-item cat-item-57"><a href="./../../../../category/machine-learning/index.html" >Machine Learning</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="./../../../../category/mineracao-de-dados/index.html" >Mineração de Dados</a>
+</li>
+	<li class="cat-item cat-item-74"><a href="./../../../../category/monetdb/index.html" >MonetDB</a>
+</li>
+	<li class="cat-item cat-item-2"><a href="./../../../../category/moocs/index.html" >MOOCS</a>
+</li>
+	<li class="cat-item cat-item-72"><a href="./../../../../category/politica/index.html" >Política</a>
+</li>
+	<li class="cat-item cat-item-56"><a href="./../../../../category/preparacao-de-dados/index.html" >Preparação de Dados</a>
+</li>
+	<li class="cat-item cat-item-5"><a href="./../../../../category/r-e-rstudio/index.html" >R e RStudio</a>
+</li>
+	<li class="cat-item cat-item-14"><a href="./../../../../category/r-bloggers/index.html" >r-bloggers</a>
+</li>
+	<li class="cat-item cat-item-73"><a href="./../../../../category/sgbd/index.html" >SGBD</a>
+</li>
+	<li class="cat-item cat-item-50"><a href="./../../../../category/shiny/index.html" >Shiny</a>
+</li>
+	<li class="cat-item cat-item-38"><a href="./../../../../category/wordpress/index.html" >Wordpress</a>
+</li>
+		</ul>
+</aside><aside id="tag_cloud-7" class="widget widget_tag_cloud"><h3 class="widget-title"><span>Tags</span></h3><div class="tagcloud"><a href='./../../../../tag/anova/index.html' class='tag-link-8 tag-link-position-1' title='2 tópicos' style='font-size: 12.581818181818pt;'>ANOVA</a>
+<a href='./../../../../tag/boas-praticas/index.html' class='tag-link-54 tag-link-position-2' title='1 tópico' style='font-size: 8pt;'>boas práticas</a>
+<a href='./../../../../tag/comparacoes-multiplas/index.html' class='tag-link-10 tag-link-position-3' title='1 tópico' style='font-size: 8pt;'>Comparações múltiplas</a>
+<a href='./../../../../tag/controle-de-versao/index.html' class='tag-link-53 tag-link-position-4' title='1 tópico' style='font-size: 8pt;'>controle de versão</a>
+<a href='./../../../../tag/coursera/index.html' class='tag-link-22 tag-link-position-5' title='2 tópicos' style='font-size: 12.581818181818pt;'>Coursera</a>
+<a href='./../../../../tag/data-table/index.html' class='tag-link-34 tag-link-position-6' title='1 tópico' style='font-size: 8pt;'>data.table</a>
+<a href='./../../../../tag/data-science/index.html' class='tag-link-66 tag-link-position-7' title='1 tópico' style='font-size: 8pt;'>Data Science</a>
+<a href='./../../../../tag/deploy/index.html' class='tag-link-51 tag-link-position-8' title='2 tópicos' style='font-size: 12.581818181818pt;'>deploy</a>
+<a href='./../../../../tag/deployment/index.html' class='tag-link-45 tag-link-position-9' title='1 tópico' style='font-size: 8pt;'>deployment</a>
+<a href='./../../../../tag/edx/index.html' class='tag-link-20 tag-link-position-10' title='1 tópico' style='font-size: 8pt;'>edX</a>
+<a href='./../../../../tag/ensino-a-distancia/index.html' class='tag-link-12 tag-link-position-11' title='1 tópico' style='font-size: 8pt;'>ensino à distância</a>
+<a href='./../../../../tag/ggplot2/index.html' class='tag-link-36 tag-link-position-12' title='1 tópico' style='font-size: 8pt;'>ggplot2</a>
+<a href='./../../../../tag/git/index.html' class='tag-link-48 tag-link-position-13' title='2 tópicos' style='font-size: 12.581818181818pt;'>git</a>
+<a href='./../../../../tag/glmnet/index.html' class='tag-link-29 tag-link-position-14' title='2 tópicos' style='font-size: 12.581818181818pt;'>glmnet</a>
+<a href='./../../../../tag/handwritten-recognition/index.html' class='tag-link-39 tag-link-position-15' title='1 tópico' style='font-size: 8pt;'>handwritten recognition</a>
+<a href='./../../../../tag/ibge/index.html' class='tag-link-33 tag-link-position-16' title='1 tópico' style='font-size: 8pt;'>IBGE</a>
+<a href='./../../../../tag/implantacao/index.html' class='tag-link-47 tag-link-position-17' title='2 tópicos' style='font-size: 12.581818181818pt;'>implantação</a>
+<a href='./../../../../tag/k-nn/index.html' class='tag-link-63 tag-link-position-18' title='2 tópicos' style='font-size: 12.581818181818pt;'>k-nn</a>
+<a href='./../../../../tag/lasso/index.html' class='tag-link-28 tag-link-position-19' title='2 tópicos' style='font-size: 12.581818181818pt;'>Lasso</a>
+<a href='./../../../../tag/machine-learning/index.html' class='tag-link-40 tag-link-position-20' title='1 tópico' style='font-size: 8pt;'>machine learning</a>
+<a href='./../../../../tag/mapas/index.html' class='tag-link-35 tag-link-position-21' title='1 tópico' style='font-size: 8pt;'>mapas</a>
+<a href='./../../../../tag/mnist/index.html' class='tag-link-60 tag-link-position-22' title='2 tópicos' style='font-size: 12.581818181818pt;'>mnist</a>
+<a href='./../../../../tag/mooc/index.html' class='tag-link-19 tag-link-position-23' title='1 tópico' style='font-size: 8pt;'>MOOC</a>
+<a href='./../../../../tag/moodle/index.html' class='tag-link-7 tag-link-position-24' title='1 tópico' style='font-size: 8pt;'>moodle</a>
+<a href='./../../../../tag/pnad/index.html' class='tag-link-32 tag-link-position-25' title='1 tópico' style='font-size: 8pt;'>PNAD</a>
+<a href='./../../../../tag/post-hoc/index.html' class='tag-link-11 tag-link-position-26' title='1 tópico' style='font-size: 8pt;'>post-hoc</a>
+<a href='./../../../../tag/r-code/index.html' class='tag-link-16 tag-link-position-27' title='1 tópico' style='font-size: 8pt;'>R code</a>
+<a href='./../../../../tag/shiny/index.html' class='tag-link-43 tag-link-position-28' title='2 tópicos' style='font-size: 12.581818181818pt;'>shiny</a>
+<a href='./../../../../tag/statistical-test/index.html' class='tag-link-17 tag-link-position-29' title='1 tópico' style='font-size: 8pt;'>statistical test</a>
+<a href='./../../../../tag/statistics/index.html' class='tag-link-15 tag-link-position-30' title='1 tópico' style='font-size: 8pt;'>statistics</a>
+<a href='./../../../../tag/tukey/index.html' class='tag-link-9 tag-link-position-31' title='2 tópicos' style='font-size: 12.581818181818pt;'>Tukey</a>
+<a href='./../../../../tag/udacity/index.html' class='tag-link-21 tag-link-position-32' title='1 tópico' style='font-size: 8pt;'>Udacity</a>
+<a href='./../../../../tag/web/index.html' class='tag-link-44 tag-link-position-33' title='6 tópicos' style='font-size: 22pt;'>web</a></div>
+</aside>                </div>
+                
+                
+        
+                    
+                    
+            
+                    
+                
+        
+        
+                
+                
+        </div>      
+
+    
+
+
+	</div><!-- #content -->
+    </div><!-- content-wrapper-->
+
+	<footer id="colophon" class="site-footer clearrfix" role="contentinfo">
+        <div class="wrapper footer-wrapper clearfix">
+
+                <div class="top-bottom clearfix">
+                		<div id="footer-top">
+                                                
+                        </div><!-- #foter-top -->
+                        
+                        <div id="footer-bottom">    
+                                                     
+                        </div><!-- #foter-bottom -->
+                </div><!-- top-bottom-->
+                <div class="footer-copyright border t-center">
+                    <p>                        
+                                    Copyright 2016. All rights reserved                                                </p>
+                    <div class="site-info">
+                        <a href="https://wordpress.org/">Proudly powered by WordPress</a>
+                        <span class="sep"> | </span>
+                        Profitmag by <a href="http://rigorousthemes.com/" rel="designer">Rigorous Themes</a>                    </div><!-- .site-info -->
+                    
+                </div>
+                
+
+        </div><!-- footer-wrapper-->
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+<script type='text/javascript' src='./../../../../wp-content/themes/profitmag/js/jquery.bxslider.js?ver=4.7.1'></script>
+<script type='text/javascript' src='./../../../../wp-content/themes/profitmag/js/jquery.ticker.js?ver=4.7.1'></script>
+<script type='text/javascript' src='./../../../../wp-content/themes/profitmag/js/jquery.mCustomScrollbar.min.js?ver=1.0.0'></script>
+<script type='text/javascript' src='./../../../../wp-content/themes/profitmag/js/jquery.mousewheel.min.js?ver=2.0.19'></script>
+<script type='text/javascript' src='./../../../../wp-content/themes/profitmag/js/navigation.js?ver=20120206'></script>
+<script type='text/javascript' src='./../../../../wp-content/themes/profitmag/js/custom.js?ver=1.0'></script>
+<script type='text/javascript' src='./../../../../wp-includes/js/wp-embed.min.js?ver=4.7.1'></script>
+
+</body>
+</html>

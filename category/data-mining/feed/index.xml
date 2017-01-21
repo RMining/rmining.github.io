@@ -1,0 +1,633 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Data Mining &#8211; R Mining</title>
+	<atom:link href="./index.html" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Mineração de Dados, Estatística, Tecnologia</description>
+	<lastBuildDate>Tue, 17 Jan 2017 10:04:59 +0000</lastBuildDate>
+	<language>pt-BR</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.7.1</generator>
+	<item>
+		<title>RECONHECIMENTO DE DÍGITOS ESCRITOS A MÃO – PARTE 3</title>
+		<link>./../../../2016/03/14/reconhecimento-de-digitos-escritos-mao-parte-3/index.html</link>
+		<comments>./../../../2016/03/14/reconhecimento-de-digitos-escritos-mao-parte-3/index.html#comments</comments>
+		<pubDate>Tue, 15 Mar 2016 02:54:32 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Aprendizado de Máquina]]></category>
+		<category><![CDATA[Data Mining]]></category>
+		<category><![CDATA[Educação]]></category>
+		<category><![CDATA[Estatística]]></category>
+		<category><![CDATA[Machine Learning]]></category>
+		<category><![CDATA[Mineração de Dados]]></category>
+		<category><![CDATA[Preparação de Dados]]></category>
+		<category><![CDATA[R e RStudio]]></category>
+
+		<guid isPermaLink="false">./../../../index.html?p=851</guid>
+		<description><![CDATA[Na Parte 1 desse post (que já publiquei faz um tempão!) eu fiz uma classificação de imagens de dígitos escritos a mão usando o k-nn (algoritmo dos vizinhos mais próximos) usando as informações das imagens sem nenhum tipo de tratamento, isto é, sem nenhum método de preparação. Como foi mostrado, o k-nn só foi capaz de classificar razoavelmente bem com com k = 1 e conseguiu uma acurácia de apenas 78%, algo muito distante do que...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">Na <a href="./../../../2014/12/22/reconhecimento-de-digitos-escritos-mao-parte-1/index.html">Parte 1</a> desse post (que já publiquei faz um tempão!) eu fiz uma classificação de imagens de dígitos escritos a mão usando o <a href="https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm">k-nn</a> (algoritmo dos vizinhos mais próximos) usando as informações das imagens sem nenhum tipo de tratamento, isto é, sem nenhum método de preparação. Como foi mostrado, o <a href="https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm">k-nn</a> só foi capaz de classificar razoavelmente bem com com k = 1 e conseguiu uma acurácia de apenas 78%, algo muito distante do que ainda pode ser conseguido.</p>
+<p style="text-align: justify;">Na <a href="./../../../2015/09/14/reconhecimento-de-digitos-escritos-a-mao-parte-2/index.html">Parte 2</a> eu trabalhei com um método de redução de dimensionalidade, o PCA, e também foram explorados diversos outros classificadores, como o Random Forest, o SVM e etc. O resumo dos resultados foi o seguinte:</p>
+<ul style="text-align: justify;">
+<li style="text-align: justify;">k-nn com k = 1: 84%</li>
+<li style="text-align: justify;">Regressão linear: 14%</li>
+<li style="text-align: justify;">Regressão Logística Multinomial: 64%</li>
+<li style="text-align: justify;">Árvores de decisão: 24%</li>
+<li style="text-align: justify;">RandomForest: 72%</li>
+</ul>
+<p style="text-align: justify;">E a conclusão geral foi que não foi possível bater o k-NN ou ainda mais chegar aos resultados reportados na literatura, superiores a 95% de acurácia na tarefa. Como foi mencionado anteriormente, os possíveis problemas foram:</p>
+<ol style="text-align: justify;">
+<li>Conjunto pequeno de imagens.</li>
+<li>Modelos com parâmetros default.</li>
+</ol>
+<p style="text-align: justify;">Assim, nessa última parte vou mostrar como é possível treinar melhores modelos com muito mais dados e como é possível melhorar a performance dos algoritmos com melhores hiperparâmetros. Outro ponto importante que eu queria mostrar também é o uso do pacote <a href="http://caret.r-forge.r-project.org/">caret</a> para automatizar diversas tarefas desse processo.</p>
+<h2 style="text-align: justify;">1.Dados e visualização</h2>
+<p style="text-align: justify;">Como eu comentei antes, vamos nessa parte tentar utilizar um conjunto maior de imagens. Para tanto, ao invés desse pequeno conjunto de teste e treino que foi fornecido na <a href="./../../../2014/12/22/reconhecimento-de-digitos-escritos-mao-parte-1/index.html">Parte 1</a>, vamos utilizar um conjunto muito maior de images de dígitos escritos a mão, o famoso data set <a href="http://yann.lecun.com/exdb/mnist/">MNIST</a>. Se você verificar nesse link, você vai encontrar diversas informações com respeito a esse conjunto de dados e também você pode baixa-lo e utilizar nas análises que se seguem, caso queira reproduzir o que você está vendo aqui. ENTRETANTO, para poupar o seu trabalho e o meu, ao invés de pegar os dados diretamente deste site, vamos utilizar esse mesmo conjunto de dados já tratado e preparado pela equipe do <a href="https://www.kaggle.com/c/digit-recognizer">Kaggle</a>. A vantagem é que o arquivos já estão no formato csv e não será mais necessária a etapa de preparação realizada na <a href="./../../../2014/12/22/reconhecimento-de-digitos-escritos-mao-parte-1/index.html">Parte 1</a> e na <a href="./../../../2015/09/14/reconhecimento-de-digitos-escritos-a-mao-parte-2/index.html">Parte 2</a> desta série. Outra vantagem é que após você rodar estes modelos, se você quiser, você pode submeter seus resultados no Leaderboard para experimentar como funciona esse site de competição.</p>
+<p style="text-align: justify;">Na <a href="./../../../2015/09/14/reconhecimento-de-digitos-escritos-a-mao-parte-2/index.html">Parte 2</a>, como eu peguei diretamente as imagens e converti em uma matriz, agora você poderia ficar confuso e se perguntar: mas e aí, como são estas imagens? como eu vou ver se já está em csv? Para você não ficar com dúvida, vamos &#8220;imprimir&#8221; as imagens.</p>
+<pre class="lang:r decode:true ">############ Explorando as imagens ###############################
+## Contando o número de imagens por dígito
+barplot(table(treino$label), ylim = c(0,5000))
+
+## Transformando em uma matriz
+treino &lt;- as.matrix(treino)
+
+## Imprimindo uma imagem
+matriz_imagem &lt;- matrix(treino[1000,-1], ncol = 28)
+matriz_imagem &lt;- matriz_imagem[,28:1] ## invertendo a imagem
+image(1:28, 1:28, matriz_imagem, col = c('white', 'black'))</pre>
+<p><a href="./../../../wp-content/uploads/2016/03/digito4.png" rel="attachment wp-att-867"><img class="aligncenter size-full wp-image-867" src="./../../../wp-content/uploads/2016/03/digito4.png" alt="digito4" width="480" height="480" srcset="./../../../wp-content/uploads/2016/03/digito4.png 480w, ./../../../wp-content/uploads/2016/03/digito4-150x150.png 150w, ./../../../wp-content/uploads/2016/03/digito4-300x300.png 300w, ./../../../wp-content/uploads/2016/03/digito4-65x65.png 65w" sizes="(max-width: 480px) 100vw, 480px" /></a></p>
+<p>Veja que eu peguei a primeira linha do conjunto de treino, transformei em uma matriz e imprimi a matriz como uma imagem. Nesse caso é o dígito 4. Assim, apesar de agora você estar usando um arquivo em csv preparado eles fizeram a mesma coisa que eu fiz anteriormente. Se você quiser entender melhor como cada imagem virou uma linha dessa tabela dá uma olhada na Parte 1 dessa série. Só para mostrar que os dígitos estão ok, eu vou imprimir uma &#8220;imagem média&#8221;, onde em cada imagem eu tenho um valor médio em cada píxel considerando todas as imagens do conjunto de dados.</p>
+<pre class="lang:r decode:true ">## Plotando uma imagem média para cada dígito
+## Definindo uma escala de cor, indo do branco ao preto
+colors &lt;- c('white','black')
+cus_col &lt;- colorRampPalette(colors=colors)
+
+## Plot de cada imagem média
+## Divindo a tela
+png('todos_digitos.png')
+par(mfrow=c(4,3),pty='s',mar=c(1,1,1,1),xaxt='n',yaxt='n')
+
+## Criando um array para armazenar as matrizes de cada imagem média
+all_img &lt;- array(dim=c(10,28*28))
+
+## Recuperando todas as imagens por dígito e calculando a média
+for(di in 0:9) {
+  print(di)
+  all_img[di+1,] &lt;- apply(treino[treino[,1]==di,-1],2,sum)
+  all_img[di+1,] &lt;- all_img[di+1,]/max(all_img[di+1,])*255
+  
+  z&lt;-array(all_img[di+1,],dim=c(28,28))
+  z&lt;-z[,28:1] ##right side up
+  image(1:28,1:28,z,main=di,col=cus_col(256))
+}</pre>
+<p><a href="./../../../wp-content/uploads/2016/03/todos_digitos-1.png" rel="attachment wp-att-869"><img class="aligncenter size-full wp-image-869" src="./../../../wp-content/uploads/2016/03/todos_digitos-1.png" alt="todos_digitos" width="480" height="480" srcset="./../../../wp-content/uploads/2016/03/todos_digitos-1.png 480w, ./../../../wp-content/uploads/2016/03/todos_digitos-1-150x150.png 150w, ./../../../wp-content/uploads/2016/03/todos_digitos-1-300x300.png 300w, ./../../../wp-content/uploads/2016/03/todos_digitos-1-65x65.png 65w" sizes="(max-width: 480px) 100vw, 480px" /></a></p>
+<p style="text-align: justify;">Até há uma certa variação (por isso que há uma sombra) mas no geral os mesmos píxels tem uma intensidade maior considerando cada dígito diferente que foi escrito na imagem. Isso nos leva a crer que os modelos devem conseguir distinguir um dígito do outro.</p>
+<h2 style="text-align: justify;">2. Preparação com PCA</h2>
+<p style="text-align: justify;">Depois que você baixar os arquivos train.csv e test.csv do Kaggle já podemos efetuar a leitura dos arquivos e a preparação por meio do PCA. O que vamos fazer é aplicar o PCA e retendo somente o número de componentes necessário para alcançar 95% da variância total. Os detalhes sobre isso eu discuti na Parte 2.</p>
+<pre class="lang:r decode:true ">## Leitura dos conjuntos de dados de treino e de teste
+treino = read.csv('train.csv', header = T)
+teste = read.csv('test.csv', header = T)
+
+############ APlicação do PCA ####################################
+## Obtendo componentes principais
+pc &lt;- prcomp(treino[,-1])
+treino_pc &lt;- pc$x
+
+## Obtendo as variâncias acumuladas
+vars = pc$sdev^2
+props = vars/sum(vars)
+varAcum = cumsum(props)
+which.min(varAcum &lt; 0.90)
+
+## Aplicando a rotação nos dados de teste
+teste_pc &lt;- predict(pc, newdata = teste)
+
+## Salvando treino e teste com PCA
+save(treino_pc, file = 'treino_pc.rda')
+save(teste_pc, file = 'teste_pc.rda')</pre>
+<p style="text-align: justify;">eu costumo salvar os arquivos após cada etapa de preparação de forma a não precisar realizar o processo posteriormente. Outro ponto importante é que salvando os objetos no formato nativo do R, caso você precise recarregar os dados, o processo é muito mais rápido que a leitura em csv.</p>
+<h2 style="text-align: justify;">3. Árvore de Decisão</h2>
+<p style="text-align: justify;">Como uma primeira tentativa, vamos utilizar o algoritmo para árvores de decisão do pacote <a href="https://cran.r-project.org/web/packages/rpart/index.html">rpart</a>. Vamos utilizar todas as PC&#8217;s e treinar a árvore em 3/4 dos dados. O teste será realizado no 1/4 que foi separado.</p>
+<pre class="lang:r decode:true ">#################################################################
+## Teste com árvore de decisão
+library(rpart)
+
+## Separando o conjunto treino em dois para avaliação
+set.seed(1)
+inTrain &lt;- createDataPartition(treino$label, p = 3/4, list = F)
+train &lt;- treino_pc[inTrain,]
+evaluation &lt;- treino_pc[-inTrain,]
+
+## Data frame de treino e teste
+treino_arvore = as.data.frame(cbind(train[,1:784]))
+treino_arvore$classes = as.factor(treino$label[inTrain])
+
+## Conjunto de teste para avaliação
+teste_arvore = as.data.frame(evaluation[,1:784])
+
+## Criando uma árvore
+arvore &lt;- rpart(classes ~ ., data = treino_arvore)
+
+## Calculando a matriz de confusão
+confusionMatrix(predict(arvore, teste_arvore, type = 'class'), treino$label[-inTrain])
+</pre>
+<p>e o resultado da matriz de confusão:</p>
+<pre class="lang:r decode:true ">Confusion Matrix and Statistics
+
+          Reference
+Prediction   0   1   2   3   4   5   6   7   8   9
+         0 637   2  13  20   3  66  17  12   0   2
+         1   0 995   9   7  28   7   3  75   6  53
+         2  60  54 741  61  30  97 130  16  93  10
+         3 185  45 111 803  13 270 106  29  89  30
+         4   3   0  16  10 796  73  16  82  16 471
+         5  86  13  46  88  36 341  31  61 185  49
+         6  24  16  47  45  21  40 725   4  13  43
+         7  17   0   4   2  20  16   2 652  10  85
+         8  18  46  40  27  11  60  12  18 532  13
+         9  14   0   6  10  74   6  13 103  57 305
+
+Overall Statistics
+                                         
+               Accuracy : 0.6217         
+                 95% CI : (0.6124, 0.631)
+    No Information Rate : 0.1115         
+    P-Value [Acc &gt; NIR] : &lt; 2.2e-16      
+                                         
+                  Kappa : 0.5796         
+ Mcnemar's Test P-Value : &lt; 2.2e-16</pre>
+<p style="text-align: justify;">mostra que o desempenho ainda está longe do satisfatório. Com uma acurácia global de apenas 62% estamos ainda muito longe da meta de 95%. Veja que utilizamos a estratégia <a href="http://stats.stackexchange.com/questions/104713/hold-out-validation-vs-k-fold-validation">holdout</a>, e com relação a <a href="./../../../2015/09/14/reconhecimento-de-digitos-escritos-a-mao-parte-2/index.html">Parte 2</a> desta série a única mudança é o fato de estarmos trabalhando com imagens com mais resolução e um conjunto maior. Parece que isso ainda não é o suficiente, assim vamos explorar outros algoritmos e vamos utilizar métodos de validação cruzada para encontrar os melhores hiperparâmetros.</p>
+<h2>4. RandomForest</h2>
+<p style="text-align: justify;">O <a href="https://en.wikipedia.org/wiki/Random_forest">randomforest</a> é um dos algoritmos de machine learning <a href="https://www.quora.com/What-are-the-top-10-data-mining-or-machine-learning-algorithms">mais utilizados na indústria</a>. Seu sucesso advém do fato de ser robusto, facilmente paralelizável e apresentar um desempenho muito bom em uma grande quantidade de problemas diferentes. Assim, vamos experimentar esse classificador procurando ajustar os melhores hiperperâmetros por validação cruzada. No caso do RF temos que definir qual o melhor m, um parâmetro que determina quantas variáveis são sorteadas na escolha do split em cada nó, de cada árvore de decisão do comitê. Se não ficou claro para você o que significa este hiperparâmetro não tem problema, não é difícil encontrar material onde você pode entender os detalhes do RF. O importante aqui é você entender que o valor do hiperparâmetro será escolhido com base no próprio conjunto de dados, utilizando validação cruzada.</p>
+<pre class="lang:r decode:true">#################################################################
+## Teste com RandomForest
+library(randomForest)
+
+## Separando o conjunto treino em dois para avaliação
+set.seed(1)
+inTrain &lt;- createDataPartition(treino$label, p = 3/4, list = F)
+train &lt;- treino_pc[inTrain,]
+evaluation &lt;- treino_pc[-inTrain,]
+
+## Data frame de treino e teste, aqui retendo somente 160 PC's, equivalente a 95% de ## variância.
+treino_arvore = as.data.frame(cbind(train[,1:160]))
+treino_arvore$classes = as.factor(treino$label[inTrain])
+
+## Conjunto de teste para avaliação
+teste_arvore = as.data.frame(evaluation[,1:160])
+
+## Modelagem
+fitControl &lt;- trainControl(method = "oob", verboseIter = T,
+                           
+                           ## Estimate class probabilities
+                           classProbs = F)
+
+set.seed(825)
+rfFit &lt;- train(classes ~ ., data = treino_arvore, verbose = T,
+                method = "rf",
+                trControl = fitControl,
+                tuneLength = 8,
+                metric = "Accuracy")
+save(rfFit, file = 'rfFit.rda')
+                
+## Calculando a matriz de confusão
+confusionMatrix(predict(rfFit, teste_arvore, type = 'raw'), treino$label[-inTrain])
+</pre>
+<p>e a matriz de confusão:</p>
+<pre class="lang:r decode:true ">Confusion Matrix and Statistics
+
+          Reference
+Prediction    0    1    2    3    4    5    6    7    8    9
+         0 1048    0    3    0    1    1    1    0    0    1
+         1    0 1130    2    0    1    1    0    2    3    0
+         2    0    3 1021   10    4    2    1    6    2    0
+         3    0    1    5 1073    3   12    0    1    8   11
+         4    1    0    6    0  970    4    1    1    4   18
+         5    0    0    0    8    2  932    6    0    4    6
+         6    6    1    3    2    5    3 1023    1    2    0
+         7    1    1    4    4    0    0    0 1077    3    7
+         8    0    0    5    4    5    2    1    2  967    4
+         9    2    2    3    2   11    2    0    1    2 1020
+
+Overall Statistics
+                                          
+               Accuracy : 0.9774          
+                 95% CI : (0.9744, 0.9802)
+    No Information Rate : 0.1084          
+    P-Value [Acc &gt; NIR] : &lt; 2.2e-16       
+                                          
+                  Kappa : 0.9749</pre>
+<p>e enfim chegamos a 97%!</p>
+<h2 style="text-align: justify;">5. SVM (Máquina de vertores de suporte)</h2>
+<p style="text-align: justify;">O SVM é um algoritmo do tipo &#8220;caixa preta&#8221;. O princípio por detrás do algoritmo é criar hiperplanos separadores em dimensões maiores do que as presentes no conjunto de dados. A ideia é que se os pontos são linearmente separáveis, isto é, se um hiperplano como fronteira de decisão conseguiria separar completamente as classes, então o SVM é um método que pode ser utilizado para encontrar esse hiperplano. ENTRETANTO, ocorre que muitos problemas não são linearmente separáveis, e ainda que fossem não valeria a pena usar o SVM. Quando o problema não é linearmente separável o SVM, de uma certa forma, projeta os dados em um espaço onde é possível criar um hiperplano separador. Também, ele aceita um certo grau de &#8220;impurezas&#8221; dentro das fronteiras de decisão. Enfim, é um algoritmo do tipo &#8220;caixa preta&#8221;, que não tem origem na estatística já que é basicamente um algoritmo de otimização. Mas o fato é que o SVM apresenta resultados muito bons e uma grande quantidade de problemas e vamos ver isso aqui nesse teste.</p>
+<pre class="lang:r decode:true">#################################################################
+## Teste com SVM RBF
+## Carregando os pacotes
+library(caret)
+
+## Modelagem
+fitControl &lt;- trainControl(method = "cv", verboseIter = T,
+                           
+                           ## Estimate class probabilities
+                           classProbs = F)
+
+set.seed(825)
+svmFit &lt;- train(classes ~ ., data = treino_arvore,
+                method = "svmRadial",
+                trControl = fitControl,
+                preProc = c("center", "scale"),
+                tuneLength = 8,
+                metric = "Accuracy")
+save(svmFit, file = 'svmFit2.rda')
+
+## Calculando a matriz de confusão
+confusionMatrix(predict(svmFit, teste_arvore, type = 'raw'), treino$label[-inTrain])
+</pre>
+<p>e avaliando no conjunto de avaliação:</p>
+<pre class="lang:r decode:true ">Confusion Matrix and Statistics
+
+          Reference
+Prediction    0    1    2    3    4    5    6    7    8    9
+         0 1046    0    3    0    1    3    5    1    3    6
+         1    1 1128    1    2    2    0    1    3    2    1
+         2    0    3 1015   13    4    3    1   15    4    1
+         3    1    1    4 1058    0   13    0    1    7    9
+         4    2    2   10    1  972    1    4   10    1   21
+         5    0    1    2   12    0  924    7    0    3    5
+         6    5    0    2    1    5   10 1010    0    4    0
+         7    0    0    5    7    0    0    0 1051    0   13
+         8    3    2    9    4    0    2    5    1  967    3
+         9    0    1    1    5   18    3    0    9    4 1008
+
+Overall Statistics
+                                          
+               Accuracy : 0.9696          
+                 95% CI : (0.9661, 0.9728)
+    No Information Rate : 0.1084          
+    P-Value [Acc &gt; NIR] : &lt; 2.2e-16       
+                                          
+                  Kappa : 0.9662</pre>
+<p>e novamente conseguimos algo em torno de 97%. Para ser honesto, depois que eu criei os modelos com os melhores hiperparâmetros, submetendo no Kaggle o SVM supera os 98%. Foi o modelo com melhor desempenho nessa tarefa.</p>
+<h2>Conclusão</h2>
+<p style="text-align: justify;">Acho que depois da Parte 1, Parte 2 e Parte 3 (esta aqui!) você viu como se trabalha com classificação de imagens, como se prepara esse tipo de dado e como é possível alcançar altíssima acurácia utilizando os modelos de machine learning que você encontra por aí. Se você for reproduzir os exemplos, fique ciente que a etapa de modelagem pode demorar muito. No meu caso alguns destes modelos demoraram mais de 8 horas para o ajuste com os melhore hiperparâmetros! Outro ponto que eu não abordei é como o caret seleciona os melhores hiperparâmetros por validação cruzada. Isso vou deixar para falar com maior detalhe em outra oportunidade. Também gostaria de salientar que uma modelagem como essa é algo tipicamente diferente do que se espera em uma análise estatística tradicional. Aqui não estávamos interessados em inferência, mas sim em produzir modelos com o maior poder preditivo possível. Em casos como esse, trabalhar com métodos &#8220;caixa preta&#8221; não é em si um problema. O ponto principal é ter certeza que seu modelo apresentará um bom desempenho no futuro, com novos dados. POR FIM, esses modelos não são o estado da arte nesta tarefa, já que com <a href="https://en.wikipedia.org/wiki/Deep_learning">deep learning</a> é possível passar dos 99% de acurácia.</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2016/03/14/reconhecimento-de-digitos-escritos-mao-parte-3/feed/index.html</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+		<item>
+		<title>Regras de associação: vendas cruzadas e recomendação</title>
+		<link>./../../../2016/03/01/regras-de-associacao-vendas-cruzadas-e-recomendacao/index.html</link>
+		<comments>./../../../2016/03/01/regras-de-associacao-vendas-cruzadas-e-recomendacao/index.html#comments</comments>
+		<pubDate>Wed, 02 Mar 2016 00:00:10 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Data Mining]]></category>
+		<category><![CDATA[Educação]]></category>
+		<category><![CDATA[Estatística]]></category>
+		<category><![CDATA[Mineração de Dados]]></category>
+		<category><![CDATA[R e RStudio]]></category>
+
+		<guid isPermaLink="false">./../../../index.html?p=841</guid>
+		<description><![CDATA[Caros leitores, fizemos um novo hangout na semana passada, desta vez sobre regras de associação. Vocês podem conferir aqui o vídeo: Para resumir, no vídeo falamos um pouco sobre o que são as regras de associação, as aplicações em vendas cruzadas e recomendação e foi apresentado também um exemplo prático da famosa &#8220;market basket analysis&#8221; ou análise de cestas de mercado. O material usado na apresentação, com os slides em PDF e os códigos, está...]]></description>
+				<content:encoded><![CDATA[<p>Caros leitores, fizemos um novo hangout na semana passada, desta vez sobre regras de associação. Vocês podem conferir aqui o vídeo:</p>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/yg9DRPWi524?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<p style="text-align: justify;">Para resumir, no vídeo falamos um pouco sobre o que são as regras de associação, as aplicações em vendas cruzadas e recomendação e foi apresentado também um exemplo prático da famosa &#8220;market basket analysis&#8221; ou análise de cestas de mercado.</p>
+<p style="text-align: justify;">O material usado na apresentação, com os slides em PDF e os códigos, está disponível no <a href="https://github.com/flaviobarros/lombz_association_rules" target="_blank">github</a>. E também gostaria de deixar como sugestão a leitura dos artigos sobre como implementar regras de associação com <a href="https://pt.wikipedia.org/wiki/MapReduce" target="_blank">mapreduce</a> (em Big Data) e o outro artigo sobre como o Youtube usou regras de associação no seu sistema de recomendação de vídeos. Aqui vão os links:</p>
+<ul>
+<li style="text-align: justify;"><a href="http://www.inf.unibz.it/~ricci/ISR/papers/p293-davidson.pdf" target="_blank">The YouTube Video Recommendation System</a></li>
+<li style="text-align: justify;"><a href="http://worldcomp-proceedings.com/proc/p2012/PDP7948.pdf" target="_blank">Apriori-Map/Reduce Algorithm</a></li>
+</ul>
+<p>Por favor, não deixe de curtir nossa página no Facebook!</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2016/03/01/regras-de-associacao-vendas-cruzadas-e-recomendacao/feed/index.html</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+		<item>
+		<title>Cluster &#8211; Segmentação de Clientes</title>
+		<link>./../../../2016/02/22/cluster-segmentacao-de-clientes/index.html</link>
+		<comments>./../../../2016/02/22/cluster-segmentacao-de-clientes/index.html#respond</comments>
+		<pubDate>Mon, 22 Feb 2016 07:46:50 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Data Mining]]></category>
+		<category><![CDATA[Educação]]></category>
+		<category><![CDATA[Estatística]]></category>
+		<category><![CDATA[Mineração de Dados]]></category>
+		<category><![CDATA[R e RStudio]]></category>
+
+		<guid isPermaLink="false">./../../../index.html?p=830</guid>
+		<description><![CDATA[OBS: Caros visitantes, curtam a  página do R Mining no Facebook, aqui ao lado! Agradeço muito. Caros leitores do blog, por conta de diversos fatores eu só estou conseguindo postar agora, pela primeira vez esse ano, em fevereiro. Enfim, demorou, mas eu tenho algo que eu acho que pode ser interessante. Um grupo de amigos, arquitetos de soluções em grandes empresas de São Paulo, está organizando alguns hangouts sobre Big Data. Você pode assistir os...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;"><strong>OBS: Caros visitantes, curtam a  página do R Mining no Facebook, aqui ao lado! Agradeço muito.</strong></p>
+<p style="text-align: justify;">Caros leitores do blog, por conta de diversos fatores eu só estou conseguindo postar agora, pela primeira vez esse ano, em fevereiro. Enfim, demorou, mas eu tenho algo que eu acho que pode ser interessante. Um grupo de amigos, arquitetos de soluções em grandes empresas de São Paulo, está organizando alguns hangouts sobre Big Data. Você pode assistir os hangouts que estão disponíveis até o momento nesse <a href="https://www.youtube.com/playlist?list=PLACuKp_68Ygn6UxGOwJeZx7T9nD5NZiFt" target="_blank">playlist</a>, ou mesmo ver um por um aqui:</p>
+<ul>
+<li>BIG DATA &#8211; Buscando as respostas onde elas estão.</li>
+</ul>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/efYAIH5dprc?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<ul>
+<li>Falando sobre Arquitetura para Big Data.</li>
+</ul>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/smloHdrdbdY?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<ul>
+<li>Cluster &#8211; Segmentação de Clientes</li>
+</ul>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/vkOObS6N7ZM?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<p style="text-align: justify;">Eu tive a oportunidade de ser  comentarista em dois deles.</p>
+<p style="text-align: justify;">E o que é esse post então? Bom, como de repente alguém poderia querer ver os códigos utilizados no terceiro vídeo, e até alguns exemplos suplementares, eu vou apresentar aqui o link dos códigos no <a href="https://github.com/flaviobarros/lombz_cluster">Github</a> e também vou destacar o que eu acho interessante sobre a análise.</p>
+<ul style="text-align: justify;">
+<li style="text-align: justify;">Essa é uma análise simples e o conjunto de dados é bem pequeno;</li>
+<li style="text-align: justify;">A ideia é apresentar o conceito de cluster;</li>
+<li style="text-align: justify;">Aplicação com segmentação de clientes;</li>
+<li style="text-align: justify;">Descobrir o número de clusters pelo dendograma;</li>
+<li style="text-align: justify;">Descobrir o número de clusters pelo método do cotovelo;</li>
+<li style="text-align: justify;">Após o agrupamento a análise dos grupos provê insights;</li>
+</ul>
+<p style="text-align: justify;">Aqui naturalmente eu não abordei diversos tópicos no que diz respeito a aplicação da metodologia de clusters, mas como uma introdução acho que foi interessante. De resto, não vou colocar mais detalhes, como eu faço regularmente nas análises aqui, pois já temos os códigos e também o vídeo sobre a discussão.</p>
+<p style="text-align: justify;">
+]]></content:encoded>
+			<wfw:commentRss>./../../../2016/02/22/cluster-segmentacao-de-clientes/feed/index.html</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Curso &#8220;Pratical Machine Learning&#8221; do Coursera</title>
+		<link>./../../../2015/09/29/curso-pratical-machine-learning-do-coursera/index.html</link>
+		<comments>./../../../2015/09/29/curso-pratical-machine-learning-do-coursera/index.html#comments</comments>
+		<pubDate>Wed, 30 Sep 2015 00:53:50 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Aprendizado de Máquina]]></category>
+		<category><![CDATA[Data Mining]]></category>
+		<category><![CDATA[Machine Learning]]></category>
+		<category><![CDATA[Mineração de Dados]]></category>
+		<category><![CDATA[MOOCS]]></category>
+		<category><![CDATA[Coursera]]></category>
+		<category><![CDATA[Data Science]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=760</guid>
+		<description><![CDATA[Em mais uma rodada das resenhas de cursos sobre Data Science, desta vez vou apresentar minha avaliação do curso &#8220;Pratical Machine Learning&#8220;, ou Machine Learning Prático. 1. Sobre o que é o curso? Este é o penúltimo curso da especialização em Data Science do Coursera do Coursera. Já falei sobre o último da sequência aqui nesse blog, o Developing Data Products, mas este é o último onde são apresentados conceitos novos de Data Science. Como o...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">Em mais uma rodada das resenhas de cursos sobre Data Science, desta vez vou apresentar minha avaliação do curso &#8220;<span style="color: #0000ff;"><a style="color: #0000ff;" href="https://www.coursera.org/course/predmachlearn">Pratical Machine Learning</a></span>&#8220;, ou Machine Learning Prático.</p>
+<h2 style="text-align: justify;">1. Sobre o que é o curso?</h2>
+<p style="text-align: justify;">Este é o penúltimo curso da especialização em <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://www.coursera.org/specializations/jhudatascience?utm_medium=courseDescripTop">Data Science do Coursera</a> </span>do Coursera. Já falei sobre o último da sequência aqui nesse blog, o <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://www.flaviobarros.net/2015/08/24/curso-developing-data-products-do-coursera/">Developing Data Products</a></span>, mas este é o último onde são apresentados conceitos novos de Data Science.</p>
+<p style="text-align: justify;">Como o nome do curso já diz é um curso sobre <a href="https://pt.wikipedia.org/wiki/Aprendizado_de_m%C3%A1quina">machine learning</a>. Mas e o prático no nome? O que quer dizer? Bem, esse prático na verdade quer dizer que esse curso não tem o aprofundamento teórico que é visto nos de <a href="https://www.coursera.org/course/statinference">Inferência</a> e <a href="https://www.coursera.org/course/regmods">Regressão</a>. Isto é, o objetivo desse curso não é apresentar o campo de machine learning de uma forma completa, mas habilitar o aluno a utilizar estas ferramentas pela primeira vez.</p>
+<p style="text-align: justify;">Na verdade, na minha opinião, os objetivos gerais desse curso são:</p>
+<ul>
+<li style="text-align: justify;">Apresentar a ideia de modelos para predição;</li>
+<li style="text-align: justify;">Apresentar a ideia de avaliação de modelos;</li>
+<li style="text-align: justify;">Mostrar como usar o <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://caret.r-forge.r-project.org/">caret</a></span>;</li>
+</ul>
+<p style="text-align: justify;">Veja que durante os cursos de inferência e regressão o foco foi no processo de inferência, ao passo que aqui o foco é no processo de criação de modelos de predição para problemas práticos. Quem já trabalhou com predição sabe que o processo completo começa na preparação, análise exploratória, criação de modelos, avaliação de modelos e implantação. Assim eu posso dizer que neste curso o foco foi em como criar os modelos e avalia-los corretamente.</p>
+<p style="text-align: justify;">Com relação a teoria de machine learning, nos vídeos são apresentados os princípios fundamentais dos algoritmos, mas de uma forma bastante superficial, somente o necessário para o aluno ter alguma ideia de como os algoritmos funcionam. Isso não é necessariamente uma deficiência do curso, mas sim uma opção dos instrutores e algo que é colocado antecipadamente.</p>
+<p style="text-align: justify;">Quanto o pacote <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://caret.r-forge.r-project.org/">caret</a></span> ele é usado extensivamente aqui. É um pacote que eu uso muito, há muito tempo, e realmente é essencial para automatizar aquelas tarefas repetitivas presentes na pipeline de criação de modelos de predição.</p>
+<h2 style="text-align: justify;">2. Pré-requisitos</h2>
+<p style="text-align: justify;">Nessa altura da especialização é um curso que demanda bastante o domínio da linguagem R. Até chegar aqui, em tese, o aluno já utilizou bastante a linguagem para preparação, análise exploratória, geração de relatórios e etc. Assim, se você não tem um bom domínio do R vai ter problemas para realizar as tarefas e o projetos. Outro ponto fundamental é que é necessário um conhecimento básico de modelagem e inferência e como utilizar o github. Enfim:</p>
+<ul>
+<li style="text-align: justify;">Linguagem R;</li>
+<li style="text-align: justify;">Git &amp; Github</li>
+<li style="text-align: justify;">Regressão e modelagem;</li>
+</ul>
+<h2>3. Conteúdo</h2>
+<p>No geral o conteúdo aborda os seguintes tópicos:</p>
+<ul>
+<li>Criação de modelos preditivos;</li>
+<li>Avaliação de modelos;</li>
+<li>Automatização com o caret;</li>
+<li>Overview dos principais algoritmos de ML;</li>
+</ul>
+<h2>Minha experiência</h2>
+<p style="text-align: justify;">Eu vi todo o material, fiz todos os quizes e o projeto final. Minha impressão é que os vídeos podem não fornecer o suficiente para um aluno que está vendo o assunto pela primeira vez. Digo isto pois eu tive a impressão que as aulas foram algo superficiais, mas seria necessário saber mais para responder corretamente todos os quizes.</p>
+<p style="text-align: justify;">Um ponto que eu gostaria de destacar é que o instrutor fala como uma batedeira. Vejam, eu entendo que ele é americano e está falando para uma audiência de língua inglesa, MAS o fato é que uma boa parcela do público é de alunos estrangeiros que não tem o inglês como o idioma nativo. Eu tenho proficiência em inglês para conversar, até consegui fazer o curso sem utilizar as legendas, mas acredito que o autor poderia fazer um esforço para facilitar a vida dos estrangeiros, minha opinião ;-). Só para comparar, no curso de Machine Learning do Andrew Ng por exemplo, você vê que há um esforço do instrutor em se fazer entender para uma ampla audiência.</p>
+<p style="text-align: justify;">O curso tem bastante material e os exercícios demandam trabalho. Não é algo que faz em dois dias e pronto. Tem que dar uma raladinha, principalmente se você não tem experiência com o R ;-). Eu diria que um aluno regular pode ter que gastar algo entre 4h a 10h por semana.</p>
+<h2 style="text-align: justify;">Conclusão</h2>
+<p style="text-align: justify;">Bom, para quem estiver fazendo a especialização não tem jeito, tem que fazer mesmo. Mas e para quem não está? Vale a pena fazer só esse? Eu particularmente acho que vale em alguns casos. O curso tem suas deficiências, questões que podem ser melhoradas, mas se eu tivesse que destacar um grande mérito seria o seguinte: você vai aprender a aplicar data science usando o R como plataforma.</p>
+<p style="text-align: justify;">Acredito que pode ser um curso bastante útil para profissionais de data science que querem migrar de plataforma; estudantes de graduação que desejam ver aplicações e entusiastas que pretendem participar de competições e modelagem. É  um bom começo.</p>
+<p style="text-align: justify;">Devo salientar que o curso está pra lá de longe de oferecer um conteúdo aprofundado sobre os aspectos de ML. Entretanto essa não é a proposta do curso e já existem dois bons complementos para esse curso, para quem pretende aprender mais sobre ML:</p>
+<ol>
+<li style="text-align: justify;"><span style="color: #0000ff;"><a style="color: #0000ff;" href="https://www.coursera.org/learn/machine-learning">Machine Learning</a></span> do Andrew Ng;</li>
+<li style="text-align: justify;"><span style="color: #0000ff;"><a style="color: #0000ff;" href="https://lagunita.stanford.edu/courses/HumanitiesandScience/StatLearning/Winter2015/about">Statistical Learning</a></span> do Trevor Hastie and Robert Tibshirani;</li>
+</ol>
+<p style="text-align: justify;">O primeiro foi o curso que inicou o Coursera, do próprio fundador, e o segundo é um curso fantástico, que deve ser oferecido agora novamente no verão, e que tem todo seu conteúdo disponível no <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://www.r-bloggers.com/in-depth-introduction-to-machine-learning-in-15-hours-of-expert-videos/">Youtube</a></span> para quem se interessar.</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2015/09/29/curso-pratical-machine-learning-do-coursera/feed/index.html</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+		<item>
+		<title>Handwritten digit recognition &#8211; Part1</title>
+		<link>./../../../2014/12/22/handwritten-digit-recognition-part1/index.html</link>
+		<comments>./../../../2014/12/22/handwritten-digit-recognition-part1/index.html#comments</comments>
+		<pubDate>Mon, 22 Dec 2014 19:00:13 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Data Mining]]></category>
+		<category><![CDATA[English]]></category>
+		<category><![CDATA[Machine Learning]]></category>
+		<category><![CDATA[R e RStudio]]></category>
+		<category><![CDATA[r-bloggers]]></category>
+		<category><![CDATA[handwritten recognition]]></category>
+		<category><![CDATA[k-nn]]></category>
+		<category><![CDATA[machine learning]]></category>
+		<category><![CDATA[mnist]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=509</guid>
+		<description><![CDATA[OBS: There is a version in portuguese. Handwritten digit recognition task was one of first great successes of machine learning methods. Nowadays, the task can be carried out by multiple specialized libraries with very high accuracy (&#62; 97% of correct answers), such that many times, despite of indirectly we use these features in tablets and smartphones, in general we do not know exactly how the method works. Thinking about it, as I worked with this...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">OBS: There is a version in <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://www.flaviobarros.net/2014/12/22/reconhecimento-de-digitos-escritos-mao-parte-1/">portuguese</a></span>.</p>
+<p style="text-align: justify;">Handwritten digit recognition task was one of first <a href="http://en.wikipedia.org/wiki/Handwriting_recognition"><span style="color: #0000ff;">great successes</span></a> of machine learning methods. Nowadays, the task can be carried out by multiple <a href="http://opencv.org/"><span style="color: #0000ff;">specialized libraries</span></a> with very high accuracy (&gt; 97% of correct answers), such that many times, despite of indirectly we use these features in tablets and smartphones, in general we do not know exactly how the method works.<a href="http://www.flaviobarros.net/wp-content/uploads/2014/12/3_032.BMP.png"><br />
+</a></p>
+<p style="text-align: justify;">Thinking about it, as I worked with this problem before, I will demonstrate in this post how the process works, the techniques used and how to implement it with R language. To begin, we will work with the problem of recognizing digits 0,1,2 , 3,4,5,6,7,8, or 9, i.e. a classification problem with 10 categories.</p>
+<p style="text-align: justify;">I&#8217;ll try to work here implementing all the modeling only with R base functions and a few extra packages with the required functions and algorithms; in the next post, I can try to use other packages to automate the various modeling tasks.</p>
+<p style="text-align: justify;"><span id="more-509"></span></p>
+<h3 style="text-align: justify;">1. READING DATA</h3>
+<p style="text-align: justify;">The dataset is images of the type <a href="http://en.wikipedia.org/wiki/Netpbm_format"><span style="color: #0000ff;">PGM</span></a>, with 64 x 64 pixels per image, where each pixel has a value of 1 or 0, indicating whether the pixel is black or white. Each image has a name as X_ yyy.BMP.in.pgm, where X represents the digit drawn in the image. The data are divided into a training set and a test set and can be downloaded from the following links: <a href="http://www.flaviobarros.net/wp-content/uploads/2014/12/teste.zip">teste</a>  e <a href="http://www.flaviobarros.net/wp-content/uploads/2014/12/treino.zip">treino</a> (test and trainning; save with any name you want).</p>
+<p style="text-align: justify;">Thus, the first part of the problem is reading the data. For this I will use <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://cran.r-project.org/web/packages/pixmap/index.html">pixmap</a></span> package with which you can read and manipulate PGM images. Next, the process of reading the images and creation of an array with the labels, that is, the number that is written in the image.</p>
+<pre class="lang:r decode:true">## Load pixmap
+library(pixmap)
+
+## Def working directory
+path_treino &lt;- '/sua/pasta/treino/'
+
+## Set wd
+setwd(path_treino)
+
+## Read files
+files &lt;- dir()
+
+## Getting classes from file names
+classes &lt;- as.factor(substring(files,first=1,last=1))
+
+## Trainning data.frame
+treino &lt;- as.data.frame(matrix(rep(0,length(files)*64*64), nrow=length(files)))
+
+## Reading trainning dataset
+for (i in 1:length(files)) {
+
+  ## Reading images
+  x &lt;- read.pnm(files[i])
+
+  ## Slot 'grey' with pixels; the matrix is vectorized
+  treino[i,] &lt;- as.vector(x@grey, mode='integer')
+}
+
+## Same for test set
+path_teste &lt;- '/sua/pasta/teste/'
+
+## Same for teste set
+setwd(path_teste)
+
+## Same for test set
+files &lt;- dir()
+
+## Classes
+predic &lt;- as.factor(substring(files,first=1,last=1))
+
+## Data.frame for test set
+teste &lt;- as.data.frame(matrix(rep(0,length(files)*64*64), nrow=length(files)))
+
+## Reading test set
+for (i in 1:length(files)) {
+  x &lt;- read.pnm(files[i])
+  teste[i,] &lt;- as.vector(x@grey, mode='integer')
+}</pre>
+<p style="text-align: justify;">Note that the pixel array is stored @grey slot, and after reading, it is transformed into a vector, such that the final data.frame has 64&#215;64 columns and 1949 rows (images total). The test set is only 50 images, so the data.frame will stay with 64&#215;64 columns and only 50 lines. In summary, each column is a pixel and each line is an image.</p>
+<h3 style="text-align: justify;"> 2. MODELLING WITH k-nn</h3>
+<p style="text-align: justify;">At this step we will create models with the k-nn algorithm (nearest neighbors) without any data preprocessing. The algorithm works by assigning classes to images, using the known values of the closest neighbors. So, lets say k = 3, the algorithm looks for the three nearest images, checks the majority class of these images and assign this class to the image without label. It is important to choose an odd k to prevent draw, for example, two neighbors of a class and another two from other, in the case of k = 4.</p>
+<pre class="lang:r decode:true">## Package with knn
+library(class)
+
+## knn model with k=3
+predito &lt;- knn(train=treino, test=teste, cl=classes, k=3, prob=T)
+
+## Results
+result &lt;- data.frame(cbind(predic, predito, acerto = predic==predito))
+
+## Accuracy
+sum(result$acerto)/nrow(result)
+
+[1] 0.56</pre>
+<p>And with k = 3 we got a success rate of only 56%, far short of what can be achieved. So let&#8217;s run the algorithm with different k values and see if we can get a result a little better.</p>
+<pre class="lang:r decode:true">## Data.frame all results
+resultado &lt;- data.frame(k = rep(0,101), taxa=rep(0.00,101))
+
+for (i in seq(from=1, to=101, by=2)) {
+  
+  ## Print k values 
+  print(i)
+  
+  ## Predicted images
+  predito &lt;- knn(train=treino, test=teste, cl=classes, k=i, prob=T)
+  
+  ## Save data.frame
+  result &lt;- data.frame(cbind(predic, predito, acerto = predic==predito))
+  
+  ## Accuracy; store at the data.frame
+  resultado[i,] &lt;- c(i,sum(result$acerto)/nrow(result))
+}
+
+## Get rid of blank lines
+resultado &lt;- subset(resultado, subset=resultado$taxa!=0)
+
+## Ploting results for all k's
+plot(resultado$taxa~resultado$k, main='Taxa de Acerto para o k-nn', xlab='Valores de K', ylab='Taxa de acerto')</pre>
+<p>We got something like 78% with k = 1, but it is still a very poor result close to what can be achieved. It is also worth noting that increasing K does not help much in the end, but it is important to be aware that a very small k can lead to overfitting.</p>
+<h3 style="text-align: justify;">CONCLUSION</h3>
+<p style="text-align: justify;"> Apparently handwriting recognition works well using a simple algorithm, without any treatment. HOWEVER, we can do better. In Part 2 we will automate some tasks with <a href="http://caret.r-forge.r-project.org/"><span style="color: #0000ff;">caret</span></a> package and we will also explore other better algorithms such as <a href="http://en.wikipedia.org/wiki/Support_vector_machine"><span style="color: #0000ff;">SVM</span></a> and <a href="http://en.wikipedia.org/wiki/Random_forest"><span style="color: #0000ff;">RandomForest</span></a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2014/12/22/handwritten-digit-recognition-part1/feed/index.html</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+		<item>
+		<title>Data Preparation &#8211; Part I</title>
+		<link>./../../../2013/10/31/data-preparation-tricks-part-i/index.html</link>
+		<comments>./../../../2013/10/31/data-preparation-tricks-part-i/index.html#comments</comments>
+		<pubDate>Thu, 31 Oct 2013 17:22:05 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Aprendizado de Máquina]]></category>
+		<category><![CDATA[Data Mining]]></category>
+		<category><![CDATA[English]]></category>
+		<category><![CDATA[Estatística]]></category>
+		<category><![CDATA[Machine Learning]]></category>
+		<category><![CDATA[Mineração de Dados]]></category>
+		<category><![CDATA[R e RStudio]]></category>
+		<category><![CDATA[r-bloggers]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=281</guid>
+		<description><![CDATA[The R language provides tools for modeling and visualization, but is still an excellent tool for handling/preparing data. As C++ or python, there is some tricks that bring performance, make the code clean or both, but especially with R these choices can have a huge impact on performance and the &#8220;size&#8221; of your code. A seasoned R user can manage this effectively, but this can be a headache to a new user. SO, in this...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">The R language provides tools for modeling and visualization, but is still an excellent tool for handling/preparing data. As C++ or python, there is some tricks that bring performance, make the code clean or both, but especially with R these choices can have a huge impact on performance and the &#8220;size&#8221; of your code. A seasoned R user can manage this effectively, but this can be a headache to a new user. SO, in this series of posts i will present some data preparation techniques that anyone should know about, at least the ones i know!</p>
+<h2 style="text-align: justify;">1. Using apply, lappy, tapply</h2>
+<p style="text-align: justify;">Sometimes the apply&#8217;s can make your code faster, sometimes just cleaner. BUT the fact is that, at least in R, is recommended <span style="color: #0000ff;"><a href="http://stackoverflow.com/questions/2908822/speed-up-the-loop-operation-in-r"><span style="color: #0000ff;">avoid for loops</span></a></span>. So, instead of using loops, you can iterate over matrixes, lists and vectors using these functions. As an example see this code:</p>
+<pre class="lang:r decode:true ">matriz &lt;- matrix(round(runif(9,1,10),0),nrow=3)
+apply(matriz, 1, sum) ## sum by row
+apply(matriz, 2, sum) ## sum by column</pre>
+<p>Particularly in this example there is no gain on performance, but you get a cleaner code.</p>
+<p>Talking about means, sometimes tapply can be very usefull in this regard. Let&#8217;s say you want to get means by group, you can have this with one line too. For example, considering the mtcars dataset:</p>
+<pre tabindex="0">mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+Datsun 710          22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+Hornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+Valiant             18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+Duster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
+Merc 240D           24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+Merc 230            22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+Merc 280            19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
+Merc 280C           17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4
+Merc 450SE          16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3
+Merc 450SL          17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3
+Merc 450SLC         15.2   8 275.8 180 3.07 3.780 18.00  0  0    3    3
+Cadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4
+Lincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4
+Chrysler Imperial   14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4
+Fiat 128            32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+Honda Civic         30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+Toyota Corolla      33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+Toyota Corona       21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+Dodge Challenger    15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2
+AMC Javelin         15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2
+Camaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4
+Pontiac Firebird    19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2
+Fiat X1-9           27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+Porsche 914-2       26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+Lotus Europa        30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+Ford Pantera L      15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4
+Ferrari Dino        19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6
+Maserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8
+Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2</pre>
+<p>so</p>
+<pre class="lang:r decode:true ">tapply(mtcars$hp, mtcars$cyl, mean)</pre>
+<p>and you can have the mean power by cylinder capacity. This function is very usefull on descriptive analysis. BUT sometimes you have lists, not vectors. In this case just use lappy or sapply (simplify the output). Let&#8217;s generate some data:</p>
+<pre class="lang:r decode:true ">lista &lt;- list(a=c('one', 'tow', 'three'), b=c(1,2,3), c=c(12, 'a'))</pre>
+<p>Each element of this list is a vector. Let&#8217;s say you want to know how many elements there is in each vector:</p>
+<pre class="lang:r decode:true ">lapply(lista, length) ## return a list
+sapply(lista, length) ## coerce to a vector</pre>
+<p>&nbsp;</p>
+<pre tabindex="0">$a
+[1] 3
+
+$b
+[1] 3
+
+$c
+[1] 2</pre>
+<pre tabindex="0">a b c 
+3 3 2</pre>
+<h2>2. Split, apply and recombine</h2>
+<p style="text-align: justify;">This technique you must know. Basically we split the data, apply a function and combine the results. There is a <span style="color: #0000ff;"><a href="http://cran.r-project.org/web/packages/plyr/index.html"><span style="color: #0000ff;">package</span></a></span> created with this in mind. But we will use just base R functions: split, *apply and cbind() ou rbind() when needed. Looking again at mtcars dataset, let&#8217;s say we want fit a model of mpg against disp, grouped by gears,  and compare the regression coefficients.</p>
+<p style="text-align: justify;"><a href="http://www.flaviobarros.net/wp-content/uploads/2013/10/mpg1.png"><img class="aligncenter size-full wp-image-323" src="http://www.flaviobarros.net/wp-content/uploads/2013/10/mpg1.png" alt="mpg" width="480" height="480" srcset="./../../../wp-content/uploads/2013/10/mpg1.png 480w, ./../../../wp-content/uploads/2013/10/mpg1-150x150.png 150w, ./../../../wp-content/uploads/2013/10/mpg1-300x300.png 300w, ./../../../wp-content/uploads/2013/10/mpg1-90x90.png 90w" sizes="(max-width: 480px) 100vw, 480px" /></a></p>
+<pre class="lang:r decode:true ">data &lt;- split(mtcars, mtcars$gear) ## split
+fits &lt;- lapply(data, function(x) return(lm(x$mpg~x$disp)$coef)) ## apply
+do.call(rbind, fits) ## recombine</pre>
+<p>&nbsp;</p>
+<pre tabindex="0">  (Intercept)      x$disp
+3    24.51557 -0.02577046
+4    39.56753 -0.12221268
+5    31.66095 -0.05077512</pre>
+<p>This technique is powerfull. You can use at different contexts.</p>
+<p>Next part i will talk about some tricks with dates.</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2013/10/31/data-preparation-tricks-part-i/feed/index.html</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+	</channel>
+</rss>

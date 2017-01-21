@@ -1,0 +1,674 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Educação &#8211; R Mining</title>
+	<atom:link href="./index.html" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Mineração de Dados, Estatística, Tecnologia</description>
+	<lastBuildDate>Tue, 17 Jan 2017 10:04:59 +0000</lastBuildDate>
+	<language>pt-BR</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.7.1</generator>
+	<item>
+		<title>Use o stackoverflow!</title>
+		<link>./../../../2016/09/22/use-o-stackoverflow/index.html</link>
+		<comments>./../../../2016/09/22/use-o-stackoverflow/index.html#respond</comments>
+		<pubDate>Fri, 23 Sep 2016 02:03:44 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Educação]]></category>
+
+		<guid isPermaLink="false">./../../../index.html?p=968</guid>
+		<description><![CDATA[Sites de perguntas e respostas se popularizaram a partir da década passada. É difícil traçar uma história precisa em virtude da vida e morte de projetos que aconteceram na internet, em ciclos muitas vezes menores que 2 anos. Mas acredito que posso dizer com segurança que um dos primeiros sites desse tipo  a se popularizar foi o Yahoo Answers! Também já li por aí que esse tipo de site era popular na ásia, no começo da...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">Sites de perguntas e respostas se popularizaram a partir da década passada. É difícil traçar uma história precisa em virtude da vida e morte de projetos que aconteceram na internet, em ciclos muitas vezes menores que 2 anos. Mas acredito que posso dizer com segurança que um dos primeiros sites desse tipo  a se popularizar foi o <a href="https://br.answers.yahoo.com/">Yahoo Answers!</a> Também já li por aí que esse tipo de site era popular na ásia, no começo da internet, quando a qualidade de conexões ainda era muito ruim. Enfim, esse conceito de um site onde alguém posta uma pergunta e todo mundo pode responder já &#8220;roda&#8221; por aí há algum tempo, pelo menos desde de 1996.</p>
+<p style="text-align: justify;">ENTRETANTO, alguns sites deste tipo parece que foram mais bem sucedidos que outros, como é o caso do <a href="http://stackoverflow.com/">Stackoverflow</a>. Daí surgem algumas perguntas:</p>
+<ol>
+<li style="text-align: justify;">Por que o stackoverflow fez mais sucesso?</li>
+<li style="text-align: justify;">Por que eu deveria utilizar um site como este?</li>
+</ol>
+<p>Basicamente vou argumentar nesse post sobre o que é um diferencial neste tipo de site e porque você deveria utiliza-lo.</p>
+<h2>Por que o stackoverflow fez sucesso?</h2>
+<p>Se você comparar o stackoverflow com, por exemplo, o Yahoo Respostas! você vai perceber que o stackoverflow tem algumas características interessantes:</p>
+<ul>
+<li>tem uma aparência mais profissional;</li>
+<li>tem recursos a mais;</li>
+<li>mais usuários;</li>
+<li>questões bem indexadas;</li>
+<li>curadoria;</li>
+<li>qualidade das respostas;</li>
+</ul>
+<p style="text-align: justify;">Eu particularmente já respondi (e perguntei) no Yahoo Respostas! entretanto eu não achei a experiência interessante. O que eu percebo é que, em geral, as perguntas são mal formuladas, as vezes amplas demais, e as respostas também costumam se de qualidade duvidosa. Basicamente não há instrumentos de controle, uma ação ativa de uma comunidade (ou sequer uma comunidade), tal que não há um produto final que possa ser reutilizado.</p>
+<p style="text-align: justify;">Aliás, aqui é interessante notar uma grande diferença entre um site de perguntas e respostas bem feito e um fórum: em um fórum o interessante é a discussão por si só, não interessa tanto a informação, o que atrai os usuários é a INTERAÇÃO com outros usuários em torno de um assunto em comum. POR OUTRO LADO sites como o stackoverflow, produzem um produto final que é uma base de conhecimento na forma de <strong>BOAS PERGUNTAS </strong>com <strong>BOAS RESPOSTAS.</strong></p>
+<p style="text-align: justify;">Um bom site como este cria uma comunidade em torno de um assunto de interesse (como a programação) onde as perguntas são bem formuladas, as respostas são bem formuladas e há um mínimo controle de qualidade. Talvez a principal força motriz que leva pessoas ativamente a colaborar em um produto como esse seja a ideia de <strong>reputação.</strong></p>
+<p><img class="aligncenter" src="https://blog.stackoverflow.com/images/wordpress/stackoverflow-badges-alpha.png" /></p>
+<p style="text-align: justify;">Sites como esse dão badges, pontos e enfim, <strong>reconhecimento </strong>pelo trabalho bem feito. O usuário é cobrado não só por produzir boas respostas, adequadas, bem feitas e bem formatadas, mas também é cobrado no simples ato de perguntar! Perguntas mal feitas recebem downvotes!</p>
+<p><img class="aligncenter" src="http://i.stack.imgur.com/fk3MJm.png" /></p>
+<p>Essa estratégia, que é uma espécie de gamificação, premia bons colaboradores e pune os que:</p>
+<ul>
+<li>tem preguiça de pesquisar;</li>
+<li>respondem sem embasamento;</li>
+<li>não se preocupam com a apresentação da questão;</li>
+</ul>
+<p>Enfim, só para fazer uma pergunta o usuário deve colocar um mínimo de esforço tal que espera-se que ele tenha feito uma pesquisa prévia onde, de repente, a pergunta já foi respondida ou é algo encontrado trivialmente na documentação do material que pretende utilizar.</p>
+<h2>O que é uma boa pergunta?</h2>
+<p>Se você verificar os badges (ou medalhas) do stackoverflow não é difícil encontrar boas perguntas. Alguns exemplos:</p>
+<p><a href="http://pt.stackoverflow.com/questions/2402/como-fazer-hash-de-senhas-de-forma-segura">Como fazer hash de senhas de forma segura?</a></p>
+<p><a href="http://pt.stackoverflow.com/questions/2402/como-fazer-hash-de-senhas-de-forma-segura">Como é gerada a randomização pelo computador?</a></p>
+<p><a href="http://stackoverflow.com/questions/15376075/cluster-analysis-in-r-determine-the-optimal-number-of-clusters">Cluster analysis in R: determine the optimal number of clusters</a></p>
+<p>O próprio site fornece algumas instruções:</p>
+<ul>
+<li>um bom título;</li>
+<li>descreva <strong>bem </strong>o problema;</li>
+<li>forneça exemplos que podem ser <strong>reproduzidos</strong>;</li>
+<li>cuidado com a ortografia e gramática;</li>
+<li><strong>pesquise</strong> antes de perguntar;</li>
+</ul>
+<h2>Por que eu deveria usar?</h2>
+<p style="text-align: justify;">Talvez o principal motivo é a razão de frequentemente você encontrar links do SO como resposta a pesquisas suas no google: quando você faz boas perguntas ou fornece boas respostas, você produz algo reutilizável que ajuda a comunidade. Outro ponto fundamental é que é divertido ganhar pontos! Participando mais ativamente você perceberá que é bem legal participar. Por fim, acho que talvez é um dos pontos mais importantes é que você vai aprender a pesquisar e no processo de formular bem o problema você vai organizar melhor seu pensamento e quiça responder sua própria pergunta!</p>
+<h2 style="text-align: justify;">Pesquisas</h2>
+<p>O SO vem sendo pesquisado ativamente nos últimos anos, onde os pesquisadores tentar avaliar os diversos aspectos do uso da plataforma. Alguns papers que eu destacaria são os seguintes:</p>
+<p><a href="http://ieeexplore.ieee.org/document/6405249/">What makes a good code example?: A study of programming Q&amp;A in StackOverflow</a></p>
+<p class="mediumb-text"><a href="http://ieeexplore.ieee.org/document/6405249/?arnumber=6405249">Building reputation in StackOverflow: an empirical investigation</a></p>
+<p class="mediumb-text"><a href="http://dl.acm.org/citation.cfm?id=2550615">On the Personality Traits of StackOverflow Users</a></p>
+<p class="mediumb-text"><a href="http://dl.acm.org/citation.cfm?id=2480557">An empirical study on developer interactions in StackOverflow</a></p>
+<p class="mediumb-text"><a href="http://ieeexplore.ieee.org/document/6785805/">Analysis of the reputation system and user contributions on a question answering website: StackOverflow</a></p>
+<h2 class="mediumb-text">Sugestões de leitura</h2>
+<p><a href="http://stackoverflow.com/help/how-to-ask">How do I ask a good question?</a></p>
+<p><a href="http://pt.stackoverflow.com/help/dont-ask">Que tipos de perguntas devo evitar de fazer?</a></p>
+<p><a href="http://pt.stackoverflow.com/help/mcve">Como criar um exemplo Mínimo, Completo e Verificável</a></p>
+<p><a href="http://pt.stackoverflow.com/help/whats-reputation">O que é reputação? Como faço para ganhar (ou perder) pontos?</a></p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2016/09/22/use-o-stackoverflow/feed/index.html</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Onde estudar Estatística?</title>
+		<link>./../../../2016/04/21/onde-estudar-estatistica/index.html</link>
+		<comments>./../../../2016/04/21/onde-estudar-estatistica/index.html#respond</comments>
+		<pubDate>Thu, 21 Apr 2016 15:12:45 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Educação]]></category>
+		<category><![CDATA[Estatística]]></category>
+		<category><![CDATA[Shiny]]></category>
+
+		<guid isPermaLink="false">./../../../index.html?p=946</guid>
+		<description><![CDATA[Com essa emergência atual dos termos como Big Data, Data Science, Data Mining e afins, e também com a grande oferta de postos de trabalho que se abrem nesse &#8220;novo setor&#8221;, muitas pessoas se perguntam qual o melhor caminho para se formar e se preparar para esse mercado. Existem cursos a distância, oferecidos por plataformas como o Coursera e o Udacity, ou mesmo cursos em nível de pós-graduação, MAS surge a pergunta: existe alguma graduação...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">Com essa emergência atual dos termos como Big Data, Data Science, Data Mining e afins, e também com a grande oferta de postos de trabalho que se abrem nesse &#8220;novo setor&#8221;, muitas pessoas se perguntam qual o melhor caminho para se formar e se preparar para esse mercado. Existem cursos a distância, oferecidos por plataformas como o <a href="https://pt.coursera.org/specializations/jhu-data-science">Coursera</a> e o <a href="https://www.udacity.com/course/data-analyst-nanodegree--nd002">Udacity</a>, ou mesmo cursos em nível de pós-graduação, MAS surge a pergunta: existe alguma graduação que prepara o profissional para ser um cientista de dados?</p>
+<p style="text-align: justify;">Na minha opinião, o curso de graduação que mais se aproxima daquilo que se deseja em um cientista de dados é o bacharelado em Estatística. Aqui eu estou usando o termo cientista de dados, não como de um profissional versado em tecnologias como <a href="http://hadoop.apache.org/">Hadoop</a>, <a href="http://spark.apache.org/">Spark</a>, <a href="https://www.mongodb.com/">MongoDB</a>, mas de um profissional que é preparado para trabalhar com análise de dados e planejamento de pesquisas.</p>
+<p style="text-align: justify;">Claro, existe também uma gama de problemas relacionados a arquitetura e tecnologia, que eu acredito precisam do expertise de um profissional que talvez eu poderia chamar um Engenheiro de Dados. Mas em geral, um curso que prepara o profissional para trabalhar com o que hoje se apresenta como a Ciência de Dados, esse curso provavelmente é o curso de Estatística. Prova disso é que mesmo antes desse novo boom de Big Data, muitos profissionais de Estatística já vinham desempenhando o papel de um cientista de dados em empresas de diversos setores. Claro com dados em uma escala muito menor.</p>
+<h2 style="text-align: justify;">Onde estudar Estatística?</h2>
+<p style="text-align: justify;">Muitos estudantes do Ensino Médio não tem ideia de que existe o bacharelado em Estatística e muito menos onde cursa-lo no Brasil. Acredito que atualmente esse problema é menor que no passado, mas ainda assim a Estatística está longe de ser um curso tão popular quanto Ciência da Computação ou algumas Engenharias.</p>
+<p style="text-align: justify;">Outro ponto fundamental é que não existem assim tantos locais para se estudar Estatística quanto se tem para estudar Engenharia tal que a escolha dos estudantes fica bastante limitada. De forma a agregar em um único local informações relacionados aos cursos de Estatística no Brasil, eu estou criando esse aplicativo em Shiny que vai condensar informações sobre todos os cursos de Estatística disponíveis no país. Inicialmente ele só conta com informações como a localização, a carga horária, se tem Mestrado ou Doutorado em Estatística, dentre outros, mas espero ir agregando mais e mais informações. No futuro planejo incluir também locais somente com pós-graduação.</p>
+<h2 style="text-align: justify;">Aplicativo</h2>
+<p>O aplicativo se encontra neste endereço:</p>
+<p><a href="https://flaviobarros.shinyapps.io/onde-estudar-estatistica/">ONDE ESTUDAR ESTATÍSTICA?</a></p>
+<p>Se você tem sugestões de como melhora-lo, informações extras que gostaria de ver, poste nos comentários, que na medida do possível vou ir tentando agregar.</p>
+<p><a href="./../../../wp-content/uploads/2016/04/onde_estudar_estatistica.png"><img class="aligncenter size-full wp-image-947" src="./../../../wp-content/uploads/2016/04/onde_estudar_estatistica.png" alt="onde_estudar_estatistica" width="1244" height="394" srcset="./../../../wp-content/uploads/2016/04/onde_estudar_estatistica.png 1244w, ./../../../wp-content/uploads/2016/04/onde_estudar_estatistica-300x95.png 300w, ./../../../wp-content/uploads/2016/04/onde_estudar_estatistica-768x243.png 768w, ./../../../wp-content/uploads/2016/04/onde_estudar_estatistica-1024x324.png 1024w" sizes="(max-width: 1244px) 100vw, 1244px" /></a></p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2016/04/21/onde-estudar-estatistica/feed/index.html</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>RECONHECIMENTO DE DÍGITOS ESCRITOS A MÃO – PARTE 3</title>
+		<link>./../../../2016/03/14/reconhecimento-de-digitos-escritos-mao-parte-3/index.html</link>
+		<comments>./../../../2016/03/14/reconhecimento-de-digitos-escritos-mao-parte-3/index.html#comments</comments>
+		<pubDate>Tue, 15 Mar 2016 02:54:32 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Aprendizado de Máquina]]></category>
+		<category><![CDATA[Data Mining]]></category>
+		<category><![CDATA[Educação]]></category>
+		<category><![CDATA[Estatística]]></category>
+		<category><![CDATA[Machine Learning]]></category>
+		<category><![CDATA[Mineração de Dados]]></category>
+		<category><![CDATA[Preparação de Dados]]></category>
+		<category><![CDATA[R e RStudio]]></category>
+
+		<guid isPermaLink="false">./../../../index.html?p=851</guid>
+		<description><![CDATA[Na Parte 1 desse post (que já publiquei faz um tempão!) eu fiz uma classificação de imagens de dígitos escritos a mão usando o k-nn (algoritmo dos vizinhos mais próximos) usando as informações das imagens sem nenhum tipo de tratamento, isto é, sem nenhum método de preparação. Como foi mostrado, o k-nn só foi capaz de classificar razoavelmente bem com com k = 1 e conseguiu uma acurácia de apenas 78%, algo muito distante do que...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">Na <a href="./../../../2014/12/22/reconhecimento-de-digitos-escritos-mao-parte-1/index.html">Parte 1</a> desse post (que já publiquei faz um tempão!) eu fiz uma classificação de imagens de dígitos escritos a mão usando o <a href="https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm">k-nn</a> (algoritmo dos vizinhos mais próximos) usando as informações das imagens sem nenhum tipo de tratamento, isto é, sem nenhum método de preparação. Como foi mostrado, o <a href="https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm">k-nn</a> só foi capaz de classificar razoavelmente bem com com k = 1 e conseguiu uma acurácia de apenas 78%, algo muito distante do que ainda pode ser conseguido.</p>
+<p style="text-align: justify;">Na <a href="./../../../2015/09/14/reconhecimento-de-digitos-escritos-a-mao-parte-2/index.html">Parte 2</a> eu trabalhei com um método de redução de dimensionalidade, o PCA, e também foram explorados diversos outros classificadores, como o Random Forest, o SVM e etc. O resumo dos resultados foi o seguinte:</p>
+<ul style="text-align: justify;">
+<li style="text-align: justify;">k-nn com k = 1: 84%</li>
+<li style="text-align: justify;">Regressão linear: 14%</li>
+<li style="text-align: justify;">Regressão Logística Multinomial: 64%</li>
+<li style="text-align: justify;">Árvores de decisão: 24%</li>
+<li style="text-align: justify;">RandomForest: 72%</li>
+</ul>
+<p style="text-align: justify;">E a conclusão geral foi que não foi possível bater o k-NN ou ainda mais chegar aos resultados reportados na literatura, superiores a 95% de acurácia na tarefa. Como foi mencionado anteriormente, os possíveis problemas foram:</p>
+<ol style="text-align: justify;">
+<li>Conjunto pequeno de imagens.</li>
+<li>Modelos com parâmetros default.</li>
+</ol>
+<p style="text-align: justify;">Assim, nessa última parte vou mostrar como é possível treinar melhores modelos com muito mais dados e como é possível melhorar a performance dos algoritmos com melhores hiperparâmetros. Outro ponto importante que eu queria mostrar também é o uso do pacote <a href="http://caret.r-forge.r-project.org/">caret</a> para automatizar diversas tarefas desse processo.</p>
+<h2 style="text-align: justify;">1.Dados e visualização</h2>
+<p style="text-align: justify;">Como eu comentei antes, vamos nessa parte tentar utilizar um conjunto maior de imagens. Para tanto, ao invés desse pequeno conjunto de teste e treino que foi fornecido na <a href="./../../../2014/12/22/reconhecimento-de-digitos-escritos-mao-parte-1/index.html">Parte 1</a>, vamos utilizar um conjunto muito maior de images de dígitos escritos a mão, o famoso data set <a href="http://yann.lecun.com/exdb/mnist/">MNIST</a>. Se você verificar nesse link, você vai encontrar diversas informações com respeito a esse conjunto de dados e também você pode baixa-lo e utilizar nas análises que se seguem, caso queira reproduzir o que você está vendo aqui. ENTRETANTO, para poupar o seu trabalho e o meu, ao invés de pegar os dados diretamente deste site, vamos utilizar esse mesmo conjunto de dados já tratado e preparado pela equipe do <a href="https://www.kaggle.com/c/digit-recognizer">Kaggle</a>. A vantagem é que o arquivos já estão no formato csv e não será mais necessária a etapa de preparação realizada na <a href="./../../../2014/12/22/reconhecimento-de-digitos-escritos-mao-parte-1/index.html">Parte 1</a> e na <a href="./../../../2015/09/14/reconhecimento-de-digitos-escritos-a-mao-parte-2/index.html">Parte 2</a> desta série. Outra vantagem é que após você rodar estes modelos, se você quiser, você pode submeter seus resultados no Leaderboard para experimentar como funciona esse site de competição.</p>
+<p style="text-align: justify;">Na <a href="./../../../2015/09/14/reconhecimento-de-digitos-escritos-a-mao-parte-2/index.html">Parte 2</a>, como eu peguei diretamente as imagens e converti em uma matriz, agora você poderia ficar confuso e se perguntar: mas e aí, como são estas imagens? como eu vou ver se já está em csv? Para você não ficar com dúvida, vamos &#8220;imprimir&#8221; as imagens.</p>
+<pre class="lang:r decode:true ">############ Explorando as imagens ###############################
+## Contando o número de imagens por dígito
+barplot(table(treino$label), ylim = c(0,5000))
+
+## Transformando em uma matriz
+treino &lt;- as.matrix(treino)
+
+## Imprimindo uma imagem
+matriz_imagem &lt;- matrix(treino[1000,-1], ncol = 28)
+matriz_imagem &lt;- matriz_imagem[,28:1] ## invertendo a imagem
+image(1:28, 1:28, matriz_imagem, col = c('white', 'black'))</pre>
+<p><a href="./../../../wp-content/uploads/2016/03/digito4.png" rel="attachment wp-att-867"><img class="aligncenter size-full wp-image-867" src="./../../../wp-content/uploads/2016/03/digito4.png" alt="digito4" width="480" height="480" srcset="./../../../wp-content/uploads/2016/03/digito4.png 480w, ./../../../wp-content/uploads/2016/03/digito4-150x150.png 150w, ./../../../wp-content/uploads/2016/03/digito4-300x300.png 300w, ./../../../wp-content/uploads/2016/03/digito4-65x65.png 65w" sizes="(max-width: 480px) 100vw, 480px" /></a></p>
+<p>Veja que eu peguei a primeira linha do conjunto de treino, transformei em uma matriz e imprimi a matriz como uma imagem. Nesse caso é o dígito 4. Assim, apesar de agora você estar usando um arquivo em csv preparado eles fizeram a mesma coisa que eu fiz anteriormente. Se você quiser entender melhor como cada imagem virou uma linha dessa tabela dá uma olhada na Parte 1 dessa série. Só para mostrar que os dígitos estão ok, eu vou imprimir uma &#8220;imagem média&#8221;, onde em cada imagem eu tenho um valor médio em cada píxel considerando todas as imagens do conjunto de dados.</p>
+<pre class="lang:r decode:true ">## Plotando uma imagem média para cada dígito
+## Definindo uma escala de cor, indo do branco ao preto
+colors &lt;- c('white','black')
+cus_col &lt;- colorRampPalette(colors=colors)
+
+## Plot de cada imagem média
+## Divindo a tela
+png('todos_digitos.png')
+par(mfrow=c(4,3),pty='s',mar=c(1,1,1,1),xaxt='n',yaxt='n')
+
+## Criando um array para armazenar as matrizes de cada imagem média
+all_img &lt;- array(dim=c(10,28*28))
+
+## Recuperando todas as imagens por dígito e calculando a média
+for(di in 0:9) {
+  print(di)
+  all_img[di+1,] &lt;- apply(treino[treino[,1]==di,-1],2,sum)
+  all_img[di+1,] &lt;- all_img[di+1,]/max(all_img[di+1,])*255
+  
+  z&lt;-array(all_img[di+1,],dim=c(28,28))
+  z&lt;-z[,28:1] ##right side up
+  image(1:28,1:28,z,main=di,col=cus_col(256))
+}</pre>
+<p><a href="./../../../wp-content/uploads/2016/03/todos_digitos-1.png" rel="attachment wp-att-869"><img class="aligncenter size-full wp-image-869" src="./../../../wp-content/uploads/2016/03/todos_digitos-1.png" alt="todos_digitos" width="480" height="480" srcset="./../../../wp-content/uploads/2016/03/todos_digitos-1.png 480w, ./../../../wp-content/uploads/2016/03/todos_digitos-1-150x150.png 150w, ./../../../wp-content/uploads/2016/03/todos_digitos-1-300x300.png 300w, ./../../../wp-content/uploads/2016/03/todos_digitos-1-65x65.png 65w" sizes="(max-width: 480px) 100vw, 480px" /></a></p>
+<p style="text-align: justify;">Até há uma certa variação (por isso que há uma sombra) mas no geral os mesmos píxels tem uma intensidade maior considerando cada dígito diferente que foi escrito na imagem. Isso nos leva a crer que os modelos devem conseguir distinguir um dígito do outro.</p>
+<h2 style="text-align: justify;">2. Preparação com PCA</h2>
+<p style="text-align: justify;">Depois que você baixar os arquivos train.csv e test.csv do Kaggle já podemos efetuar a leitura dos arquivos e a preparação por meio do PCA. O que vamos fazer é aplicar o PCA e retendo somente o número de componentes necessário para alcançar 95% da variância total. Os detalhes sobre isso eu discuti na Parte 2.</p>
+<pre class="lang:r decode:true ">## Leitura dos conjuntos de dados de treino e de teste
+treino = read.csv('train.csv', header = T)
+teste = read.csv('test.csv', header = T)
+
+############ APlicação do PCA ####################################
+## Obtendo componentes principais
+pc &lt;- prcomp(treino[,-1])
+treino_pc &lt;- pc$x
+
+## Obtendo as variâncias acumuladas
+vars = pc$sdev^2
+props = vars/sum(vars)
+varAcum = cumsum(props)
+which.min(varAcum &lt; 0.90)
+
+## Aplicando a rotação nos dados de teste
+teste_pc &lt;- predict(pc, newdata = teste)
+
+## Salvando treino e teste com PCA
+save(treino_pc, file = 'treino_pc.rda')
+save(teste_pc, file = 'teste_pc.rda')</pre>
+<p style="text-align: justify;">eu costumo salvar os arquivos após cada etapa de preparação de forma a não precisar realizar o processo posteriormente. Outro ponto importante é que salvando os objetos no formato nativo do R, caso você precise recarregar os dados, o processo é muito mais rápido que a leitura em csv.</p>
+<h2 style="text-align: justify;">3. Árvore de Decisão</h2>
+<p style="text-align: justify;">Como uma primeira tentativa, vamos utilizar o algoritmo para árvores de decisão do pacote <a href="https://cran.r-project.org/web/packages/rpart/index.html">rpart</a>. Vamos utilizar todas as PC&#8217;s e treinar a árvore em 3/4 dos dados. O teste será realizado no 1/4 que foi separado.</p>
+<pre class="lang:r decode:true ">#################################################################
+## Teste com árvore de decisão
+library(rpart)
+
+## Separando o conjunto treino em dois para avaliação
+set.seed(1)
+inTrain &lt;- createDataPartition(treino$label, p = 3/4, list = F)
+train &lt;- treino_pc[inTrain,]
+evaluation &lt;- treino_pc[-inTrain,]
+
+## Data frame de treino e teste
+treino_arvore = as.data.frame(cbind(train[,1:784]))
+treino_arvore$classes = as.factor(treino$label[inTrain])
+
+## Conjunto de teste para avaliação
+teste_arvore = as.data.frame(evaluation[,1:784])
+
+## Criando uma árvore
+arvore &lt;- rpart(classes ~ ., data = treino_arvore)
+
+## Calculando a matriz de confusão
+confusionMatrix(predict(arvore, teste_arvore, type = 'class'), treino$label[-inTrain])
+</pre>
+<p>e o resultado da matriz de confusão:</p>
+<pre class="lang:r decode:true ">Confusion Matrix and Statistics
+
+          Reference
+Prediction   0   1   2   3   4   5   6   7   8   9
+         0 637   2  13  20   3  66  17  12   0   2
+         1   0 995   9   7  28   7   3  75   6  53
+         2  60  54 741  61  30  97 130  16  93  10
+         3 185  45 111 803  13 270 106  29  89  30
+         4   3   0  16  10 796  73  16  82  16 471
+         5  86  13  46  88  36 341  31  61 185  49
+         6  24  16  47  45  21  40 725   4  13  43
+         7  17   0   4   2  20  16   2 652  10  85
+         8  18  46  40  27  11  60  12  18 532  13
+         9  14   0   6  10  74   6  13 103  57 305
+
+Overall Statistics
+                                         
+               Accuracy : 0.6217         
+                 95% CI : (0.6124, 0.631)
+    No Information Rate : 0.1115         
+    P-Value [Acc &gt; NIR] : &lt; 2.2e-16      
+                                         
+                  Kappa : 0.5796         
+ Mcnemar's Test P-Value : &lt; 2.2e-16</pre>
+<p style="text-align: justify;">mostra que o desempenho ainda está longe do satisfatório. Com uma acurácia global de apenas 62% estamos ainda muito longe da meta de 95%. Veja que utilizamos a estratégia <a href="http://stats.stackexchange.com/questions/104713/hold-out-validation-vs-k-fold-validation">holdout</a>, e com relação a <a href="./../../../2015/09/14/reconhecimento-de-digitos-escritos-a-mao-parte-2/index.html">Parte 2</a> desta série a única mudança é o fato de estarmos trabalhando com imagens com mais resolução e um conjunto maior. Parece que isso ainda não é o suficiente, assim vamos explorar outros algoritmos e vamos utilizar métodos de validação cruzada para encontrar os melhores hiperparâmetros.</p>
+<h2>4. RandomForest</h2>
+<p style="text-align: justify;">O <a href="https://en.wikipedia.org/wiki/Random_forest">randomforest</a> é um dos algoritmos de machine learning <a href="https://www.quora.com/What-are-the-top-10-data-mining-or-machine-learning-algorithms">mais utilizados na indústria</a>. Seu sucesso advém do fato de ser robusto, facilmente paralelizável e apresentar um desempenho muito bom em uma grande quantidade de problemas diferentes. Assim, vamos experimentar esse classificador procurando ajustar os melhores hiperperâmetros por validação cruzada. No caso do RF temos que definir qual o melhor m, um parâmetro que determina quantas variáveis são sorteadas na escolha do split em cada nó, de cada árvore de decisão do comitê. Se não ficou claro para você o que significa este hiperparâmetro não tem problema, não é difícil encontrar material onde você pode entender os detalhes do RF. O importante aqui é você entender que o valor do hiperparâmetro será escolhido com base no próprio conjunto de dados, utilizando validação cruzada.</p>
+<pre class="lang:r decode:true">#################################################################
+## Teste com RandomForest
+library(randomForest)
+
+## Separando o conjunto treino em dois para avaliação
+set.seed(1)
+inTrain &lt;- createDataPartition(treino$label, p = 3/4, list = F)
+train &lt;- treino_pc[inTrain,]
+evaluation &lt;- treino_pc[-inTrain,]
+
+## Data frame de treino e teste, aqui retendo somente 160 PC's, equivalente a 95% de ## variância.
+treino_arvore = as.data.frame(cbind(train[,1:160]))
+treino_arvore$classes = as.factor(treino$label[inTrain])
+
+## Conjunto de teste para avaliação
+teste_arvore = as.data.frame(evaluation[,1:160])
+
+## Modelagem
+fitControl &lt;- trainControl(method = "oob", verboseIter = T,
+                           
+                           ## Estimate class probabilities
+                           classProbs = F)
+
+set.seed(825)
+rfFit &lt;- train(classes ~ ., data = treino_arvore, verbose = T,
+                method = "rf",
+                trControl = fitControl,
+                tuneLength = 8,
+                metric = "Accuracy")
+save(rfFit, file = 'rfFit.rda')
+                
+## Calculando a matriz de confusão
+confusionMatrix(predict(rfFit, teste_arvore, type = 'raw'), treino$label[-inTrain])
+</pre>
+<p>e a matriz de confusão:</p>
+<pre class="lang:r decode:true ">Confusion Matrix and Statistics
+
+          Reference
+Prediction    0    1    2    3    4    5    6    7    8    9
+         0 1048    0    3    0    1    1    1    0    0    1
+         1    0 1130    2    0    1    1    0    2    3    0
+         2    0    3 1021   10    4    2    1    6    2    0
+         3    0    1    5 1073    3   12    0    1    8   11
+         4    1    0    6    0  970    4    1    1    4   18
+         5    0    0    0    8    2  932    6    0    4    6
+         6    6    1    3    2    5    3 1023    1    2    0
+         7    1    1    4    4    0    0    0 1077    3    7
+         8    0    0    5    4    5    2    1    2  967    4
+         9    2    2    3    2   11    2    0    1    2 1020
+
+Overall Statistics
+                                          
+               Accuracy : 0.9774          
+                 95% CI : (0.9744, 0.9802)
+    No Information Rate : 0.1084          
+    P-Value [Acc &gt; NIR] : &lt; 2.2e-16       
+                                          
+                  Kappa : 0.9749</pre>
+<p>e enfim chegamos a 97%!</p>
+<h2 style="text-align: justify;">5. SVM (Máquina de vertores de suporte)</h2>
+<p style="text-align: justify;">O SVM é um algoritmo do tipo &#8220;caixa preta&#8221;. O princípio por detrás do algoritmo é criar hiperplanos separadores em dimensões maiores do que as presentes no conjunto de dados. A ideia é que se os pontos são linearmente separáveis, isto é, se um hiperplano como fronteira de decisão conseguiria separar completamente as classes, então o SVM é um método que pode ser utilizado para encontrar esse hiperplano. ENTRETANTO, ocorre que muitos problemas não são linearmente separáveis, e ainda que fossem não valeria a pena usar o SVM. Quando o problema não é linearmente separável o SVM, de uma certa forma, projeta os dados em um espaço onde é possível criar um hiperplano separador. Também, ele aceita um certo grau de &#8220;impurezas&#8221; dentro das fronteiras de decisão. Enfim, é um algoritmo do tipo &#8220;caixa preta&#8221;, que não tem origem na estatística já que é basicamente um algoritmo de otimização. Mas o fato é que o SVM apresenta resultados muito bons e uma grande quantidade de problemas e vamos ver isso aqui nesse teste.</p>
+<pre class="lang:r decode:true">#################################################################
+## Teste com SVM RBF
+## Carregando os pacotes
+library(caret)
+
+## Modelagem
+fitControl &lt;- trainControl(method = "cv", verboseIter = T,
+                           
+                           ## Estimate class probabilities
+                           classProbs = F)
+
+set.seed(825)
+svmFit &lt;- train(classes ~ ., data = treino_arvore,
+                method = "svmRadial",
+                trControl = fitControl,
+                preProc = c("center", "scale"),
+                tuneLength = 8,
+                metric = "Accuracy")
+save(svmFit, file = 'svmFit2.rda')
+
+## Calculando a matriz de confusão
+confusionMatrix(predict(svmFit, teste_arvore, type = 'raw'), treino$label[-inTrain])
+</pre>
+<p>e avaliando no conjunto de avaliação:</p>
+<pre class="lang:r decode:true ">Confusion Matrix and Statistics
+
+          Reference
+Prediction    0    1    2    3    4    5    6    7    8    9
+         0 1046    0    3    0    1    3    5    1    3    6
+         1    1 1128    1    2    2    0    1    3    2    1
+         2    0    3 1015   13    4    3    1   15    4    1
+         3    1    1    4 1058    0   13    0    1    7    9
+         4    2    2   10    1  972    1    4   10    1   21
+         5    0    1    2   12    0  924    7    0    3    5
+         6    5    0    2    1    5   10 1010    0    4    0
+         7    0    0    5    7    0    0    0 1051    0   13
+         8    3    2    9    4    0    2    5    1  967    3
+         9    0    1    1    5   18    3    0    9    4 1008
+
+Overall Statistics
+                                          
+               Accuracy : 0.9696          
+                 95% CI : (0.9661, 0.9728)
+    No Information Rate : 0.1084          
+    P-Value [Acc &gt; NIR] : &lt; 2.2e-16       
+                                          
+                  Kappa : 0.9662</pre>
+<p>e novamente conseguimos algo em torno de 97%. Para ser honesto, depois que eu criei os modelos com os melhores hiperparâmetros, submetendo no Kaggle o SVM supera os 98%. Foi o modelo com melhor desempenho nessa tarefa.</p>
+<h2>Conclusão</h2>
+<p style="text-align: justify;">Acho que depois da Parte 1, Parte 2 e Parte 3 (esta aqui!) você viu como se trabalha com classificação de imagens, como se prepara esse tipo de dado e como é possível alcançar altíssima acurácia utilizando os modelos de machine learning que você encontra por aí. Se você for reproduzir os exemplos, fique ciente que a etapa de modelagem pode demorar muito. No meu caso alguns destes modelos demoraram mais de 8 horas para o ajuste com os melhore hiperparâmetros! Outro ponto que eu não abordei é como o caret seleciona os melhores hiperparâmetros por validação cruzada. Isso vou deixar para falar com maior detalhe em outra oportunidade. Também gostaria de salientar que uma modelagem como essa é algo tipicamente diferente do que se espera em uma análise estatística tradicional. Aqui não estávamos interessados em inferência, mas sim em produzir modelos com o maior poder preditivo possível. Em casos como esse, trabalhar com métodos &#8220;caixa preta&#8221; não é em si um problema. O ponto principal é ter certeza que seu modelo apresentará um bom desempenho no futuro, com novos dados. POR FIM, esses modelos não são o estado da arte nesta tarefa, já que com <a href="https://en.wikipedia.org/wiki/Deep_learning">deep learning</a> é possível passar dos 99% de acurácia.</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2016/03/14/reconhecimento-de-digitos-escritos-mao-parte-3/feed/index.html</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+		<item>
+		<title>Livros recomendados &#8211; Data Science</title>
+		<link>./../../../2016/03/12/livros-recomendados-data-science/index.html</link>
+		<comments>./../../../2016/03/12/livros-recomendados-data-science/index.html#comments</comments>
+		<pubDate>Sat, 12 Mar 2016 17:46:52 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Aprendizado de Máquina]]></category>
+		<category><![CDATA[Educação]]></category>
+		<category><![CDATA[Estatística]]></category>
+		<category><![CDATA[Mineração de Dados]]></category>
+		<category><![CDATA[R e RStudio]]></category>
+
+		<guid isPermaLink="false">./../../../index.html?p=858</guid>
+		<description><![CDATA[Ao longo dos últimos anos, trabalhando com pesquisa na pós-graduação, como estudante de Estatística e como um analista, eu venho consultando e estudando diversos materiais, de artigos em papers até livros sobre Data Mining, Data Science, Estatística, Big Data e etc. Eu tive oportunidade de consultar muitos bons livros, alguns menos e muitos que eram realmente ruins. ASSIM, nesse post eu gostaria de apresentar a minha seleção de livros e uma breve explicação de porque...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">Ao longo dos últimos anos, trabalhando com pesquisa na pós-graduação, como estudante de Estatística e como um analista, eu venho consultando e estudando diversos materiais, de artigos em <em>papers</em> até livros sobre Data Mining, Data Science, Estatística, Big Data e etc. Eu tive oportunidade de consultar muitos bons livros, alguns menos e muitos que eram realmente ruins. ASSIM, nesse post eu gostaria de apresentar a minha seleção de livros e uma breve explicação de porque eu gosto deles e o que você pode encontrar nesses materiais. Estou falando de livros na perspectiva de alguém que trabalha com aplicações, mas não é uma revisão extensiva da literatura da área. Quem visita esse blog já deve ter percebido que eu uso bastante o R e de fato minha lista tem um certo viés indicando livros que usam essa ferramenta. Vamos aos livros!</p>
+<h2 style="text-align: justify;">1. Probabilidade e Estatística</h2>
+<p style="text-align: justify;"><a href="./../../../wp-content/uploads/2016/03/devore.jpg" rel="attachment wp-att-859"><img class="wp-image-859 alignleft" src="./../../../wp-content/uploads/2016/03/devore.jpg" alt="capa Estatística_cengage.cdr" width="137" height="185" srcset="./../../../wp-content/uploads/2016/03/devore.jpg 600w, ./../../../wp-content/uploads/2016/03/devore-222x300.jpg 222w" sizes="(max-width: 137px) 100vw, 137px" /></a> Eu consultava esse livro quando estava estudando Inferência I no bacharelado em Estatística. Não é um livro que geralmente é utilizado em cursos de Estatística (esse não estava na bibliografia) pois apresenta a estatística básica em um nível mais conceitual, praticamente sem demonstrações. JUSTAMENTE POR ISSO eu acho uma excelente indicação para entender estatística básica. TODOS os exemplos e exercícios são com dados reais, de pesquisas reais, nas áreas de engenharia e ciências, o que dá um gostinho a mais já que o leitor consegue ver exatamente como a estatística é aplicada na vida real. O livro cobre probabilidade, testes de hipótese, IC&#8217;s, teste de independência, ANOVA e etc. Está tudo aí, apresentado de forma muito intuitiva sempre com vistas nas aplicações. Um livro realmente muito bom, que para mim na época, fazendo um curso teórico de inferência, trouxe bastante da intuição sobre os métodos que eu estava estudando.</p>
+<p style="text-align: justify;"><a href="./../../../wp-content/uploads/2016/03/uma_senhora_toma_cha.jpg" rel="attachment wp-att-862"><img class=" wp-image-862 alignleft" src="./../../../wp-content/uploads/2016/03/uma_senhora_toma_cha.jpg" alt="capa - uma senhora toma cha_18-02-10.indd" width="140" height="201" srcset="./../../../wp-content/uploads/2016/03/uma_senhora_toma_cha.jpg 1315w, ./../../../wp-content/uploads/2016/03/uma_senhora_toma_cha-209x300.jpg 209w, ./../../../wp-content/uploads/2016/03/uma_senhora_toma_cha-768x1104.jpg 768w, ./../../../wp-content/uploads/2016/03/uma_senhora_toma_cha-712x1024.jpg 712w" sizes="(max-width: 140px) 100vw, 140px" /></a></p>
+<p style="text-align: justify;">Quando eu comecei a ler este livro eu mal conseguia parar! É um livro que começa nos primórdios da estatística, explorando uma anedota que dá o nome ao livro. O autor caminha por toda a Estatística, sem entrar nos detalhes, mas mostrando o que é, o contexto histórico dos pesquisadores da época, aplicações e etc. É um livro muito completo que fornece ao leitor um panorama do que é a Estatística. É um livro que tem uma leitura leve e agradável e é super indicado para quem nunca ouviu falar de estatística ou acredita que a área de resume a fazer gráficos e calcular médias! Você pode baixar uma amostra com a introdução nesse <a href="http://www.zahar.com.br/sites/default/files/arquivos//t1184.pdf">link</a> da editora Zahar. Esse é o livro de leitura mais agradável nessa lista. Uma pequena amostra: &#8220;<em>Tentei aqui algo um pouco menos ambicioso: descrever a revolução estatística na ciência do século XX por intermédio de algumas das pessoas (muitas delas ainda vivas) que nela estiveram envolvidas. Tratei muito superficialmente o trabalho que elas criaram, só para provar como suas descobertas individuais se encaixaram no quadro geral.</em>&#8220;</p>
+<p style="text-align: justify;"><a href="./../../../wp-content/uploads/2016/03/effect_sizes.jpg" rel="attachment wp-att-892"><img class="wp-image-892 alignright" src="./../../../wp-content/uploads/2016/03/effect_sizes.jpg" alt="effect_sizes" width="158" height="224" srcset="./../../../wp-content/uploads/2016/03/effect_sizes.jpg 283w, ./../../../wp-content/uploads/2016/03/effect_sizes-212x300.jpg 212w" sizes="(max-width: 158px) 100vw, 158px" /></a>Nesse momento onde se discute bastante a respeito dos problemas com p-valor, p-hacking e afins eu achei esse livro muito interessante pois ele aborda esta e outras questões do ponto de vista das aplicações. O livro é leve, bem escrito e apresenta para o leitor a importância de entender o tamanho de efeito, como fazer uma análise de poder e como fazer meta análise. Não é um livro carregado de fórmulas e também não é um livro que poderia ser usado para um curso de análise de experimentos. Entretanto, para quem gostaria de entender o que é essa discussão toda sobre p-valor acho que esse livro pode ser muito útil.</p>
+<h2 style="text-align: justify;">2. Data Science básico</h2>
+<p style="text-align: justify;"><a href="./../../../wp-content/uploads/2016/03/datascience_for_business.jpg" rel="attachment wp-att-860"><img class="wp-image-860 alignleft" src="./../../../wp-content/uploads/2016/03/datascience_for_business.jpg" alt="datascience_for_business" width="139" height="183" srcset="./../../../wp-content/uploads/2016/03/datascience_for_business.jpg 500w, ./../../../wp-content/uploads/2016/03/datascience_for_business-228x300.jpg 228w" sizes="(max-width: 139px) 100vw, 139px" /></a> Esse é aquele livro que eu sempre indico para alguém que é leigo, ouviu falar de big data, data mining ou coisa que o valha, e gostaria de saber do que se tratam estas coisas. É um livro pensando para esse público, muito bem escrito por profissionais da área, com ótimos exemplos e praticamente sem matemática. É um livro conceitual e portanto, apesar de apresentar diversos exemplos muito interessantes, o livro não tem códigos ou instruções de como implementar as análises em algum software. O objetivo do livro é responder ao leitor: o que é Data Science? O que eu posso fazer com isso? O que a minha empresa pode ganhar com isso?</p>
+<p style="text-align: justify;"><a href="./../../../wp-content/uploads/2016/03/data_smart.jpg" rel="attachment wp-att-861"><img class=" wp-image-861 alignleft" src="./../../../wp-content/uploads/2016/03/data_smart.jpg" alt="data_smart" width="138" height="173" srcset="./../../../wp-content/uploads/2016/03/data_smart.jpg 260w, ./../../../wp-content/uploads/2016/03/data_smart-239x300.jpg 239w" sizes="(max-width: 138px) 100vw, 138px" /></a> Esse livro é muito interessante também, indo na mesma linha do Data Science for Business, mas mostrando outros exemplos interessantes e que se aprofunda um pouco mais nas técnicas e nos estudos de caso. Nesse livro o leitor é levado a analisar dados reais, mas utilizando simples planilhas eletrônicas como o Excel/LibreOffice Calc. Para não falar que são só planilhas, bem no final ele apresenta um exemplo com o R. No entanto, a ideia geral do livro é mostrar o que é uma análise de dados, o que você tem a ganhar com isso e como fazer isso no Excel. É bem legal e para um leitor que não é da área, mas quer dar um passo além, pondo data science em prática, esse é um livro muito bom.</p>
+<h2 style="text-align: justify;">3. Linguagem R</h2>
+<p style="text-align: justify;">Aqui eu vou mencionar livros fortemente relacionados ao ensino e uso do R. Alguns são introduções conceituais também mas que utilizam muito o R ao longo do livro.</p>
+<p style="text-align: justify;"><a href="./../../../wp-content/uploads/2016/03/R_for_everyone.jpg" rel="attachment wp-att-863"><img class=" wp-image-863 alignleft" src="./../../../wp-content/uploads/2016/03/R_for_everyone.jpg" alt="R_for_everyone" width="160" height="203" srcset="./../../../wp-content/uploads/2016/03/R_for_everyone.jpg 260w, ./../../../wp-content/uploads/2016/03/R_for_everyone-237x300.jpg 237w" sizes="(max-width: 160px) 100vw, 160px" /></a> Pensando em um livro de introdução à linguagem R eu fiquei em dúvida entre este e um outro. Mas minha sugestão vai para este, uma vez que ele pode ser usado mais tarde como referência. É um livro muito bom, bem escrito e com bons exemplos. NO ENTANTO, existem diversos cursos online de introdução a programação em R que provavelmente eu indicaria ao invés de começar direto pelo livro. MAS cada pessoa aprende diferente, e alguém já versado em outras plataformas pode tirar vantagem da velocidade de aprender diretamente de um livro. Esse é um que eu gosto muito.</p>
+<p><a href="./../../../wp-content/uploads/2016/03/data_manipulation_with_R.jpg" rel="attachment wp-att-871"><img class=" wp-image-871 alignleft" src="./../../../wp-content/uploads/2016/03/data_manipulation_with_R.jpg" alt="data_manipulation_with_R" width="157" height="238" srcset="./../../../wp-content/uploads/2016/03/data_manipulation_with_R.jpg 330w, ./../../../wp-content/uploads/2016/03/data_manipulation_with_R-198x300.jpg 198w" sizes="(max-width: 157px) 100vw, 157px" /></a></p>
+<p style="text-align: justify;">Depois que alguém aprende o básico da linguagem R eu acredito que o grande salto de qualidade é entender exatamente como funcionam as principais estruturas de dados da linguagem, como o matrix, data.frame, list e etc. Além disso também acho muito importante entender como trabalhar com datas, como consultar bancos de dados relacionais, como alterar a estrutura de tabelas e etc. Enfim, uma série de conhecimentos com relação à manipulação de dados. Tudo isto está aqui nesse livro, que eu considero um dos melhores da série <a href="http://www.springer.com/series/6991">User R!</a>. Uma vez que se perde tanto tempo na etapa de preparação de dados, eu acredito que o conteúdo deste livro é essencial.</p>
+<p><a href="./../../../wp-content/uploads/2016/03/The-Art-of-R-Programming-Matloff-Norman.jpg" rel="attachment wp-att-872"><img class="wp-image-872 alignright" src="./../../../wp-content/uploads/2016/03/The-Art-of-R-Programming-Matloff-Norman.jpg" alt="The-Art-of-R-Programming-Matloff-Norman" width="158" height="209" srcset="./../../../wp-content/uploads/2016/03/The-Art-of-R-Programming-Matloff-Norman.jpg 303w, ./../../../wp-content/uploads/2016/03/The-Art-of-R-Programming-Matloff-Norman-227x300.jpg 227w" sizes="(max-width: 158px) 100vw, 158px" /></a></p>
+<p style="text-align: justify;">Além das técnicas que você vai aprender no livro anterior, o segundo próximo salto de qualidade que um usuário da linguagem R pode conseguir é aprender a como programar com eficiência no R. Quem já tem experiência com programação em outras linguagens costuma ter hábitos que no R podem deixar os scripts muito lentos. Esse livro é muito interessante neste aspecto, mostrando para o usuário porque isso é um problema e como você pode programar melhor. O livro também fala do processo de manipulação de strings e diversos outros tópicos super interessantes. Acho que é uma leitura obrigatória.</p>
+<p><a href="./../../../wp-content/uploads/2016/03/ggplot2.jpg" rel="attachment wp-att-878"><img class="wp-image-878 alignleft" src="./../../../wp-content/uploads/2016/03/ggplot2.jpg" alt="ggplot2" width="159" height="239" srcset="./../../../wp-content/uploads/2016/03/ggplot2.jpg 333w, ./../../../wp-content/uploads/2016/03/ggplot2-200x300.jpg 200w" sizes="(max-width: 159px) 100vw, 159px" /></a></p>
+<p style="text-align: justify;">Depois de aprender a usar bem a linguagem, o usuário provavelmente já deve estar versado no processo de gerar visualizações básicas com os gráficos do pacote base. ENTRETANTO, a maioria dos gráficos de altíssima qualidade que você vê por aí, gerados com R, são criados com o ggplot2. Eu acho ESSENCIAL aprender a utilizar este sistema gráfico. Assim, minha sugestão é correr os exemplos desse livro pelo menos uma vez, para entender a famosa &#8220;gramática dos gráficos&#8221; que o ggplot2 implementa. Fiquem atentos que a versão disponível desse livro para compra provavelmente é antiga, e uma nova versão atualizada estará sendo lançada em breve, agora em 2016.</p>
+<p><a href="./../../../wp-content/uploads/2016/03/isl.jpg" rel="attachment wp-att-873"><img class="wp-image-873 alignright" src="./../../../wp-content/uploads/2016/03/isl.jpg" alt="isl" width="150" height="226" srcset="./../../../wp-content/uploads/2016/03/isl.jpg 1016w, ./../../../wp-content/uploads/2016/03/isl-199x300.jpg 199w, ./../../../wp-content/uploads/2016/03/isl-768x1157.jpg 768w, ./../../../wp-content/uploads/2016/03/isl-680x1024.jpg 680w" sizes="(max-width: 150px) 100vw, 150px" /></a></p>
+<p style="text-align: justify;">Se você pretende trabalhar com Data Science e quer realmente entender como funcionam os algoritmos de machine learning minha sugestão é começar com este livro. É um livro de leitura tranquila, feito justamente para profissionais de outras áreas entenderem e aplicarem estes métodos e escrito por dois caras que eu sou fã. Esse livro é ótimo como uma introdução ao machine learning ou statistical learning onde todos os exemplos são implementados na linguagem R. Apesar de não ser um livro sobre a linguagem, é um livro ótimo caso você queira uma introdução ao assunto que utilize o R. Entretanto não é um daqueles livros de aplicações, é um livro teórico sobre o assunto, um livro que poderia ser utilizado em uma disciplina universitária por exemplo. Dois outros pontos fortes do livro são: 1) está disponível de graça <a href="http://www-bcf.usc.edu/~gareth/ISL/">aqui</a>. 2) Em janeiro os autores costumam oferecer um <a href="https://lagunita.stanford.edu/courses/HumanitiesSciences/StatLearning/Winter2016/about">MOOC</a> que é praticamente passar por todo este livro.</p>
+<p><a href="./../../../wp-content/uploads/2016/03/ESLII.jpg" rel="attachment wp-att-874"><img class="wp-image-874 alignleft" src="./../../../wp-content/uploads/2016/03/ESLII.jpg" alt="SSS Hastie etal.qxd (Page 1)" width="149" height="224" srcset="./../../../wp-content/uploads/2016/03/ESLII.jpg 827w, ./../../../wp-content/uploads/2016/03/ESLII-200x300.jpg 200w, ./../../../wp-content/uploads/2016/03/ESLII-768x1154.jpg 768w, ./../../../wp-content/uploads/2016/03/ESLII-681x1024.jpg 681w" sizes="(max-width: 149px) 100vw, 149px" /></a></p>
+<p style="text-align: justify;">Esse é o irmão mais velho do livro anterior. É uma verdadeira obra de referência na área, só que é um livro que apresenta o conteúdo em um nível que pode estar muito acima daquele estudante que está apenas começando na área de análise de dados. Os próprios autores afirmam que escreveram o &#8220;introduction&#8221; para remediar esse problema. Entretanto é um livro fantástico, super completo, cheio de ótimos exemplos tal que se você quiser um livro para entender todos os detalhes de machine learning (e tiver disposição para isso!) esse é o livro que você deve ter. O livro também é disponibilizado gratuitamente nesse <a href="http://statweb.stanford.edu/~tibs/ElemStatLearn/">link</a>, mas o livro impresso é de uma qualidade impressionante, vale muito a pena.</p>
+<p><a href="./../../../wp-content/uploads/2016/03/applied_predictive_modelling.jpg" rel="attachment wp-att-875"><img class=" wp-image-875 alignleft" src="./../../../wp-content/uploads/2016/03/applied_predictive_modelling.jpg" alt="applied_predictive_modelling" width="147" height="222" /></a></p>
+<p style="text-align: justify;">Esse é o livro irmão do &#8220;Introduction of Statistical Learning&#8221;, como os próprio autores afirmam. O livro apresenta exemplos reais de análises utilizando as técnicas apresentadas no &#8220;introduction&#8221;. Você vai ver exemplos de classificação, avaliação de modelos, regressão, etc. Os dados são dados reais utilizados em pesquisas dos autores. O livro é muito interessante para ver como se faz data science na realidade. Cheio de exemplos super interessantes em áreas como quimiometria, detecção de fraude, segmentação de clientes e etc. Os autores abordam problemas como: seleção de atributos, problemas com classe desbalanceada, preenchimento de dados faltantes e etc. O livro portanto tem um enfoque nos aspectos práticos da modelagem e deixa a teoria sobre os modelos utilizados para outros livros. Os autores deste livro são os mesmos autores do pacote <a href="http://caret.r-forge.r-project.org/">caret</a> que é tão utilizado pela comunidade R para automatizar tarefas de modelagem. Eles utilizam o pacote extensivamente ao longo do livro.</p>
+<p style="text-align: justify;"><a href="./../../../wp-content/uploads/2016/03/handook_data_mining.jpg" rel="attachment wp-att-890"><img class="wp-image-890 alignleft" src="./../../../wp-content/uploads/2016/03/handook_data_mining.jpg" alt="handook_data_mining" width="151" height="185" srcset="./../../../wp-content/uploads/2016/03/handook_data_mining.jpg 300w, ./../../../wp-content/uploads/2016/03/handook_data_mining-244x300.jpg 244w" sizes="(max-width: 151px) 100vw, 151px" /></a> Por fim, eu gostaria de adicionar esse livro a lista porque é um livro super interessante para discutir em linhas gerais o processo de data mining. Ele é um livro mais na linha do livros clássicos de data mining, mas que conta com muitas aplicações. Neste livro são apresentadas análises práticas de problemas de predição de churn, de fraude, segmentação de clientes, previsão de risco e etc. Só pelos exemplos das aplicações já vale a pena. As aplicações não utilizam o R, mas utilizam SAS, Stata, SPSS dentre outros. É uma boa fonte também para quem quer ver como se faz esse tipo de análise em outros softwares.</p>
+<h2 style="text-align: justify;">Conclusão</h2>
+<p style="text-align: justify;">Está longe de ser uma lista exaustiva, muitos bons títulos que eu não conheço devem ter ficado de fora, mas são todos livros que fizeram muito a diferença para mim. Também me restringi aos livros que eu realmente li e usei, e muitos aí eu uso como referência até hoje. Eu teria outras sugestões para livros sobre experimentos, livros sobre análise de survey, séries temporais e etc. Entretanto eu coloquei mais uma bibliografia básica sobre o que costuma ser abordado em currículos de cursos de Data Science que eu vejo por aí.</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2016/03/12/livros-recomendados-data-science/feed/index.html</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+		</item>
+		<item>
+		<title>Regras de associação: vendas cruzadas e recomendação</title>
+		<link>./../../../2016/03/01/regras-de-associacao-vendas-cruzadas-e-recomendacao/index.html</link>
+		<comments>./../../../2016/03/01/regras-de-associacao-vendas-cruzadas-e-recomendacao/index.html#comments</comments>
+		<pubDate>Wed, 02 Mar 2016 00:00:10 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Data Mining]]></category>
+		<category><![CDATA[Educação]]></category>
+		<category><![CDATA[Estatística]]></category>
+		<category><![CDATA[Mineração de Dados]]></category>
+		<category><![CDATA[R e RStudio]]></category>
+
+		<guid isPermaLink="false">./../../../index.html?p=841</guid>
+		<description><![CDATA[Caros leitores, fizemos um novo hangout na semana passada, desta vez sobre regras de associação. Vocês podem conferir aqui o vídeo: Para resumir, no vídeo falamos um pouco sobre o que são as regras de associação, as aplicações em vendas cruzadas e recomendação e foi apresentado também um exemplo prático da famosa &#8220;market basket analysis&#8221; ou análise de cestas de mercado. O material usado na apresentação, com os slides em PDF e os códigos, está...]]></description>
+				<content:encoded><![CDATA[<p>Caros leitores, fizemos um novo hangout na semana passada, desta vez sobre regras de associação. Vocês podem conferir aqui o vídeo:</p>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/yg9DRPWi524?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<p style="text-align: justify;">Para resumir, no vídeo falamos um pouco sobre o que são as regras de associação, as aplicações em vendas cruzadas e recomendação e foi apresentado também um exemplo prático da famosa &#8220;market basket analysis&#8221; ou análise de cestas de mercado.</p>
+<p style="text-align: justify;">O material usado na apresentação, com os slides em PDF e os códigos, está disponível no <a href="https://github.com/flaviobarros/lombz_association_rules" target="_blank">github</a>. E também gostaria de deixar como sugestão a leitura dos artigos sobre como implementar regras de associação com <a href="https://pt.wikipedia.org/wiki/MapReduce" target="_blank">mapreduce</a> (em Big Data) e o outro artigo sobre como o Youtube usou regras de associação no seu sistema de recomendação de vídeos. Aqui vão os links:</p>
+<ul>
+<li style="text-align: justify;"><a href="http://www.inf.unibz.it/~ricci/ISR/papers/p293-davidson.pdf" target="_blank">The YouTube Video Recommendation System</a></li>
+<li style="text-align: justify;"><a href="http://worldcomp-proceedings.com/proc/p2012/PDP7948.pdf" target="_blank">Apriori-Map/Reduce Algorithm</a></li>
+</ul>
+<p>Por favor, não deixe de curtir nossa página no Facebook!</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2016/03/01/regras-de-associacao-vendas-cruzadas-e-recomendacao/feed/index.html</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+		<item>
+		<title>Cluster &#8211; Segmentação de Clientes</title>
+		<link>./../../../2016/02/22/cluster-segmentacao-de-clientes/index.html</link>
+		<comments>./../../../2016/02/22/cluster-segmentacao-de-clientes/index.html#respond</comments>
+		<pubDate>Mon, 22 Feb 2016 07:46:50 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Data Mining]]></category>
+		<category><![CDATA[Educação]]></category>
+		<category><![CDATA[Estatística]]></category>
+		<category><![CDATA[Mineração de Dados]]></category>
+		<category><![CDATA[R e RStudio]]></category>
+
+		<guid isPermaLink="false">./../../../index.html?p=830</guid>
+		<description><![CDATA[OBS: Caros visitantes, curtam a  página do R Mining no Facebook, aqui ao lado! Agradeço muito. Caros leitores do blog, por conta de diversos fatores eu só estou conseguindo postar agora, pela primeira vez esse ano, em fevereiro. Enfim, demorou, mas eu tenho algo que eu acho que pode ser interessante. Um grupo de amigos, arquitetos de soluções em grandes empresas de São Paulo, está organizando alguns hangouts sobre Big Data. Você pode assistir os...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;"><strong>OBS: Caros visitantes, curtam a  página do R Mining no Facebook, aqui ao lado! Agradeço muito.</strong></p>
+<p style="text-align: justify;">Caros leitores do blog, por conta de diversos fatores eu só estou conseguindo postar agora, pela primeira vez esse ano, em fevereiro. Enfim, demorou, mas eu tenho algo que eu acho que pode ser interessante. Um grupo de amigos, arquitetos de soluções em grandes empresas de São Paulo, está organizando alguns hangouts sobre Big Data. Você pode assistir os hangouts que estão disponíveis até o momento nesse <a href="https://www.youtube.com/playlist?list=PLACuKp_68Ygn6UxGOwJeZx7T9nD5NZiFt" target="_blank">playlist</a>, ou mesmo ver um por um aqui:</p>
+<ul>
+<li>BIG DATA &#8211; Buscando as respostas onde elas estão.</li>
+</ul>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/efYAIH5dprc?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<ul>
+<li>Falando sobre Arquitetura para Big Data.</li>
+</ul>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/smloHdrdbdY?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<ul>
+<li>Cluster &#8211; Segmentação de Clientes</li>
+</ul>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/vkOObS6N7ZM?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<p style="text-align: justify;">Eu tive a oportunidade de ser  comentarista em dois deles.</p>
+<p style="text-align: justify;">E o que é esse post então? Bom, como de repente alguém poderia querer ver os códigos utilizados no terceiro vídeo, e até alguns exemplos suplementares, eu vou apresentar aqui o link dos códigos no <a href="https://github.com/flaviobarros/lombz_cluster">Github</a> e também vou destacar o que eu acho interessante sobre a análise.</p>
+<ul style="text-align: justify;">
+<li style="text-align: justify;">Essa é uma análise simples e o conjunto de dados é bem pequeno;</li>
+<li style="text-align: justify;">A ideia é apresentar o conceito de cluster;</li>
+<li style="text-align: justify;">Aplicação com segmentação de clientes;</li>
+<li style="text-align: justify;">Descobrir o número de clusters pelo dendograma;</li>
+<li style="text-align: justify;">Descobrir o número de clusters pelo método do cotovelo;</li>
+<li style="text-align: justify;">Após o agrupamento a análise dos grupos provê insights;</li>
+</ul>
+<p style="text-align: justify;">Aqui naturalmente eu não abordei diversos tópicos no que diz respeito a aplicação da metodologia de clusters, mas como uma introdução acho que foi interessante. De resto, não vou colocar mais detalhes, como eu faço regularmente nas análises aqui, pois já temos os códigos e também o vídeo sobre a discussão.</p>
+<p style="text-align: justify;">
+]]></content:encoded>
+			<wfw:commentRss>./../../../2016/02/22/cluster-segmentacao-de-clientes/feed/index.html</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Curso &#8220;As Ferramentas do Cientista de Dados&#8221; do Coursera</title>
+		<link>./../../../2015/09/10/curso-as-ferramentas-do-cientista-de-dados-do-coursera/index.html</link>
+		<comments>./../../../2015/09/10/curso-as-ferramentas-do-cientista-de-dados-do-coursera/index.html#comments</comments>
+		<pubDate>Fri, 11 Sep 2015 00:24:53 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Educação]]></category>
+		<category><![CDATA[Estatística]]></category>
+		<category><![CDATA[Git & Github]]></category>
+		<category><![CDATA[MOOCS]]></category>
+		<category><![CDATA[R e RStudio]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=741</guid>
+		<description><![CDATA[Hoje eu vou fazer uma pequena resenha sobre o curso &#8220;As Ferramentas do Cientista de Dados&#8221; oferecido pelo Coursera, com o objetivo de avaliar o curso e direcionar os leitores sobre a escolha de fazê-lo ou não. Sobre o que é o curso? Inicialmente eu gostaria de destacar que esse é o curso inicial da especialização em Data Science do Coursera, oferecida em parceria com professores da Johns Hopkins University. A especialização compreende 10 cursos...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">Hoje eu vou fazer uma pequena resenha sobre o curso &#8220;<span style="color: #0000ff;"><a style="color: #0000ff;" href="https://www.coursera.org/course/datascitoolbox">As Ferramentas do Cientista de Dados</a></span>&#8221; oferecido pelo Coursera, com o objetivo de avaliar o curso e direcionar os leitores sobre a escolha de fazê-lo ou não.</p>
+<h2 style="text-align: justify;">Sobre o que é o curso?</h2>
+<p style="text-align: justify;">Inicialmente eu gostaria de destacar que esse é o curso inicial da especialização em <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://www.coursera.org/specializations/jhudatascience?utm_medium=courseDescripTop">Data Science do Coursera</a></span>, oferecida em parceria com professores da Johns Hopkins University. A especialização compreende 10 cursos que em tese capacitam o aluno como um cientista de dados júnior.</p>
+<p style="text-align: justify;">Esse curso em especial atua como uma forma de preparação inicial, introduzindo as ideias da especialização como um todo e fornecendo aos alunos um direcionamento com relação as ferramentas que ele vai utilizar durante os 9 cursos seguintes. Em resumo, ele oferece:</p>
+<ul>
+<li style="text-align: justify;">Introdução sobre todos os outros 9 cursos</li>
+<li style="text-align: justify;">Breve introdução ao <a href="https://www.r-project.org/">R</a> &amp; <a href="https://www.rstudio.com/">RStudio</a></li>
+<li style="text-align: justify;">Como instalar pacotes no <a href="https://www.r-project.org/">R</a></li>
+<li style="text-align: justify;">Introdução ao <a href="http://rmarkdown.rstudio.com/">RMarkdown</a></li>
+<li style="text-align: justify;"><a href="https://git-scm.com/book/pt-br/v1/Primeiros-passos-No%C3%A7%C3%B5es-B%C3%A1sicas-de-Git">Git</a> e <a href="https://github.com/">Github</a></li>
+<li style="text-align: justify;">Introdução ao que é Ciência de Dados e Big Data</li>
+</ul>
+<h2>Quanto tempo leva?</h2>
+<p style="text-align: justify;">O curso é previsto para 3 semanas, mas de fato com um mínimo de dedicação é possível realizar TODAS AS TAREFAS EM 1 HORA. Não estou brincando, realmente em uma hora você pode terminar tudo, principalmente se você já usou um <a href="http://git-scm.com/">git</a> ou <a href="https://github.com/">github</a> pelo menos uma vez na vida. Eu me inscrevi para avaliar o curso e fiz tudo em uma hora.</p>
+<h2 style="text-align: justify;">Vale a pena?</h2>
+<p style="text-align: justify;">Essa é uma questão difícil de responder, mas atualmente eu diria que não. Por quê? Porque o curso isoladamente não significa nada. Se o aluno pretende aprender a usar o <a href="http://git-scm.com/">git</a> e <a href="https://github.com/">github</a> existem recursos gratuitos muito melhores na internet. Além disso a introdução que ele faz dos outros cursos, e mesmo alguns conteúdos apresentados, bem poderiam fazer parte dos outros 9 cursos da especialização. Enfim, só faz sentido fazer esse curso se você planeja terminar a especialização inteira, uma vez que você é obrigado a concluir os 10 cursos para poder participar do <a href="https://www.coursera.org/course/dsscapstone">projeto final</a>.</p>
+<h2 style="text-align: justify;">Nem a parte sobre Git vale a pena?</h2>
+<p style="text-align: justify;">Como eu disse eu acredito que esse curso poderia ser canibalizado pelos outros, e na minha opinião, não havia a necessidade de criar um curso separado só para isso. Ainda assim posso dizer que a introdução ao Git e Github é razoável, pensando em um usuário que nunca viu Git e não sabe o que é.</p>
+<h2 style="text-align: justify;">Conclusão</h2>
+<p style="text-align: justify;">Se você pretende fazer a especialização vai ter que fazer esse curso, caso contrário existem materiais melhores, gratuitos, onde você pode ter uma boa ideia e uma boa introdução a todos os tópicos tratados nesse curso.</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2015/09/10/curso-as-ferramentas-do-cientista-de-dados-do-coursera/feed/index.html</wfw:commentRss>
+		<slash:comments>7</slash:comments>
+		</item>
+		<item>
+		<title>Curso &#8220;Developing Data Products&#8221; do Coursera</title>
+		<link>./../../../2015/08/24/curso-developing-data-products-do-coursera/index.html</link>
+		<comments>./../../../2015/08/24/curso-developing-data-products-do-coursera/index.html#comments</comments>
+		<pubDate>Mon, 24 Aug 2015 15:35:53 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Educação]]></category>
+		<category><![CDATA[Estatística]]></category>
+		<category><![CDATA[MOOCS]]></category>
+		<category><![CDATA[R e RStudio]]></category>
+		<category><![CDATA[Shiny]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=702</guid>
+		<description><![CDATA[Eu acabei de terminar as atividades desse curso do Coursera: Developing Data Products ou Desenvolvendo Produtos baseados em Dados. Assim, nesse post, vou fazer um overview do curso para que você saiba se vale a pena ou não fazê-lo. 1. O que é o curso? O nome do curso pode parecer obscuro a primeira vista, principalmente para quem não é da área, mas o curso é simplesmente sobre como você pode transformar dados/análises em produtos, isto é,...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">Eu acabei de terminar as atividades desse curso do Coursera: <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://www.coursera.org/course/devdataprod" target="_blank">Developing Data Products</a> <span style="color: #000000;">ou <span style="color: #333333;">Desenvolvendo</span> <span style="color: #333333;">Produtos baseados em Dados. Assim, nesse post, vou fazer um overview do curso para que você saiba se vale a pena ou não fazê-lo.</span></span></span></p>
+<h2 style="text-align: justify;">1. O que é o curso?</h2>
+<p style="text-align: justify;">O nome do curso pode parecer obscuro a primeira vista, principalmente para quem não é da área, mas o curso é simplesmente sobre como você pode transformar dados/análises em produtos, isto é, sair dos dados crús para um produto usável até por quem não tem nenhuma intimidade com análise de dados/estatística.</p>
+<p style="text-align: justify;">Todo estatístico ou analista, pelo menos alguma vez, produziu algum produto baseado em dados, seja um  um relatório ou uma apresentação em slides. Entretanto, esse curso não se trata de como criar relatórios, mas sim de como criar aplicações web interativas, apresentações/visualizações que podem ser compartilhadas na web, pacotes do R e funções que podem ser compartilhadas em uma API. Enfim, o curso é sobre como um cientista de dados pode compartilhar seu trabalho na web com outras pessoas.</p>
+<h2 style="text-align: justify;">2. Pré-requisitos</h2>
+<p>Esse curso é o último curso da <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://www.coursera.org/specialization/jhudatascience/1" target="_blank">Especialização em Data Sciensce do Coursera</a></span>, assim subtendem-se muitos pré-requisitos:</p>
+<ul>
+<li>Domínio da linguagem R.</li>
+<li>Domínio de ferramentas como <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://git-scm.com/book/pt-br/v1/Primeiros-passos-No%C3%A7%C3%B5es-B%C3%A1sicas-de-Git">Git</a></span>, <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://github.com/">Github</a></span>, <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://www.rstudio.com/">RStudio</a></span>, <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://rmarkdown.rstudio.com/">RMarkdown</a></span> e etc.</li>
+<li>Domínio de estatística e modelagem de dados.</li>
+</ul>
+<p style="text-align: justify;">ENTRETANTO, se você é, por exemplo, um analista com experiência prática em algum pacote estatístico, que domina o R ou tem a facilidade de aprender novas linguagens, esse curso pode ser para você. Minha única ressalva é que se você tem experiência somente com interfaces Point &amp; Click e nunca ouviu falar do R, talvez precise fazer algum treinamento sobre o R e <a href="https://git-scm.com/book/pt-br/v1/Primeiros-passos-No%C3%A7%C3%B5es-B%C3%A1sicas-de-Git"><span style="color: #0000ff;">Git</span></a>.</p>
+<h2 style="text-align: justify;">3. Conteúdo</h2>
+<p>O curso aborda os seguintes tópicos:</p>
+<ol>
+<li>Aplicações Shiny.</li>
+<li>Criação de pacotes do R.</li>
+<li>Apresentações interativas com RStudio Presenter e Slidfy.</li>
+<li>rCharts.</li>
+<li>Plot.ly.</li>
+</ol>
+<p style="text-align: justify;">A ênfase com certeza é no Shiny. Aliás o projeto final de curso é com o Shiny e é onde você será mais cobrado.</p>
+<p style="text-align: justify;">As avaliações foram por meio de quizes e por meio de um projeto final que consistia na criação de uma aplicação Shiny e uma apresentação sobre a aplicação.</p>
+<h2>Minha experiência</h2>
+<ul>
+<li style="text-align: justify;">Eu achei o curso muito interessante, principalmente porque eu já tinha experiência com o Shiny, especialmente a implantação.</li>
+<li style="text-align: justify;">Em termos de dificuldade o curso é mediano e a parte mais exigente é a criação do aplicativo em Shiny.</li>
+<li style="text-align: justify;">A criação de pacotes em R é um bônus, e se você é um usuário básico eu acredito que aprender a criar seus próprios pacotes é um grande bônus desse curso.</li>
+<li style="text-align: justify;">A criação de apresentações é trivial e se for seu único interesse não valeria a pena fazer o curso inteiro.</li>
+</ul>
+<p style="text-align: justify;"> O curso exige umas 4 horas por semana e aprender a usar bem o Shiny realmente vale a pena. Muitos estatísticos não são programadores web e a possibilidade de transformar suas análises em websites completos sem ter que aprender novas linguagens de programação é uma habilidade muito interessante.</p>
+<p style="text-align: justify;">O curso é bem introdutório com relação ao Shiny e se você quiser se aprofundar você DEVE ver <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://www.rstudio.com/resources/webinars/">esse material</a></span>.</p>
+<h2 style="text-align: justify;">Conclusão</h2>
+<p style="text-align: justify;">Vale muito a pena, o material é muito bom e é um dos melhores meios para começar a usar o Shiny. Eu acredito que o Shiny é, de uma certa forma, revolucionário uma vez que para emular algo parecido um cientista de dados deveria dominar diversas habilidades como programação web, implantação de software, infraestrutura, estatística e etc. Com o Shiny basta saber usar o R e você já consegue modelar, analisar, criar visualizações e compartilhar tudo na Web.</p>
+<p style="text-align: justify;">ENTRETANTO, esteja ciente que é um curso BÁSICO. A partir do que você aprender aqui você vai ter uma base sólida para começar a criar suas aplicações, MAS VAI TER que consultar outros materiais, principalmente os materiais produzidos pela equipe do RStudio.</p>
+<p style="text-align: justify;">Por fim, veja algumas aplicações feitas em Shiny para você ter uma ideia do potencial dessa ferramenta:</p>
+<ol>
+<li style="text-align: justify;"><span style="color: #0000ff;"><a style="color: #0000ff;" href="https://gallery.shinyapps.io/slr_diag/">Linear Regression Diagnostics</a></span></li>
+<li style="text-align: justify;"><span style="color: #0000ff;"><a style="color: #0000ff;" href="https://trestletech.shinyapps.io/dallas-police/">Police Calls</a></span></li>
+</ol>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2015/08/24/curso-developing-data-products-do-coursera/feed/index.html</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+		<item>
+		<title>MOOCs and courses to learn R</title>
+		<link>./../../../2014/03/14/online-multimedia-resources-learn-r/index.html</link>
+		<comments>./../../../2014/03/14/online-multimedia-resources-learn-r/index.html#comments</comments>
+		<pubDate>Fri, 14 Mar 2014 17:02:31 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Educação]]></category>
+		<category><![CDATA[English]]></category>
+		<category><![CDATA[MOOCS]]></category>
+		<category><![CDATA[R e RStudio]]></category>
+		<category><![CDATA[r-bloggers]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=376</guid>
+		<description><![CDATA[Inspired by this article i thought about gather here all multimedia resources that i know to learn use R. Today there is a lot of online courses, some MOOC&#8217;s too, that offer reasonable resources to start with R. I will just list the materials in sequence and offer my evaluation about them. Of course your evaluation can be different; this case fell free to comment. In the future i can update the material. Let&#8217;s begin:...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">Inspired by <span style="color: #0000ff;"><a href="http://www.r-bloggers.com/an-r-meta-book/"><span style="color: #0000ff;">this article</span></a></span> i thought about gather here all multimedia resources that i know to learn use R. Today there is a lot of online courses, some MOOC&#8217;s too, that offer reasonable resources to start with R.</p>
+<p style="text-align: justify;">I will just list the materials in sequence and offer my evaluation about them. Of course your evaluation can be different; this case fell free to comment. In the future i can update the material. Let&#8217;s begin:</p>
+<p><span style="color: #0000ff;">1. </span><a style="color: #0000ff;" href="https://www.coursera.org/course/compdata">Computing for Data Analysis</a></p>
+<p style="text-align: justify;">This course was offered multiple times from 2012 to 2014. I did the course at 2013 and the course was very well formatted, with good exercises and lots of resources. It was offered on Coursera platform, that i particularly think excellent, and take an average effort to finish. There is quiz questions and program assignments. The course is free.</p>
+<p><span style="color: #0000ff;"><span style="color: #0000ff;">2. </span></span><span style="color: #0000ff;"><a href="https://www.coursera.org/course/rprog"><span style="color: #0000ff;">R Programming</span></a></span></p>
+<p style="text-align: justify;">This course is offered at coursera too, from the same instructor as Computing for Data Analysis. According to course syllabus: &#8220;The course covers practical issues in statistical computing which includes programming in R, reading data into R, accessing R packages, writing R functions, debugging, and organizing and commenting R code. Topics in statistical data analysis and optimization will provide working examples.&#8221;</p>
+<p style="text-align: justify;">Well, once that there is now the coursera specializations, i thinks that this course is &#8220;Computing for Data Analysis&#8221; rebuilded. SO, if you already did the first course i don&#8217;t see any advantage doing this one, unless you want to get the specialization certificate.</p>
+<p><span style="color: #0000ff;"><span style="color: #0000ff;">3. </span></span><span style="color: #0000ff;"><a href="https://www.coursera.org/course/dataanalysis"><span style="color: #0000ff;">Data Analysis</span></a></span></p>
+<p style="text-align: justify;">This course was about the practical aspect of data analysis with R. All activities was in R, but the course wasn&#8217;t about R itself. But it was very good and you can learn a lot of R with it. The course is free and offered on Cousera platform.</p>
+<p style="text-align: justify;">OBS: Both, Computing for Data Analysis and Data Analysis, can be replaced for other courses on <span style="color: #0000ff;"><a href="https://www.coursera.org/specialization/jhudatascience/1?utm_medium=listingPage"><span style="color: #0000ff;">coursera specialization</span></a></span>. I won&#8217;t comment now about these new courses because some of them are being offered now and other will be offered on the  next months. Anyway both course materials are avaliable on youtube.</p>
+<p><span style="color: #0000ff;"><span style="color: #0000ff;">4. </span></span><span style="color: #0000ff;"><a href="https://www.coursera.org/specialization/jhudatascience/1?utm_medium=listingPage"><span style="color: #0000ff;">Introduction to Data Analysis with R</span></a></span></p>
+<p style="text-align: justify;">This course is being offered at bigdatauniversity platform. The course is a good starting point but i don&#8217;t this platform like so much. But the pros of this course is that you can do it on your pace and it have less material to cover. It&#8217;s a quick introduction  to R.</p>
+<p><span style="color: #0000ff;"><span style="color: #0000ff;">5. </span></span><span style="color: #0000ff;"><a href="http://bigdatauniversity.com/bdu-wp/bdu-course/data-mining-with-r-let-r-rattle-you/"><span style="color: #0000ff;">Data Mining with R</span></a></span></p>
+<p style="text-align: justify;">This course will be too offered at bigdatauniversity, but it&#8217;s not avaliable right now. It will be recorded, and you can participate through live stream from bigdatauniversity, and released on that platform. The course doesn&#8217;t have a syllabus available, but i think that the content of <span style="color: #0000ff;"><a href="http://www.amazon.com/Data-Mining-Rattle-Excavating-Knowledge/dp/1441998896/ref=sr_1_2?ie=UTF8&amp;qid=1394813754&amp;sr=8-2&amp;keywords=data+mining+with+R"><span style="color: #0000ff;">this book</span></a></span>, will probably be the topics discussed.</p>
+<p style="text-align: justify;"><span style="color: #0000ff;"><a href="http://rattle.togaware.com/"><span style="color: #0000ff;">Rattle</span></a></span> is a GUI for datamining that uses R as backend. It&#8217;s very intuitive and resembles Weka interface. While it&#8217;s not as flexible as use R directly it provides a quick way to explore and buid models with R. With Rattle() every step taken is saved on a log that you can use as scripts to automate tasks.</p>
+<p><span style="color: #0000ff;"><span style="color: #0000ff;">6. </span></span><span style="color: #0000ff;"><a href="http://bigdatauniversity.com/bdu-wp/bdu-course/using-r-with-databases/"><span style="color: #0000ff;">Using R with Databases</span></a></span></p>
+<p style="text-align: justify;">This course is too being offered at bigdatauniversity. It&#8217;s supposing you have some R skills and is about the use of databases with R. It uses IBM DB2 specifically, but you can  apply the concepts to others databases as well. It&#8217;s free and i liked it.</p>
+<p><span style="color: #0000ff;"><span style="color: #0000ff;">7. </span></span><span style="color: #0000ff;"><a href="http://online.stanford.edu/course/statistical-learning-winter-2014"><span style="color: #0000ff;">Statistical Learning</span></a></span></p>
+<p style="text-align: justify;">I&#8217;m taking this course right now and i will write a post specifically about it. BUT, just to clarify, it&#8217;s a course about machine learning (or statiscical learning if you want) based on the introductory book <span style="color: #0000ff;"><a href="http://www-bcf.usc.edu/~gareth/ISL/"><span style="color: #0000ff;">Introduction to Statistical Learning</span></a><span style="color: #0000ff;">. </span></span></p>
+<p style="text-align: justify;">The course isn&#8217;t about R itself but all the techniques are implemented using R. This course is a easy way to read the book. The course is free and is offered at openedX platform, that is a wonderful platform for MOOCs.</p>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/2wLfFB_6SKI?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<p><span style="color: #0000ff;"><span style="color: #0000ff;">8. </span></span><span style="color: #0000ff;"><a href="https://www.udemy.com/introduction-to-r/?sl=E0YSdzFTKn5uFFkoCkA%3D&amp;dtcode=n7fuldbm"><span style="color: #0000ff;">Introduction to R</span></a></span></p>
+<p style="text-align: justify;">This course is offered at <span style="color: #0000ff;"><a href="https://www.udemy.com/courses/"><span style="color: #0000ff;">Udemy</span></a></span> platform. Udemy is a great platform both to create your own course as to take a course. The course is not free, but it has good reviews of users and you have 30 days to evaluate the material and be refounded.</p>
+<p style="text-align: justify;">The author claim that you can learn the basics with 2 days of course.</p>
+<p><span style="color: #0000ff;"><span style="color: #0000ff;">9. </span></span><span style="color: #0000ff;"><a href="https://www.edx.org/course/kix/kix-kiexplorx-explore-statistics-r-1524"><span style="color: #0000ff;">Explore Statistics with R</span></a></span></p>
+<p style="text-align: justify;">This course will be released at september on edX. So no further comments.</p>
+<p><span style="color: #0000ff;"><span style="color: #0000ff;">10. </span></span><span style="color: #0000ff;"><a href="Build Web Apps in R with Shiny"><span style="color: #0000ff;">Build Web Apps in R with Shiny</span></a></span></p>
+<p style="text-align: justify;">This is another Udemy course. Worth of checking.</p>
+<p style="text-align: justify;">Obs: Coursera will offer <span style="color: #0000ff;"><a href="https://www.coursera.org/course/devdataprod"><span style="color: #0000ff;">Developing Data Products</span></a></span> for free next june. This course is about the very same topics. So maybe it&#8217;s worth wait.<span style="color: #0000ff;"><br />
+</span></p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2014/03/14/online-multimedia-resources-learn-r/feed/index.html</wfw:commentRss>
+		<slash:comments>7</slash:comments>
+		</item>
+		<item>
+		<title>Plataforma edX liberada!</title>
+		<link>./../../../2013/06/01/plataforma-edx-liberada/index.html</link>
+		<comments>./../../../2013/06/01/plataforma-edx-liberada/index.html#respond</comments>
+		<pubDate>Sat, 01 Jun 2013 17:34:15 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Educação]]></category>
+		<category><![CDATA[MOOCS]]></category>
+		<category><![CDATA[ensino à distância]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=65</guid>
+		<description><![CDATA[O edX é uma iniciativa de ensino à distância fundada por Harvard e MIT. Além da parceria com as Universidades para criar, gerenciar e oferecer gratuitamente os cursos, também foi criada uma plataforma com recursos Web 2.0 e inteligência artificial que permite a eles oferecerem cursos com milhares participantes e um staff reduzido. No oferecimento desses cursos chamados MOOC, a plataforma é uma peça fundamental. Como forma de fomentar esse modelo de educação superior e permitir...]]></description>
+				<content:encoded><![CDATA[<p><script type="text/javascript">// <![CDATA[
+<span class="mceItemHidden" data-mce-bogus="1">
+    bb_bid = "1693329";
+    bb_lang = "en-US";
+    bb_name = "<span class="hiddenSpellError" pre="" data-mce-bogus="1">custom</span>";
+    bb_limit = "7";
+    bb_format = "<span class="hiddenSpellError" pre="" data-mce-bogus="1">bbc</span>";
+</span>
+// ]]&gt;</script><br />
+<script src="http://static.boo-box.com/javascripts/embed.js" type="text/javascript"></script></p>
+<p style="text-align: justify;">O edX é uma iniciativa de ensino à distância fundada por Harvard e MIT. Além da parceria com as Universidades para criar, gerenciar e oferecer gratuitamente os cursos, também foi criada uma plataforma com recursos Web 2.0 e inteligência artificial que permite a eles oferecerem cursos com milhares participantes e um <em>staff</em> reduzido. No oferecimento desses cursos chamados MOOC, a plataforma é uma peça fundamental.</p>
+<p style="text-align: justify;"><a href="http://www.flaviobarros.net/wp-content/uploads/2013/06/edX.png"><img class="aligncenter size-full wp-image-153" src="http://www.flaviobarros.net/wp-content/uploads/2013/06/edX.png" alt="edX" width="200" height="200" srcset="./../../../wp-content/uploads/2013/06/edX.png 200w, ./../../../wp-content/uploads/2013/06/edX-150x150.png 150w, ./../../../wp-content/uploads/2013/06/edX-90x90.png 90w" sizes="(max-width: 200px) 100vw, 200px" /></a></p>
+<p style="text-align: justify;">Como forma de fomentar esse modelo de educação superior e permitir o acesso a essas tecnologias em todas as partes do mundo, o edX se juntou a Stanford para construir uma plataforma de código aberto que pode ser utilizada por empresas, universidades e individuais. A partir de hoje, dia 1 de junho de 2013, a plataforma estará disponível para download. Qualquer pessoa pode instalar, criar cursos e oferece-los on-line. De acordo com as palavras do fundador do edX: &#8220;eu sempre digo que o edX vai se tornar o Linux da educação&#8221;, assim espero.</p>
+<p style="text-align: justify;"> Maiores detalhes em<span style="color: #0000ff;"> <a href="http://code.edx.org/"><span style="color: #0000ff;">http://code.edx.org/</span></a></span>.</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2013/06/01/plataforma-edx-liberada/feed/index.html</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

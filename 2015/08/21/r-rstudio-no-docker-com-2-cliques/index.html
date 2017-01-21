@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="./../../../../xmlrpc.php">
+
+<title>R &#038; RStudio no Docker com 2 cliques! &#8211; R Mining</title>
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Feed para R Mining &raquo;" href="./../../../../feed/index.html" />
+<link rel="alternate" type="application/rss+xml" title="Feed de comentários para R Mining &raquo;" href="./../../../../comments/feed/index.html" />
+<link rel="alternate" type="application/rss+xml" title="Feed de comentários para R Mining &raquo; R &#038; RStudio no Docker com 2 cliques!" href="./feed/index.html" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/svg\/","svgExt":".svg","source":{"concatemoji":".\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.7.1"}};
+			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),!(j.toDataURL().length<3e3)&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,65039,8205,55356,57096),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,55356,57096),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55357,56425,55356,57341,8205,55357,56507),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55357,56425,55356,57341,55357,56507),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='profitmag-font-awesome-css'  href='./../../../../wp-content/themes/profitmag/css/font-awesome.min.css?ver=4.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-bxslider-style-css'  href='./../../../../wp-content/themes/profitmag/css/jquery.bxslider.css?ver=4.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-ticker-style-css'  href='./../../../../wp-content/themes/profitmag/css/ticker-style.css?ver=4.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-noivolightbox-style-css'  href='./../../../../wp-content/themes/profitmag/css/nivo-lightbox.css?ver=4.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-scrollcss-css'  href='./../../../../wp-content/themes/profitmag/css/jquery.mCustomScrollbar.css?ver=4.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-google-font-css'  href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic&#038;subset=latin,latin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-style-css'  href='./../../../../wp-content/themes/profitmag/style.css?ver=4.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-responsive-css'  href='./../../../../wp-content/themes/profitmag/css/responsive.css?ver=4.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-color-scheme-css'  href='./../../../../wp-content/themes/profitmag/css/orange.css' type='text/css' media='all' />
+<script type='text/javascript' src='./../../../../wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='./../../../../wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript' src='./../../../../wp-content/themes/profitmag/js/nivo-lightbox.min.js?ver=4.7.1'></script>
+<script type='text/javascript' src='./../../../../wp-content/themes/profitmag/js/jquery.slicknav.min.js?ver=4.7.1'></script>
+<script type='text/javascript' src='./../../../../wp-content/themes/profitmag/js/modernizr.min.js?ver=2.6.2'></script>
+<link rel='https://api.w.org/' href='./../../../../wp-json/index.html' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="./../../../../xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="./../../../../wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Share your Shiny Apps with Docker and Kitematic!' href='./../../10/share-your-shiny-apps-with-docker-and-kitematic/index.html' />
+<link rel='next' title='Curso &#8220;Developing Data Products&#8221; do Coursera' href='./../../24/curso-developing-data-products-do-coursera/index.html' />
+<meta name="generator" content="WordPress 4.7.1" />
+<link rel="canonical" href="./index.html" />
+<link rel='shortlink' href='./../../../../index.html?p=688' />
+<link rel="alternate" type="application/json+oembed" href="./../../../../wp-json/oembed/1.0/embed/index.html?url=http%3A%2F%2F%2F2015%2F08%2F21%2Fr-rstudio-no-docker-com-2-cliques%2F" />
+<link rel="alternate" type="text/xml+oembed" href="./../../../../wp-json/oembed/1.0/embed/index.html?url=http%3A%2F%2F%2F2015%2F08%2F21%2Fr-rstudio-no-docker-com-2-cliques%2F&#038;format=xml" />
+<style type="text/css"></style></head>
+
+<body class="post-template-default single single-post postid-688 single-format-standard group-blog right_sidebar">
+
+<div id="page" class="hfeed site">
+	
+
+	<header id="masthead" class="site-header clearfix" role="banner">
+        <div class="top-header-block clearfix">
+            <div class="wrapper">
+                        
+                        <div class="right-header f-right">
+                                                    </div>
+             </div>          
+         </div><!-- .top-header-block -->
+
+        <div class="wrapper header-wrapper clearfix">
+        		<div class="header-container"> 
+                
+                    
+                    
+                    <div class="site-branding clearfix">
+            			<div class="site-logo f-left">
+                           
+                                
+                                     <a href="./../../../../index.html" rel="home" class="site-title">
+
+                                        R Mining                                    </a> 
+                                    
+                                        <p class="site-description">Mineração de Dados, Estatística, Tecnologia</p>
+
+                                                               
+                        </div>
+                        
+                                                			
+            		</div>
+
+                                
+            		<nav id="site-navigation" class="main-navigation home-nav-icon clearfix menu-left" role="navigation" >
+            			<div class="desktop-menu clearfix">
+                                                        <div class="home-icon">
+                                    <a href="./../../../../index.html" title="R Mining"><i class="fa fa-home"></i></a>
+                                </div>
+                                <div class="menu-links-container"><ul id="menu-links" class="menu"><li id="menu-item-173" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-173"><a href="http://www.r-bloggers.com/">R-Bloggers! Dicas e códigos para R.</a></li>
+<li id="menu-item-846" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-846"><a href="./../../../../sobre-mim/index.html">Sobre mim</a></li>
+<li id="menu-item-822" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-822"><a href="./../../../../newsletter/index.html">newsletter</a></li>
+</ul></div>
+                        <div class="search-block">
+                                                            <form role="search" method="get" id="searchform" class="searchform" action="./../../../../index.html" >
+    <div><label class="screen-reader-text" for="s"></label>
+    <input type="text" value="" name="s" id="s" placeholder="Search" />
+    <input type="submit" id="searchsubmit" value="Search" />
+    </div>
+    </form>                                                    </div>
+                        </div>
+                        <div class="responsive-slick-menu clearfix"></div>
+                        
+            		</nav><!-- #site-navigation -->
+        
+                </div> <!-- .header-container -->
+        </div><!-- header-wrapper-->
+        
+	</header><!-- #masthead -->
+    
+
+    <div class="wrapper content-wrapper clearfix">
+
+        <div class="slider-feature-wrap clearfix">
+            <!-- Slider -->
+                        
+            <!-- Featured Post Beside Slider -->
+                    	
+                    </div>    
+            <div id="content" class="site-content">
+    
+   
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+
+		            
+			
+<article id="post-688" class="post-688 post type-post status-publish format-standard has-post-thumbnail hentry category-docker category-estatistica category-linux category-r-e-rstudio">
+	<header class="entry-header">
+		<h1 class="entry-title">R &#038; RStudio no Docker com 2 cliques!</h1>
+		<div class="entry-meta">
+			<span class="posted-on">Posted on <a href="./index.html" rel="bookmark"><time class="entry-date published" datetime="2015-08-21T19:46:14+00:00">agosto 21, 2015</time><time class="updated" datetime="2015-12-23T02:12:02+00:00">dezembro 23, 2015</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="./../../../../author/flavio/index.html">Flavio Barros</a></span></span>		</div><!-- .entry-meta -->
+	</header><!-- .entry-header -->
+
+	<div class="single-feat clearfix">
+        <figure class="single-thumb">
+            <img width="353" height="353" src="./../../../../wp-content/uploads/2015/08/RStudio-Ball.png" class="attachment-single-thumb size-single-thumb wp-post-image" alt="" srcset="./../../../../wp-content/uploads/2015/08/RStudio-Ball.png 1000w, ./../../../../wp-content/uploads/2015/08/RStudio-Ball-150x150.png 150w, ./../../../../wp-content/uploads/2015/08/RStudio-Ball-300x300.png 300w, ./../../../../wp-content/uploads/2015/08/RStudio-Ball-65x65.png 65w" sizes="(max-width: 353px) 100vw, 353px" />        </figure>
+        
+        <div class="related-post">
+            <h2 class="block-title"><span class="bordertitle-red"></span>Related Post</h2>
+            <ul>                
+                    <li><a href="./../../../../2016/10/15/usando-r-com-o-monetdb/index.html" title="Usando R com o MonetDB">Usando R com o MonetDB</a></li> 
+                   
+                    
+                    <li><a href="./../../../../2016/09/27/como-fazer-um-carometro-em-shiny/index.html" title="Como fazer um carômetro em Shiny">Como fazer um carômetro em Shiny</a></li> 
+                   
+                    
+                    <li><a href="./../../../../2016/04/21/onde-estudar-estatistica/index.html" title="Onde estudar Estatística?">Onde estudar Estatística?</a></li> 
+                   
+                    
+                    <li><a href="./../../../../2016/04/04/impeachment-analise-das-intencoes/index.html" title="Impeachment &#8211; Análise das Intenções">Impeachment &#8211; Análise das Intenções</a></li> 
+                   
+                    
+                    <li><a href="./../../../../2016/03/14/reconhecimento-de-digitos-escritos-mao-parte-3/index.html" title="RECONHECIMENTO DE DÍGITOS ESCRITOS A MÃO – PARTE 3">RECONHECIMENTO DE DÍGITOS ESCRITOS A MÃO – PARTE 3</a></li> 
+                   
+    </ul>    
+                <ul>
+                
+            </ul>
+        </div>
+    </div>
+    
+    <div class="entry-content">
+		
+        <figure></figure>
+        <p style="text-align: justify;">Quem já me pagou uma visita aqui já deve ter percebido umas três coisas:</p>
+<ol>
+<li>eu gosto muito de usar R;</li>
+<li>eu gosto muito de usar o Docker;</li>
+<li>eu gosto de combinar os dois;</li>
+</ol>
+<p style="text-align: justify;">Como sou colaborador do <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://www.r-bloggers.com/">r-bloggers</a></span>, talvez o agregador de blogs mais importante para comunidade de usuários de R &amp; Data Science no mundo, eu regularmente publico material em inglês aqui, infelizmente. Infelizmente porque eu percebi que deixei de compartilhar alguns recursos muito úteis que qualquer usuário do R &amp; RStudio poderia se beneficiar, principalmente no Brasil onde eu percebo que falta material sobre a linguagem. Assim vou remediar um pouco esse problema (eu espero!) com uma dica para o uso do Docker, principalmente para professores que usam o R em seus cursos.</p>
+<h2 style="text-align: justify;">Mas para qual PROBLEMA?</h2>
+<p style="text-align: justify;">Bem, um dos principais problemas que eu já tive em cursos onde o R é o ambiente principal utilizado é com relação a uniformidade do ambiente de trabalho dos alunos. Acredito que quem já usou o software alguma vez, com grandes turmas, já deve ter se deparado com o seguinte cenário: você escolhe usar o R pois não tem um software estatístico no laboratório, decide usar um RStudio, ou alguma outra interface gráfica para &#8220;facilitar&#8221; a vida dos alunos, MAS, INFELIZMENTE, a &#8220;informática&#8221; da instituição nunca consegue garantir um ambiente 100% para os alunos, e você só descobre o problema na hora da aula, justamente quando os alunos precisam rodar aquele script super importante que você preparou em casa! E não adianta reclamar, pois por mais que você solicite  nunca está 100%.</p>
+<p style="text-align: justify;">Isso é um grande problema, mas talvez não seja culpa só do departamento de TI da instituição. O grande problema é que é muito difícil garantir que tudo funcione quando os laboratórios das universidades utilizam computadores com diferentes configurações, diferentes sistemas operacionais e tem equipes com diferentes perfis. Enfim, é um problema grave e que não para por ai.</p>
+<p style="text-align: justify;">Outro problema associado a esse, e que também traz uma tremenda dor de cabeça, é quando você pede para um usuário instalar o R &amp; RStudio em casa. Em um universo perfeito (no meu!) todo munda usa o Linux e com um <a href="https://help.ubuntu.com/12.04/serverguide/apt-get.html" target="_blank">apt-get install</a> está tudo resolvido. Infelizmente, a maioria das pessoas não só usa o Windows como também usa o Word como editor de textos principal para preparar trabalhos e relatórios (<a href="https://pt.wikipedia.org/wiki/LaTeX" target="_blank">LATEX</a> e <a href="https://pt.wikipedia.org/wiki/Markdown">Markdown</a>?!). Dado isto, aquele relatório bonitinho e bem formatado que você esperava que pudesse ser produzido na aula mesmo, só copiando e colando os códigos em R no <a href="http://rmarkdown.rstudio.com/">RMarkdown</a> esquece! Não só porque a galera não quer usar, mas porque quando eles tentam compilar para Latex o miserável nunca está instalado e funcionando corretamente!</p>
+<h2 style="text-align: justify;">Qual seria a solução?</h2>
+<p>A solução está no Docker. Eu já falei dele aqui nesse blog mas para quem caiu aqui de para-quedas vou fornecer o mesmo texto sobre o Docker.</p>
+<h2>Docker</h2>
+<p style="text-align: justify;">Se você de alguma forma acompanha notícias do mundo open source então você provavelmente já ouviu falar do <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://www.docker.com/" target="_blank">Docker</a></span>. O Docker é uma ferramenta fantástica que permite criar contêineres de software, totalmente isolados do sistema operacional hospedeiro. Ele funciona como uma máquina virtual, mas é simplesmente muito mais leve.</p>
+<p style="text-align: justify;">A ideia por trás do docker é que o desenvolvedor cria um contêiner com todas as bilbiotecas e dependêcias que desejar garantindo que tudo funciona. O responsável pela implantação do software não precisa saber o que há dentro do contêiner, ele só precisa ser capaz de rodar contêineres no servidor. Ainda que uma funcionalidade como essa pudesse ser obtida com máquinas virtuais, elas acabavam vindo com muito mais que o necessário, tal que os arquivos eram muito grandes (&gt;&gt;1Gb) e tornavam o sistema hospedeiro muito lento.</p>
+<p style="text-align: justify;">O docker por outro lado, não usa um SO completo, ele compartilha o mesmo Kernel do hospedeiro mas é um ambiente completamente isolado. Assim, rodar contêineres do docker é muito, mas muito mais leve que rodar uma máquina virtual. Os recursos do docker não param por ai, ele também permite uma espécie de versionamento de contêineres e tem uma espécie de github para contêineres, o <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://hub.docker.com/account/signup/" target="_blank">Docker Hub</a></span>, de onde o usuário pode baixar e usar imagens prontas para diversos softwares, como o MySQL, Postgres, LAMP, WordPress, dentre outros. Nesse vídeo um dos criadores do projeto fala sobre o Docker.</p>
+<h2 style="text-align: justify;">R &amp; RStudio, Rocker o Kitematic</h2>
+<p style="text-align: justify;">Logo depois que Docker apareceu, apareceram também diversos projetos associados que criaram um ecossistema de ferramentas. Dentre estas ferramentas, uma que é muito interessante é o <a href="https://kitematic.com/" target="_blank">Kitematic</a>. O Kitematic é uma interface gráfica para manipulação de contêineres e acesso ao Docker Hub. Com ele o usuário praticamente não precisa saber nada sobre docker para poder utilizar um software &#8220;conteinerizado&#8221;. Assim, o usuário pode instalar com alguns cliques, desde o WordPress, um <a href="http://www.flaviobarros.net/2015/08/10/share-your-shiny-apps-with-docker-and-kitematic/" target="_blank">App Shiny</a> ou o RStudio.</p>
+<p style="text-align: justify;">Especialmente no caso do R &amp; RStudio &amp; Shiny, existe um projeto chamado <a href="http://dirk.eddelbuettel.com/blog/2014/10/23/">Rocker</a> que mantém contêineres oficiais para o R, o <a href="https://www.rstudio.com/products/rstudio/#Server">RStudio Server</a> e o <a href="https://www.rstudio.com/products/shiny/">Shiny Server</a>. Com esses contêineres, com apenas alguns comandos do docker, você pode ter um RStudio server, completamente configurado, rodando na sua máquina, sem precisar instalar o R ou qualquer outra biblioteca. Tudo que você precisa é instalar o docker, e se ele estiver instalado COM CERTEZA qualquer pessoa que rodar seu contêiner vai conseguir ter acesso a um ambiente sempre igual. Enfim, é a solução para a homogeneização de ambientes para cursos e universidades, em qualquer sistema operacional.</p>
+<h2 style="text-align: justify;">Como eu posso fazer isso?</h2>
+<p style="text-align: justify;">Bom, ao invés de me alongar mais no texto vou te apresentar um screencast de exemplo. Veja que eu estou usando o Linux, onde o Kitematic roda ainda de forma <a href="https://github.com/kitematic/kitematic/issues/49">experimental</a>, mas o mesmo procedimento pode ser feito no Windows e no Mac. O Kitematic suporta oficialmente estas duas plataformas.</p>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/0iKT-JX-P6Y?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<h2>Conclusão</h2>
+<p>É uma solução que pode universalizar uma plataforma idêntica para todos. Em resumo apresenta as seguintes vantagens em relação a uma instalação tradicional:</p>
+<ol>
+<li>Todos rodam uma plataforma idêntica. Se é possível fazer algo em uma então será possível repetir em todas, COM CERTEZA;</li>
+<li>Não há problemas com bibliotecas, o que estiver no contêiner todos vão ter;</li>
+<li>Só é necessário instalar um único programa, o Docker;</li>
+<li>É uma solução multiplataforma: funciona no Linux, no Windows no Mac. Os ambientes são idênticos;</li>
+<li>Não há necessidade de usar a linha de comando, só interfaces gráficas;</li>
+</ol>
+<p style="text-align: justify;">
+			</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		
+						<span class="cat-links">
+				Posted in <a href="./../../../../category/docker/index.html" rel="category tag">Docker</a>, <a href="./../../../../category/estatistica/index.html" rel="category tag">Estatística</a>, <a href="./../../../../category/linux/index.html" rel="category tag">Linux</a>, <a href="./../../../../category/r-e-rstudio/index.html" rel="category tag">R e RStudio</a>			</span>
+			
+					     
+	
+
+			</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+
+			
+	<nav class="navigation post-navigation" role="navigation">
+		<h2 class="screen-reader-text">Navegação de Post</h2>
+		<div class="nav-links"><div class="nav-previous"><a href="./../../10/share-your-shiny-apps-with-docker-and-kitematic/index.html" rel="prev">Share your Shiny Apps with Docker and Kitematic!</a></div><div class="nav-next"><a href="./../../24/curso-developing-data-products-do-coursera/index.html" rel="next">Curso &#8220;Developing Data Products&#8221; do Coursera</a></div></div>
+	</nav>
+			
+<div id="comments" class="comments-area">
+
+	
+			<h2 class="comments-title">
+			<span class="bordertitle-red"></span>			
+			COMMENTS		</h2>
+
+		
+		<ul class="comment-list">
+			    <li class="pingback even thread-even depth-1" id="comment-85">
+        <div id="div-comment-85" class="comment-body clearfix">
+        <div class="comment-author vcard">
+        <cite class="fn"><a href='http://www.pegueido.com.br/r-rstudio-no-docker-com-2-cliques/' rel='external nofollow' class='url'>R &amp; RStudio no Docker com 2 cliques - Peguei do</a></cite>    </div>
+    
+    <div class="comment-meta commentmetadata"><a href="./index.html#comment-85">
+        <i class="fa fa-clock-o"></i>
+agosto 26, 2015 at 4:07 am</a>    </div>
+
+    <p>[&#8230;] “Um dos principais problemas que eu já tive em cursos onde o R é o ambiente principal utilizado é com relação a uniformidade do ambiente de trabalho dos alunos. Acredito que quem já usou o software alguma vez, com grandes turmas, já deve ter se deparado com o seguinte cenário: você escolhe usar o R pois não tem um software estatístico no laboratório, decide usar um RStudio, ou alguma outra interface gráfica para “facilitar” a vida dos alunos, MAS, INFELIZMENTE, a “informática” da instituição nunca consegue garantir um ambiente 100% para os alunos, e você só descobre o problema na hora da aula, justamente quando os alunos precisam rodar aquele script super importante que você preparou em casa! E não adianta reclamar, pois por mais que você solicite nunca está 100%.” [referência: flaviobarros.net] [&#8230;]</p>
+
+    <div class="reply">
+    <i class="fa fa-thumbs-up"></i>
+    <i class="fa fa-thumbs-down"></i>
+    <a rel="nofollow" class="comment-reply-login" href="./../../../../wp-login.php?redirect_to=http%3A%2F%2F%2F2015%2F08%2F21%2Fr-rstudio-no-docker-com-2-cliques%2F">Faça login para responder</a>    </div>
+        </div>
+    </li><!-- #comment-## -->
+    <li class="pingback odd alt thread-odd thread-alt depth-1" id="comment-100">
+        <div id="div-comment-100" class="comment-body clearfix">
+        <div class="comment-author vcard">
+        <cite class="fn"><a href='http://www.flaviobarros.net/2015/10/02/novo-endereco-www-rmining-net/' rel='external nofollow' class='url'>Novo endereço: www.rmining.net - Flavio Barros</a></cite>    </div>
+    
+    <div class="comment-meta commentmetadata"><a href="./index.html#comment-100">
+        <i class="fa fa-clock-o"></i>
+outubro 2, 2015 at 6:12 pm</a>    </div>
+
+    <p>[&#8230;] R &amp; RStudio no Docker com 2 cliques [&#8230;]</p>
+
+    <div class="reply">
+    <i class="fa fa-thumbs-up"></i>
+    <i class="fa fa-thumbs-down"></i>
+    <a rel="nofollow" class="comment-reply-login" href="./../../../../wp-login.php?redirect_to=http%3A%2F%2F%2F2015%2F08%2F21%2Fr-rstudio-no-docker-com-2-cliques%2F">Faça login para responder</a>    </div>
+        </div>
+    </li><!-- #comment-## -->
+		</ul><!-- .comment-list -->
+
+		
+	
+	
+		<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title"><span class="bordertitle-red"></span>Leave a Comment <small><a rel="nofollow" id="cancel-comment-reply-link" href="./index.html#respond" style="display:none;">Cancelar resposta</a></small></h3><p class="must-log-in">Você precisa fazer o <a href="./../../../../wp-login.php?redirect_to=http%3A%2F%2F%2F2015%2F08%2F21%2Fr-rstudio-no-docker-com-2-cliques%2F">login</a> para publicar um comentário.</p>	</div><!-- #respond -->
+	
+</div><!-- #comments -->
+                        
+            
+            
+		
+		</main><!-- #main -->
+	</div><!-- #primary -->
+
+
+    
+            <div id="secondary-right" class="widget-area secondary-sidebar f-right clearfix" role="complementary">
+                        <div id="sidebar-section-top" class="widget-area sidebar clearfix">
+                 		<aside id="profitmag-popular-posts-3" class="widget profitmag_widget_popular_entries">		<h3 class="widget-title"><span>Popular</span></h3>		<ul>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./../../../../2016/09/27/como-fazer-um-carometro-em-shiny/index.html"><img src="./../../../../wp-content/uploads/2016/09/tiririca.jpg" alt="Como fazer um carômetro em Shiny" title="Como fazer um carômetro em Shiny" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./../../../../2016/09/27/como-fazer-um-carometro-em-shiny/index.html">Como fazer um carômetro em Shiny</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>setembro 27, 2016</div>
+			
+			</li>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./../../../../2016/03/12/livros-recomendados-data-science/index.html"><img src="./../../../../wp-content/uploads/2016/03/data_smart.jpg" alt="Livros recomendados &#8211; Data Science" title="Livros recomendados &#8211; Data Science" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./../../../../2016/03/12/livros-recomendados-data-science/index.html">Livros recomendados &#8211; Data Science</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>março 12, 2016</div>
+			
+			</li>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./../../../../2013/06/10/anova-e-teste-de-tukey-no-r/index.html"><img src="./../../../../wp-content/uploads/2013/06/ANOVA-193x112.png" alt="ANOVA e  teste de Tukey no R" title="ANOVA e  teste de Tukey no R" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./../../../../2013/06/10/anova-e-teste-de-tukey-no-r/index.html">ANOVA e  teste de Tukey no R</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>junho 10, 2013</div>
+			
+			</li>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./../../../../2014/10/14/como-fazer-mapas-eleitorais/index.html"><img src="./../../../../wp-content/uploads/2014/10/sampa.png" alt="Como fazer mapas eleitorais" title="Como fazer mapas eleitorais" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./../../../../2014/10/14/como-fazer-mapas-eleitorais/index.html">Como fazer mapas eleitorais</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>outubro 14, 2014</div>
+			
+			</li>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./../../../../2014/02/25/genetic-data-large-matrices-glmnet/index.html"><img src="./../../../../wp-content/uploads/2014/02/geneticdata-193x112.jpg" alt="Genetic data, large matrices and glmnet()" title="Genetic data, large matrices and glmnet()" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./../../../../2014/02/25/genetic-data-large-matrices-glmnet/index.html">Genetic data, large matrices and glmnet()</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>fevereiro 25, 2014</div>
+			
+			</li>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./../../../04/30/dockerizando-shiny-apps/index.html"><img src="./../../../../wp-content/uploads/2017/01/shiny-193x112.png" alt="Dockerizando Shiny Apps" title="Dockerizando Shiny Apps" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./../../../04/30/dockerizando-shiny-apps/index.html">Dockerizando Shiny Apps</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>abril 30, 2015</div>
+			
+			</li>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./../../../../2016/10/15/usando-r-com-o-monetdb/index.html"><img src="./../../../../wp-content/uploads/2016/10/monetdb-final-500.png" alt="Usando R com o MonetDB" title="Usando R com o MonetDB" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./../../../../2016/10/15/usando-r-com-o-monetdb/index.html">Usando R com o MonetDB</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>outubro 15, 2016</div>
+			
+			</li>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./../../../04/30/dockerizing-a-shiny-app/index.html"><img src="./../../../../wp-content/uploads/2017/01/shiny-193x112.png" alt="Dockerizing a Shiny App" title="Dockerizing a Shiny App" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./../../../04/30/dockerizing-a-shiny-app/index.html">Dockerizing a Shiny App</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>abril 30, 2015</div>
+			
+			</li>
+				</ul>
+		</aside><aside id="categories-7" class="widget widget_categories"><h3 class="widget-title"><span>Categorias</span></h3>		<ul>
+	<li class="cat-item cat-item-41"><a href="./../../../../category/aprendizado-de-maquina/index.html" >Aprendizado de Máquina</a>
+</li>
+	<li class="cat-item cat-item-58"><a href="./../../../../category/data-mining/index.html" >Data Mining</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="./../../../../category/digital-ocean/index.html" >Digital Ocean</a>
+</li>
+	<li class="cat-item cat-item-49"><a href="./../../../../category/django/index.html" >Django</a>
+</li>
+	<li class="cat-item cat-item-46"><a href="./../../../../category/docker/index.html" >Docker</a>
+</li>
+	<li class="cat-item cat-item-6"><a href="./../../../../category/educacao/index.html" >Educação</a>
+</li>
+	<li class="cat-item cat-item-13"><a href="./../../../../category/english/index.html" >English</a>
+</li>
+	<li class="cat-item cat-item-4"><a href="./../../../../category/estatistica/index.html" >Estatística</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="./../../../../category/git-github/index.html" >Git &amp; Github</a>
+</li>
+	<li class="cat-item cat-item-67"><a href="./../../../../category/linux/index.html" >Linux</a>
+</li>
+	<li class="cat-item cat-item-57"><a href="./../../../../category/machine-learning/index.html" >Machine Learning</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="./../../../../category/mineracao-de-dados/index.html" >Mineração de Dados</a>
+</li>
+	<li class="cat-item cat-item-74"><a href="./../../../../category/monetdb/index.html" >MonetDB</a>
+</li>
+	<li class="cat-item cat-item-2"><a href="./../../../../category/moocs/index.html" >MOOCS</a>
+</li>
+	<li class="cat-item cat-item-72"><a href="./../../../../category/politica/index.html" >Política</a>
+</li>
+	<li class="cat-item cat-item-56"><a href="./../../../../category/preparacao-de-dados/index.html" >Preparação de Dados</a>
+</li>
+	<li class="cat-item cat-item-5"><a href="./../../../../category/r-e-rstudio/index.html" >R e RStudio</a>
+</li>
+	<li class="cat-item cat-item-14"><a href="./../../../../category/r-bloggers/index.html" >r-bloggers</a>
+</li>
+	<li class="cat-item cat-item-73"><a href="./../../../../category/sgbd/index.html" >SGBD</a>
+</li>
+	<li class="cat-item cat-item-50"><a href="./../../../../category/shiny/index.html" >Shiny</a>
+</li>
+	<li class="cat-item cat-item-38"><a href="./../../../../category/wordpress/index.html" >Wordpress</a>
+</li>
+		</ul>
+</aside><aside id="tag_cloud-7" class="widget widget_tag_cloud"><h3 class="widget-title"><span>Tags</span></h3><div class="tagcloud"><a href='./../../../../tag/anova/index.html' class='tag-link-8 tag-link-position-1' title='2 tópicos' style='font-size: 12.581818181818pt;'>ANOVA</a>
+<a href='./../../../../tag/boas-praticas/index.html' class='tag-link-54 tag-link-position-2' title='1 tópico' style='font-size: 8pt;'>boas práticas</a>
+<a href='./../../../../tag/comparacoes-multiplas/index.html' class='tag-link-10 tag-link-position-3' title='1 tópico' style='font-size: 8pt;'>Comparações múltiplas</a>
+<a href='./../../../../tag/controle-de-versao/index.html' class='tag-link-53 tag-link-position-4' title='1 tópico' style='font-size: 8pt;'>controle de versão</a>
+<a href='./../../../../tag/coursera/index.html' class='tag-link-22 tag-link-position-5' title='2 tópicos' style='font-size: 12.581818181818pt;'>Coursera</a>
+<a href='./../../../../tag/data-table/index.html' class='tag-link-34 tag-link-position-6' title='1 tópico' style='font-size: 8pt;'>data.table</a>
+<a href='./../../../../tag/data-science/index.html' class='tag-link-66 tag-link-position-7' title='1 tópico' style='font-size: 8pt;'>Data Science</a>
+<a href='./../../../../tag/deploy/index.html' class='tag-link-51 tag-link-position-8' title='2 tópicos' style='font-size: 12.581818181818pt;'>deploy</a>
+<a href='./../../../../tag/deployment/index.html' class='tag-link-45 tag-link-position-9' title='1 tópico' style='font-size: 8pt;'>deployment</a>
+<a href='./../../../../tag/edx/index.html' class='tag-link-20 tag-link-position-10' title='1 tópico' style='font-size: 8pt;'>edX</a>
+<a href='./../../../../tag/ensino-a-distancia/index.html' class='tag-link-12 tag-link-position-11' title='1 tópico' style='font-size: 8pt;'>ensino à distância</a>
+<a href='./../../../../tag/ggplot2/index.html' class='tag-link-36 tag-link-position-12' title='1 tópico' style='font-size: 8pt;'>ggplot2</a>
+<a href='./../../../../tag/git/index.html' class='tag-link-48 tag-link-position-13' title='2 tópicos' style='font-size: 12.581818181818pt;'>git</a>
+<a href='./../../../../tag/glmnet/index.html' class='tag-link-29 tag-link-position-14' title='2 tópicos' style='font-size: 12.581818181818pt;'>glmnet</a>
+<a href='./../../../../tag/handwritten-recognition/index.html' class='tag-link-39 tag-link-position-15' title='1 tópico' style='font-size: 8pt;'>handwritten recognition</a>
+<a href='./../../../../tag/ibge/index.html' class='tag-link-33 tag-link-position-16' title='1 tópico' style='font-size: 8pt;'>IBGE</a>
+<a href='./../../../../tag/implantacao/index.html' class='tag-link-47 tag-link-position-17' title='2 tópicos' style='font-size: 12.581818181818pt;'>implantação</a>
+<a href='./../../../../tag/k-nn/index.html' class='tag-link-63 tag-link-position-18' title='2 tópicos' style='font-size: 12.581818181818pt;'>k-nn</a>
+<a href='./../../../../tag/lasso/index.html' class='tag-link-28 tag-link-position-19' title='2 tópicos' style='font-size: 12.581818181818pt;'>Lasso</a>
+<a href='./../../../../tag/machine-learning/index.html' class='tag-link-40 tag-link-position-20' title='1 tópico' style='font-size: 8pt;'>machine learning</a>
+<a href='./../../../../tag/mapas/index.html' class='tag-link-35 tag-link-position-21' title='1 tópico' style='font-size: 8pt;'>mapas</a>
+<a href='./../../../../tag/mnist/index.html' class='tag-link-60 tag-link-position-22' title='2 tópicos' style='font-size: 12.581818181818pt;'>mnist</a>
+<a href='./../../../../tag/mooc/index.html' class='tag-link-19 tag-link-position-23' title='1 tópico' style='font-size: 8pt;'>MOOC</a>
+<a href='./../../../../tag/moodle/index.html' class='tag-link-7 tag-link-position-24' title='1 tópico' style='font-size: 8pt;'>moodle</a>
+<a href='./../../../../tag/pnad/index.html' class='tag-link-32 tag-link-position-25' title='1 tópico' style='font-size: 8pt;'>PNAD</a>
+<a href='./../../../../tag/post-hoc/index.html' class='tag-link-11 tag-link-position-26' title='1 tópico' style='font-size: 8pt;'>post-hoc</a>
+<a href='./../../../../tag/r-code/index.html' class='tag-link-16 tag-link-position-27' title='1 tópico' style='font-size: 8pt;'>R code</a>
+<a href='./../../../../tag/shiny/index.html' class='tag-link-43 tag-link-position-28' title='2 tópicos' style='font-size: 12.581818181818pt;'>shiny</a>
+<a href='./../../../../tag/statistical-test/index.html' class='tag-link-17 tag-link-position-29' title='1 tópico' style='font-size: 8pt;'>statistical test</a>
+<a href='./../../../../tag/statistics/index.html' class='tag-link-15 tag-link-position-30' title='1 tópico' style='font-size: 8pt;'>statistics</a>
+<a href='./../../../../tag/tukey/index.html' class='tag-link-9 tag-link-position-31' title='2 tópicos' style='font-size: 12.581818181818pt;'>Tukey</a>
+<a href='./../../../../tag/udacity/index.html' class='tag-link-21 tag-link-position-32' title='1 tópico' style='font-size: 8pt;'>Udacity</a>
+<a href='./../../../../tag/web/index.html' class='tag-link-44 tag-link-position-33' title='6 tópicos' style='font-size: 22pt;'>web</a></div>
+</aside>                </div>
+                
+                
+        
+                    
+                    
+            
+                    
+                
+        
+        
+                
+                
+        </div>      
+
+    
+
+
+	</div><!-- #content -->
+    </div><!-- content-wrapper-->
+
+	<footer id="colophon" class="site-footer clearrfix" role="contentinfo">
+        <div class="wrapper footer-wrapper clearfix">
+
+                <div class="top-bottom clearfix">
+                		<div id="footer-top">
+                                                
+                        </div><!-- #foter-top -->
+                        
+                        <div id="footer-bottom">    
+                                                     
+                        </div><!-- #foter-bottom -->
+                </div><!-- top-bottom-->
+                <div class="footer-copyright border t-center">
+                    <p>                        
+                                    Copyright 2016. All rights reserved                                                </p>
+                    <div class="site-info">
+                        <a href="https://wordpress.org/">Proudly powered by WordPress</a>
+                        <span class="sep"> | </span>
+                        Profitmag by <a href="http://rigorousthemes.com/" rel="designer">Rigorous Themes</a>                    </div><!-- .site-info -->
+                    
+                </div>
+                
+
+        </div><!-- footer-wrapper-->
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+<script type='text/javascript' src='./../../../../wp-content/themes/profitmag/js/jquery.bxslider.js?ver=4.7.1'></script>
+<script type='text/javascript' src='./../../../../wp-content/themes/profitmag/js/jquery.ticker.js?ver=4.7.1'></script>
+<script type='text/javascript' src='./../../../../wp-content/themes/profitmag/js/jquery.mCustomScrollbar.min.js?ver=1.0.0'></script>
+<script type='text/javascript' src='./../../../../wp-content/themes/profitmag/js/jquery.mousewheel.min.js?ver=2.0.19'></script>
+<script type='text/javascript' src='./../../../../wp-content/themes/profitmag/js/navigation.js?ver=20120206'></script>
+<script type='text/javascript' src='./../../../../wp-content/themes/profitmag/js/custom.js?ver=1.0'></script>
+<script type='text/javascript' src='./../../../../wp-includes/js/comment-reply.min.js?ver=4.7.1'></script>
+<script type='text/javascript' src='./../../../../wp-includes/js/wp-embed.min.js?ver=4.7.1'></script>
+
+</body>
+</html>

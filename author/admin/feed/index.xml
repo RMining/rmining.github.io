@@ -1,0 +1,757 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Flavio Barros &#8211; R Mining</title>
+	<atom:link href="./index.html" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Mineração de Dados, Estatística, Tecnologia</description>
+	<lastBuildDate>Tue, 17 Jan 2017 10:04:59 +0000</lastBuildDate>
+	<language>pt-BR</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.7.1</generator>
+	<item>
+		<title>Usando R com o MonetDB</title>
+		<link>./../../../2016/10/15/usando-r-com-o-monetdb/index.html</link>
+		<comments>./../../../2016/10/15/usando-r-com-o-monetdb/index.html#respond</comments>
+		<pubDate>Sat, 15 Oct 2016 14:00:47 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[MonetDB]]></category>
+		<category><![CDATA[R e RStudio]]></category>
+		<category><![CDATA[SGBD]]></category>
+
+		<guid isPermaLink="false">./../../../index.html?p=980</guid>
+		<description><![CDATA[Quem já trabalha com a linguagem R há um certo tempo provavelmente já está ciente das limitações da linguagem com relação a conjuntos de dados maiores que a memória RAM. Esse é um problema complicado que está associado com o fato de que quando o R cria um objeto, esse objeto é carregado inteiro na memória. Então, caso o usuário esteja efetuando a leitura de um conjunto de dados, a menos que esse conjunto &#8220;caiba&#8221;...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">Quem já trabalha com a linguagem R há um certo tempo provavelmente já está ciente das limitações da linguagem com relação a conjuntos de dados maiores que a memória RAM. Esse é um problema complicado que está associado com o fato de que quando o R cria um objeto, esse objeto é carregado inteiro na memória. Então, caso o usuário esteja efetuando a leitura de um conjunto de dados, a menos que esse conjunto &#8220;caiba&#8221; na memória, não será possível utiliza-lo dentro do R. Em muitos problemas comumente encontrados em estatística elementar, como analisar dados de experimentos, realizar alguns testes de hipóteses, criar visualizações, dentre outros, isso não é uma limitação pois os objetos são muito menores que a memória RAM do computador. ENTRETANTO, nessa era do &#8220;big data&#8221; não é difícil encontrar situações onde o usuário acaba  tendo problemas sérios com essa dificuldade do R. Umas destas situações sendo a análise de diversos conjuntos de dados públicos, como o Censo Demográfico, ENEM, Censo Escolar, RAIS e etc.</p>
+<p style="text-align: justify;">Mas como resolver esse problema? Há uma <a href="http://pt.stackoverflow.com/questions/30631/estrat%C3%A9gias-para-analisar-bases-de-dados-muito-grandes-em-r-que-n%C3%A3o-caibam-na-m/34004#34004">questão</a> no stackoverflow onde foi perguntado exatamente isso, e eu como um dos participantes forneci minhas apreciações sobre o tema. Basicamente, em situações onde o conjunto de dados é &#8220;manejável&#8221; dentro de um PC comum, mas é maior que a RAM, o ideal é usar um pacote como o <a href="https://cran.r-project.org/web/packages/ff/index.html">ff</a> ou <a href="https://cran.r-project.org/web/packages/bigmemory/index.html">bigmemory</a> ou mesmo utilizar um SGBD. Eu diria que quando estamos trabalhando com conjuntos de dados que superam bastante o tamanho da memória RAM, para mim, o ideal é sempre trabalhar com sistemas de gerenciamento de banco de dados, como o PostgreSQL, o MySQL ou o MonetDB. Especialmente com microdados públicos, que em geral você só precisa ler uma vez e a partir daí só consultar. Além de permitir o armazenamento consistente dos dados, também é possível utilizar o pacote dplyr no R, com o <a href="https://cran.r-project.org/web/packages/dplyr/vignettes/databases.html" rel="nofollow">backend de bancos de dados</a>, tal que você pode utilizar as tabelas do banco utilizando praticamente a mesma sintaxe que utilizaria com um data.frame. É uma solução que é rápida, não tem as limitações que o R têm com RAM e que você pode utilizar depois por muito tempo.</p>
+<h2 style="text-align: justify;">Qual utilizar?</h2>
+<p style="text-align: justify;">De cara recomendo o PostgreSQL e o MySQL. São open source, amplamente utilizados e documentados e tem diversos recursos que se espera em um SGBD. ENTRETANTO HÁ UM PROBLEMA: você precisa instala-los e configura-los. Pode não parecer um grande problema mas o fato é que isso, por si, já impõe uma séria barreira para muitos usuários do R. É uma barreira também por conta de que muitos usuários que não precisam de todos os recursos que sistemas como esse oferecem podem não investir em uma solução como essa pelo trabalho extra necessário para resolver um simples problema com a manipulação de arquivos maiores que a RAM. Porém há alternativas! Dos SGBDs disponíveis, dois que não dão nenhum trabalho de usar com R, não precisando ter que instalar nenhum outro software além do prórprio R, são:</p>
+<ul style="text-align: justify;">
+<li><a href="https://www.sqlite.org/" rel="nofollow">SQLite3</a>;</li>
+<li><a href="https://www.monetdb.org/Home" rel="nofollow">MonetDB</a>;</li>
+</ul>
+<p style="text-align: justify;">O primeiro pode ser utilizado facilmente a partir do R por meio do pacote <a href="https://cran.r-project.org/" rel="nofollow">RSQlite</a> e o segundo por meio do pacote <a href="https://cran.r-project.org/" rel="nofollow">MonetDBLite</a>. O meu preferido, e o que eu vou utilizar aqui como exemplo, é o MonetDB. Vou utilizá-lo porque dos dois é aquele que faz o armazenamento por <a href="https://en.wikipedia.org/wiki/Column-oriented_DBMS" rel="nofollow">colunas</a>. ASSIM, a operação de escrita é um pouco mais cara, mas qualquer operação de consulta é muito mais barata. Se você trabalha com dados que não precisam ser escritos com frequência, mas precisam ser lidos com frequência, sistemas de gerenciamento de banco de dados colunares são superiores. Por outro lado, se além de ler você também precisa escrever no banco frequentemente, um banco como o SQLite (e outros) deve ser superior. Especificamente no caso de microdados, como Censo, ENEM ou Censo Escolar, que você deve carregar o banco uma vez e somente ler a partir daí, acredito que o MonetDB é a melhor opção disponível hoje.</p>
+<h2 style="text-align: justify;">Aplicação</h2>
+<p style="text-align: justify;">Para utilizar a solução que vou propor aqui você deve ter o pacote MonetDBLite instalado no seu computador. No console do R digite:</p>
+<pre class="lang:r decode:true">install.packages('MonetDBLite', dependencies = TRUE)</pre>
+<p style="text-align: justify;">A partir daí, o próximo passo será carregar os dados no banco. Felizmente o MonetDBLite é um pacote que permite fazer isso de forma automática utilizando a função monetdb.read.csv(). Supondo que você está com o conjunto de dados do <a href="http://download.inep.gov.br/microdados/microdados_enem2014.zip">ENEM</a>, no meu caso o microdados_enem2014.csv, no mesmo diretório de trabalho onde você vai rodar o script, execute os seguintes comandos:</p>
+<pre class="lang:r decode:true">## Carregando os pacotes necessários
+library(MonetDBLite)
+library(DBI)
+
+## Definindo um diretório
+dbdir &lt;- 'database/'
+
+## Criando a conexão com um banco, criado na pasta database
+con &lt;- dbConnect( MonetDBLite::MonetDBLite() , dbdir )
+
+## Fazendo a ingestao do csv no banco
+monetdb.read.csv(conn = con, files = 'microdados_enem2014.csv', tablename = 'enem2014', header = TRUE, na.strings = '', delim = ',')
+
+## Listando as tabelas no banco
+dbListTables(con)
+
+## Contanto o número de registros no banco
+dbGetQuery(con, 'SELECT count(*) FROM enem2014')
+
+## Consultando as 100 primeiras linhas
+teste &lt;- dbGetQuery(con, "SELECT * FROM enem2014 LIMIT 100")</pre>
+<p style="text-align: justify;">O carregamento não demorou nem um minuto aqui na minha máquina, core i5 e 16Gb de RAM. Mas acredito que em uma máquina mais modesta deve demorar um pouco mais. Outro ponto fundamental é que o ideal é que o arquivo esteja em UTF-8 para o carregamento, e os csv&#8217;s do ENEM estão em ISO-8859-1. Eu converti o arquivo facilmente por meio do comando iconv no terminal do Linux:</p>
+<pre class="lang:r decode:true">iconv -f ISO-8859-1 -t UTF-8 MICRODADOS_ENEM_2014.csv &gt; microdados_enem2014.csv</pre>
+<p style="text-align: justify;">mas no Windows você deve seguir o procedimento de instalação do iconv mostrado <a href="https://dbaportal.eu/2012/10/24/iconv-for-windows/" rel="nofollow">aqui</a>. De fato há várias maneiras de mudar a codificação de arquivos no Windows e essa é somente uma sugestão.</p>
+<p style="text-align: justify;">Outro ponto a salientar é que como o banco e a tabela no banco já foram criados, você pode fazer consultas diretamente em SQL, como se estivesse no terminal do banco. Se você souber SQL seu problema está resolvido e basta gerar os dados necessários a partir da consulta e depois processá-los como data.frame no R.</p>
+<h2 style="text-align: justify;">Usando o dplyr</h2>
+<p style="text-align: justify;">Naturalmente a melhor opção para usar bancos de dados com o R é utilizando o dplyr diretamente, o que permite ao usuário do R trabalhar com o banco sem escrever uma única linha de SQL. O mais legal dessa estratégia é que o dplyr converte os comandos em R para querys em SQL e até os resultados intermediários das consultas ficam dentro do banco de dados, tal que não há problemas de performance relacionados as limitações do R com a memória RAM.</p>
+<p style="text-align: justify;">Como um exemplo, vamos consultar a nota média dos alunos por estado e dependência administrativa, usando o dplyr.</p>
+<pre class="lang:r decode:true">## Carregando o pacote
+library(dplyr)
+
+## Ligando o dplyr na tabela
+my_db &lt;- MonetDBLite::src_monetdb(embedded=dbdir)
+my_tbl &lt;- tbl(my_db, "enem2014")
+
+## Obtendo média de matemática por estado e dependência administrativa
+consulta &lt;- my_tbl %&gt;% group_by(COD_UF_ESC, ID_DEPENDENCIA_ADM_ESC) %&gt;% summarise(mean(NOTA_MT))
+
+## Salvando a consulta como um data.frame
+consulta &lt;- collect(consulta)</pre>
+<p style="text-align: justify;">o que resulta em:</p>
+<pre class="lang:r decode:true">  COD_UF_ESC ID_DEPENDENCIA_ADM_ESC       L1
+        &lt;int&gt;                  &lt;int&gt;    &lt;dbl&gt;
+1          NA                     NA 472.1223
+2          26                      2 441.0514
+3          32                      2 454.2741
+4          35                      2 468.1310
+5          11                      2 440.4378
+6          33                      4 554.1954
+7          33                      2 456.5003
+8          23                      2 436.1984
+9          29                      2 433.5961
+10         53                      4 447.5004</pre>
+<p style="text-align: justify;">Veja que será necessário converter os códigos das Unidades da Federação e da dependência administrativa para os respectivos nomes, que estão disponíveis no dicionário que vem com os dados do ENEM. Outro ponto é que ao final da consulta, para &#8220;salvar&#8221; o resultado da consulta como um data.frame no R você deve usar a função collect().</p>
+<p style="text-align: justify;">Por fim, ao terminar de utilizar o banco, você pode desconectar e desligar a instância do MonetDB que foi criada e está rodando na sua máquina:</p>
+<pre class="lang:r decode:true">## Desconectando do banco
+dbDisconnect(con, shutdown=TRUE)</pre>
+<p style="text-align: justify;">fique tranquilo que seus dados estão intactos. Se você precisar usar o banco depois basta reconectar como já fizemos anteriormente:</p>
+<pre class="lang:r decode:true ">## Criando a conexão com um banco, criado na pasta database
+con &lt;- dbConnect( MonetDBLite::MonetDBLite() , dbdir )</pre>
+<h2>Conclusão</h2>
+<p>Esta é uma solução excelente quando o analista pode consultar um grande banco, filtrar conjuntos menores e depois analisa-los dentro do R. Também é uma forma econômica de manter grandes conjuntos de dados armazenados para futuras consultas em diversos projetos. ENTRETANTO não é a solução indicada quando você precisa criar modelos diretamente no SGBD. Sendo o caso, o ideal é utilizar outros tipos de soluções.</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2016/10/15/usando-r-com-o-monetdb/feed/index.html</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Como fazer um carômetro em Shiny</title>
+		<link>./../../../2016/09/27/como-fazer-um-carometro-em-shiny/index.html</link>
+		<comments>./../../../2016/09/27/como-fazer-um-carometro-em-shiny/index.html#respond</comments>
+		<pubDate>Tue, 27 Sep 2016 16:18:01 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Git & Github]]></category>
+		<category><![CDATA[R e RStudio]]></category>
+		<category><![CDATA[Shiny]]></category>
+
+		<guid isPermaLink="false">./../../../index.html?p=971</guid>
+		<description><![CDATA[Eu venho utilizando o Shiny há um bom tempo. Eu acho que é uma tecnologia fantástica que permite aos usuários da linguagem R criarem pequenas aplicações web que expões scripts, pacotes, funções e diversos outros produtos baseados em dados, sem a necessidade de aprender Javascript, CSS e etc. De fato o que o Shiny faz não é ciência de foguete, mas o público que utiliza o R, em sua maioria, não são programadores web, tal...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">Eu venho utilizando o Shiny há um bom tempo. Eu acho que é uma tecnologia fantástica que permite aos usuários da linguagem R criarem pequenas aplicações web que expões scripts, pacotes, funções e diversos outros produtos baseados em dados, sem a necessidade de aprender Javascript, CSS e etc. De fato o que o Shiny faz não é ciência de foguete, mas o público que utiliza o R, em sua maioria, não são programadores web, tal que com essa tecnologia eles podem criar pequenas aplicações imediatamente.</p>
+<h2 style="text-align: justify;">Carômetro</h2>
+<p style="text-align: justify;">Eu não sei ao certo onde surgiu esse termo, mas é utilizado em geral como um repositório de informações de pessoas com uma foto associada, com a &#8220;cara&#8221; das pessoas. Eu que já fui professor em escolas da educação básica e já vi em várias delas o uso do carômetro para identificação dos alunos em conselhos. Mais recentemente ele vem sendo bastante utilizado na política e de fato há vários exemplos em várias linguagens de como fazer <a href="https://github.com/germanocorrea/carometro">carômetros</a>.</p>
+<h2>Carômetro no Shiny</h2>
+<p style="text-align: justify;">Quando eu tive a ideia de construir esse carômetro em Shiny eu fui procurar na internet achando que seria algo trivial de fazer. De fato, não que seja algo muito complicado como em breve você vai ver, mas não encontrei nada pronto e também não me foi imediato qual a melhor estratégia usar. O que eu fiz então? Basicamente eu utilizei o <a href="https://rstudio.github.io/shinydashboard/">ShinyDashboard</a>, coloquei as imagens dentro de um box() e adicionei todas as informações necessárias, salvas em um arquivo de dados com as informações de cada deputado.</p>
+<p style="text-align: justify;">O código no Github está disponível aqui:</p>
+<p><a href="https://github.com/flaviobarros/carometro">https://github.com/flaviobarros/carometro</a></p>
+<h2>Detalhes</h2>
+<p>Para quem não tem experiência com o Shiny eu vou salientar dois recursos que eu utilizei. O primeiro foi com relação a filtragem dos dados da tabela deputados. No excerto de código a seguir, que está no arquivo <a href="https://github.com/flaviobarros/carometro/blob/master/server.R">server.R</a>, você vai ver que eu crio uma função para a tabela, baseada nos inputs das caixas de seleção, e sempre que preciso apresentar os dados dos deputados eu me refiro ao função deputados(), tal que garanto que a filtragem é executada toda vez, mantendo a apresentação atualizada.</p>
+<pre class="lang:r decode:true ">## Observer
+  deputados &lt;- reactive({
+    load("./data/deputados.rda")
+    deputados &lt;- deputados %&gt;%
+      filter(voto %in% input$voto)
+  })</pre>
+<p>Esse é um padrão chamado observer, muito útil nesse tipo de situação.</p>
+<p style="text-align: justify;">O segundo recurso que eu utilizei nesse app, e que pode parecer bem estranho, é que parte da UI está dentro do <a href="https://github.com/flaviobarros/carometro/blob/master/server.R">server.R</a>. Eu fiz isso porque desde a primeira apresentação, essa parte da UI DEPENDE DOS DADOS FILTRADOS dos deputados. Essa apresentação depende da função deputados(), logo eu declarei um espaço para os boxes no ui.R mas a renderização de fato ocorre dentro do server, depois que os dados de deputados são filtrados.</p>
+<h2 style="text-align: justify;">Preview</h2>
+<p>Segue um gif com o preview da aplicação.</p>
+<p><a href="./../../../wp-content/uploads/2016/09/anim.gif"><img class="aligncenter size-full wp-image-974" src="./../../../wp-content/uploads/2016/09/anim.gif" alt="carometro" width="1331" height="738" /></a></p>
+<p>Ela também se encontra disponível no shinyapps.io: <a href="https://flaviobarros.shinyapps.io/carometro/">https://flaviobarros.shinyapps.io/carometro/</a></p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2016/09/27/como-fazer-um-carometro-em-shiny/feed/index.html</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Use o stackoverflow!</title>
+		<link>./../../../2016/09/22/use-o-stackoverflow/index.html</link>
+		<comments>./../../../2016/09/22/use-o-stackoverflow/index.html#respond</comments>
+		<pubDate>Fri, 23 Sep 2016 02:03:44 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Educação]]></category>
+
+		<guid isPermaLink="false">./../../../index.html?p=968</guid>
+		<description><![CDATA[Sites de perguntas e respostas se popularizaram a partir da década passada. É difícil traçar uma história precisa em virtude da vida e morte de projetos que aconteceram na internet, em ciclos muitas vezes menores que 2 anos. Mas acredito que posso dizer com segurança que um dos primeiros sites desse tipo  a se popularizar foi o Yahoo Answers! Também já li por aí que esse tipo de site era popular na ásia, no começo da...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">Sites de perguntas e respostas se popularizaram a partir da década passada. É difícil traçar uma história precisa em virtude da vida e morte de projetos que aconteceram na internet, em ciclos muitas vezes menores que 2 anos. Mas acredito que posso dizer com segurança que um dos primeiros sites desse tipo  a se popularizar foi o <a href="https://br.answers.yahoo.com/">Yahoo Answers!</a> Também já li por aí que esse tipo de site era popular na ásia, no começo da internet, quando a qualidade de conexões ainda era muito ruim. Enfim, esse conceito de um site onde alguém posta uma pergunta e todo mundo pode responder já &#8220;roda&#8221; por aí há algum tempo, pelo menos desde de 1996.</p>
+<p style="text-align: justify;">ENTRETANTO, alguns sites deste tipo parece que foram mais bem sucedidos que outros, como é o caso do <a href="http://stackoverflow.com/">Stackoverflow</a>. Daí surgem algumas perguntas:</p>
+<ol>
+<li style="text-align: justify;">Por que o stackoverflow fez mais sucesso?</li>
+<li style="text-align: justify;">Por que eu deveria utilizar um site como este?</li>
+</ol>
+<p>Basicamente vou argumentar nesse post sobre o que é um diferencial neste tipo de site e porque você deveria utiliza-lo.</p>
+<h2>Por que o stackoverflow fez sucesso?</h2>
+<p>Se você comparar o stackoverflow com, por exemplo, o Yahoo Respostas! você vai perceber que o stackoverflow tem algumas características interessantes:</p>
+<ul>
+<li>tem uma aparência mais profissional;</li>
+<li>tem recursos a mais;</li>
+<li>mais usuários;</li>
+<li>questões bem indexadas;</li>
+<li>curadoria;</li>
+<li>qualidade das respostas;</li>
+</ul>
+<p style="text-align: justify;">Eu particularmente já respondi (e perguntei) no Yahoo Respostas! entretanto eu não achei a experiência interessante. O que eu percebo é que, em geral, as perguntas são mal formuladas, as vezes amplas demais, e as respostas também costumam se de qualidade duvidosa. Basicamente não há instrumentos de controle, uma ação ativa de uma comunidade (ou sequer uma comunidade), tal que não há um produto final que possa ser reutilizado.</p>
+<p style="text-align: justify;">Aliás, aqui é interessante notar uma grande diferença entre um site de perguntas e respostas bem feito e um fórum: em um fórum o interessante é a discussão por si só, não interessa tanto a informação, o que atrai os usuários é a INTERAÇÃO com outros usuários em torno de um assunto em comum. POR OUTRO LADO sites como o stackoverflow, produzem um produto final que é uma base de conhecimento na forma de <strong>BOAS PERGUNTAS </strong>com <strong>BOAS RESPOSTAS.</strong></p>
+<p style="text-align: justify;">Um bom site como este cria uma comunidade em torno de um assunto de interesse (como a programação) onde as perguntas são bem formuladas, as respostas são bem formuladas e há um mínimo controle de qualidade. Talvez a principal força motriz que leva pessoas ativamente a colaborar em um produto como esse seja a ideia de <strong>reputação.</strong></p>
+<p><img class="aligncenter" src="https://blog.stackoverflow.com/images/wordpress/stackoverflow-badges-alpha.png" /></p>
+<p style="text-align: justify;">Sites como esse dão badges, pontos e enfim, <strong>reconhecimento </strong>pelo trabalho bem feito. O usuário é cobrado não só por produzir boas respostas, adequadas, bem feitas e bem formatadas, mas também é cobrado no simples ato de perguntar! Perguntas mal feitas recebem downvotes!</p>
+<p><img class="aligncenter" src="http://i.stack.imgur.com/fk3MJm.png" /></p>
+<p>Essa estratégia, que é uma espécie de gamificação, premia bons colaboradores e pune os que:</p>
+<ul>
+<li>tem preguiça de pesquisar;</li>
+<li>respondem sem embasamento;</li>
+<li>não se preocupam com a apresentação da questão;</li>
+</ul>
+<p>Enfim, só para fazer uma pergunta o usuário deve colocar um mínimo de esforço tal que espera-se que ele tenha feito uma pesquisa prévia onde, de repente, a pergunta já foi respondida ou é algo encontrado trivialmente na documentação do material que pretende utilizar.</p>
+<h2>O que é uma boa pergunta?</h2>
+<p>Se você verificar os badges (ou medalhas) do stackoverflow não é difícil encontrar boas perguntas. Alguns exemplos:</p>
+<p><a href="http://pt.stackoverflow.com/questions/2402/como-fazer-hash-de-senhas-de-forma-segura">Como fazer hash de senhas de forma segura?</a></p>
+<p><a href="http://pt.stackoverflow.com/questions/2402/como-fazer-hash-de-senhas-de-forma-segura">Como é gerada a randomização pelo computador?</a></p>
+<p><a href="http://stackoverflow.com/questions/15376075/cluster-analysis-in-r-determine-the-optimal-number-of-clusters">Cluster analysis in R: determine the optimal number of clusters</a></p>
+<p>O próprio site fornece algumas instruções:</p>
+<ul>
+<li>um bom título;</li>
+<li>descreva <strong>bem </strong>o problema;</li>
+<li>forneça exemplos que podem ser <strong>reproduzidos</strong>;</li>
+<li>cuidado com a ortografia e gramática;</li>
+<li><strong>pesquise</strong> antes de perguntar;</li>
+</ul>
+<h2>Por que eu deveria usar?</h2>
+<p style="text-align: justify;">Talvez o principal motivo é a razão de frequentemente você encontrar links do SO como resposta a pesquisas suas no google: quando você faz boas perguntas ou fornece boas respostas, você produz algo reutilizável que ajuda a comunidade. Outro ponto fundamental é que é divertido ganhar pontos! Participando mais ativamente você perceberá que é bem legal participar. Por fim, acho que talvez é um dos pontos mais importantes é que você vai aprender a pesquisar e no processo de formular bem o problema você vai organizar melhor seu pensamento e quiça responder sua própria pergunta!</p>
+<h2 style="text-align: justify;">Pesquisas</h2>
+<p>O SO vem sendo pesquisado ativamente nos últimos anos, onde os pesquisadores tentar avaliar os diversos aspectos do uso da plataforma. Alguns papers que eu destacaria são os seguintes:</p>
+<p><a href="http://ieeexplore.ieee.org/document/6405249/">What makes a good code example?: A study of programming Q&amp;A in StackOverflow</a></p>
+<p class="mediumb-text"><a href="http://ieeexplore.ieee.org/document/6405249/?arnumber=6405249">Building reputation in StackOverflow: an empirical investigation</a></p>
+<p class="mediumb-text"><a href="http://dl.acm.org/citation.cfm?id=2550615">On the Personality Traits of StackOverflow Users</a></p>
+<p class="mediumb-text"><a href="http://dl.acm.org/citation.cfm?id=2480557">An empirical study on developer interactions in StackOverflow</a></p>
+<p class="mediumb-text"><a href="http://ieeexplore.ieee.org/document/6785805/">Analysis of the reputation system and user contributions on a question answering website: StackOverflow</a></p>
+<h2 class="mediumb-text">Sugestões de leitura</h2>
+<p><a href="http://stackoverflow.com/help/how-to-ask">How do I ask a good question?</a></p>
+<p><a href="http://pt.stackoverflow.com/help/dont-ask">Que tipos de perguntas devo evitar de fazer?</a></p>
+<p><a href="http://pt.stackoverflow.com/help/mcve">Como criar um exemplo Mínimo, Completo e Verificável</a></p>
+<p><a href="http://pt.stackoverflow.com/help/whats-reputation">O que é reputação? Como faço para ganhar (ou perder) pontos?</a></p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2016/09/22/use-o-stackoverflow/feed/index.html</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Onde estudar Estatística?</title>
+		<link>./../../../2016/04/21/onde-estudar-estatistica/index.html</link>
+		<comments>./../../../2016/04/21/onde-estudar-estatistica/index.html#respond</comments>
+		<pubDate>Thu, 21 Apr 2016 15:12:45 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Educação]]></category>
+		<category><![CDATA[Estatística]]></category>
+		<category><![CDATA[Shiny]]></category>
+
+		<guid isPermaLink="false">./../../../index.html?p=946</guid>
+		<description><![CDATA[Com essa emergência atual dos termos como Big Data, Data Science, Data Mining e afins, e também com a grande oferta de postos de trabalho que se abrem nesse &#8220;novo setor&#8221;, muitas pessoas se perguntam qual o melhor caminho para se formar e se preparar para esse mercado. Existem cursos a distância, oferecidos por plataformas como o Coursera e o Udacity, ou mesmo cursos em nível de pós-graduação, MAS surge a pergunta: existe alguma graduação...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">Com essa emergência atual dos termos como Big Data, Data Science, Data Mining e afins, e também com a grande oferta de postos de trabalho que se abrem nesse &#8220;novo setor&#8221;, muitas pessoas se perguntam qual o melhor caminho para se formar e se preparar para esse mercado. Existem cursos a distância, oferecidos por plataformas como o <a href="https://pt.coursera.org/specializations/jhu-data-science">Coursera</a> e o <a href="https://www.udacity.com/course/data-analyst-nanodegree--nd002">Udacity</a>, ou mesmo cursos em nível de pós-graduação, MAS surge a pergunta: existe alguma graduação que prepara o profissional para ser um cientista de dados?</p>
+<p style="text-align: justify;">Na minha opinião, o curso de graduação que mais se aproxima daquilo que se deseja em um cientista de dados é o bacharelado em Estatística. Aqui eu estou usando o termo cientista de dados, não como de um profissional versado em tecnologias como <a href="http://hadoop.apache.org/">Hadoop</a>, <a href="http://spark.apache.org/">Spark</a>, <a href="https://www.mongodb.com/">MongoDB</a>, mas de um profissional que é preparado para trabalhar com análise de dados e planejamento de pesquisas.</p>
+<p style="text-align: justify;">Claro, existe também uma gama de problemas relacionados a arquitetura e tecnologia, que eu acredito precisam do expertise de um profissional que talvez eu poderia chamar um Engenheiro de Dados. Mas em geral, um curso que prepara o profissional para trabalhar com o que hoje se apresenta como a Ciência de Dados, esse curso provavelmente é o curso de Estatística. Prova disso é que mesmo antes desse novo boom de Big Data, muitos profissionais de Estatística já vinham desempenhando o papel de um cientista de dados em empresas de diversos setores. Claro com dados em uma escala muito menor.</p>
+<h2 style="text-align: justify;">Onde estudar Estatística?</h2>
+<p style="text-align: justify;">Muitos estudantes do Ensino Médio não tem ideia de que existe o bacharelado em Estatística e muito menos onde cursa-lo no Brasil. Acredito que atualmente esse problema é menor que no passado, mas ainda assim a Estatística está longe de ser um curso tão popular quanto Ciência da Computação ou algumas Engenharias.</p>
+<p style="text-align: justify;">Outro ponto fundamental é que não existem assim tantos locais para se estudar Estatística quanto se tem para estudar Engenharia tal que a escolha dos estudantes fica bastante limitada. De forma a agregar em um único local informações relacionados aos cursos de Estatística no Brasil, eu estou criando esse aplicativo em Shiny que vai condensar informações sobre todos os cursos de Estatística disponíveis no país. Inicialmente ele só conta com informações como a localização, a carga horária, se tem Mestrado ou Doutorado em Estatística, dentre outros, mas espero ir agregando mais e mais informações. No futuro planejo incluir também locais somente com pós-graduação.</p>
+<h2 style="text-align: justify;">Aplicativo</h2>
+<p>O aplicativo se encontra neste endereço:</p>
+<p><a href="https://flaviobarros.shinyapps.io/onde-estudar-estatistica/">ONDE ESTUDAR ESTATÍSTICA?</a></p>
+<p>Se você tem sugestões de como melhora-lo, informações extras que gostaria de ver, poste nos comentários, que na medida do possível vou ir tentando agregar.</p>
+<p><a href="./../../../wp-content/uploads/2016/04/onde_estudar_estatistica.png"><img class="aligncenter size-full wp-image-947" src="./../../../wp-content/uploads/2016/04/onde_estudar_estatistica.png" alt="onde_estudar_estatistica" width="1244" height="394" srcset="./../../../wp-content/uploads/2016/04/onde_estudar_estatistica.png 1244w, ./../../../wp-content/uploads/2016/04/onde_estudar_estatistica-300x95.png 300w, ./../../../wp-content/uploads/2016/04/onde_estudar_estatistica-768x243.png 768w, ./../../../wp-content/uploads/2016/04/onde_estudar_estatistica-1024x324.png 1024w" sizes="(max-width: 1244px) 100vw, 1244px" /></a></p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2016/04/21/onde-estudar-estatistica/feed/index.html</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Impeachment &#8211; Análise das Intenções</title>
+		<link>./../../../2016/04/04/impeachment-analise-das-intencoes/index.html</link>
+		<comments>./../../../2016/04/04/impeachment-analise-das-intencoes/index.html#comments</comments>
+		<pubDate>Mon, 04 Apr 2016 09:48:18 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Estatística]]></category>
+		<category><![CDATA[Política]]></category>
+
+		<guid isPermaLink="false">./../../../index.html?p=930</guid>
+		<description><![CDATA[Recentemente eu li um artigo super interessante no blog do Regis A. Ely. Basicamente, ele utilizou os dados da pesquisa que o movimento &#8220;vem para a rua&#8221; está realizando sobre as intenções de votos no impeachment, para tentar criar um modelo de predição para a votação dos deputados indecisos. Eu achei super interessante, e pelo que eu vi, muita gente está compartilhando no Facebook. ENTRETANTO, eu fiquei curioso com relação a alguns pontos na análise...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">Recentemente eu li um artigo super interessante no blog do <a href="http://regisely.com/blog/impeachment/">Regis A. Ely</a>. Basicamente, ele utilizou os dados da pesquisa que o movimento &#8220;<a href="http://mapa.vemprarua.net/br/">vem para a rua</a>&#8221; está realizando sobre as intenções de votos no impeachment, para tentar criar um modelo de predição para a votação dos deputados indecisos. Eu achei super interessante, e pelo que eu vi, muita gente está compartilhando no Facebook.</p>
+<p style="text-align: justify;">ENTRETANTO, eu fiquei curioso com relação a alguns pontos na análise e em relação às escolhas que ele fez. Minhas críticas em relação a análise são:</p>
+<p style="text-align: justify;">1 &#8211; Será que somente o partido e o estado de origem são suficientes para fornecer uma boa previsão?</p>
+<p style="text-align: justify;">2 &#8211; Qual o real desempenho do modelo?</p>
+<p style="text-align: justify;">3 &#8211; Que outros insights os dados podem fornecer?</p>
+<p style="text-align: justify;">4 &#8211; Os deputados já decididos representam bem os indecisos?</p>
+<p style="text-align: justify;">A primeira questão é super importante, pois na verdade a ideia toda da análise é que um modelo onde eu sei somente o partido e o estado de origem do deputado (ou senador) é suficiente para fornecer uma boa previsão. O modelo também utiliza o pressuposto de que os deputados que já decidiram o voto representam bem todos os deputados, tal que uma vez que eu crie um modelo que aprenda a partir deles eu serei capaz de prever com segurança o voto dos outros, dos indecisos.</p>
+<p style="text-align: justify;">A segunda questão me deixou bastante curioso, pois ele usou uma poda na árvore de decisão, mas pelo que eu vi ele não reportou o desempenho real em um pequeno conjunto de teste. Isso seria importante pois para confiar nas previsões de um modelo é bom saber aproximadamente qual será o desempenho do modelo.</p>
+<p style="text-align: justify;">O terceiro ponto talvez seja o que eu acho que seria o mais importante de se fazer: uma pequena análise exploratória. Eu sei que as árvores de decisão são super interpretáveis, e que apesar de podermos pensar nelas como um modelo, &#8220;de uma certa forma&#8221; elas poderiam ser encaradas como um tipo de &#8220;análise exploratória&#8221;. ENTRETANTO, eu não gosto muito de criar modelos antes de &#8220;dar uma olhada&#8221; nos dados. E acredito que o principal resultado da análise, que foi mostrar como era a influência dos partidos, pode ser facilmente obtido por meio de algumas visualizações.</p>
+<h2 style="text-align: justify;">Análise Exploratória</h2>
+<p style="text-align: justify;">O que eu fiz foi basicamente pegar os dados no site do Regis e fazer algumas visualizações. Para não dizer que eu não adicionei nada, eu adicionei também a região e fiz um <em>scrape</em> no site do &#8220;vem pra rua&#8221; para incluir a variável sexo no conjunto de dados. Todos os resultados que eu vou apresentar se referem somente à câmara dos deputados.</p>
+<p style="text-align: justify;">Minha primeira dúvida era com relação ao tamanho da bancada de cada partido na câmara, isto é, quais partidos tem mais deputados? <a href="./../../../wp-content/uploads/2016/04/tamanho_bancada.png" rel="attachment wp-att-938"><img class="aligncenter size-full wp-image-938" src="./../../../wp-content/uploads/2016/04/tamanho_bancada.png" alt="tamanho_bancada" width="480" height="480" srcset="./../../../wp-content/uploads/2016/04/tamanho_bancada.png 480w, ./../../../wp-content/uploads/2016/04/tamanho_bancada-150x150.png 150w, ./../../../wp-content/uploads/2016/04/tamanho_bancada-300x300.png 300w, ./../../../wp-content/uploads/2016/04/tamanho_bancada-65x65.png 65w" sizes="(max-width: 480px) 100vw, 480px" /></a></p>
+<p style="text-align: justify;">Muita gente que não acompanha a política as vezes fica surpresa com o tamanho da bancada do PMDB, mas o FATO é que o PMDB é o maior partido da câmara e é justamente esse partido que deve decidir o impeachment. Veja que o PT tem a segunda maior bancada e pasmem para o tamanho do PP e do PR&#8230;(sim o PP é do Paulo Maluf!)</p>
+<p style="text-align: justify;">Depois que eu vi esse gráfico logo pensei: ok, o PT deve votar em massa contra, o PSDB em massa a favor, mas e o resto? Como está até agora a distribuição? Vamos ver!</p>
+<p style="text-align: justify;"><a href="./../../../wp-content/uploads/2016/04/bancada_voto.png" rel="attachment wp-att-937"><img class="aligncenter size-full wp-image-937" src="./../../../wp-content/uploads/2016/04/bancada_voto.png" alt="bancada_voto" width="480" height="480" srcset="./../../../wp-content/uploads/2016/04/bancada_voto.png 480w, ./../../../wp-content/uploads/2016/04/bancada_voto-150x150.png 150w, ./../../../wp-content/uploads/2016/04/bancada_voto-300x300.png 300w, ./../../../wp-content/uploads/2016/04/bancada_voto-65x65.png 65w" sizes="(max-width: 480px) 100vw, 480px" /></a></p>
+<p style="text-align: justify;">Esse é praticamente o mesmo gráfico anterior, mas com a informação adicional de como está divido o partido. Veja que o PMDB está rachado: além de ter uma parcela que é contra, o partido ainda tem uma parte significativa de indecisos. A forma como o PMDB vai votar vai selar o destino da Presidente Dilma. O PT naturalmente vota contra em massa, e sendo a segunda bancada isso pesa fortemente a favor da presidente, mas o PP, o PR, o PSD, PRB e PDT ainda tem um contingente enorme de indecisos. É por isso que a presidente está distribuindo ministérios a rodo na tentativa de angariar esse votos. Um desembarque do PP do governo também pode ser um golpe de misericórdia.</p>
+<p style="text-align: justify;">Além do partido do deputado, o estado de origem também é uma variável que vai entrar no modelo. Vamos ver como anda a distribuição em relação ao estado e a região.</p>
+<p style="text-align: justify;"><a href="./../../../wp-content/uploads/2016/04/bancada_estado.png" rel="attachment wp-att-934"><img class="aligncenter size-full wp-image-934" src="./../../../wp-content/uploads/2016/04/bancada_estado.png" alt="bancada_estado" width="480" height="480" srcset="./../../../wp-content/uploads/2016/04/bancada_estado.png 480w, ./../../../wp-content/uploads/2016/04/bancada_estado-150x150.png 150w, ./../../../wp-content/uploads/2016/04/bancada_estado-300x300.png 300w, ./../../../wp-content/uploads/2016/04/bancada_estado-65x65.png 65w" sizes="(max-width: 480px) 100vw, 480px" /></a></p>
+<p style="text-align: justify;"><a href="./../../../wp-content/uploads/2016/04/bancada_regiao.png" rel="attachment wp-att-935"><img class="aligncenter size-full wp-image-935" src="./../../../wp-content/uploads/2016/04/bancada_regiao.png" alt="bancada_regiao" width="480" height="480" srcset="./../../../wp-content/uploads/2016/04/bancada_regiao.png 480w, ./../../../wp-content/uploads/2016/04/bancada_regiao-150x150.png 150w, ./../../../wp-content/uploads/2016/04/bancada_regiao-300x300.png 300w, ./../../../wp-content/uploads/2016/04/bancada_regiao-65x65.png 65w" sizes="(max-width: 480px) 100vw, 480px" /></a></p>
+<p style="text-align: justify;">Vejam que o estado de São Paulo tem uma quantidade muito grande votos a favor. Isso se deve principalmente ao PSDB que é forte no estado e tem uma bancada que vota em massa no impeachment. NO ENTANTO, na Bahia, no Rio, em Minhas e em São Paulo mesmo, ainda há muitos indecisos. Esses estados vão ter um papel fundamental.  Vejam que o Sul e o Centro-Oeste votam em peso a favor, e tanto o nordeste quanto o norte ainda estão bastante divididos.</p>
+<p style="text-align: justify;">Uma questão que eu fiquei intrigado, e para ser honesto eu não sabia de antemão, eram quantas mulheres são deputadas na câmara. Mais que isso, eu fiquei me perguntando se talvez as deputadas teriam  uma distribuição diferente em relação aos homens. Primeiramente gostaria de destacar que existem muito poucas mulheres na câmara (54 sendo que 2 não estão em exercício) e ainda que elas votassem diferente, ainda assim, provavelmente não teriam um impacto tão grande. Nos modelos que eu testei o sexo de fato não teve um peso grande. MAS vamos ver a distribuição:</p>
+<p style="text-align: justify;"><a href="./../../../wp-content/uploads/2016/04/bancada_sexo.png" rel="attachment wp-att-936"><img class="aligncenter size-full wp-image-936" src="./../../../wp-content/uploads/2016/04/bancada_sexo.png" alt="bancada_sexo" width="480" height="480" srcset="./../../../wp-content/uploads/2016/04/bancada_sexo.png 480w, ./../../../wp-content/uploads/2016/04/bancada_sexo-150x150.png 150w, ./../../../wp-content/uploads/2016/04/bancada_sexo-300x300.png 300w, ./../../../wp-content/uploads/2016/04/bancada_sexo-65x65.png 65w" sizes="(max-width: 480px) 100vw, 480px" /></a></p>
+<p style="text-align: justify;">Bem divido, como no caso dos homens.</p>
+<h2 style="text-align: justify;">Modelagem</h2>
+<p style="text-align: justify;">Para a etapa de modelagem eu fiz uma amostra aleatória de 95 observações (3/4) que eu deixei para teste. Daí eu criei 4 modelos, com as 289 observações restantes, utilizando árvores de decisão, regressão logística, randomForest e Gradiente Boosting. A especificação foi: Estado + Partido + Estado:Partido. ISTO É, as duas variáveis mais o efeito de interação. A ideia da interação é porque, de repente, um deputado, mesmo sendo do mesmo partido, vota diferente dependendo da região. Essa hipótese é plausível e por isso eu coloquei.</p>
+<p style="text-align: justify;">A seguir o resultado do ajuste do RandomForest (só um exemplo) e  a seguir eu apresento as acurácias globais e o intervalo de confiança 95% para a acurácia de predição no conjunto de teste. Vejam que eu deixei de fora todos os deputados indecisos. Portanto o ajuste foi com uma variável resposta com duas classes, contra e a favor.</p>
+<pre class="lang:r decode:true ">Random Forest 
+
+289 samples
+  8 predictors
+  2 classes: 'A favor', 'Contra' 
+
+No pre-processing
+Resampling: Cross-Validated (10 fold) 
+Summary of sample sizes: 260, 260, 260, 260, 261, 260, ... 
+Resampling results across tuning parameters:
+
+  mtry  Accuracy   Kappa      Accuracy SD  Kappa SD 
+    2   0.6885468  0.0000000  0.003504988  0.0000000
+   35   0.9066502  0.7614794  0.039824877  0.1142898
+  647   0.9135468  0.7786241  0.046595216  0.1308177
+
+Accuracy was used to select the optimal model using  the
+ largest value.
+The final value used for the model was mtry = 647.</pre>
+<p style="text-align: justify;">Eu estou utilizando o pacote caret, tal que o modelo é ajustado com os melhores hipeparâmetros obtidos por validação cruzada. Segundo o resultado obtido por validação cruzada, o desempenho do modelo deve ficar na casa dos 90%. Vamos verificar isso no conjunto de teste.</p>
+<pre class="lang:r decode:true ">Confusion Matrix and Statistics
+
+          Reference
+Prediction A favor Contra
+   A favor      63      8
+   Contra        3     21
+                                          
+               Accuracy : 0.8842          
+                 95% CI : (0.8023, 0.9408)
+    No Information Rate : 0.6947          
+    P-Value [Acc &gt; NIR] : 1.207e-05       
+                                          
+                  Kappa : 0.7131          
+ Mcnemar's Test P-Value : 0.2278          
+                                          
+            Sensitivity : 0.9545          
+            Specificity : 0.7241          
+         Pos Pred Value : 0.8873          
+         Neg Pred Value : 0.8750          
+             Prevalence : 0.6947          
+         Detection Rate : 0.6632          
+   Detection Prevalence : 0.7474          
+      Balanced Accuracy : 0.8393          
+                                          
+       'Positive' Class : A favor</pre>
+<p style="text-align: justify;">Vejam que a sensibilidade é alta, mas a especificidade não (a classe de referência é o voto a favor). Isso indica que o modelo é bom em detectar o voto a favor, mas não tão bom para detectar o voto contra. Isso deve estar acontecendo, dentro outras razões, poque o conjunto é desbalanceado em relação aos votos a favor. O CERTO seria utilizar alguma medida para corrigir isso, como: alterar o valor da probabilidade de corte a partir da curva ROC, oversampling e undersampling, ou mesmo aprendizado sensível ao erro na classe minoritária. Aí você pergunta:  Por que você não fez isso?!! EU RESPONDO: provavelmente o partido e o estado sozinhos não devem fornecer informação suficiente para saber o voto do deputado e também provavelmente os decididos também não devem representar tão bem os indecisos&#8230;LOGO não valia tanto a pena perder tempo com isso. Eu só queria mesmo dar uma olhada e tentar obter alguns valores que eu não vi no post do Regis.</p>
+<p><a href="./../../../wp-content/uploads/2016/04/ICs.png" rel="attachment wp-att-939"><img class="aligncenter size-full wp-image-939" src="./../../../wp-content/uploads/2016/04/ICs.png" alt="ICs" width="480" height="480" srcset="./../../../wp-content/uploads/2016/04/ICs.png 480w, ./../../../wp-content/uploads/2016/04/ICs-150x150.png 150w, ./../../../wp-content/uploads/2016/04/ICs-300x300.png 300w, ./../../../wp-content/uploads/2016/04/ICs-65x65.png 65w" sizes="(max-width: 480px) 100vw, 480px" /></a></p>
+<p>Outra dúvida que eu tinha ficado é se utilizar outras técnicas traria algum ganho, e pelo intervalos de confiança acima, considerando os quatro métodos, parece que não. Veja que existem vários valores plausíveis em comum para a acurácia global tal que eu não alegaria que nenhum método é melhor que o outro. Vejam que de fato o ranfomForest teve um desempenho no teste em torno de 90%.</p>
+<p style="text-align: justify;">Por fim, um modelo como o randomForest, apesar de ser um ensemble, provê uma medida, em termos de ganho de informação, com a qual é possível ter uma ideia das importâncias das variáveis:</p>
+<p><a href="./../../../wp-content/uploads/2016/04/importance.png" rel="attachment wp-att-940"><img class="aligncenter size-full wp-image-940" src="./../../../wp-content/uploads/2016/04/importance.png" alt="importance" width="480" height="480" srcset="./../../../wp-content/uploads/2016/04/importance.png 480w, ./../../../wp-content/uploads/2016/04/importance-150x150.png 150w, ./../../../wp-content/uploads/2016/04/importance-300x300.png 300w, ./../../../wp-content/uploads/2016/04/importance-65x65.png 65w" sizes="(max-width: 480px) 100vw, 480px" /></a></p>
+<p style="text-align: justify;">Selecionei somente as 10 mais importantes e naturalmente os partidos PT, PCdoB e etc, tem uma influência muito grande. Você pode pensar da seguinte maneira: se eu sei que um deputado é deste partido com certeza ele vota de um dos lados. O RF infelizmente não indica de que forma é essa influência, mas como fizemos uma análise exploratória, é fácil saber que quando um deputado é do PT ele vota contra o impeachment. Vejam que interessante as interações entre PMDB e o estado do PA. Isso deve ser sinal que muitos deputados daquele estado, que são do PMDB, provavelmente votam mais de um lado do que do outro.</p>
+<h2>Previsões</h2>
+<p style="text-align: justify;">Agora que temos alguns modelos, vamos utilizar o randomForest e fazer algumas previsões para os indecisos. De acordo com esse modelo, teremos 66 deputados a favor e 30 contra, tal que somando o total de 265 a favor que já existem, temos um total de 331 dos 513 que devem votar a favor do impeachment. Isso dá aproximadamente 64% da câmara, tal que nesse caso a presidente sofreria o impeachment.</p>
+<h2 style="text-align: justify;">Conclusão</h2>
+<p style="text-align: justify;">Dá para acreditar nessa previsão? EU DIRIA QUE NÃO. Isso ocorre por várias razões, mas dentre elas eu destacaria o fato de que não é só o partido e o estado que orientam a decisão de um deputado. Existem deputados na câmara com muito mais influência, tal que o voto de muitos pode estar condicionado a decisão do líder de um grupo. ASSIM, talvez seja necessário incluir alguma medida de influência no modelo. Talvez uma abordagem mais confiável seria verificar os grupos de deputados que tem votado junto recentemente, isto é, tentar prever o voto dos indecisos não com variáveis como o partido ou o estado, mas utilizando os &#8220;vizinhos mais próximos&#8221; em termos de perfil de votação. Mas de qualquer forma os gráficos revelam mais ou menos como está a câmara e meu palpite é que a presidente não sobrevive ao impeachment, PELO MENOS NA CÂMARA.</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2016/04/04/impeachment-analise-das-intencoes/feed/index.html</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+		</item>
+		<item>
+		<title>RECONHECIMENTO DE DÍGITOS ESCRITOS A MÃO – PARTE 3</title>
+		<link>./../../../2016/03/14/reconhecimento-de-digitos-escritos-mao-parte-3/index.html</link>
+		<comments>./../../../2016/03/14/reconhecimento-de-digitos-escritos-mao-parte-3/index.html#comments</comments>
+		<pubDate>Tue, 15 Mar 2016 02:54:32 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Aprendizado de Máquina]]></category>
+		<category><![CDATA[Data Mining]]></category>
+		<category><![CDATA[Educação]]></category>
+		<category><![CDATA[Estatística]]></category>
+		<category><![CDATA[Machine Learning]]></category>
+		<category><![CDATA[Mineração de Dados]]></category>
+		<category><![CDATA[Preparação de Dados]]></category>
+		<category><![CDATA[R e RStudio]]></category>
+
+		<guid isPermaLink="false">./../../../index.html?p=851</guid>
+		<description><![CDATA[Na Parte 1 desse post (que já publiquei faz um tempão!) eu fiz uma classificação de imagens de dígitos escritos a mão usando o k-nn (algoritmo dos vizinhos mais próximos) usando as informações das imagens sem nenhum tipo de tratamento, isto é, sem nenhum método de preparação. Como foi mostrado, o k-nn só foi capaz de classificar razoavelmente bem com com k = 1 e conseguiu uma acurácia de apenas 78%, algo muito distante do que...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">Na <a href="./../../../2014/12/22/reconhecimento-de-digitos-escritos-mao-parte-1/index.html">Parte 1</a> desse post (que já publiquei faz um tempão!) eu fiz uma classificação de imagens de dígitos escritos a mão usando o <a href="https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm">k-nn</a> (algoritmo dos vizinhos mais próximos) usando as informações das imagens sem nenhum tipo de tratamento, isto é, sem nenhum método de preparação. Como foi mostrado, o <a href="https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm">k-nn</a> só foi capaz de classificar razoavelmente bem com com k = 1 e conseguiu uma acurácia de apenas 78%, algo muito distante do que ainda pode ser conseguido.</p>
+<p style="text-align: justify;">Na <a href="./../../../2015/09/14/reconhecimento-de-digitos-escritos-a-mao-parte-2/index.html">Parte 2</a> eu trabalhei com um método de redução de dimensionalidade, o PCA, e também foram explorados diversos outros classificadores, como o Random Forest, o SVM e etc. O resumo dos resultados foi o seguinte:</p>
+<ul style="text-align: justify;">
+<li style="text-align: justify;">k-nn com k = 1: 84%</li>
+<li style="text-align: justify;">Regressão linear: 14%</li>
+<li style="text-align: justify;">Regressão Logística Multinomial: 64%</li>
+<li style="text-align: justify;">Árvores de decisão: 24%</li>
+<li style="text-align: justify;">RandomForest: 72%</li>
+</ul>
+<p style="text-align: justify;">E a conclusão geral foi que não foi possível bater o k-NN ou ainda mais chegar aos resultados reportados na literatura, superiores a 95% de acurácia na tarefa. Como foi mencionado anteriormente, os possíveis problemas foram:</p>
+<ol style="text-align: justify;">
+<li>Conjunto pequeno de imagens.</li>
+<li>Modelos com parâmetros default.</li>
+</ol>
+<p style="text-align: justify;">Assim, nessa última parte vou mostrar como é possível treinar melhores modelos com muito mais dados e como é possível melhorar a performance dos algoritmos com melhores hiperparâmetros. Outro ponto importante que eu queria mostrar também é o uso do pacote <a href="http://caret.r-forge.r-project.org/">caret</a> para automatizar diversas tarefas desse processo.</p>
+<h2 style="text-align: justify;">1.Dados e visualização</h2>
+<p style="text-align: justify;">Como eu comentei antes, vamos nessa parte tentar utilizar um conjunto maior de imagens. Para tanto, ao invés desse pequeno conjunto de teste e treino que foi fornecido na <a href="./../../../2014/12/22/reconhecimento-de-digitos-escritos-mao-parte-1/index.html">Parte 1</a>, vamos utilizar um conjunto muito maior de images de dígitos escritos a mão, o famoso data set <a href="http://yann.lecun.com/exdb/mnist/">MNIST</a>. Se você verificar nesse link, você vai encontrar diversas informações com respeito a esse conjunto de dados e também você pode baixa-lo e utilizar nas análises que se seguem, caso queira reproduzir o que você está vendo aqui. ENTRETANTO, para poupar o seu trabalho e o meu, ao invés de pegar os dados diretamente deste site, vamos utilizar esse mesmo conjunto de dados já tratado e preparado pela equipe do <a href="https://www.kaggle.com/c/digit-recognizer">Kaggle</a>. A vantagem é que o arquivos já estão no formato csv e não será mais necessária a etapa de preparação realizada na <a href="./../../../2014/12/22/reconhecimento-de-digitos-escritos-mao-parte-1/index.html">Parte 1</a> e na <a href="./../../../2015/09/14/reconhecimento-de-digitos-escritos-a-mao-parte-2/index.html">Parte 2</a> desta série. Outra vantagem é que após você rodar estes modelos, se você quiser, você pode submeter seus resultados no Leaderboard para experimentar como funciona esse site de competição.</p>
+<p style="text-align: justify;">Na <a href="./../../../2015/09/14/reconhecimento-de-digitos-escritos-a-mao-parte-2/index.html">Parte 2</a>, como eu peguei diretamente as imagens e converti em uma matriz, agora você poderia ficar confuso e se perguntar: mas e aí, como são estas imagens? como eu vou ver se já está em csv? Para você não ficar com dúvida, vamos &#8220;imprimir&#8221; as imagens.</p>
+<pre class="lang:r decode:true ">############ Explorando as imagens ###############################
+## Contando o número de imagens por dígito
+barplot(table(treino$label), ylim = c(0,5000))
+
+## Transformando em uma matriz
+treino &lt;- as.matrix(treino)
+
+## Imprimindo uma imagem
+matriz_imagem &lt;- matrix(treino[1000,-1], ncol = 28)
+matriz_imagem &lt;- matriz_imagem[,28:1] ## invertendo a imagem
+image(1:28, 1:28, matriz_imagem, col = c('white', 'black'))</pre>
+<p><a href="./../../../wp-content/uploads/2016/03/digito4.png" rel="attachment wp-att-867"><img class="aligncenter size-full wp-image-867" src="./../../../wp-content/uploads/2016/03/digito4.png" alt="digito4" width="480" height="480" srcset="./../../../wp-content/uploads/2016/03/digito4.png 480w, ./../../../wp-content/uploads/2016/03/digito4-150x150.png 150w, ./../../../wp-content/uploads/2016/03/digito4-300x300.png 300w, ./../../../wp-content/uploads/2016/03/digito4-65x65.png 65w" sizes="(max-width: 480px) 100vw, 480px" /></a></p>
+<p>Veja que eu peguei a primeira linha do conjunto de treino, transformei em uma matriz e imprimi a matriz como uma imagem. Nesse caso é o dígito 4. Assim, apesar de agora você estar usando um arquivo em csv preparado eles fizeram a mesma coisa que eu fiz anteriormente. Se você quiser entender melhor como cada imagem virou uma linha dessa tabela dá uma olhada na Parte 1 dessa série. Só para mostrar que os dígitos estão ok, eu vou imprimir uma &#8220;imagem média&#8221;, onde em cada imagem eu tenho um valor médio em cada píxel considerando todas as imagens do conjunto de dados.</p>
+<pre class="lang:r decode:true ">## Plotando uma imagem média para cada dígito
+## Definindo uma escala de cor, indo do branco ao preto
+colors &lt;- c('white','black')
+cus_col &lt;- colorRampPalette(colors=colors)
+
+## Plot de cada imagem média
+## Divindo a tela
+png('todos_digitos.png')
+par(mfrow=c(4,3),pty='s',mar=c(1,1,1,1),xaxt='n',yaxt='n')
+
+## Criando um array para armazenar as matrizes de cada imagem média
+all_img &lt;- array(dim=c(10,28*28))
+
+## Recuperando todas as imagens por dígito e calculando a média
+for(di in 0:9) {
+  print(di)
+  all_img[di+1,] &lt;- apply(treino[treino[,1]==di,-1],2,sum)
+  all_img[di+1,] &lt;- all_img[di+1,]/max(all_img[di+1,])*255
+  
+  z&lt;-array(all_img[di+1,],dim=c(28,28))
+  z&lt;-z[,28:1] ##right side up
+  image(1:28,1:28,z,main=di,col=cus_col(256))
+}</pre>
+<p><a href="./../../../wp-content/uploads/2016/03/todos_digitos-1.png" rel="attachment wp-att-869"><img class="aligncenter size-full wp-image-869" src="./../../../wp-content/uploads/2016/03/todos_digitos-1.png" alt="todos_digitos" width="480" height="480" srcset="./../../../wp-content/uploads/2016/03/todos_digitos-1.png 480w, ./../../../wp-content/uploads/2016/03/todos_digitos-1-150x150.png 150w, ./../../../wp-content/uploads/2016/03/todos_digitos-1-300x300.png 300w, ./../../../wp-content/uploads/2016/03/todos_digitos-1-65x65.png 65w" sizes="(max-width: 480px) 100vw, 480px" /></a></p>
+<p style="text-align: justify;">Até há uma certa variação (por isso que há uma sombra) mas no geral os mesmos píxels tem uma intensidade maior considerando cada dígito diferente que foi escrito na imagem. Isso nos leva a crer que os modelos devem conseguir distinguir um dígito do outro.</p>
+<h2 style="text-align: justify;">2. Preparação com PCA</h2>
+<p style="text-align: justify;">Depois que você baixar os arquivos train.csv e test.csv do Kaggle já podemos efetuar a leitura dos arquivos e a preparação por meio do PCA. O que vamos fazer é aplicar o PCA e retendo somente o número de componentes necessário para alcançar 95% da variância total. Os detalhes sobre isso eu discuti na Parte 2.</p>
+<pre class="lang:r decode:true ">## Leitura dos conjuntos de dados de treino e de teste
+treino = read.csv('train.csv', header = T)
+teste = read.csv('test.csv', header = T)
+
+############ APlicação do PCA ####################################
+## Obtendo componentes principais
+pc &lt;- prcomp(treino[,-1])
+treino_pc &lt;- pc$x
+
+## Obtendo as variâncias acumuladas
+vars = pc$sdev^2
+props = vars/sum(vars)
+varAcum = cumsum(props)
+which.min(varAcum &lt; 0.90)
+
+## Aplicando a rotação nos dados de teste
+teste_pc &lt;- predict(pc, newdata = teste)
+
+## Salvando treino e teste com PCA
+save(treino_pc, file = 'treino_pc.rda')
+save(teste_pc, file = 'teste_pc.rda')</pre>
+<p style="text-align: justify;">eu costumo salvar os arquivos após cada etapa de preparação de forma a não precisar realizar o processo posteriormente. Outro ponto importante é que salvando os objetos no formato nativo do R, caso você precise recarregar os dados, o processo é muito mais rápido que a leitura em csv.</p>
+<h2 style="text-align: justify;">3. Árvore de Decisão</h2>
+<p style="text-align: justify;">Como uma primeira tentativa, vamos utilizar o algoritmo para árvores de decisão do pacote <a href="https://cran.r-project.org/web/packages/rpart/index.html">rpart</a>. Vamos utilizar todas as PC&#8217;s e treinar a árvore em 3/4 dos dados. O teste será realizado no 1/4 que foi separado.</p>
+<pre class="lang:r decode:true ">#################################################################
+## Teste com árvore de decisão
+library(rpart)
+
+## Separando o conjunto treino em dois para avaliação
+set.seed(1)
+inTrain &lt;- createDataPartition(treino$label, p = 3/4, list = F)
+train &lt;- treino_pc[inTrain,]
+evaluation &lt;- treino_pc[-inTrain,]
+
+## Data frame de treino e teste
+treino_arvore = as.data.frame(cbind(train[,1:784]))
+treino_arvore$classes = as.factor(treino$label[inTrain])
+
+## Conjunto de teste para avaliação
+teste_arvore = as.data.frame(evaluation[,1:784])
+
+## Criando uma árvore
+arvore &lt;- rpart(classes ~ ., data = treino_arvore)
+
+## Calculando a matriz de confusão
+confusionMatrix(predict(arvore, teste_arvore, type = 'class'), treino$label[-inTrain])
+</pre>
+<p>e o resultado da matriz de confusão:</p>
+<pre class="lang:r decode:true ">Confusion Matrix and Statistics
+
+          Reference
+Prediction   0   1   2   3   4   5   6   7   8   9
+         0 637   2  13  20   3  66  17  12   0   2
+         1   0 995   9   7  28   7   3  75   6  53
+         2  60  54 741  61  30  97 130  16  93  10
+         3 185  45 111 803  13 270 106  29  89  30
+         4   3   0  16  10 796  73  16  82  16 471
+         5  86  13  46  88  36 341  31  61 185  49
+         6  24  16  47  45  21  40 725   4  13  43
+         7  17   0   4   2  20  16   2 652  10  85
+         8  18  46  40  27  11  60  12  18 532  13
+         9  14   0   6  10  74   6  13 103  57 305
+
+Overall Statistics
+                                         
+               Accuracy : 0.6217         
+                 95% CI : (0.6124, 0.631)
+    No Information Rate : 0.1115         
+    P-Value [Acc &gt; NIR] : &lt; 2.2e-16      
+                                         
+                  Kappa : 0.5796         
+ Mcnemar's Test P-Value : &lt; 2.2e-16</pre>
+<p style="text-align: justify;">mostra que o desempenho ainda está longe do satisfatório. Com uma acurácia global de apenas 62% estamos ainda muito longe da meta de 95%. Veja que utilizamos a estratégia <a href="http://stats.stackexchange.com/questions/104713/hold-out-validation-vs-k-fold-validation">holdout</a>, e com relação a <a href="./../../../2015/09/14/reconhecimento-de-digitos-escritos-a-mao-parte-2/index.html">Parte 2</a> desta série a única mudança é o fato de estarmos trabalhando com imagens com mais resolução e um conjunto maior. Parece que isso ainda não é o suficiente, assim vamos explorar outros algoritmos e vamos utilizar métodos de validação cruzada para encontrar os melhores hiperparâmetros.</p>
+<h2>4. RandomForest</h2>
+<p style="text-align: justify;">O <a href="https://en.wikipedia.org/wiki/Random_forest">randomforest</a> é um dos algoritmos de machine learning <a href="https://www.quora.com/What-are-the-top-10-data-mining-or-machine-learning-algorithms">mais utilizados na indústria</a>. Seu sucesso advém do fato de ser robusto, facilmente paralelizável e apresentar um desempenho muito bom em uma grande quantidade de problemas diferentes. Assim, vamos experimentar esse classificador procurando ajustar os melhores hiperperâmetros por validação cruzada. No caso do RF temos que definir qual o melhor m, um parâmetro que determina quantas variáveis são sorteadas na escolha do split em cada nó, de cada árvore de decisão do comitê. Se não ficou claro para você o que significa este hiperparâmetro não tem problema, não é difícil encontrar material onde você pode entender os detalhes do RF. O importante aqui é você entender que o valor do hiperparâmetro será escolhido com base no próprio conjunto de dados, utilizando validação cruzada.</p>
+<pre class="lang:r decode:true">#################################################################
+## Teste com RandomForest
+library(randomForest)
+
+## Separando o conjunto treino em dois para avaliação
+set.seed(1)
+inTrain &lt;- createDataPartition(treino$label, p = 3/4, list = F)
+train &lt;- treino_pc[inTrain,]
+evaluation &lt;- treino_pc[-inTrain,]
+
+## Data frame de treino e teste, aqui retendo somente 160 PC's, equivalente a 95% de ## variância.
+treino_arvore = as.data.frame(cbind(train[,1:160]))
+treino_arvore$classes = as.factor(treino$label[inTrain])
+
+## Conjunto de teste para avaliação
+teste_arvore = as.data.frame(evaluation[,1:160])
+
+## Modelagem
+fitControl &lt;- trainControl(method = "oob", verboseIter = T,
+                           
+                           ## Estimate class probabilities
+                           classProbs = F)
+
+set.seed(825)
+rfFit &lt;- train(classes ~ ., data = treino_arvore, verbose = T,
+                method = "rf",
+                trControl = fitControl,
+                tuneLength = 8,
+                metric = "Accuracy")
+save(rfFit, file = 'rfFit.rda')
+                
+## Calculando a matriz de confusão
+confusionMatrix(predict(rfFit, teste_arvore, type = 'raw'), treino$label[-inTrain])
+</pre>
+<p>e a matriz de confusão:</p>
+<pre class="lang:r decode:true ">Confusion Matrix and Statistics
+
+          Reference
+Prediction    0    1    2    3    4    5    6    7    8    9
+         0 1048    0    3    0    1    1    1    0    0    1
+         1    0 1130    2    0    1    1    0    2    3    0
+         2    0    3 1021   10    4    2    1    6    2    0
+         3    0    1    5 1073    3   12    0    1    8   11
+         4    1    0    6    0  970    4    1    1    4   18
+         5    0    0    0    8    2  932    6    0    4    6
+         6    6    1    3    2    5    3 1023    1    2    0
+         7    1    1    4    4    0    0    0 1077    3    7
+         8    0    0    5    4    5    2    1    2  967    4
+         9    2    2    3    2   11    2    0    1    2 1020
+
+Overall Statistics
+                                          
+               Accuracy : 0.9774          
+                 95% CI : (0.9744, 0.9802)
+    No Information Rate : 0.1084          
+    P-Value [Acc &gt; NIR] : &lt; 2.2e-16       
+                                          
+                  Kappa : 0.9749</pre>
+<p>e enfim chegamos a 97%!</p>
+<h2 style="text-align: justify;">5. SVM (Máquina de vertores de suporte)</h2>
+<p style="text-align: justify;">O SVM é um algoritmo do tipo &#8220;caixa preta&#8221;. O princípio por detrás do algoritmo é criar hiperplanos separadores em dimensões maiores do que as presentes no conjunto de dados. A ideia é que se os pontos são linearmente separáveis, isto é, se um hiperplano como fronteira de decisão conseguiria separar completamente as classes, então o SVM é um método que pode ser utilizado para encontrar esse hiperplano. ENTRETANTO, ocorre que muitos problemas não são linearmente separáveis, e ainda que fossem não valeria a pena usar o SVM. Quando o problema não é linearmente separável o SVM, de uma certa forma, projeta os dados em um espaço onde é possível criar um hiperplano separador. Também, ele aceita um certo grau de &#8220;impurezas&#8221; dentro das fronteiras de decisão. Enfim, é um algoritmo do tipo &#8220;caixa preta&#8221;, que não tem origem na estatística já que é basicamente um algoritmo de otimização. Mas o fato é que o SVM apresenta resultados muito bons e uma grande quantidade de problemas e vamos ver isso aqui nesse teste.</p>
+<pre class="lang:r decode:true">#################################################################
+## Teste com SVM RBF
+## Carregando os pacotes
+library(caret)
+
+## Modelagem
+fitControl &lt;- trainControl(method = "cv", verboseIter = T,
+                           
+                           ## Estimate class probabilities
+                           classProbs = F)
+
+set.seed(825)
+svmFit &lt;- train(classes ~ ., data = treino_arvore,
+                method = "svmRadial",
+                trControl = fitControl,
+                preProc = c("center", "scale"),
+                tuneLength = 8,
+                metric = "Accuracy")
+save(svmFit, file = 'svmFit2.rda')
+
+## Calculando a matriz de confusão
+confusionMatrix(predict(svmFit, teste_arvore, type = 'raw'), treino$label[-inTrain])
+</pre>
+<p>e avaliando no conjunto de avaliação:</p>
+<pre class="lang:r decode:true ">Confusion Matrix and Statistics
+
+          Reference
+Prediction    0    1    2    3    4    5    6    7    8    9
+         0 1046    0    3    0    1    3    5    1    3    6
+         1    1 1128    1    2    2    0    1    3    2    1
+         2    0    3 1015   13    4    3    1   15    4    1
+         3    1    1    4 1058    0   13    0    1    7    9
+         4    2    2   10    1  972    1    4   10    1   21
+         5    0    1    2   12    0  924    7    0    3    5
+         6    5    0    2    1    5   10 1010    0    4    0
+         7    0    0    5    7    0    0    0 1051    0   13
+         8    3    2    9    4    0    2    5    1  967    3
+         9    0    1    1    5   18    3    0    9    4 1008
+
+Overall Statistics
+                                          
+               Accuracy : 0.9696          
+                 95% CI : (0.9661, 0.9728)
+    No Information Rate : 0.1084          
+    P-Value [Acc &gt; NIR] : &lt; 2.2e-16       
+                                          
+                  Kappa : 0.9662</pre>
+<p>e novamente conseguimos algo em torno de 97%. Para ser honesto, depois que eu criei os modelos com os melhores hiperparâmetros, submetendo no Kaggle o SVM supera os 98%. Foi o modelo com melhor desempenho nessa tarefa.</p>
+<h2>Conclusão</h2>
+<p style="text-align: justify;">Acho que depois da Parte 1, Parte 2 e Parte 3 (esta aqui!) você viu como se trabalha com classificação de imagens, como se prepara esse tipo de dado e como é possível alcançar altíssima acurácia utilizando os modelos de machine learning que você encontra por aí. Se você for reproduzir os exemplos, fique ciente que a etapa de modelagem pode demorar muito. No meu caso alguns destes modelos demoraram mais de 8 horas para o ajuste com os melhore hiperparâmetros! Outro ponto que eu não abordei é como o caret seleciona os melhores hiperparâmetros por validação cruzada. Isso vou deixar para falar com maior detalhe em outra oportunidade. Também gostaria de salientar que uma modelagem como essa é algo tipicamente diferente do que se espera em uma análise estatística tradicional. Aqui não estávamos interessados em inferência, mas sim em produzir modelos com o maior poder preditivo possível. Em casos como esse, trabalhar com métodos &#8220;caixa preta&#8221; não é em si um problema. O ponto principal é ter certeza que seu modelo apresentará um bom desempenho no futuro, com novos dados. POR FIM, esses modelos não são o estado da arte nesta tarefa, já que com <a href="https://en.wikipedia.org/wiki/Deep_learning">deep learning</a> é possível passar dos 99% de acurácia.</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2016/03/14/reconhecimento-de-digitos-escritos-mao-parte-3/feed/index.html</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+		<item>
+		<title>Livros recomendados &#8211; Data Science</title>
+		<link>./../../../2016/03/12/livros-recomendados-data-science/index.html</link>
+		<comments>./../../../2016/03/12/livros-recomendados-data-science/index.html#comments</comments>
+		<pubDate>Sat, 12 Mar 2016 17:46:52 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Aprendizado de Máquina]]></category>
+		<category><![CDATA[Educação]]></category>
+		<category><![CDATA[Estatística]]></category>
+		<category><![CDATA[Mineração de Dados]]></category>
+		<category><![CDATA[R e RStudio]]></category>
+
+		<guid isPermaLink="false">./../../../index.html?p=858</guid>
+		<description><![CDATA[Ao longo dos últimos anos, trabalhando com pesquisa na pós-graduação, como estudante de Estatística e como um analista, eu venho consultando e estudando diversos materiais, de artigos em papers até livros sobre Data Mining, Data Science, Estatística, Big Data e etc. Eu tive oportunidade de consultar muitos bons livros, alguns menos e muitos que eram realmente ruins. ASSIM, nesse post eu gostaria de apresentar a minha seleção de livros e uma breve explicação de porque...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">Ao longo dos últimos anos, trabalhando com pesquisa na pós-graduação, como estudante de Estatística e como um analista, eu venho consultando e estudando diversos materiais, de artigos em <em>papers</em> até livros sobre Data Mining, Data Science, Estatística, Big Data e etc. Eu tive oportunidade de consultar muitos bons livros, alguns menos e muitos que eram realmente ruins. ASSIM, nesse post eu gostaria de apresentar a minha seleção de livros e uma breve explicação de porque eu gosto deles e o que você pode encontrar nesses materiais. Estou falando de livros na perspectiva de alguém que trabalha com aplicações, mas não é uma revisão extensiva da literatura da área. Quem visita esse blog já deve ter percebido que eu uso bastante o R e de fato minha lista tem um certo viés indicando livros que usam essa ferramenta. Vamos aos livros!</p>
+<h2 style="text-align: justify;">1. Probabilidade e Estatística</h2>
+<p style="text-align: justify;"><a href="./../../../wp-content/uploads/2016/03/devore.jpg" rel="attachment wp-att-859"><img class="wp-image-859 alignleft" src="./../../../wp-content/uploads/2016/03/devore.jpg" alt="capa Estatística_cengage.cdr" width="137" height="185" srcset="./../../../wp-content/uploads/2016/03/devore.jpg 600w, ./../../../wp-content/uploads/2016/03/devore-222x300.jpg 222w" sizes="(max-width: 137px) 100vw, 137px" /></a> Eu consultava esse livro quando estava estudando Inferência I no bacharelado em Estatística. Não é um livro que geralmente é utilizado em cursos de Estatística (esse não estava na bibliografia) pois apresenta a estatística básica em um nível mais conceitual, praticamente sem demonstrações. JUSTAMENTE POR ISSO eu acho uma excelente indicação para entender estatística básica. TODOS os exemplos e exercícios são com dados reais, de pesquisas reais, nas áreas de engenharia e ciências, o que dá um gostinho a mais já que o leitor consegue ver exatamente como a estatística é aplicada na vida real. O livro cobre probabilidade, testes de hipótese, IC&#8217;s, teste de independência, ANOVA e etc. Está tudo aí, apresentado de forma muito intuitiva sempre com vistas nas aplicações. Um livro realmente muito bom, que para mim na época, fazendo um curso teórico de inferência, trouxe bastante da intuição sobre os métodos que eu estava estudando.</p>
+<p style="text-align: justify;"><a href="./../../../wp-content/uploads/2016/03/uma_senhora_toma_cha.jpg" rel="attachment wp-att-862"><img class=" wp-image-862 alignleft" src="./../../../wp-content/uploads/2016/03/uma_senhora_toma_cha.jpg" alt="capa - uma senhora toma cha_18-02-10.indd" width="140" height="201" srcset="./../../../wp-content/uploads/2016/03/uma_senhora_toma_cha.jpg 1315w, ./../../../wp-content/uploads/2016/03/uma_senhora_toma_cha-209x300.jpg 209w, ./../../../wp-content/uploads/2016/03/uma_senhora_toma_cha-768x1104.jpg 768w, ./../../../wp-content/uploads/2016/03/uma_senhora_toma_cha-712x1024.jpg 712w" sizes="(max-width: 140px) 100vw, 140px" /></a></p>
+<p style="text-align: justify;">Quando eu comecei a ler este livro eu mal conseguia parar! É um livro que começa nos primórdios da estatística, explorando uma anedota que dá o nome ao livro. O autor caminha por toda a Estatística, sem entrar nos detalhes, mas mostrando o que é, o contexto histórico dos pesquisadores da época, aplicações e etc. É um livro muito completo que fornece ao leitor um panorama do que é a Estatística. É um livro que tem uma leitura leve e agradável e é super indicado para quem nunca ouviu falar de estatística ou acredita que a área de resume a fazer gráficos e calcular médias! Você pode baixar uma amostra com a introdução nesse <a href="http://www.zahar.com.br/sites/default/files/arquivos//t1184.pdf">link</a> da editora Zahar. Esse é o livro de leitura mais agradável nessa lista. Uma pequena amostra: &#8220;<em>Tentei aqui algo um pouco menos ambicioso: descrever a revolução estatística na ciência do século XX por intermédio de algumas das pessoas (muitas delas ainda vivas) que nela estiveram envolvidas. Tratei muito superficialmente o trabalho que elas criaram, só para provar como suas descobertas individuais se encaixaram no quadro geral.</em>&#8220;</p>
+<p style="text-align: justify;"><a href="./../../../wp-content/uploads/2016/03/effect_sizes.jpg" rel="attachment wp-att-892"><img class="wp-image-892 alignright" src="./../../../wp-content/uploads/2016/03/effect_sizes.jpg" alt="effect_sizes" width="158" height="224" srcset="./../../../wp-content/uploads/2016/03/effect_sizes.jpg 283w, ./../../../wp-content/uploads/2016/03/effect_sizes-212x300.jpg 212w" sizes="(max-width: 158px) 100vw, 158px" /></a>Nesse momento onde se discute bastante a respeito dos problemas com p-valor, p-hacking e afins eu achei esse livro muito interessante pois ele aborda esta e outras questões do ponto de vista das aplicações. O livro é leve, bem escrito e apresenta para o leitor a importância de entender o tamanho de efeito, como fazer uma análise de poder e como fazer meta análise. Não é um livro carregado de fórmulas e também não é um livro que poderia ser usado para um curso de análise de experimentos. Entretanto, para quem gostaria de entender o que é essa discussão toda sobre p-valor acho que esse livro pode ser muito útil.</p>
+<h2 style="text-align: justify;">2. Data Science básico</h2>
+<p style="text-align: justify;"><a href="./../../../wp-content/uploads/2016/03/datascience_for_business.jpg" rel="attachment wp-att-860"><img class="wp-image-860 alignleft" src="./../../../wp-content/uploads/2016/03/datascience_for_business.jpg" alt="datascience_for_business" width="139" height="183" srcset="./../../../wp-content/uploads/2016/03/datascience_for_business.jpg 500w, ./../../../wp-content/uploads/2016/03/datascience_for_business-228x300.jpg 228w" sizes="(max-width: 139px) 100vw, 139px" /></a> Esse é aquele livro que eu sempre indico para alguém que é leigo, ouviu falar de big data, data mining ou coisa que o valha, e gostaria de saber do que se tratam estas coisas. É um livro pensando para esse público, muito bem escrito por profissionais da área, com ótimos exemplos e praticamente sem matemática. É um livro conceitual e portanto, apesar de apresentar diversos exemplos muito interessantes, o livro não tem códigos ou instruções de como implementar as análises em algum software. O objetivo do livro é responder ao leitor: o que é Data Science? O que eu posso fazer com isso? O que a minha empresa pode ganhar com isso?</p>
+<p style="text-align: justify;"><a href="./../../../wp-content/uploads/2016/03/data_smart.jpg" rel="attachment wp-att-861"><img class=" wp-image-861 alignleft" src="./../../../wp-content/uploads/2016/03/data_smart.jpg" alt="data_smart" width="138" height="173" srcset="./../../../wp-content/uploads/2016/03/data_smart.jpg 260w, ./../../../wp-content/uploads/2016/03/data_smart-239x300.jpg 239w" sizes="(max-width: 138px) 100vw, 138px" /></a> Esse livro é muito interessante também, indo na mesma linha do Data Science for Business, mas mostrando outros exemplos interessantes e que se aprofunda um pouco mais nas técnicas e nos estudos de caso. Nesse livro o leitor é levado a analisar dados reais, mas utilizando simples planilhas eletrônicas como o Excel/LibreOffice Calc. Para não falar que são só planilhas, bem no final ele apresenta um exemplo com o R. No entanto, a ideia geral do livro é mostrar o que é uma análise de dados, o que você tem a ganhar com isso e como fazer isso no Excel. É bem legal e para um leitor que não é da área, mas quer dar um passo além, pondo data science em prática, esse é um livro muito bom.</p>
+<h2 style="text-align: justify;">3. Linguagem R</h2>
+<p style="text-align: justify;">Aqui eu vou mencionar livros fortemente relacionados ao ensino e uso do R. Alguns são introduções conceituais também mas que utilizam muito o R ao longo do livro.</p>
+<p style="text-align: justify;"><a href="./../../../wp-content/uploads/2016/03/R_for_everyone.jpg" rel="attachment wp-att-863"><img class=" wp-image-863 alignleft" src="./../../../wp-content/uploads/2016/03/R_for_everyone.jpg" alt="R_for_everyone" width="160" height="203" srcset="./../../../wp-content/uploads/2016/03/R_for_everyone.jpg 260w, ./../../../wp-content/uploads/2016/03/R_for_everyone-237x300.jpg 237w" sizes="(max-width: 160px) 100vw, 160px" /></a> Pensando em um livro de introdução à linguagem R eu fiquei em dúvida entre este e um outro. Mas minha sugestão vai para este, uma vez que ele pode ser usado mais tarde como referência. É um livro muito bom, bem escrito e com bons exemplos. NO ENTANTO, existem diversos cursos online de introdução a programação em R que provavelmente eu indicaria ao invés de começar direto pelo livro. MAS cada pessoa aprende diferente, e alguém já versado em outras plataformas pode tirar vantagem da velocidade de aprender diretamente de um livro. Esse é um que eu gosto muito.</p>
+<p><a href="./../../../wp-content/uploads/2016/03/data_manipulation_with_R.jpg" rel="attachment wp-att-871"><img class=" wp-image-871 alignleft" src="./../../../wp-content/uploads/2016/03/data_manipulation_with_R.jpg" alt="data_manipulation_with_R" width="157" height="238" srcset="./../../../wp-content/uploads/2016/03/data_manipulation_with_R.jpg 330w, ./../../../wp-content/uploads/2016/03/data_manipulation_with_R-198x300.jpg 198w" sizes="(max-width: 157px) 100vw, 157px" /></a></p>
+<p style="text-align: justify;">Depois que alguém aprende o básico da linguagem R eu acredito que o grande salto de qualidade é entender exatamente como funcionam as principais estruturas de dados da linguagem, como o matrix, data.frame, list e etc. Além disso também acho muito importante entender como trabalhar com datas, como consultar bancos de dados relacionais, como alterar a estrutura de tabelas e etc. Enfim, uma série de conhecimentos com relação à manipulação de dados. Tudo isto está aqui nesse livro, que eu considero um dos melhores da série <a href="http://www.springer.com/series/6991">User R!</a>. Uma vez que se perde tanto tempo na etapa de preparação de dados, eu acredito que o conteúdo deste livro é essencial.</p>
+<p><a href="./../../../wp-content/uploads/2016/03/The-Art-of-R-Programming-Matloff-Norman.jpg" rel="attachment wp-att-872"><img class="wp-image-872 alignright" src="./../../../wp-content/uploads/2016/03/The-Art-of-R-Programming-Matloff-Norman.jpg" alt="The-Art-of-R-Programming-Matloff-Norman" width="158" height="209" srcset="./../../../wp-content/uploads/2016/03/The-Art-of-R-Programming-Matloff-Norman.jpg 303w, ./../../../wp-content/uploads/2016/03/The-Art-of-R-Programming-Matloff-Norman-227x300.jpg 227w" sizes="(max-width: 158px) 100vw, 158px" /></a></p>
+<p style="text-align: justify;">Além das técnicas que você vai aprender no livro anterior, o segundo próximo salto de qualidade que um usuário da linguagem R pode conseguir é aprender a como programar com eficiência no R. Quem já tem experiência com programação em outras linguagens costuma ter hábitos que no R podem deixar os scripts muito lentos. Esse livro é muito interessante neste aspecto, mostrando para o usuário porque isso é um problema e como você pode programar melhor. O livro também fala do processo de manipulação de strings e diversos outros tópicos super interessantes. Acho que é uma leitura obrigatória.</p>
+<p><a href="./../../../wp-content/uploads/2016/03/ggplot2.jpg" rel="attachment wp-att-878"><img class="wp-image-878 alignleft" src="./../../../wp-content/uploads/2016/03/ggplot2.jpg" alt="ggplot2" width="159" height="239" srcset="./../../../wp-content/uploads/2016/03/ggplot2.jpg 333w, ./../../../wp-content/uploads/2016/03/ggplot2-200x300.jpg 200w" sizes="(max-width: 159px) 100vw, 159px" /></a></p>
+<p style="text-align: justify;">Depois de aprender a usar bem a linguagem, o usuário provavelmente já deve estar versado no processo de gerar visualizações básicas com os gráficos do pacote base. ENTRETANTO, a maioria dos gráficos de altíssima qualidade que você vê por aí, gerados com R, são criados com o ggplot2. Eu acho ESSENCIAL aprender a utilizar este sistema gráfico. Assim, minha sugestão é correr os exemplos desse livro pelo menos uma vez, para entender a famosa &#8220;gramática dos gráficos&#8221; que o ggplot2 implementa. Fiquem atentos que a versão disponível desse livro para compra provavelmente é antiga, e uma nova versão atualizada estará sendo lançada em breve, agora em 2016.</p>
+<p><a href="./../../../wp-content/uploads/2016/03/isl.jpg" rel="attachment wp-att-873"><img class="wp-image-873 alignright" src="./../../../wp-content/uploads/2016/03/isl.jpg" alt="isl" width="150" height="226" srcset="./../../../wp-content/uploads/2016/03/isl.jpg 1016w, ./../../../wp-content/uploads/2016/03/isl-199x300.jpg 199w, ./../../../wp-content/uploads/2016/03/isl-768x1157.jpg 768w, ./../../../wp-content/uploads/2016/03/isl-680x1024.jpg 680w" sizes="(max-width: 150px) 100vw, 150px" /></a></p>
+<p style="text-align: justify;">Se você pretende trabalhar com Data Science e quer realmente entender como funcionam os algoritmos de machine learning minha sugestão é começar com este livro. É um livro de leitura tranquila, feito justamente para profissionais de outras áreas entenderem e aplicarem estes métodos e escrito por dois caras que eu sou fã. Esse livro é ótimo como uma introdução ao machine learning ou statistical learning onde todos os exemplos são implementados na linguagem R. Apesar de não ser um livro sobre a linguagem, é um livro ótimo caso você queira uma introdução ao assunto que utilize o R. Entretanto não é um daqueles livros de aplicações, é um livro teórico sobre o assunto, um livro que poderia ser utilizado em uma disciplina universitária por exemplo. Dois outros pontos fortes do livro são: 1) está disponível de graça <a href="http://www-bcf.usc.edu/~gareth/ISL/">aqui</a>. 2) Em janeiro os autores costumam oferecer um <a href="https://lagunita.stanford.edu/courses/HumanitiesSciences/StatLearning/Winter2016/about">MOOC</a> que é praticamente passar por todo este livro.</p>
+<p><a href="./../../../wp-content/uploads/2016/03/ESLII.jpg" rel="attachment wp-att-874"><img class="wp-image-874 alignleft" src="./../../../wp-content/uploads/2016/03/ESLII.jpg" alt="SSS Hastie etal.qxd (Page 1)" width="149" height="224" srcset="./../../../wp-content/uploads/2016/03/ESLII.jpg 827w, ./../../../wp-content/uploads/2016/03/ESLII-200x300.jpg 200w, ./../../../wp-content/uploads/2016/03/ESLII-768x1154.jpg 768w, ./../../../wp-content/uploads/2016/03/ESLII-681x1024.jpg 681w" sizes="(max-width: 149px) 100vw, 149px" /></a></p>
+<p style="text-align: justify;">Esse é o irmão mais velho do livro anterior. É uma verdadeira obra de referência na área, só que é um livro que apresenta o conteúdo em um nível que pode estar muito acima daquele estudante que está apenas começando na área de análise de dados. Os próprios autores afirmam que escreveram o &#8220;introduction&#8221; para remediar esse problema. Entretanto é um livro fantástico, super completo, cheio de ótimos exemplos tal que se você quiser um livro para entender todos os detalhes de machine learning (e tiver disposição para isso!) esse é o livro que você deve ter. O livro também é disponibilizado gratuitamente nesse <a href="http://statweb.stanford.edu/~tibs/ElemStatLearn/">link</a>, mas o livro impresso é de uma qualidade impressionante, vale muito a pena.</p>
+<p><a href="./../../../wp-content/uploads/2016/03/applied_predictive_modelling.jpg" rel="attachment wp-att-875"><img class=" wp-image-875 alignleft" src="./../../../wp-content/uploads/2016/03/applied_predictive_modelling.jpg" alt="applied_predictive_modelling" width="147" height="222" /></a></p>
+<p style="text-align: justify;">Esse é o livro irmão do &#8220;Introduction of Statistical Learning&#8221;, como os próprio autores afirmam. O livro apresenta exemplos reais de análises utilizando as técnicas apresentadas no &#8220;introduction&#8221;. Você vai ver exemplos de classificação, avaliação de modelos, regressão, etc. Os dados são dados reais utilizados em pesquisas dos autores. O livro é muito interessante para ver como se faz data science na realidade. Cheio de exemplos super interessantes em áreas como quimiometria, detecção de fraude, segmentação de clientes e etc. Os autores abordam problemas como: seleção de atributos, problemas com classe desbalanceada, preenchimento de dados faltantes e etc. O livro portanto tem um enfoque nos aspectos práticos da modelagem e deixa a teoria sobre os modelos utilizados para outros livros. Os autores deste livro são os mesmos autores do pacote <a href="http://caret.r-forge.r-project.org/">caret</a> que é tão utilizado pela comunidade R para automatizar tarefas de modelagem. Eles utilizam o pacote extensivamente ao longo do livro.</p>
+<p style="text-align: justify;"><a href="./../../../wp-content/uploads/2016/03/handook_data_mining.jpg" rel="attachment wp-att-890"><img class="wp-image-890 alignleft" src="./../../../wp-content/uploads/2016/03/handook_data_mining.jpg" alt="handook_data_mining" width="151" height="185" srcset="./../../../wp-content/uploads/2016/03/handook_data_mining.jpg 300w, ./../../../wp-content/uploads/2016/03/handook_data_mining-244x300.jpg 244w" sizes="(max-width: 151px) 100vw, 151px" /></a> Por fim, eu gostaria de adicionar esse livro a lista porque é um livro super interessante para discutir em linhas gerais o processo de data mining. Ele é um livro mais na linha do livros clássicos de data mining, mas que conta com muitas aplicações. Neste livro são apresentadas análises práticas de problemas de predição de churn, de fraude, segmentação de clientes, previsão de risco e etc. Só pelos exemplos das aplicações já vale a pena. As aplicações não utilizam o R, mas utilizam SAS, Stata, SPSS dentre outros. É uma boa fonte também para quem quer ver como se faz esse tipo de análise em outros softwares.</p>
+<h2 style="text-align: justify;">Conclusão</h2>
+<p style="text-align: justify;">Está longe de ser uma lista exaustiva, muitos bons títulos que eu não conheço devem ter ficado de fora, mas são todos livros que fizeram muito a diferença para mim. Também me restringi aos livros que eu realmente li e usei, e muitos aí eu uso como referência até hoje. Eu teria outras sugestões para livros sobre experimentos, livros sobre análise de survey, séries temporais e etc. Entretanto eu coloquei mais uma bibliografia básica sobre o que costuma ser abordado em currículos de cursos de Data Science que eu vejo por aí.</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2016/03/12/livros-recomendados-data-science/feed/index.html</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+		</item>
+		<item>
+		<title>Regras de associação: vendas cruzadas e recomendação</title>
+		<link>./../../../2016/03/01/regras-de-associacao-vendas-cruzadas-e-recomendacao/index.html</link>
+		<comments>./../../../2016/03/01/regras-de-associacao-vendas-cruzadas-e-recomendacao/index.html#comments</comments>
+		<pubDate>Wed, 02 Mar 2016 00:00:10 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Data Mining]]></category>
+		<category><![CDATA[Educação]]></category>
+		<category><![CDATA[Estatística]]></category>
+		<category><![CDATA[Mineração de Dados]]></category>
+		<category><![CDATA[R e RStudio]]></category>
+
+		<guid isPermaLink="false">./../../../index.html?p=841</guid>
+		<description><![CDATA[Caros leitores, fizemos um novo hangout na semana passada, desta vez sobre regras de associação. Vocês podem conferir aqui o vídeo: Para resumir, no vídeo falamos um pouco sobre o que são as regras de associação, as aplicações em vendas cruzadas e recomendação e foi apresentado também um exemplo prático da famosa &#8220;market basket analysis&#8221; ou análise de cestas de mercado. O material usado na apresentação, com os slides em PDF e os códigos, está...]]></description>
+				<content:encoded><![CDATA[<p>Caros leitores, fizemos um novo hangout na semana passada, desta vez sobre regras de associação. Vocês podem conferir aqui o vídeo:</p>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/yg9DRPWi524?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<p style="text-align: justify;">Para resumir, no vídeo falamos um pouco sobre o que são as regras de associação, as aplicações em vendas cruzadas e recomendação e foi apresentado também um exemplo prático da famosa &#8220;market basket analysis&#8221; ou análise de cestas de mercado.</p>
+<p style="text-align: justify;">O material usado na apresentação, com os slides em PDF e os códigos, está disponível no <a href="https://github.com/flaviobarros/lombz_association_rules" target="_blank">github</a>. E também gostaria de deixar como sugestão a leitura dos artigos sobre como implementar regras de associação com <a href="https://pt.wikipedia.org/wiki/MapReduce" target="_blank">mapreduce</a> (em Big Data) e o outro artigo sobre como o Youtube usou regras de associação no seu sistema de recomendação de vídeos. Aqui vão os links:</p>
+<ul>
+<li style="text-align: justify;"><a href="http://www.inf.unibz.it/~ricci/ISR/papers/p293-davidson.pdf" target="_blank">The YouTube Video Recommendation System</a></li>
+<li style="text-align: justify;"><a href="http://worldcomp-proceedings.com/proc/p2012/PDP7948.pdf" target="_blank">Apriori-Map/Reduce Algorithm</a></li>
+</ul>
+<p>Por favor, não deixe de curtir nossa página no Facebook!</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2016/03/01/regras-de-associacao-vendas-cruzadas-e-recomendacao/feed/index.html</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+		<item>
+		<title>Cluster &#8211; Segmentação de Clientes</title>
+		<link>./../../../2016/02/22/cluster-segmentacao-de-clientes/index.html</link>
+		<comments>./../../../2016/02/22/cluster-segmentacao-de-clientes/index.html#respond</comments>
+		<pubDate>Mon, 22 Feb 2016 07:46:50 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Data Mining]]></category>
+		<category><![CDATA[Educação]]></category>
+		<category><![CDATA[Estatística]]></category>
+		<category><![CDATA[Mineração de Dados]]></category>
+		<category><![CDATA[R e RStudio]]></category>
+
+		<guid isPermaLink="false">./../../../index.html?p=830</guid>
+		<description><![CDATA[OBS: Caros visitantes, curtam a  página do R Mining no Facebook, aqui ao lado! Agradeço muito. Caros leitores do blog, por conta de diversos fatores eu só estou conseguindo postar agora, pela primeira vez esse ano, em fevereiro. Enfim, demorou, mas eu tenho algo que eu acho que pode ser interessante. Um grupo de amigos, arquitetos de soluções em grandes empresas de São Paulo, está organizando alguns hangouts sobre Big Data. Você pode assistir os...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;"><strong>OBS: Caros visitantes, curtam a  página do R Mining no Facebook, aqui ao lado! Agradeço muito.</strong></p>
+<p style="text-align: justify;">Caros leitores do blog, por conta de diversos fatores eu só estou conseguindo postar agora, pela primeira vez esse ano, em fevereiro. Enfim, demorou, mas eu tenho algo que eu acho que pode ser interessante. Um grupo de amigos, arquitetos de soluções em grandes empresas de São Paulo, está organizando alguns hangouts sobre Big Data. Você pode assistir os hangouts que estão disponíveis até o momento nesse <a href="https://www.youtube.com/playlist?list=PLACuKp_68Ygn6UxGOwJeZx7T9nD5NZiFt" target="_blank">playlist</a>, ou mesmo ver um por um aqui:</p>
+<ul>
+<li>BIG DATA &#8211; Buscando as respostas onde elas estão.</li>
+</ul>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/efYAIH5dprc?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<ul>
+<li>Falando sobre Arquitetura para Big Data.</li>
+</ul>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/smloHdrdbdY?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<ul>
+<li>Cluster &#8211; Segmentação de Clientes</li>
+</ul>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/vkOObS6N7ZM?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<p style="text-align: justify;">Eu tive a oportunidade de ser  comentarista em dois deles.</p>
+<p style="text-align: justify;">E o que é esse post então? Bom, como de repente alguém poderia querer ver os códigos utilizados no terceiro vídeo, e até alguns exemplos suplementares, eu vou apresentar aqui o link dos códigos no <a href="https://github.com/flaviobarros/lombz_cluster">Github</a> e também vou destacar o que eu acho interessante sobre a análise.</p>
+<ul style="text-align: justify;">
+<li style="text-align: justify;">Essa é uma análise simples e o conjunto de dados é bem pequeno;</li>
+<li style="text-align: justify;">A ideia é apresentar o conceito de cluster;</li>
+<li style="text-align: justify;">Aplicação com segmentação de clientes;</li>
+<li style="text-align: justify;">Descobrir o número de clusters pelo dendograma;</li>
+<li style="text-align: justify;">Descobrir o número de clusters pelo método do cotovelo;</li>
+<li style="text-align: justify;">Após o agrupamento a análise dos grupos provê insights;</li>
+</ul>
+<p style="text-align: justify;">Aqui naturalmente eu não abordei diversos tópicos no que diz respeito a aplicação da metodologia de clusters, mas como uma introdução acho que foi interessante. De resto, não vou colocar mais detalhes, como eu faço regularmente nas análises aqui, pois já temos os códigos e também o vídeo sobre a discussão.</p>
+<p style="text-align: justify;">
+]]></content:encoded>
+			<wfw:commentRss>./../../../2016/02/22/cluster-segmentacao-de-clientes/feed/index.html</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Compartilhe Shiny Apps com o Docker e o Kitematic!</title>
+		<link>./../../../2015/12/28/compartilhe-shiny-apps-com-o-docker-e-o-kitematic/index.html</link>
+		<comments>./../../../2015/12/28/compartilhe-shiny-apps-com-o-docker-e-o-kitematic/index.html#respond</comments>
+		<pubDate>Mon, 28 Dec 2015 04:38:59 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Docker]]></category>
+		<category><![CDATA[Linux]]></category>
+		<category><![CDATA[Shiny]]></category>
+
+		<guid isPermaLink="false">./../../../index.html?p=813</guid>
+		<description><![CDATA[Há algum tempo atrás eu escrevi nesse blog sobre como &#8220;dockerizar&#8221; uma aplicação Shiny. Se você não sabe o que é o Docker ou o que eu quero dizer com &#8220;dockerizar uma aplicação Shiny&#8221; eu lhe aconselho dar uma olhada nesse post: Dockerizando Shiny Apps Eu usei esta solução para criar uma forma fácil de fazer o deploy (ou implatação) de Apps Shiny em servidores web, uma vez que na prática, se você quiser fazer...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">Há algum tempo atrás eu escrevi nesse blog sobre como &#8220;dockerizar&#8221; uma aplicação Shiny. Se você não sabe o que é o Docker ou o que eu quero dizer com &#8220;dockerizar uma aplicação Shiny&#8221; eu lhe aconselho dar uma olhada nesse post:</p>
+<p style="text-align: justify;"><span style="color: #0000ff;"><a style="color: #0000ff;" href="./../../../2015/04/30/dockerizando-shiny-apps/index.html">Dockerizando Shiny Apps</a></span></p>
+<p style="text-align: justify;">
+<p style="text-align: justify;">Eu usei esta solução para criar uma forma fácil de fazer o deploy (ou implatação) de Apps Shiny em servidores web, uma vez que na prática, se você quiser fazer isso, você somente têm quatro opções:</p>
+<ol>
+<li style="text-align: justify;">Compartilhar os arquivos ui.R e server.R com alguém que seja capaz de roda-los no RStudio.</li>
+<li style="text-align: justify;">Compartilhar sua aplicação online por meio do <a href="http://www.shinyapps.io/" target="_blank">shinyapps.io</a>.</li>
+<li style="text-align: justify;">Compartilhar seu app online no seu próprio servidor (Ex: no AWS).</li>
+<li style="text-align: justify;">Dar um git push para seu próprio servidor.</li>
+</ol>
+<p style="text-align: justify;">
+<p style="text-align: justify;">A solução 1 não é viável para usuários não técnicos; a 2 é fácil, mas pode ser cara; a 3 pode ser mais complicada tecnicamente, mas pode ser mais barata; a solução 4 é um compromisso entre a solução 2 e a solução 3, e é a minha predileta.</p>
+<p style="text-align: justify;">ENTRETANTO, recentemente eu soube de um projeto da Docker Inc. com muito potencial: o Kitematic! Com ele o usuário tem uma GUI (interface gráfica) onde ele pode baixar e usar imagens docker. Assim o <a href="https://hub.docker.com/" target="_blank">Docker Hub</a> poderia em tese se tornar algo como um App Store onde o usuário poderia simplesmente baixar e usar apps instalados em contêineres. Veja esse vídeo para você entender melhor:</p>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/QEr340gjV1Q?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<p style="text-align: justify;">Isso é fantástico, porque uma vez que você consiga dockerizar um App Shiny, não importa quão complexo ele seja, você pode compartilha-lo tranquilamente no Docker Hub. O Kitematic pode ser usado no Windows, no Mac e <a href="https://github.com/docker/kitematic/issues/49">experimentalmente no Linux</a>. Eu fiz um vídeo (no Linux) mostrando como instalar um app Shiny dockerizado, em alguns cliques:</p>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/7MH_bCjoFT4?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<p>Mas lembre-se, antes de você compartilhar seu app você vai precisar dockeriza-lo e subir para o Docker Hub.</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2015/12/28/compartilhe-shiny-apps-com-o-docker-e-o-kitematic/feed/index.html</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

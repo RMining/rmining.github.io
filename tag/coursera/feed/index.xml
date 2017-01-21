@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Coursera &#8211; R Mining</title>
+	<atom:link href="./index.html" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Mineração de Dados, Estatística, Tecnologia</description>
+	<lastBuildDate>Tue, 17 Jan 2017 10:04:59 +0000</lastBuildDate>
+	<language>pt-BR</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.7.1</generator>
+	<item>
+		<title>Curso &#8220;Pratical Machine Learning&#8221; do Coursera</title>
+		<link>./../../../2015/09/29/curso-pratical-machine-learning-do-coursera/index.html</link>
+		<comments>./../../../2015/09/29/curso-pratical-machine-learning-do-coursera/index.html#comments</comments>
+		<pubDate>Wed, 30 Sep 2015 00:53:50 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Aprendizado de Máquina]]></category>
+		<category><![CDATA[Data Mining]]></category>
+		<category><![CDATA[Machine Learning]]></category>
+		<category><![CDATA[Mineração de Dados]]></category>
+		<category><![CDATA[MOOCS]]></category>
+		<category><![CDATA[Coursera]]></category>
+		<category><![CDATA[Data Science]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=760</guid>
+		<description><![CDATA[Em mais uma rodada das resenhas de cursos sobre Data Science, desta vez vou apresentar minha avaliação do curso &#8220;Pratical Machine Learning&#8220;, ou Machine Learning Prático. 1. Sobre o que é o curso? Este é o penúltimo curso da especialização em Data Science do Coursera do Coursera. Já falei sobre o último da sequência aqui nesse blog, o Developing Data Products, mas este é o último onde são apresentados conceitos novos de Data Science. Como o...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">Em mais uma rodada das resenhas de cursos sobre Data Science, desta vez vou apresentar minha avaliação do curso &#8220;<span style="color: #0000ff;"><a style="color: #0000ff;" href="https://www.coursera.org/course/predmachlearn">Pratical Machine Learning</a></span>&#8220;, ou Machine Learning Prático.</p>
+<h2 style="text-align: justify;">1. Sobre o que é o curso?</h2>
+<p style="text-align: justify;">Este é o penúltimo curso da especialização em <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://www.coursera.org/specializations/jhudatascience?utm_medium=courseDescripTop">Data Science do Coursera</a> </span>do Coursera. Já falei sobre o último da sequência aqui nesse blog, o <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://www.flaviobarros.net/2015/08/24/curso-developing-data-products-do-coursera/">Developing Data Products</a></span>, mas este é o último onde são apresentados conceitos novos de Data Science.</p>
+<p style="text-align: justify;">Como o nome do curso já diz é um curso sobre <a href="https://pt.wikipedia.org/wiki/Aprendizado_de_m%C3%A1quina">machine learning</a>. Mas e o prático no nome? O que quer dizer? Bem, esse prático na verdade quer dizer que esse curso não tem o aprofundamento teórico que é visto nos de <a href="https://www.coursera.org/course/statinference">Inferência</a> e <a href="https://www.coursera.org/course/regmods">Regressão</a>. Isto é, o objetivo desse curso não é apresentar o campo de machine learning de uma forma completa, mas habilitar o aluno a utilizar estas ferramentas pela primeira vez.</p>
+<p style="text-align: justify;">Na verdade, na minha opinião, os objetivos gerais desse curso são:</p>
+<ul>
+<li style="text-align: justify;">Apresentar a ideia de modelos para predição;</li>
+<li style="text-align: justify;">Apresentar a ideia de avaliação de modelos;</li>
+<li style="text-align: justify;">Mostrar como usar o <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://caret.r-forge.r-project.org/">caret</a></span>;</li>
+</ul>
+<p style="text-align: justify;">Veja que durante os cursos de inferência e regressão o foco foi no processo de inferência, ao passo que aqui o foco é no processo de criação de modelos de predição para problemas práticos. Quem já trabalhou com predição sabe que o processo completo começa na preparação, análise exploratória, criação de modelos, avaliação de modelos e implantação. Assim eu posso dizer que neste curso o foco foi em como criar os modelos e avalia-los corretamente.</p>
+<p style="text-align: justify;">Com relação a teoria de machine learning, nos vídeos são apresentados os princípios fundamentais dos algoritmos, mas de uma forma bastante superficial, somente o necessário para o aluno ter alguma ideia de como os algoritmos funcionam. Isso não é necessariamente uma deficiência do curso, mas sim uma opção dos instrutores e algo que é colocado antecipadamente.</p>
+<p style="text-align: justify;">Quanto o pacote <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://caret.r-forge.r-project.org/">caret</a></span> ele é usado extensivamente aqui. É um pacote que eu uso muito, há muito tempo, e realmente é essencial para automatizar aquelas tarefas repetitivas presentes na pipeline de criação de modelos de predição.</p>
+<h2 style="text-align: justify;">2. Pré-requisitos</h2>
+<p style="text-align: justify;">Nessa altura da especialização é um curso que demanda bastante o domínio da linguagem R. Até chegar aqui, em tese, o aluno já utilizou bastante a linguagem para preparação, análise exploratória, geração de relatórios e etc. Assim, se você não tem um bom domínio do R vai ter problemas para realizar as tarefas e o projetos. Outro ponto fundamental é que é necessário um conhecimento básico de modelagem e inferência e como utilizar o github. Enfim:</p>
+<ul>
+<li style="text-align: justify;">Linguagem R;</li>
+<li style="text-align: justify;">Git &amp; Github</li>
+<li style="text-align: justify;">Regressão e modelagem;</li>
+</ul>
+<h2>3. Conteúdo</h2>
+<p>No geral o conteúdo aborda os seguintes tópicos:</p>
+<ul>
+<li>Criação de modelos preditivos;</li>
+<li>Avaliação de modelos;</li>
+<li>Automatização com o caret;</li>
+<li>Overview dos principais algoritmos de ML;</li>
+</ul>
+<h2>Minha experiência</h2>
+<p style="text-align: justify;">Eu vi todo o material, fiz todos os quizes e o projeto final. Minha impressão é que os vídeos podem não fornecer o suficiente para um aluno que está vendo o assunto pela primeira vez. Digo isto pois eu tive a impressão que as aulas foram algo superficiais, mas seria necessário saber mais para responder corretamente todos os quizes.</p>
+<p style="text-align: justify;">Um ponto que eu gostaria de destacar é que o instrutor fala como uma batedeira. Vejam, eu entendo que ele é americano e está falando para uma audiência de língua inglesa, MAS o fato é que uma boa parcela do público é de alunos estrangeiros que não tem o inglês como o idioma nativo. Eu tenho proficiência em inglês para conversar, até consegui fazer o curso sem utilizar as legendas, mas acredito que o autor poderia fazer um esforço para facilitar a vida dos estrangeiros, minha opinião ;-). Só para comparar, no curso de Machine Learning do Andrew Ng por exemplo, você vê que há um esforço do instrutor em se fazer entender para uma ampla audiência.</p>
+<p style="text-align: justify;">O curso tem bastante material e os exercícios demandam trabalho. Não é algo que faz em dois dias e pronto. Tem que dar uma raladinha, principalmente se você não tem experiência com o R ;-). Eu diria que um aluno regular pode ter que gastar algo entre 4h a 10h por semana.</p>
+<h2 style="text-align: justify;">Conclusão</h2>
+<p style="text-align: justify;">Bom, para quem estiver fazendo a especialização não tem jeito, tem que fazer mesmo. Mas e para quem não está? Vale a pena fazer só esse? Eu particularmente acho que vale em alguns casos. O curso tem suas deficiências, questões que podem ser melhoradas, mas se eu tivesse que destacar um grande mérito seria o seguinte: você vai aprender a aplicar data science usando o R como plataforma.</p>
+<p style="text-align: justify;">Acredito que pode ser um curso bastante útil para profissionais de data science que querem migrar de plataforma; estudantes de graduação que desejam ver aplicações e entusiastas que pretendem participar de competições e modelagem. É  um bom começo.</p>
+<p style="text-align: justify;">Devo salientar que o curso está pra lá de longe de oferecer um conteúdo aprofundado sobre os aspectos de ML. Entretanto essa não é a proposta do curso e já existem dois bons complementos para esse curso, para quem pretende aprender mais sobre ML:</p>
+<ol>
+<li style="text-align: justify;"><span style="color: #0000ff;"><a style="color: #0000ff;" href="https://www.coursera.org/learn/machine-learning">Machine Learning</a></span> do Andrew Ng;</li>
+<li style="text-align: justify;"><span style="color: #0000ff;"><a style="color: #0000ff;" href="https://lagunita.stanford.edu/courses/HumanitiesandScience/StatLearning/Winter2015/about">Statistical Learning</a></span> do Trevor Hastie and Robert Tibshirani;</li>
+</ol>
+<p style="text-align: justify;">O primeiro foi o curso que inicou o Coursera, do próprio fundador, e o segundo é um curso fantástico, que deve ser oferecido agora novamente no verão, e que tem todo seu conteúdo disponível no <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://www.r-bloggers.com/in-depth-introduction-to-machine-learning-in-15-hours-of-expert-videos/">Youtube</a></span> para quem se interessar.</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2015/09/29/curso-pratical-machine-learning-do-coursera/feed/index.html</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+		<item>
+		<title>MOOC&#8217;s para todos!</title>
+		<link>./../../../2013/05/30/moocs/index.html</link>
+		<pubDate>Thu, 30 May 2013 16:06:05 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[MOOCS]]></category>
+		<category><![CDATA[Coursera]]></category>
+		<category><![CDATA[edX]]></category>
+		<category><![CDATA[MOOC]]></category>
+		<category><![CDATA[Udacity]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=1</guid>
+		<description><![CDATA[&#160; Nos últimos dois anos temos visto na internet o fenômeno dos MOOC&#8217;s, sigla em inglês para (Massive Open Online Course), tendo como principais representantes o Coursera (https://www.coursera.org/), o Udacity (https://www.udacity.com/)  e o edX (https://www.edx.org/). Os três foram fundados como startups de tecnologia e vem oferecendo cursos em nível de graduação em parceria com universidades conceituadas como MIT, Harvard e Stanford. Apesar do ensino à distância não ser algo novo, essas iniciativas se diferenciam das demais por...]]></description>
+				<content:encoded><![CDATA[<p>&nbsp;</p>
+<p style="text-align: justify;">Nos últimos dois anos temos visto na internet o fenômeno dos MOOC&#8217;s, sigla em inglês para <em>(Massive Open Online Course), </em>tendo como principais representantes o Coursera (<span style="color: #3366ff;"><a href="https://www.coursera.org/"><span style="color: #3366ff;">https://www.coursera.org/</span></a></span>), o Udacity (<span style="color: #3366ff;"><a href="https://www.udacity.com/"><span style="color: #3366ff;">https://www.udacity.com/</span></a></span>)  e o edX (<span style="color: #3366ff;"><a href="https://www.edx.org/"><span style="color: #3366ff;">https://www.edx.org/</span></a></span>). Os três foram fundados como startups de tecnologia e vem oferecendo cursos em nível de graduação em parceria com universidades conceituadas como MIT, Harvard e Stanford.</p>
+<p style="text-align: justify;">Apesar do ensino à distância não ser algo novo, essas iniciativas se diferenciam das demais por conta do apelo destas instituições e dos professores que ministram os cursos. Também se destaca o fato de que os cursos são abertos e gratuitos e em alguns casos como do Coursera, é possível receber um certificado ao final.  Na sigla MOOC, o <em>massive</em> se refere ao número de estudantes que participam simultaneamente, que em alguns casos passa das centenas de milhares.</p>
+<p style="text-align: justify;">De forma a trabalhar com um volume tão elevado de participantes, todas essas iniciativas desenvolveram plataformas próprias com recursos de inteligência artificial que permitem que os alunos sejam avaliados em tempo real. Essas plataformas também contemplam recursos da Web 2.0,  cooperação entre os estudantes e professores por meio de forums e chats e avaliações on-line. Devido ao número elevado de participantes o tempo médio de resposta às dúvidas costumam ser menores que 20 minutos.</p>
+<p style="text-align: justify;">Já participei de 4 cursos: 3 na plataforma do Coursera e 1 na plataforma do Udacity. Minha experiência foi, e está sendo, muito boa. Tenho aprendido bastante sobre minhas áreas de interesse com grandes especialistas das melhores universidades americanas. Essa é uma oportunidade incrível que nem é possível determinar quanto custaria e vem sendo oferecido de graça na internet.</p>
+<p style="text-align: justify;">Infelizmente nem todos os brasileiros podem usufruir: a maioria esmagadora, com algumas exceções, são cursos oferecidos em inglês. A barreira da língua limita o acesso a esse modelo de educação que pode revolucionar o ensino superior. Uma possível solução seria que iniciativas semelhantes fossem oferecidas no Brasil em português. Para tanto seria necessário ou um convênio com universidades brasileiras ou uma plataforma de código aberto disponível para empresas, instituições e individuais. Pensando nisso a Universidade de Stanford, durante o ano de 2012 lançou uma plataforma para MOOC&#8217;s chamada class2go, na qual ofereceu alguns cursos e estava disponível para download e livre para qualquer pessoa usar. Essa plataforma contemplava todos os recursos das anteriores e o objetivo era exportar esse modelo de educação ao redor do mundo.</p>
+<p style="text-align: justify;">Somada a essa iniciativa, o edX recentemente  anunciou a abertura em código aberto de sua plataforma. O Class2go se fundirá a esse projeto e, a partir do 1 de junho de 2013, a plataforma estará disponível para qualquer pessoa usar. Particularmente estou entusiasmado com a ideia e pretendo em breve experimentar e talvez já oferecer um curso on-line!</p>
+<p style="text-align: justify;">
+]]></content:encoded>
+			</item>
+	</channel>
+</rss>

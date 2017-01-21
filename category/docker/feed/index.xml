@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Docker &#8211; R Mining</title>
+	<atom:link href="./index.html" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Mineração de Dados, Estatística, Tecnologia</description>
+	<lastBuildDate>Tue, 17 Jan 2017 10:04:59 +0000</lastBuildDate>
+	<language>pt-BR</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.7.1</generator>
+	<item>
+		<title>Compartilhe Shiny Apps com o Docker e o Kitematic!</title>
+		<link>./../../../2015/12/28/compartilhe-shiny-apps-com-o-docker-e-o-kitematic/index.html</link>
+		<comments>./../../../2015/12/28/compartilhe-shiny-apps-com-o-docker-e-o-kitematic/index.html#respond</comments>
+		<pubDate>Mon, 28 Dec 2015 04:38:59 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Docker]]></category>
+		<category><![CDATA[Linux]]></category>
+		<category><![CDATA[Shiny]]></category>
+
+		<guid isPermaLink="false">./../../../index.html?p=813</guid>
+		<description><![CDATA[Há algum tempo atrás eu escrevi nesse blog sobre como &#8220;dockerizar&#8221; uma aplicação Shiny. Se você não sabe o que é o Docker ou o que eu quero dizer com &#8220;dockerizar uma aplicação Shiny&#8221; eu lhe aconselho dar uma olhada nesse post: Dockerizando Shiny Apps Eu usei esta solução para criar uma forma fácil de fazer o deploy (ou implatação) de Apps Shiny em servidores web, uma vez que na prática, se você quiser fazer...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">Há algum tempo atrás eu escrevi nesse blog sobre como &#8220;dockerizar&#8221; uma aplicação Shiny. Se você não sabe o que é o Docker ou o que eu quero dizer com &#8220;dockerizar uma aplicação Shiny&#8221; eu lhe aconselho dar uma olhada nesse post:</p>
+<p style="text-align: justify;"><span style="color: #0000ff;"><a style="color: #0000ff;" href="./../../../2015/04/30/dockerizando-shiny-apps/index.html">Dockerizando Shiny Apps</a></span></p>
+<p style="text-align: justify;">
+<p style="text-align: justify;">Eu usei esta solução para criar uma forma fácil de fazer o deploy (ou implatação) de Apps Shiny em servidores web, uma vez que na prática, se você quiser fazer isso, você somente têm quatro opções:</p>
+<ol>
+<li style="text-align: justify;">Compartilhar os arquivos ui.R e server.R com alguém que seja capaz de roda-los no RStudio.</li>
+<li style="text-align: justify;">Compartilhar sua aplicação online por meio do <a href="http://www.shinyapps.io/" target="_blank">shinyapps.io</a>.</li>
+<li style="text-align: justify;">Compartilhar seu app online no seu próprio servidor (Ex: no AWS).</li>
+<li style="text-align: justify;">Dar um git push para seu próprio servidor.</li>
+</ol>
+<p style="text-align: justify;">
+<p style="text-align: justify;">A solução 1 não é viável para usuários não técnicos; a 2 é fácil, mas pode ser cara; a 3 pode ser mais complicada tecnicamente, mas pode ser mais barata; a solução 4 é um compromisso entre a solução 2 e a solução 3, e é a minha predileta.</p>
+<p style="text-align: justify;">ENTRETANTO, recentemente eu soube de um projeto da Docker Inc. com muito potencial: o Kitematic! Com ele o usuário tem uma GUI (interface gráfica) onde ele pode baixar e usar imagens docker. Assim o <a href="https://hub.docker.com/" target="_blank">Docker Hub</a> poderia em tese se tornar algo como um App Store onde o usuário poderia simplesmente baixar e usar apps instalados em contêineres. Veja esse vídeo para você entender melhor:</p>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/QEr340gjV1Q?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<p style="text-align: justify;">Isso é fantástico, porque uma vez que você consiga dockerizar um App Shiny, não importa quão complexo ele seja, você pode compartilha-lo tranquilamente no Docker Hub. O Kitematic pode ser usado no Windows, no Mac e <a href="https://github.com/docker/kitematic/issues/49">experimentalmente no Linux</a>. Eu fiz um vídeo (no Linux) mostrando como instalar um app Shiny dockerizado, em alguns cliques:</p>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/7MH_bCjoFT4?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<p>Mas lembre-se, antes de você compartilhar seu app você vai precisar dockeriza-lo e subir para o Docker Hub.</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2015/12/28/compartilhe-shiny-apps-com-o-docker-e-o-kitematic/feed/index.html</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>R &#038; RStudio no Docker com 2 cliques!</title>
+		<link>./../../../2015/08/21/r-rstudio-no-docker-com-2-cliques/index.html</link>
+		<comments>./../../../2015/08/21/r-rstudio-no-docker-com-2-cliques/index.html#comments</comments>
+		<pubDate>Fri, 21 Aug 2015 22:46:14 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Docker]]></category>
+		<category><![CDATA[Estatística]]></category>
+		<category><![CDATA[Linux]]></category>
+		<category><![CDATA[R e RStudio]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=688</guid>
+		<description><![CDATA[Quem já me pagou uma visita aqui já deve ter percebido umas três coisas: eu gosto muito de usar R; eu gosto muito de usar o Docker; eu gosto de combinar os dois; Como sou colaborador do r-bloggers, talvez o agregador de blogs mais importante para comunidade de usuários de R &#38; Data Science no mundo, eu regularmente publico material em inglês aqui, infelizmente. Infelizmente porque eu percebi que deixei de compartilhar alguns recursos muito...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">Quem já me pagou uma visita aqui já deve ter percebido umas três coisas:</p>
+<ol>
+<li>eu gosto muito de usar R;</li>
+<li>eu gosto muito de usar o Docker;</li>
+<li>eu gosto de combinar os dois;</li>
+</ol>
+<p style="text-align: justify;">Como sou colaborador do <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://www.r-bloggers.com/">r-bloggers</a></span>, talvez o agregador de blogs mais importante para comunidade de usuários de R &amp; Data Science no mundo, eu regularmente publico material em inglês aqui, infelizmente. Infelizmente porque eu percebi que deixei de compartilhar alguns recursos muito úteis que qualquer usuário do R &amp; RStudio poderia se beneficiar, principalmente no Brasil onde eu percebo que falta material sobre a linguagem. Assim vou remediar um pouco esse problema (eu espero!) com uma dica para o uso do Docker, principalmente para professores que usam o R em seus cursos.</p>
+<h2 style="text-align: justify;">Mas para qual PROBLEMA?</h2>
+<p style="text-align: justify;">Bem, um dos principais problemas que eu já tive em cursos onde o R é o ambiente principal utilizado é com relação a uniformidade do ambiente de trabalho dos alunos. Acredito que quem já usou o software alguma vez, com grandes turmas, já deve ter se deparado com o seguinte cenário: você escolhe usar o R pois não tem um software estatístico no laboratório, decide usar um RStudio, ou alguma outra interface gráfica para &#8220;facilitar&#8221; a vida dos alunos, MAS, INFELIZMENTE, a &#8220;informática&#8221; da instituição nunca consegue garantir um ambiente 100% para os alunos, e você só descobre o problema na hora da aula, justamente quando os alunos precisam rodar aquele script super importante que você preparou em casa! E não adianta reclamar, pois por mais que você solicite  nunca está 100%.</p>
+<p style="text-align: justify;">Isso é um grande problema, mas talvez não seja culpa só do departamento de TI da instituição. O grande problema é que é muito difícil garantir que tudo funcione quando os laboratórios das universidades utilizam computadores com diferentes configurações, diferentes sistemas operacionais e tem equipes com diferentes perfis. Enfim, é um problema grave e que não para por ai.</p>
+<p style="text-align: justify;">Outro problema associado a esse, e que também traz uma tremenda dor de cabeça, é quando você pede para um usuário instalar o R &amp; RStudio em casa. Em um universo perfeito (no meu!) todo munda usa o Linux e com um <a href="https://help.ubuntu.com/12.04/serverguide/apt-get.html" target="_blank">apt-get install</a> está tudo resolvido. Infelizmente, a maioria das pessoas não só usa o Windows como também usa o Word como editor de textos principal para preparar trabalhos e relatórios (<a href="https://pt.wikipedia.org/wiki/LaTeX" target="_blank">LATEX</a> e <a href="https://pt.wikipedia.org/wiki/Markdown">Markdown</a>?!). Dado isto, aquele relatório bonitinho e bem formatado que você esperava que pudesse ser produzido na aula mesmo, só copiando e colando os códigos em R no <a href="http://rmarkdown.rstudio.com/">RMarkdown</a> esquece! Não só porque a galera não quer usar, mas porque quando eles tentam compilar para Latex o miserável nunca está instalado e funcionando corretamente!</p>
+<h2 style="text-align: justify;">Qual seria a solução?</h2>
+<p>A solução está no Docker. Eu já falei dele aqui nesse blog mas para quem caiu aqui de para-quedas vou fornecer o mesmo texto sobre o Docker.</p>
+<h2>Docker</h2>
+<p style="text-align: justify;">Se você de alguma forma acompanha notícias do mundo open source então você provavelmente já ouviu falar do <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://www.docker.com/" target="_blank">Docker</a></span>. O Docker é uma ferramenta fantástica que permite criar contêineres de software, totalmente isolados do sistema operacional hospedeiro. Ele funciona como uma máquina virtual, mas é simplesmente muito mais leve.</p>
+<p style="text-align: justify;">A ideia por trás do docker é que o desenvolvedor cria um contêiner com todas as bilbiotecas e dependêcias que desejar garantindo que tudo funciona. O responsável pela implantação do software não precisa saber o que há dentro do contêiner, ele só precisa ser capaz de rodar contêineres no servidor. Ainda que uma funcionalidade como essa pudesse ser obtida com máquinas virtuais, elas acabavam vindo com muito mais que o necessário, tal que os arquivos eram muito grandes (&gt;&gt;1Gb) e tornavam o sistema hospedeiro muito lento.</p>
+<p style="text-align: justify;">O docker por outro lado, não usa um SO completo, ele compartilha o mesmo Kernel do hospedeiro mas é um ambiente completamente isolado. Assim, rodar contêineres do docker é muito, mas muito mais leve que rodar uma máquina virtual. Os recursos do docker não param por ai, ele também permite uma espécie de versionamento de contêineres e tem uma espécie de github para contêineres, o <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://hub.docker.com/account/signup/" target="_blank">Docker Hub</a></span>, de onde o usuário pode baixar e usar imagens prontas para diversos softwares, como o MySQL, Postgres, LAMP, WordPress, dentre outros. Nesse vídeo um dos criadores do projeto fala sobre o Docker.</p>
+<h2 style="text-align: justify;">R &amp; RStudio, Rocker o Kitematic</h2>
+<p style="text-align: justify;">Logo depois que Docker apareceu, apareceram também diversos projetos associados que criaram um ecossistema de ferramentas. Dentre estas ferramentas, uma que é muito interessante é o <a href="https://kitematic.com/" target="_blank">Kitematic</a>. O Kitematic é uma interface gráfica para manipulação de contêineres e acesso ao Docker Hub. Com ele o usuário praticamente não precisa saber nada sobre docker para poder utilizar um software &#8220;conteinerizado&#8221;. Assim, o usuário pode instalar com alguns cliques, desde o WordPress, um <a href="http://www.flaviobarros.net/2015/08/10/share-your-shiny-apps-with-docker-and-kitematic/" target="_blank">App Shiny</a> ou o RStudio.</p>
+<p style="text-align: justify;">Especialmente no caso do R &amp; RStudio &amp; Shiny, existe um projeto chamado <a href="http://dirk.eddelbuettel.com/blog/2014/10/23/">Rocker</a> que mantém contêineres oficiais para o R, o <a href="https://www.rstudio.com/products/rstudio/#Server">RStudio Server</a> e o <a href="https://www.rstudio.com/products/shiny/">Shiny Server</a>. Com esses contêineres, com apenas alguns comandos do docker, você pode ter um RStudio server, completamente configurado, rodando na sua máquina, sem precisar instalar o R ou qualquer outra biblioteca. Tudo que você precisa é instalar o docker, e se ele estiver instalado COM CERTEZA qualquer pessoa que rodar seu contêiner vai conseguir ter acesso a um ambiente sempre igual. Enfim, é a solução para a homogeneização de ambientes para cursos e universidades, em qualquer sistema operacional.</p>
+<h2 style="text-align: justify;">Como eu posso fazer isso?</h2>
+<p style="text-align: justify;">Bom, ao invés de me alongar mais no texto vou te apresentar um screencast de exemplo. Veja que eu estou usando o Linux, onde o Kitematic roda ainda de forma <a href="https://github.com/kitematic/kitematic/issues/49">experimental</a>, mas o mesmo procedimento pode ser feito no Windows e no Mac. O Kitematic suporta oficialmente estas duas plataformas.</p>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/0iKT-JX-P6Y?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<h2>Conclusão</h2>
+<p>É uma solução que pode universalizar uma plataforma idêntica para todos. Em resumo apresenta as seguintes vantagens em relação a uma instalação tradicional:</p>
+<ol>
+<li>Todos rodam uma plataforma idêntica. Se é possível fazer algo em uma então será possível repetir em todas, COM CERTEZA;</li>
+<li>Não há problemas com bibliotecas, o que estiver no contêiner todos vão ter;</li>
+<li>Só é necessário instalar um único programa, o Docker;</li>
+<li>É uma solução multiplataforma: funciona no Linux, no Windows no Mac. Os ambientes são idênticos;</li>
+<li>Não há necessidade de usar a linha de comando, só interfaces gráficas;</li>
+</ol>
+<p style="text-align: justify;">
+]]></content:encoded>
+			<wfw:commentRss>./../../../2015/08/21/r-rstudio-no-docker-com-2-cliques/feed/index.html</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+		</item>
+		<item>
+		<title>Share your Shiny Apps with Docker and Kitematic!</title>
+		<link>./../../../2015/08/10/share-your-shiny-apps-with-docker-and-kitematic/index.html</link>
+		<comments>./../../../2015/08/10/share-your-shiny-apps-with-docker-and-kitematic/index.html#comments</comments>
+		<pubDate>Mon, 10 Aug 2015 05:13:58 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Docker]]></category>
+		<category><![CDATA[Linux]]></category>
+		<category><![CDATA[R e RStudio]]></category>
+		<category><![CDATA[r-bloggers]]></category>
+		<category><![CDATA[Shiny]]></category>
+		<category><![CDATA[web]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=680</guid>
+		<description><![CDATA[Some time ago i wrote on this blog about how to dockerize a Shiny App. If you don&#8217;t know what Docker is and what i mean by &#8220;dockerizing a Shiny App&#8221; i advise you to read this post before: Dockerizing a Shiny App I used this solution to create an easy way to deploy Shiny Apps on web servers, once that, if you want to share your apps, you have to choose between three possible...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">Some time ago i wrote on this blog about how to dockerize a Shiny App. If you don&#8217;t know what Docker is and what i mean by &#8220;dockerizing a Shiny App&#8221; i advise you to read this post before:</p>
+<p><a href="http://www.flaviobarros.net/2015/04/30/dockerizing-a-shiny-app/" target="_blank">Dockerizing a Shiny App</a></p>
+<p style="text-align: justify;">I used this solution to create an easy way to deploy Shiny Apps on web servers, once that, if you want to share your apps, you have to choose between three possible solutions:</p>
+<p style="text-align: justify;">1) Share your ui.R and server.R files with someone who is able to run your app on RStudio.</p>
+<p style="text-align: justify;">2) Share your app online with <a href="http://www.shinyapps.io/" target="_blank">shinyapps.io</a>.</p>
+<p style="text-align: justify;">3) Share your app with your own server (Ex: at AWS).</p>
+<p style="text-align: justify;">4) <a href="http://www.flaviobarros.net/2015/05/11/git-pushing-shiny-apps-with-docker-dokku/" target="_blank">Git push you app on your own server</a>.</p>
+<p style="text-align: justify;">The solution 1) isn&#8217;t viable to non technical users. The solution 2) is easier, but can be expensive. The solution 3) can involve a lot of technicalities but can be cheaper then solution 3). The solution 4) is compromise between solutions 2) and 3), and is my preference.</p>
+<p style="text-align: justify;">HOWEVER, recently i knew about a project from Docker Inc. with a good potential: the Kitematic! With Kitematic the user can have a GUI where he can download and use softwares on Docker images. So, the <a href="https://hub.docker.com/" target="_blank">Docker Hub</a> becomes something like an App Store where he can simply download and use apps installed inside docker containers. See this video to understand what Kitematic can do:</p>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/QEr340gjV1Q?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<p style="text-align: justify;">This is Huge because, once you dockerize your Shiny App, doesn&#8217;t matter how complex it is, you can share it on Docker Hub just like any app. Kitematic can be used at Windows, Mac and <a href="https://github.com/kitematic/kitematic/issues/49" target="_blank">experimentaly on Linux</a>. I recorded this video (in Linux) to show you how to install my dockerized shiny app with some clicks:</p>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/7MH_bCjoFT4?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<p>Remember, before you share your app you will need to dockerize it and upload to Docker Hub.</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2015/08/10/share-your-shiny-apps-with-docker-and-kitematic/feed/index.html</wfw:commentRss>
+		<slash:comments>3</slash:comments>
+		</item>
+		<item>
+		<title>Git pushing Shiny Apps with Docker &#038; Dokku</title>
+		<link>./../../../2015/05/11/git-pushing-shiny-apps-with-docker-dokku/index.html</link>
+		<comments>./../../../2015/05/11/git-pushing-shiny-apps-with-docker-dokku/index.html#comments</comments>
+		<pubDate>Tue, 12 May 2015 00:35:26 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Digital Ocean]]></category>
+		<category><![CDATA[Docker]]></category>
+		<category><![CDATA[English]]></category>
+		<category><![CDATA[R e RStudio]]></category>
+		<category><![CDATA[r-bloggers]]></category>
+		<category><![CDATA[Shiny]]></category>
+		<category><![CDATA[deploy]]></category>
+		<category><![CDATA[git]]></category>
+		<category><![CDATA[web]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=636</guid>
+		<description><![CDATA[At this post i will show you how to deploy Shiny Apps easily with a simple git push. But, what&#8217;s a git push? I&#8217;m referring to the git command used with remote repositories. With this command you can deploy apps easily with a PaaS (Platform as a Service) like Heroku. If you never heard about Heroku or know nothing about PaaS, i will show you what is it and how can we use a similar...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">At this post i will show you how to deploy Shiny Apps easily with a simple <a href="http://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes#Pushing-to-Your-Remotes" target="_blank">git push</a>. But, what&#8217;s a git push? I&#8217;m referring to the git command used with <a href="http://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes" target="_blank">remote repositories</a>. With this command you can deploy apps easily with a <a href="http://en.wikipedia.org/wiki/Platform_as_a_service" target="_blank">PaaS</a> (Platform as a Service) like <a href="https://www.heroku.com/" target="_blank">Heroku</a>. If you never heard about Heroku or know nothing about PaaS, i will show you what is it and how can we use a similar resource to easily deploy a Shiny App on <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a> with <a href="http://www.docker.com/" target="_blank">Docker</a>.</p>
+<h2>1.Heroku</h2>
+<p style="text-align: justify;">Anyone who have worked with web know, or at least heard about Heroku. Heroku is a PaaS, an acronym for Platform as a Service. The idea behind Heroku is that the developer does not need to worry about the problems related to the implementation of its software, it simply develops, adds some files in the project, gives a git push to Heroku and he takes care of the rest.</p>
+<p style="text-align: justify;">Heroku is an excellent service, can scale to large apps, is easy to learn and use, BUT it can be very <a href="https://www.heroku.com/pricing" target="_blank">expensive</a>! Just to understand how easy is work with Heroku, i will deploy an example web app made with <a href="https://www.djangoproject.com/" target="_blank">Django</a>; the code can be found <a href="http://tutorial.djangogirls.org/en/index.html" target="_blank">here</a> and you can visit the app here: <a href="http://flavio-django-blog.herokuapp.com/" target="_blank">http://flavio-django-blog.herokuapp.com/</a></p>
+<p>&nbsp;</p>
+<p><script id="asciicast-19469" src="https://asciinema.org/a/19469.js" async="" type="text/javascript"></script></p>
+<h2>2.Docker and Dokku</h2>
+<p style="text-align: justify;">I wrote some time ago about Dockerizing a Shiny App: <a href="http://www.flaviobarros.net/2015/04/30/dockerizing-a-shiny-app/" target="_blank">Dockerizing a Shiny App</a> (read before continue). In fact, i did that because i was researching about a method to easily deploy Shiny Apps just like any regular web app, (ex. Node or Django). Some months ago, i found <a href="https://github.com/btubbs/heroku-buildpack-shiny" target="_blank">this project</a>, where the author claims to be able to run Shiny Apps on Heroku. I tried, but never was able to make it work. Another problem, was that i was searching something that i could host on my own server.</p>
+<p style="text-align: justify;">At the end, after discovering Docker, i started to use <a href="https://github.com/progrium/dokku" target="_blank">Dokku</a> instead of Heroku. Dokku in turn, is a kind of Heroku clone, made from Docker. It works the same way as Heroku, such that for web apps, like those made with Django, deployment is identical. Just so you see how it works, I installed Dokku on <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a> and implemented the same previous application made in Django. You can check the app here: <a href="http://djangogirls.flaviobarros.net/" target="_blank">http://djangogirls.flaviobarros.net/</a></p>
+<p><script id="asciicast-19472" src="https://asciinema.org/a/19472.js" async="" type="mce-mce-mce-mce-mce-mce-mce-mce-mce-mce-mce-mce-mce-text/javascript"></script></p>
+<p style="text-align: justify;">In my opinian Dokku is one of the best apps made with Docker. With it we can deploy multiple technologies at the very same server. In fact, you can build a cheaper version of Heroku, for about U$5,00 as is the case of <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a>. Right now, i&#8217;m running a <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a> Server, hosting this WordPress installation, two Django Web Apps and a Shiny App and there is plenty of space for much more, all for a 10 bucks VPS on Digital Ocean <img src="https://s.w.org/images/core/emoji/2.2.1/72x72/1f609.png" alt="😉" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+<h2>3.Git pushing the Wordcloud Shiny App</h2>
+<p style="text-align: justify;">Some time ago, Dokku featured <a href="https://docs.docker.com/reference/builder/" target="_blank">Dockerfile</a> build support. With this feature becomes possible to git push any app that could be builded from a Dockerfile.  A Dockerfile, is nothing more then a recipe to build Docker Images, something like the <a href="https://registry.hub.docker.com/u/flaviobarros/shiny-wordcloud/" target="_blank">Word Cloud</a> image that i released at <a href="https://hub.docker.com/" target="_blank">Docker Hub</a>.</p>
+<p style="text-align: justify;">With this in mind, i thought: why don&#8217;t change the official <a href="https://registry.hub.docker.com/u/rocker/shiny/" target="_blank">Shiny Server docker image</a> to host a single Shiny App? I just needed an image that:</p>
+<p style="text-align: justify;">1) Exposes 80 PORT;</p>
+<p style="text-align: justify;">2) Serves just an app;</p>
+<p style="text-align: justify;">3) Could be builded from a Dockerfile;</p>
+<p style="text-align: justify;">In fact, to build <a href="https://github.com/flaviobarros/shiny-wordcloud" target="_blank">shiny-wordcloud</a>, i forked <a href="https://github.com/rocker-org/shiny" target="_blank">rocker/shiny</a>  and implemented this features by means of some modifications on the Dockerfile (commits: <a href="https://github.com/flaviobarros/shiny-wordcloud/commit/451346b4c806cef84b214661e6caf664a57abc44" target="_blank">1</a>, <a href="https://github.com/flaviobarros/shiny-wordcloud/commit/ef16a049b8b32943f3ed568ada61e1def148b505" target="_blank">2</a>  and <a href="https://github.com/flaviobarros/shiny-wordcloud/commit/ab394841c30fd9bfe90fbeb0a89f012f216679c4" target="_blank">3</a>) and a <a href="https://github.com/flaviobarros/shiny-wordcloud/blob/master/shiny-server.conf" target="_blank">conf file</a>. Now i have fully working Dockerfile that i can use to git push Shiny Apps to Dokku! From now on, i will show you how you can install Dokku at <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a> and how i deployed the Wordcloud Shiny App at my server with a simple git push!</p>
+<h3>3.1 Git pushing to my server</h3>
+<p style="text-align: justify;">Just follow the video. You can visit the app here: <a href="http://wordcloud.flaviobarros.net/" target="_blank">http://wordcloud.flaviobarros.net/</a></p>
+<p><script id="asciicast-8qi8v3vc7mu90s066hy81fowj" src="https://asciinema.org/a/8qi8v3vc7mu90s066hy81fowj.js" async="" type="text/javascript"></script></p>
+<h3>3.2 Installing Dokku on Digital Ocean</h3>
+<p style="text-align: justify;">Follow this screencast. In the end you will have your server available at an IP. If you want a domain, will have to register it (ex. Godaddy) and point it to <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a> DNS. You can follow <a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-a-host-name-with-digitalocean" target="_blank">this tutorial</a> to setup a DNS on <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a>. If you have any problem let me know.</p>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/pOaZ7QwuxKU?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<h3 style="text-align: justify;">3.3 Important details</h3>
+<p style="text-align: justify;">I have used a SSH key that i have stored at <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a>. Usually, when you spin up your <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a> droplets, you get an email as soon as the process completes, letting you know the droplet’s IP address and password. Although this email is convenient, there is a more secure (and faster) way of gaining access to your server <i>without the need for email</i>. This can be done by setting up SSH keys. Follow this <a href="https://www.digitalocean.com/community/tutorials/how-to-use-ssh-keys-with-digitalocean-droplets" target="_blank">tutorial</a> to get this done.</p>
+<h2 style="text-align: justify;">Conclusion</h2>
+<p style="text-align: justify;">Recently i saw two interesting blog posts about Shiny App deployment:</p>
+<p style="text-align: justify;">1) <a href="http://www.r-bloggers.com/run-shiny-app-on-a-ubuntu-server-on-the-amazon-cloud/" target="_blank">Run Shiny app on a Ubuntu server on the Amazon Cloud</a></p>
+<p style="text-align: justify;">2) <a href="http://www.r-bloggers.com/how-to-get-your-very-own-rstudio-server-and-shiny-server-with-digitalocean/" target="_blank">How to get your very own RStudio Server and Shiny Server with DigitalOcean</a></p>
+<p style="text-align: justify;">In both scenarios this approach has several advantages:</p>
+<p style="text-align: justify;"> &#8211; You can replicate this dokku installation on Amazon and have the same functionality.</p>
+<p style="text-align: justify;">&#8211; When you are running multiple Shiny Apps on the same Shiny Server, you are using a <a href="http://www.r-bloggers.com/shiny-server-open-source-edition-solution-for-cpu-bound-apps/" target="_blank">single R instance</a>. SO, if you have more then one app deployed your server can slow down. With this solution, each app is isolated with your own Shiny Server instance, which is more reliable.</p>
+<p style="text-align: justify;">&#8211; The deployment process is easier. Once dokku is installed you don&#8217;t need to connect to the server to deploy an app. Just use git push!</p>
+<p style="text-align: justify;">&#8211; You can deploy multiple Shiny Apps, and multiple Web Apps. You can have Shiny, WordPress, Django and etc, on the same server.</p>
+<p style="text-align: justify;">&#8211; With <a href="https://github.com/dokku-alt/dokku-alt" target="_blank">dokku-alt</a> (an improved fork of Dokku) you can <a href="https://github.com/dokku-alt/dokku-alt#http-basic-auth-support" target="_blank">setup passwords</a> to access your Shiny Apps, something that is only available on Shiny Server Pro.</p>
+<p style="text-align: justify;">IMPORTANT: through any link to <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a> in this post,  you will earn U$10.00 credit without commitment to keep up the service. With this credit you can keep a simple VPS with 512MB RAM, for two months for free!</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2015/05/11/git-pushing-shiny-apps-with-docker-dokku/feed/index.html</wfw:commentRss>
+		<slash:comments>4</slash:comments>
+		</item>
+		<item>
+		<title>Git push no Django com o Dokku &#8211; básico</title>
+		<link>./../../../2015/05/02/git-push-no-django-com-o-dokku-basico/index.html</link>
+		<comments>./../../../2015/05/02/git-push-no-django-com-o-dokku-basico/index.html#comments</comments>
+		<pubDate>Sat, 02 May 2015 22:28:20 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Digital Ocean]]></category>
+		<category><![CDATA[Django]]></category>
+		<category><![CDATA[Docker]]></category>
+		<category><![CDATA[Linux]]></category>
+		<category><![CDATA[git]]></category>
+		<category><![CDATA[implantação]]></category>
+		<category><![CDATA[web]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=613</guid>
+		<description><![CDATA[1. Introdução Quem trabalha com web, se não conhece, pelo menos já ouviu falar do Heroku. O Heroku é um PaaS, uma sigla para (Platform as a Service) ou Plataforma como Serviço. A ideia por detrás do Heroku é que o desenvolvedor não precise se preocupar mais com os problemas relacionados à implantação do seu software, ele simplesmente desenvolve, adiciona alguns arquivos no projeto, dá um git push para o Heroku e ele coloca no...]]></description>
+				<content:encoded><![CDATA[<h2 style="text-align: justify;">1. Introdução</h2>
+<p style="text-align: justify;">Quem trabalha com web, se não conhece, pelo menos já ouviu falar do <a href="https://www.heroku.com/" target="_blank">Heroku</a>. O Heroku é um PaaS, uma sigla para (Platform as a Service) ou Plataforma como Serviço. A ideia por detrás do Heroku é que o desenvolvedor não precise se preocupar mais com os problemas relacionados à implantação do seu software, ele simplesmente desenvolve, adiciona alguns arquivos no projeto, dá um <a href="http://git-scm.com/book/pt-br/v1/Git-Essencial-Trabalhando-com-Remotos" target="_blank">git push</a> para o Heroku e ele coloca no ar para você.</p>
+<p style="text-align: justify;">Isso é praticamente o sonho para quem trabalha com web, principalmente por conta da dor de cabeça que é configurar e manter um servidor. Outra vantagem é que você usa um sistema de controle de versões para o seu código (o <a href="http://git-scm.com/book/pt-br/v1/Primeiros-passos-Uma-Breve-Hist%C3%B3ria-do-Git" target="_blank">git</a> no caso) e você tem muito mais controle sobre seu projeto. Por fim, se o tráfego crescer, é simples escalar com Heroku, basta ir adicionando os <a href="https://devcenter.heroku.com/articles/dynos" target="_blank">dynos</a>. Parece ótimo, MAS tem alguma desvantagem nisso? SIM, o <a href="https://www.heroku.com/pricing" target="_blank">PREÇO</a>!</p>
+<p style="text-align: justify;">Só para você entender do que eu estou falando, eu vou fazer o deploy de uma aplicação <a href="https://www.djangoproject.com/" target="_blank">Django</a>. É um projeto que eu fiz seguindo o tutorial do <a href="http://tutorial.djangogirls.org/en/index.html" target="_blank">djangogirls</a>; o código fonte está disponível <a href="https://github.com/flaviobarros/djangogirls" target="_blank">aqui</a> no Github caso queira reproduzir.</p>
+<p><script id="asciicast-19469" src="https://asciinema.org/a/19469.js" async="" type="text/javascript"></script></p>
+<div class="post-single-content box mark-links" style="text-align: justify;">
+<p>Você pode visitar a aplicação nesse domínio: <a href="http://flavio-django-blog.herokuapp.com/" target="_blank">http://flavio-django-blog.herokuapp.com/</a></p>
+<h2>2. Docker e Dokku</h2>
+<p>Se você de alguma forma acompanha notícias do mundo open source então você provavelmente já ouviu falar do <a href="http://www.docker.com/" target="_blank">Docker</a>. O Docker é uma ferramenta fantástica que permite criar contêineres de software, totalmente isolados do sistema operacional hospedeiro. Ele funciona como uma máquina virtual, mas é simplesmente muito mais leve. A ideia por trás do docker é que o desenvolvedor cria um contêiner com todas as bilbiotecas e dependêcias que desejar garantindo que tudo funciona. O responsável pela implantação do software não precisa saber o que há dentro do contêiner, ele só precisa ser capaz de rodar contêineres no servidor.</p>
+<p>Ainda que uma funcionalidade como essa pudesse ser obtida com máquinas virtuais, elas acabavam vindo com muito mais que o necessário, tal que os arquivos eram muito grandes (&gt;&gt;1Gb) e tornavam o sistema hospedeiro muito lento. O docker por outro lado, não usa um SO completo, ele compartilha o mesmo Kernel do hospedeiro (sim, atualmente ele precisa rodar no Linux) mas é um ambiente completamente isolado. Assim, rodar contêineres do docker é muito, mas muito mais leve que rodar uma máquina virtual. Os recursos do docker não param por ai, ele também permite uma espécie de versionamento de contêineres e tem uma espécie de github para contêineres, o <a href="https://hub.docker.com/account/signup/" target="_blank">Docker Hub</a>, de onde o usuário pode baixar e usar imagens prontas para diversos softwares, como o MySQL, Postgres, LAMP, WordPress, dentre outros.</p>
+<p>O <a href="http://progrium.com/blog/2013/06/19/dokku-the-smallest-paas-implementation-youve-ever-seen/" target="_blank">Dokku</a> por sua vez, foi o “killer app” do Docker. Foi com esse projeto que muitas pessoas conseguiram ver o tamanho do potencial dessa ferramenta. De fato, como vamos ver aqui, com ele é possível ter praticamente a mesma funcionalidade do Heroku, só que a um custo muito mais baixo, uma vez que o <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a>, oferece um VPS básico (Virtual Private Server, ou Servidor Privado Virtual) por U$5,00 ou R$15,00 aproximadamente. E não é um hardware qualquer, mas com 512Mb de RAM e 20Gb em SSD! Isso é mais do que suficiente para rodar diversas instalações do WordPress, não somente uma.</p>
+<h2>3. Instalando o Dokku no Digital Ocean</h2>
+<p>Inicialmente, já vou alerta-lo que, ao invés do <a href="https://github.com/progrium/dokku" target="_blank">dokku</a> original, eu vou instalar e usar um fork, o <a href="https://github.com/dokku-alt/dokku-alt" target="_blank">dokku-alt</a>. Mas por quê? Bem, simplesmente porque o dokku-alt já vem com diversos recursos e <a href="http://progrium.viewdocs.io/dokku/plugins" target="_blank">plugins</a> instalados que eu precisaria instalar na unha caso quisesse o dokku original. Para facilitar para o leitor, ao invés dos comandos, no screencast abaixo eu mostro a instalação do dokku em um droplet do <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a>.</p>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/PwvEOdXR3q4?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<p>A etapa final da instalação exige que você tenha uma chave SSH pública. Caso você não tenha, siga <a href="http://Atualmente/ eu já uso o dokku para hospedar esta instalação do WordPress. Assim, eu vou exp" target="_blank">esse tutorial</a>. Veja o comando e um exemplo do que você vai copiar e colar:</p>
+<pre class="lang:sh decode:true">$ cat ~/.ssh/id_rsa.pub</pre>
+<p>e a saída vai ser algo assim:</p>
+<pre class="lang:r decode:true ">ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAklOUpkDHrfHY17SbrmTIpNLTGK9Tjom/BWDSU
+GPl+nafzlHDTYW7hdI4yZ5ew18JH4JW9jbhUFrviQzM7xlELEVf4h9lFX5QVkbPppSwg0cda3
+Pbv7kOdJ/MTyBlWXFCR+HAo3FXRitBqxiX1nKhXpHAZsMciLq8V6RjsNAQwdsdMFvSlVK/7XA
+t3FaoJoAsncM1Q9x5+3V0Ww68/eIFmb1zuUFljQJKprrX88XypNDvjYNby6vw/Pb0rwert/En
+mZ+AW4OZPnTPI89ZPmVMLuayrD2cE86Z/il8b+gw3r3+1nKatmIkjn2so1d01QraTlMqVSsbx
+NrRFi9wrf+M7Q== schacon@agadorlaptop.local</pre>
+<p>que você deve copiar e colar na janela do navegador, no último passo da instalação do dokku-alt.</p>
+<h2>4. Git push com Django</h2>
+<p>Atualmente eu já uso o dokku para hospedar esta instalação do WordPress. Assim, eu vou experimentar o mesmo processo utilizado anteriormente no Heroku, só que no meu próprio PaaS com o dokku-alt, que já está configurado no domínio desse site.</p>
+<p><script id="asciicast-19472" src="https://asciinema.org/a/19472.js" async="" type="mce-mce-mce-mce-mce-mce-mce-mce-mce-mce-mce-mce-mce-text/javascript"></script><br />
+Agora você pode visitar a aplicação no domínio: <a href="http://djangogirls.flaviobarros.net/">http://djangogirls.flaviobarros.net/</a></p>
+<p>Veja que o procedimento foi idêntico ao Heroku e dessa forma é possível replicar a mesma funcionalidade por um custo muito menor.</p>
+<h2>5. Detalhes importantes</h2>
+<p>Você deve gerar um Procfile dentro do seu projeto. No caso desse repositório, o arquivo já existia uma vez que foi preparado para isso, mas caso estiver criando um projeto do zero, você deve adicionar esse arquivo. O mesmo vale para o requirements.txt. Para todos os efeitos, os seguinte comandos geram estes arquivos:</p>
+<pre class="lang:r decode:true ">pip freeze &gt; requirements.txt</pre>
+<pre class="lang:sh decode:true ">echo "web: gunicorn djangogirls.wsgi" &gt; Procfile</pre>
+<p>Outro detalhe importante é que eu estou usando o sqlite3 como banco de dados. Assim, eu gerei o arquivo do banco localmente, o db.sqlite3, tal que este arquivo foi junto no git push. EM GERAL VOCÊ NÃO VAI FAZER ISSO. O que você devia fazer é uma configuração alternativa local, com o SQlite3, e uma configuração em produção, utilizando o Postgres por exemplo.</p>
+<p>No caso do Postgres ou do MySQL, o dokku-alt já conta com plugins para a criação desses bancos e comandos para linkar o banco a sua aplicação. Em outro post posso mostrar mais detalhes.</p>
+<h2> Conclusão</h2>
+<p>Se você já usa o Heroku, passar a utilizar o Dokku é simples. Basta preparar um servidor e você pode trabalhar normalmente, como se estivesse usando o Heroku. Caso você nunca tenha utilizado o Heroku minha sugestão é que você teste as duas formas de instalação.</p>
+<p>IMPORTANTE: acessando qualquer link dessa página para o <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a>, ao fazer o cadastro você vai ganhar U$10,00 de crédito sem compromisso de manter o serviço. Com esse crédito você poderá manter um VPS simples, com 512Mb de RAM, por dois meses de graça! Use os links desse post.</p>
+</div>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2015/05/02/git-push-no-django-com-o-dokku-basico/feed/index.html</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+		</item>
+		<item>
+		<title>Dockerizing a Shiny App</title>
+		<link>./../../../2015/04/30/dockerizing-a-shiny-app/index.html</link>
+		<comments>./../../../2015/04/30/dockerizing-a-shiny-app/index.html#comments</comments>
+		<pubDate>Thu, 30 Apr 2015 23:16:57 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Digital Ocean]]></category>
+		<category><![CDATA[Docker]]></category>
+		<category><![CDATA[English]]></category>
+		<category><![CDATA[R e RStudio]]></category>
+		<category><![CDATA[r-bloggers]]></category>
+		<category><![CDATA[Shiny]]></category>
+		<category><![CDATA[deployment]]></category>
+		<category><![CDATA[shiny]]></category>
+		<category><![CDATA[web]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=592</guid>
+		<description><![CDATA[After a long pause of more than four months, I am finally back to post here. Unfortunately, many commitments prevented me keep posting, but coming back, i changed the deployment (now this blog runs entirely within a docker container with some other cool things I intend to post more forward) and wrote this post. 1. R e apps Shiny If you are reading this post here, you probably know what Shiny is. OK, but in...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">After a long pause of more than four months, I am finally back to post here. Unfortunately, many commitments prevented me keep posting, but coming back, i changed the deployment (now this blog runs entirely within a docker container with some other cool things I intend to post more forward) and wrote this post.</p>
+<h2 style="text-align: justify;">1. R e apps Shiny</h2>
+<p>If you are reading this post here, you probably know what Shiny is. OK, but in the case you don&#8217;t, you can see it in action! This is the App that i dockerized. Soon you will able to run it at any computer with docker installed.</p>
+<div class="wpview-body" contenteditable="false">
+<div class="wpview-content wpview-type-embedURL"><span class="embed-youtube"><iframe width="640" height="390" class="youtube-player" type="text/html" src="http://www.youtube.com/embed/CWWPvA6SK6k?version=3&amp;rel=1&amp;fs=1&amp;showsearch=0&amp;showinfo=1&amp;iv_load_policy=1&amp;wmode=transparent" allowfullscreen="allowfullscreen" frameborder="0"></iframe></span></div>
+</div>
+<div class="wpview-overlay"></div>
+<h2 style="text-align: justify;">2. Docker</h2>
+<p style="text-align: justify;">If you somehow accompanies the open source world news then you probably have heard of <a style="color: #0000ff;" href="http://www.docker.com/" target="_blank">Docker</a>. Docker is a fantastic tool for creating software containers, totally isolated from the host operating system. It works like a virtual machine, but it&#8217;s much lighter.</p>
+<p style="text-align: justify;">The idea behind docker is that the developer creates a container with all dependencies that he wants, make sure that everything works and done. The staff responsible for software deployment does not need to know what is inside the container, it just needs to be able to run container on the server. While this feature could be achieved with virtual machines, they ended up coming with much more than necessary, so the VM files are too large and the host system becomes very slow.</p>
+<p style="text-align: justify;">On the other hand, docker does not use a full OS, it shares the same host kernel (yes, it needs to run on Linux) but is a completely isolated environment. So run a docker containers is much lighter than run a virtual machine. Docker features do not stop there, it also allows a kind of versioning and has a kind of github for containers, the <a style="color: #0000ff;" href="https://hub.docker.com/account/signup/" target="_blank">Docker Hub</a>, where the user can download and use ready images  for various software, such as MySQL, Postgres , LAMP, WordPress, RStudio, among others. If you want to better understand what is Docker, watch this video.</p>
+<div class="wpview-body" contenteditable="false">
+<div class="wpview-content wpview-type-embedURL"><span class="embed-youtube"><iframe width="640" height="390" class="youtube-player" type="text/html" src="http://www.youtube.com/embed/Q5POuMHxW-0?version=3&amp;rel=1&amp;fs=1&amp;showsearch=0&amp;showinfo=1&amp;iv_load_policy=1&amp;wmode=transparent" allowfullscreen="allowfullscreen" frameborder="0"></iframe></span></div>
+</div>
+<div class="wpview-overlay"></div>
+<h2 style="text-align: justify;">3. Dockerizing a Shiny app</h2>
+<p style="text-align: justify;">I just showed you an example of a Shiny app running on RStudio locally. For development it&#8217;s ok, but if I want to make it available to anyone? One solution is send the project files. For a basic shiny application just two files are needed (ui.R and server.R).</p>
+<p style="text-align: justify;">But what if I want to put on the web? There are two alternatives:</p>
+<p style="text-align: justify;">1) A <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://www.rstudio.com/products/shiny/shiny-server/" target="_blank">Shiny Server</a></span></p>
+<p style="text-align: justify;">2) The PaaS <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://www.shinyapps.io/" target="_blank">shinyapps.io</a></span></p>
+<p style="text-align: justify;">Option 1) can be very complicated for some users, sometimes not workable, due to the need to install and configure a server.</p>
+<p style="text-align: justify;">Option 2) is more interesting, however you it can be expensive, since the free plan can be very limited for some needs.</p>
+<p style="text-align: justify;">How docker can help? Initially with the docker you can create a shiny server  using one command. This greatly simplifies deployment of a server. See this short video:</p>
+<div class="wpview-body" contenteditable="false">
+<div class="wpview-content wpview-type-embedURL"><span class="embed-youtube"><iframe width="640" height="390" class="youtube-player" type="text/html" src="http://www.youtube.com/embed/H94eSQrPoYI?version=3&amp;rel=1&amp;fs=1&amp;showsearch=0&amp;showinfo=1&amp;iv_load_policy=1&amp;wmode=transparent" allowfullscreen="allowfullscreen" frameborder="0"></iframe></span></div>
+</div>
+<div class="wpview-overlay"></div>
+<p>You just need:</p>
+<pre class="lang:zsh decode:true">docker run --rm -p 3838:3838 rocker/shiny</pre>
+<p><strong> WINDOWS AND MAC USERS:</strong> You will need <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://boot2docker.io/" target="_blank">boot2docker</a></span> to reproduce this.</p>
+<p style="text-align: justify;">This solution seems to solve the problem. However you can still find several problems such as:</p>
+<p style="text-align: justify;">1) How can i put my apps on the server?</p>
+<p style="text-align: justify;">2) How can i get a url directly to my app?</p>
+<p style="text-align: justify;">3) And this 3838, how can i change it?</p>
+<p style="text-align: justify;">4) How can i create an image for my app?</p>
+<p style="text-align: justify;">To solve these problems I created a sample container, with a sample app, which appears in the browser as the image is running. Its available at Docker Hub, and it&#8217;s ready to test and use. The source code is on <a style="color: #0000ff;" href="https://github.com/flaviobarros/shiny-wordcloud" target="_blank">Github</a>.</p>
+<p style="text-align: justify;">At the following videos i show you how to deploy this app locally and on <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a>. First local:</p>
+<div class="wpview-body" contenteditable="false">
+<div class="wpview-content wpview-type-embedURL"><span class="embed-youtube"><iframe width="640" height="390" class="youtube-player" type="text/html" src="http://www.youtube.com/embed/nhslu5WZy6I?version=3&amp;rel=1&amp;fs=1&amp;showsearch=0&amp;showinfo=1&amp;iv_load_policy=1&amp;wmode=transparent" allowfullscreen="allowfullscreen" frameborder="0"></iframe></span></div>
+</div>
+<div class="wpview-overlay"></div>
+<p>And on Digital Ocean:</p>
+<div class="wpview-body" contenteditable="false">
+<div class="wpview-content wpview-type-embedURL"><span class="embed-youtube"><iframe width="640" height="390" class="youtube-player" type="text/html" src="http://www.youtube.com/embed/X68N_efY0KU?version=3&amp;rel=1&amp;fs=1&amp;showsearch=0&amp;showinfo=1&amp;iv_load_policy=1&amp;wmode=transparent" allowfullscreen="allowfullscreen" frameborder="0"></iframe></span></div>
+</div>
+<div class="wpview-overlay"></div>
+<p style="text-align: justify;">Note that when using the aforementioned command, you do not returns straight to the terminal and you will need a Ctrl + C to close the container. So, to keep the container running and return to the terminal, you should use &amp;.</p>
+<pre class="lang:zsh decode:true">docker run --rm -p 80:80 flaviobarros/shiny &amp;</pre>
+<p style="text-align: justify;">You can run this app on <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://aws.amazon.com/pt/" target="_blank">Amazon Web Services</a></span>, <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://cloud.google.com/" target="_blank">Google Cloud</a></span> and <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://azure.microsoft.com/pt-br/" target="_blank">Microsoft Azure</a></span>, as all of them have support for docker. However, my suggestion is <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a> that is a lot easier to use.</p>
+<p style="text-align: justify;">IMPORTANT: through any link to <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a> in this post,  you will earn U$10.00 credit without commitment to keep up the service. With this credit you can keep a simple VPS with 512MB RAM, for two months for free!</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2015/04/30/dockerizing-a-shiny-app/feed/index.html</wfw:commentRss>
+		<slash:comments>9</slash:comments>
+		</item>
+		<item>
+		<title>Dockerizando Shiny Apps</title>
+		<link>./../../../2015/04/30/dockerizando-shiny-apps/index.html</link>
+		<comments>./../../../2015/04/30/dockerizando-shiny-apps/index.html#comments</comments>
+		<pubDate>Thu, 30 Apr 2015 03:16:13 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Digital Ocean]]></category>
+		<category><![CDATA[Docker]]></category>
+		<category><![CDATA[Estatística]]></category>
+		<category><![CDATA[Linux]]></category>
+		<category><![CDATA[R e RStudio]]></category>
+		<category><![CDATA[Shiny]]></category>
+		<category><![CDATA[deploy]]></category>
+		<category><![CDATA[implantação]]></category>
+		<category><![CDATA[shiny]]></category>
+		<category><![CDATA[web]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=531</guid>
+		<description><![CDATA[Depois de uma longa pausa de mais de quatro meses, finalmente estou voltando a postar aqui. Infelizmente, diversos compromissos me impediram de continuar postando, mas acabei por dar uma repaginada no blog, alterar a implantação (agora esse blog roda inteiramente dentro de um contêiner docker, com algumas outras coisas legais que pretendo postar mais para frente) e fazer esse post. Como esse post pode vir a ter leitores com diversos backgrounds eu vou inicialmente falar...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">Depois de uma longa pausa de mais de quatro meses, finalmente estou voltando a postar aqui. Infelizmente, diversos compromissos me impediram de continuar postando, mas acabei por dar uma repaginada no blog, alterar a implantação (agora esse blog roda inteiramente dentro de um contêiner docker, com algumas outras coisas legais que pretendo postar mais para frente) e fazer esse post.</p>
+<p style="text-align: justify;">Como esse post pode vir a ter leitores com diversos backgrounds eu vou inicialmente falar um pouco sobre várias tecnologias, como a linguagem R, os Apps do Shiny e o Docker.  Vou falar para que servem e o problema que está sendo resolvido aqui. Se você já sabe o que é o R e o Shiny pode pular para o item 2 sobre o Docker.</p>
+<h2 style="text-align: justify;">1. R e apps Shiny</h2>
+<p style="text-align: justify;">Inicialmente o que são Shiny Apps? Bom, quem já trabalha com <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://cran.r-project.org/" target="_blank">R</a></span> já deve ter ouvido falar do <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://shiny.rstudio.com/" target="_blank">Shiny</a></span>. O projeto Shiny é um framework para aplicações web feito especificamente para  a linguagem R. Para quem não conhece, a linguagem R é uma linguagem de programação criada especificamente para estatística/análise de dados e que vem <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://www.infoq.com/br/news/2014/10/ranking-linguagens-ieee" target="_blank">ganhando muita popularidade</a></span> no segmento corporativo.</p>
+<p style="text-align: justify;">O R já vinha sendo praticamente o padrão em termos de software para Estatística na academia, principalmente por conta de ser um software <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://pt.wikipedia.org/wiki/C%C3%B3digo_aberto" target="_blank">open source</a></span>. Também vem sendo adotado de forma massiva na indústria, principalmente nos EUA, justamente porque conta com bibliotecas para praticamente qualquer tarefa na área de análise de dados e gráficos. Essas bibliotecas, em sua maioria, foram criadas pelos próprios usuários, e estendem a linguagem de tal forma que é possível produzir <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://r4stats.com/examples/graphics-ggplot2/" target="_blank">gráficos de altíssima qualidade</a> </span>ou criar modelos de forma <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://topepo.github.io/caret/index.html" target="_blank">muito simples</a></span>. Existem também grandes empresas investindo na linguagem, como a <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://www.revolutionanalytics.com/" target="_blank">Revolution Analytics</a></span>, que foi recentemente <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://blog.revolutionanalytics.com/2015/04/revolution-analytics-microsoft.html" target="_blank">comprada pela Microsoft</a></span>. Essa compra sinaliza o interesse que empresas do porte da Microsoft tem na linguagem R.</p>
+<p style="text-align: justify;">Entretanto, um dos pontos fracos do R, é que se trata de uma linguagem de nicho, feita especificamente para análise de dados. Assim, nem sempre era fácil disponibilizar suas análises e resultados na internet de forma interativa. Houve iniciativas nesse sentido, mas no fim das contas, se o usuário queria disponibilizar suas análises na web, ou devia usar meios estáticos, como páginas em HTML e arquivos em PDF, ou criar aplicações com tecnologias como o Javascript, e de alguma forma ligar um <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://rforge.net/Rserve/doc.html" target="_blank">servidor na web</a></span> rodando o R a estas aplicações.</p>
+<p style="text-align: justify;">Esse tipo de solução funciona, mas exige ou um profissional com conhecimentos sólidos em javascript, infraestrutura e estatística/análise de dados, ou pelo menos uma equipe multidisciplinar. Na prática isso significava que um usuário comum do R teria muitas dificuldades em criar aplicações web a partir das suas análises.</p>
+<p style="text-align: justify;">É nesse ponto que entra o Shiny. O Shiny é um freamework web, criado pela equipe do <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://www.rstudio.com/" target="_blank">RStudio</a></span>, que permite que o usuário do R crie apps web, utilizando somente a própria linguagem. A sobrecarga para o usuário é mínima, tal que este pode desenvolver e rodar suas aplicações localmente de forma muito simples, com um comando como o runApp(). Só para demonstrar como funciona o processo, assista rapidamente a esse vídeo, onde é rodado um app do Shiny pela IDE RStudio.</p>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/CWWPvA6SK6k?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<h2 style="text-align: justify;">2. Docker</h2>
+<p style="text-align: justify;">Se você de alguma forma acompanha notícias do mundo open source então você provavelmente já ouviu falar do <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://www.docker.com/" target="_blank">Docker</a></span>. O Docker é uma ferramenta fantástica que permite criar contêineres de software, totalmente isolados do sistema operacional hospedeiro. Ele funciona como uma máquina virtual, mas é simplesmente muito mais leve.</p>
+<p style="text-align: justify;">A ideia por trás do docker é que o desenvolvedor cria um contêiner com todas as bilbiotecas e dependêcias que desejar garantindo que tudo funciona. O responsável pela implantação do software não precisa saber o que há dentro do contêiner, ele só precisa ser capaz de rodar contêineres no servidor. Ainda que uma funcionalidade como essa pudesse ser obtida com máquinas virtuais, elas acabavam vindo com muito mais que o necessário, tal que os arquivos eram muito grandes (&gt;&gt;1Gb) e tornavam o sistema hospedeiro muito lento.</p>
+<p style="text-align: justify;">O docker por outro lado, não usa um SO completo, ele compartilha o mesmo Kernel do hospedeiro (sim, atualmente ele precisa rodar no Linux) mas é um ambiente completamente isolado. Assim, rodar contêineres do docker é muito, mas muito mais leve que rodar uma máquina virtual. Os recursos do docker não param por ai, ele também permite uma espécie de versionamento de contêineres e tem uma espécie de github para contêineres, o <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://hub.docker.com/account/signup/" target="_blank">Docker Hub</a></span>, de onde o usuário pode baixar e usar imagens prontas para diversos softwares, como o MySQL, Postgres, LAMP, WordPress, dentre outros. Se você quiser entender melhor o que é o Docker, assista a esse vídeo de um dos fundadores do projeto.</p>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/Q5POuMHxW-0?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<h2 style="text-align: justify;">3. Dockerizando uma app do Shiny</h2>
+<p style="text-align: justify;">Na parte 1, eu mostrei um exemplo de um app do Shiny rodando no RStudio localmente. Para desenvolver está ok, mas e se eu quiser disponibilizar para alguém? Uma solução é você enviar os arquivos do projeto, tal que a pessoa que vai receber precisa somente de uma instalação do R com o pacote shiny para rodar a aplicação. Como uma aplicação básica do shiny precisa somente de dois arquivos (ui.R e server.R), você só precisaria enviar esses arquivos.</p>
+<p style="text-align: justify;">Mas e se eu quiser colocar na web? Existem basicamente duas alternativas:</p>
+<p style="text-align: justify;">1) Preparar um servidor com o <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://www.rstudio.com/products/shiny/shiny-server/" target="_blank">Shiny Server</a></span></p>
+<p style="text-align: justify;">2) Usar o serviço <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://www.shinyapps.io/" target="_blank">shinyapps.io</a></span></p>
+<p style="text-align: justify;">A opção 1) pode ser muito complicada para alguns usuários, as vezes inviável, por conta da necessidade de instalar e configurar um servidor.</p>
+<p style="text-align: justify;">A opção 2) é mais interessante, entretanto pode sair bem caro, uma vez que o plano free pode ser muito limitado para algumas necessidades.</p>
+<p style="text-align: justify;">Como o docker pode ajudar? Inicialmente com o docker é possível criar um servidor com o shiny usando um comando. Isso simplifica bastante a implantação de um servidor. Veja neste pequeno vídeo um exemplo:</p>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/H94eSQrPoYI?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<p>Enfim, basta rodar o comando:</p>
+<pre class="lang:zsh decode:true">docker run --rm -p 3838:3838 rocker/shiny</pre>
+<p>que você tem um servidor do shiny rodando na máquina.</p>
+<p style="text-align: justify;"><strong>USUÁRIOS DO WINDOWS E MAC:</strong> Vocês vão precisar do <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://boot2docker.io/" target="_blank">boot2docker</a></span> instalado para rodar o contêiner localmente. Como eu estou usando o Linux no vídeo, o terminal já está naturalmente disponível, mas se você instalar o <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://boot2docker.io/" target="_blank">boot2docker</a></span> vai ter um terminal a disposição para reproduzir o que eu estou fazendo nesse vídeo e no próximo abaixo.</p>
+<p style="text-align: justify;">Essa solução parece resolver o problema, pois para disponibilizar seus apps basta criar um servidor e instalar o docker. Entretanto o usuário ainda pode encontrar diversos problemas como:</p>
+<p style="text-align: justify;">1) Como colocar meus apps nesse servidor?</p>
+<p style="text-align: justify;">2) Como colocar um endereço na web direto para minha aplicação?</p>
+<p style="text-align: justify;">3) Como tirar aquele 3838 do meu endereço?</p>
+<p style="text-align: justify;">4) Como criar uma imagem docker com meu app?</p>
+<p style="text-align: justify;">Foi pensando em resolver esses problemas que eu criei um contêiner de exemplo, com um app pronto, que aparece na barra do navegador assim que a imagem está rodando. Já subi a imagem no Docker Hub, e ela está pronta para você testar e usar. A imagem está disponível <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://registry.hub.docker.com/u/flaviobarros/shiny-wordcloud/" target="_blank">nesse link</a></span> e o código fonte está no <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://github.com/flaviobarros/shiny-wordcloud" target="_blank">Github</a></span> caso queria fazer seus próprios apps.</p>
+<p style="text-align: justify;">Aqui nesses dois vídeos eu mostro como rodar esse contêiner localmente e depois como rodar no <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a>. Primeiro localmente:</p>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/nhslu5WZy6I?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<p style="text-align: justify;">E agora no Digital Ocean:</p>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/X68N_efY0KU?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<p style="text-align: justify;"> É importante observar que no vídeo, ao usar o comando citado, você não volta direto ao terminal, tal que seria necessário um Ctrl + C para encerrar o contêiner. Assim, para manter o contêiner rodando e voltar ao terminal, você deve utilizar o &amp; no final do comando.</p>
+<pre class="lang:zsh decode:true">docker run --rm -p 80:80 flaviobarros/shiny &amp;</pre>
+<p style="text-align: justify;">enfim, é possível testar localmente com um comando e também é possível rodar na web imediatamente com um servidor e o docker instalado. Veja que eu usei o ip do servidor no navegador, mas é bem simples apontar um domínio para não precisar do ip.</p>
+<p style="text-align: justify;">Você pode rodar esse app na <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://aws.amazon.com/pt/" target="_blank">Amazon Web Services</a></span>, no <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://cloud.google.com/" target="_blank">Google Cloud</a></span> e na <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://azure.microsoft.com/pt-br/" target="_blank">Microsoft Azure</a></span>, já que todos eles já oferecem suporte ao docker. Entretanto minha sugestão é que você comece com o <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a> que é muito mais fácil de usar.</p>
+<p style="text-align: justify;">IMPORTANTE: acessando qualquer link dessa página para o <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a>, ao fazer o cadastro você vai ganhar U$10,00 de crédito sem compromisso de manter o serviço. Com esse crédito você poderá manter um VPS simples, com 512Mb de RAM, por dois meses de graça! Use os links desse post.</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2015/04/30/dockerizando-shiny-apps/feed/index.html</wfw:commentRss>
+		<slash:comments>4</slash:comments>
+		</item>
+	</channel>
+</rss>

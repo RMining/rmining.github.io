@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>Comentários sobre: Dockerizing a Shiny App</title>
+	<atom:link href="./index.html" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Mineração de Dados, Estatística, Tecnologia</description>
+	<lastBuildDate>Thu, 22 Dec 2016 18:35:36 +0000</lastBuildDate>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.7.1</generator>
+	<item>
+		<title>Por: Dockerizin a Shiny App - Flavio Barros</title>
+		<link>./../index.html#comment-106</link>
+		<dc:creator><![CDATA[Dockerizin a Shiny App - Flavio Barros]]></dc:creator>
+		<pubDate>Sat, 03 Oct 2015 01:51:10 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=592#comment-106</guid>
+		<description><![CDATA[[&#8230;] Dockerizing a Shiny App [&#8230;]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] Dockerizing a Shiny App [&#8230;]</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Por: Share your Shiny Apps with Docker and Kitematic! &#124; r software hub</title>
+		<link>./../index.html#comment-83</link>
+		<dc:creator><![CDATA[Share your Shiny Apps with Docker and Kitematic! &#124; r software hub]]></dc:creator>
+		<pubDate>Thu, 13 Aug 2015 12:55:15 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=592#comment-83</guid>
+		<description><![CDATA[[&#8230;] Dockerizing a Shiny App [&#8230;]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] Dockerizing a Shiny App [&#8230;]</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Por: Share your Shiny Apps with Docker and Kitematic! - Flavio Barros</title>
+		<link>./../index.html#comment-80</link>
+		<dc:creator><![CDATA[Share your Shiny Apps with Docker and Kitematic! - Flavio Barros]]></dc:creator>
+		<pubDate>Mon, 10 Aug 2015 05:14:10 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=592#comment-80</guid>
+		<description><![CDATA[[&#8230;] Dockerizing a Shiny App [&#8230;]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] Dockerizing a Shiny App [&#8230;]</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Por: Git pushing Shiny Apps with Docker &#38; Dokku - Flavio Barros</title>
+		<link>./../index.html#comment-70</link>
+		<dc:creator><![CDATA[Git pushing Shiny Apps with Docker &#38; Dokku - Flavio Barros]]></dc:creator>
+		<pubDate>Tue, 12 May 2015 00:42:31 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=592#comment-70</guid>
+		<description><![CDATA[[&#8230;] wrote some time ago about Dockerizing a Shiny App: Dockerizing a Shiny App (read before continue). In fact, i did that because i was researching about a method to easily [&#8230;]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] wrote some time ago about Dockerizing a Shiny App: Dockerizing a Shiny App (read before continue). In fact, i did that because i was researching about a method to easily [&#8230;]</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Por: AI, BigData &#38; HPC дайджест #0. Пилотный выпуск</title>
+		<link>./../index.html#comment-68</link>
+		<dc:creator><![CDATA[AI, BigData &#38; HPC дайджест #0. Пилотный выпуск]]></dc:creator>
+		<pubDate>Fri, 08 May 2015 13:58:57 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=592#comment-68</guid>
+		<description><![CDATA[[&#8230;] DOCKERIZING A SHINY APP [&#8230;]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] DOCKERIZING A SHINY APP [&#8230;]</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Por: Dockerizing a Shiny App - Flavio Barros &#124; Linux...</title>
+		<link>./../index.html#comment-67</link>
+		<dc:creator><![CDATA[Dockerizing a Shiny App - Flavio Barros &#124; Linux...]]></dc:creator>
+		<pubDate>Tue, 05 May 2015 18:06:31 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=592#comment-67</guid>
+		<description><![CDATA[[&#8230;] After a long pause of more than four months, I am finally back to post here. Unfortunately, many commitments prevented me keep posting, but coming back, i changed the deployment (now this blog runs entirely within a docker container with some other cool things I intend to post more forward) and wrote this post. 1. &#8230;&#160; [&#8230;]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] After a long pause of more than four months, I am finally back to post here. Unfortunately, many commitments prevented me keep posting, but coming back, i changed the deployment (now this blog runs entirely within a docker container with some other cool things I intend to post more forward) and wrote this post. 1. &hellip;&nbsp; [&#8230;]</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Por: Dockerizing a Shiny App - Flavio Barros &#124; Docke...</title>
+		<link>./../index.html#comment-65</link>
+		<dc:creator><![CDATA[Dockerizing a Shiny App - Flavio Barros &#124; Docke...]]></dc:creator>
+		<pubDate>Mon, 04 May 2015 23:30:33 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=592#comment-65</guid>
+		<description><![CDATA[[&#8230;] After a long pause of more than four months, I am finally back to post here. Unfortunately, many commitments prevented me keep posting, but coming back, i changed the deployment (now this blog runs entirely within a docker container with some other cool things I intend to post more forward) and wrote this post. 1. &#8230;&#160; [&#8230;]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] After a long pause of more than four months, I am finally back to post here. Unfortunately, many commitments prevented me keep posting, but coming back, i changed the deployment (now this blog runs entirely within a docker container with some other cool things I intend to post more forward) and wrote this post. 1. &hellip;&nbsp; [&#8230;]</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Por: Dockerizing a Shiny App - Flavio Barros &#124; Learn...</title>
+		<link>./../index.html#comment-63</link>
+		<dc:creator><![CDATA[Dockerizing a Shiny App - Flavio Barros &#124; Learn...]]></dc:creator>
+		<pubDate>Sat, 02 May 2015 12:01:43 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=592#comment-63</guid>
+		<description><![CDATA[[&#8230;] After a long pause of more than four months, I am finally back to post here. Unfortunately, many commitments prevented me keep posting, but coming back, i changed the deployment (now this blog runs entirely within a docker container with some other cool things I intend to post more forward) and wrote this post. 1. &#8230;&#160; [&#8230;]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] After a long pause of more than four months, I am finally back to post here. Unfortunately, many commitments prevented me keep posting, but coming back, i changed the deployment (now this blog runs entirely within a docker container with some other cool things I intend to post more forward) and wrote this post. 1. &hellip;&nbsp; [&#8230;]</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Por: Distilled News &#124; Data Analytics &#38; R</title>
+		<link>./../index.html#comment-62</link>
+		<dc:creator><![CDATA[Distilled News &#124; Data Analytics &#38; R]]></dc:creator>
+		<pubDate>Fri, 01 May 2015 09:36:50 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=592#comment-62</guid>
+		<description><![CDATA[[&#8230;] Dockerizing a Shiny App After a long pause of more than four months, I am finally back to post here. Unfortunately, many commitments prevented me keep posting, but coming back, i changed the deployment (now this blog runs entirely within a docker container with some other cool things I intend to post more forward) and wrote this post. [&#8230;]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] Dockerizing a Shiny App After a long pause of more than four months, I am finally back to post here. Unfortunately, many commitments prevented me keep posting, but coming back, i changed the deployment (now this blog runs entirely within a docker container with some other cool things I intend to post more forward) and wrote this post. [&#8230;]</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

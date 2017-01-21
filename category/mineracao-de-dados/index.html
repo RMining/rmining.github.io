@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="./../../xmlrpc.php">
+
+<title>Mineração de Dados &#8211; R Mining</title>
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Feed para R Mining &raquo;" href="./../../feed/index.html" />
+<link rel="alternate" type="application/rss+xml" title="Feed de comentários para R Mining &raquo;" href="./../../comments/feed/index.html" />
+<link rel="alternate" type="application/rss+xml" title="Feed de categoria para R Mining &raquo; Mineração de Dados" href="./feed/index.html" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/svg\/","svgExt":".svg","source":{"concatemoji":".\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.7.1"}};
+			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),!(j.toDataURL().length<3e3)&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,65039,8205,55356,57096),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,55356,57096),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55357,56425,55356,57341,8205,55357,56507),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55357,56425,55356,57341,55357,56507),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='profitmag-font-awesome-css'  href='./../../wp-content/themes/profitmag/css/font-awesome.min.css?ver=4.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-bxslider-style-css'  href='./../../wp-content/themes/profitmag/css/jquery.bxslider.css?ver=4.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-ticker-style-css'  href='./../../wp-content/themes/profitmag/css/ticker-style.css?ver=4.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-noivolightbox-style-css'  href='./../../wp-content/themes/profitmag/css/nivo-lightbox.css?ver=4.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-scrollcss-css'  href='./../../wp-content/themes/profitmag/css/jquery.mCustomScrollbar.css?ver=4.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-google-font-css'  href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic&#038;subset=latin,latin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-style-css'  href='./../../wp-content/themes/profitmag/style.css?ver=4.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-responsive-css'  href='./../../wp-content/themes/profitmag/css/responsive.css?ver=4.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-color-scheme-css'  href='./../../wp-content/themes/profitmag/css/orange.css' type='text/css' media='all' />
+<script type='text/javascript' src='./../../wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='./../../wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript' src='./../../wp-content/themes/profitmag/js/nivo-lightbox.min.js?ver=4.7.1'></script>
+<script type='text/javascript' src='./../../wp-content/themes/profitmag/js/jquery.slicknav.min.js?ver=4.7.1'></script>
+<script type='text/javascript' src='./../../wp-content/themes/profitmag/js/modernizr.min.js?ver=2.6.2'></script>
+<link rel='https://api.w.org/' href='./../../wp-json/index.html' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="./../../xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="./../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 4.7.1" />
+<style type="text/css"></style></head>
+
+<body class="archive category category-mineracao-de-dados category-3 group-blog right_sidebar">
+
+<div id="page" class="hfeed site">
+	
+
+	<header id="masthead" class="site-header clearfix" role="banner">
+        <div class="top-header-block clearfix">
+            <div class="wrapper">
+                        
+                        <div class="right-header f-right">
+                                                    </div>
+             </div>          
+         </div><!-- .top-header-block -->
+
+        <div class="wrapper header-wrapper clearfix">
+        		<div class="header-container"> 
+                
+                    
+                    
+                    <div class="site-branding clearfix">
+            			<div class="site-logo f-left">
+                           
+                                
+                                     <a href="./../../index.html" rel="home" class="site-title">
+
+                                        R Mining                                    </a> 
+                                    
+                                        <p class="site-description">Mineração de Dados, Estatística, Tecnologia</p>
+
+                                                               
+                        </div>
+                        
+                                                			
+            		</div>
+
+                                
+            		<nav id="site-navigation" class="main-navigation home-nav-icon clearfix menu-left" role="navigation" >
+            			<div class="desktop-menu clearfix">
+                                                        <div class="home-icon">
+                                    <a href="./../../index.html" title="R Mining"><i class="fa fa-home"></i></a>
+                                </div>
+                                <div class="menu-links-container"><ul id="menu-links" class="menu"><li id="menu-item-173" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-173"><a href="http://www.r-bloggers.com/">R-Bloggers! Dicas e códigos para R.</a></li>
+<li id="menu-item-846" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-846"><a href="./../../sobre-mim/index.html">Sobre mim</a></li>
+<li id="menu-item-822" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-822"><a href="./../../newsletter/index.html">newsletter</a></li>
+</ul></div>
+                        <div class="search-block">
+                                                            <form role="search" method="get" id="searchform" class="searchform" action="./../../index.html" >
+    <div><label class="screen-reader-text" for="s"></label>
+    <input type="text" value="" name="s" id="s" placeholder="Search" />
+    <input type="submit" id="searchsubmit" value="Search" />
+    </div>
+    </form>                                                    </div>
+                        </div>
+                        <div class="responsive-slick-menu clearfix"></div>
+                        
+            		</nav><!-- #site-navigation -->
+        
+                </div> <!-- .header-container -->
+        </div><!-- header-wrapper-->
+        
+	</header><!-- #masthead -->
+    
+
+    <div class="wrapper content-wrapper clearfix">
+
+        <div class="slider-feature-wrap clearfix">
+            <!-- Slider -->
+                        
+            <!-- Featured Post Beside Slider -->
+                    	
+                    </div>    
+            <div id="content" class="site-content">
+    
+   	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+
+		
+			<header class="page-header">
+				<h1 class="page-title">
+					<span class="bordertitle-red"></span>
+					Mineração de Dados				</h1>
+							</header><!-- .page-header -->
+
+						
+				
+<article id="post-851" class="post-851 post type-post status-publish format-standard has-post-thumbnail hentry category-aprendizado-de-maquina category-data-mining category-educacao category-estatistica category-machine-learning category-mineracao-de-dados category-preparacao-de-dados category-r-e-rstudio">
+	<header class="entry-header">
+		<h2 class="entry-title"><a href="./../../2016/03/14/reconhecimento-de-digitos-escritos-mao-parte-3/index.html" rel="bookmark">RECONHECIMENTO DE DÍGITOS ESCRITOS A MÃO – PARTE 3</a></h2>
+				<div class="entry-meta">
+			<span class="posted-on">Posted on <a href="./../../2016/03/14/reconhecimento-de-digitos-escritos-mao-parte-3/index.html" rel="bookmark"><time class="entry-date published" datetime="2016-03-14T23:54:32+00:00">março 14, 2016</time><time class="updated" datetime="2017-01-17T07:36:18+00:00">janeiro 17, 2017</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="./../../author/admin/index.html">Flavio Barros</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	<div class="post-thumb">
+                        <a href="./../../2016/03/14/reconhecimento-de-digitos-escritos-mao-parte-3/index.html"><img src="./../../wp-content/uploads/2016/03/todos_digitos-1.png" alt="RECONHECIMENTO DE DÍGITOS ESCRITOS A MÃO – PARTE 3" title="RECONHECIMENTO DE DÍGITOS ESCRITOS A MÃO – PARTE 3" /></a>
+            </div>
+    
+    
+    <div class="entry-content">
+		<p>Na Parte 1 desse post (que já publiquei faz um tempão!) eu fiz uma classificação de imagens de dígitos escritos a mão usando o k-nn (algoritmo dos vizinhos mais próximos) usando as informações das imagens sem nenhum tipo de tratamento, isto é, sem nenhum método de preparação. Como foi mostrado, o k-nn só foi capaz de classificar razoavelmente bem com com k = 1 e conseguiu uma acurácia de apenas 78%, algo muito distante do que&#8230;</p>
+		<a class="read-more" href="./../../2016/03/14/reconhecimento-de-digitos-escritos-mao-parte-3/index.html">Read More</a>
+
+			</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+								<span class="cat-links">
+				Posted in <a href="./../aprendizado-de-maquina/index.html" rel="category tag">Aprendizado de Máquina</a>, <a href="./../data-mining/index.html" rel="category tag">Data Mining</a>, <a href="./../educacao/index.html" rel="category tag">Educação</a>, <a href="./../estatistica/index.html" rel="category tag">Estatística</a>, <a href="./../machine-learning/index.html" rel="category tag">Machine Learning</a>, <a href="./index.html" rel="category tag">Mineração de Dados</a>, <a href="./../preparacao-de-dados/index.html" rel="category tag">Preparação de Dados</a>, <a href="./../r-e-rstudio/index.html" rel="category tag">R e RStudio</a>			</span>
+			
+					
+				<span class="comments-link"><a href="./../../2016/03/14/reconhecimento-de-digitos-escritos-mao-parte-3/index.html#comments">1 Comment</a></span>
+		
+			</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+
+			
+				
+<article id="post-858" class="post-858 post type-post status-publish format-standard has-post-thumbnail hentry category-aprendizado-de-maquina category-educacao category-estatistica category-mineracao-de-dados category-r-e-rstudio">
+	<header class="entry-header">
+		<h2 class="entry-title"><a href="./../../2016/03/12/livros-recomendados-data-science/index.html" rel="bookmark">Livros recomendados &#8211; Data Science</a></h2>
+				<div class="entry-meta">
+			<span class="posted-on">Posted on <a href="./../../2016/03/12/livros-recomendados-data-science/index.html" rel="bookmark"><time class="entry-date published" datetime="2016-03-12T14:46:52+00:00">março 12, 2016</time><time class="updated" datetime="2016-03-12T15:16:08+00:00">março 12, 2016</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="./../../author/admin/index.html">Flavio Barros</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	<div class="post-thumb">
+                        <a href="./../../2016/03/12/livros-recomendados-data-science/index.html"><img src="./../../wp-content/uploads/2016/03/data_smart.jpg" alt="Livros recomendados &#8211; Data Science" title="Livros recomendados &#8211; Data Science" /></a>
+            </div>
+    
+    
+    <div class="entry-content">
+		<p>Ao longo dos últimos anos, trabalhando com pesquisa na pós-graduação, como estudante de Estatística e como um analista, eu venho consultando e estudando diversos materiais, de artigos em papers até livros sobre Data Mining, Data Science, Estatística, Big Data e etc. Eu tive oportunidade de consultar muitos bons livros, alguns menos e muitos que eram realmente ruins. ASSIM, nesse post eu gostaria de apresentar a minha seleção de livros e uma breve explicação de porque&#8230;</p>
+		<a class="read-more" href="./../../2016/03/12/livros-recomendados-data-science/index.html">Read More</a>
+
+			</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+								<span class="cat-links">
+				Posted in <a href="./../aprendizado-de-maquina/index.html" rel="category tag">Aprendizado de Máquina</a>, <a href="./../educacao/index.html" rel="category tag">Educação</a>, <a href="./../estatistica/index.html" rel="category tag">Estatística</a>, <a href="./index.html" rel="category tag">Mineração de Dados</a>, <a href="./../r-e-rstudio/index.html" rel="category tag">R e RStudio</a>			</span>
+			
+					
+				<span class="comments-link"><a href="./../../2016/03/12/livros-recomendados-data-science/index.html#comments">2 Comments</a></span>
+		
+			</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+
+			
+				
+<article id="post-841" class="post-841 post type-post status-publish format-standard has-post-thumbnail hentry category-data-mining category-educacao category-estatistica category-mineracao-de-dados category-r-e-rstudio">
+	<header class="entry-header">
+		<h2 class="entry-title"><a href="./../../2016/03/01/regras-de-associacao-vendas-cruzadas-e-recomendacao/index.html" rel="bookmark">Regras de associação: vendas cruzadas e recomendação</a></h2>
+				<div class="entry-meta">
+			<span class="posted-on">Posted on <a href="./../../2016/03/01/regras-de-associacao-vendas-cruzadas-e-recomendacao/index.html" rel="bookmark"><time class="entry-date published" datetime="2016-03-01T21:00:10+00:00">março 1, 2016</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="./../../author/admin/index.html">Flavio Barros</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	<div class="post-thumb">
+                        <a href="./../../2016/03/01/regras-de-associacao-vendas-cruzadas-e-recomendacao/index.html"><img src="./../../wp-content/uploads/2016/03/market_basket_analysis.jpg" alt="Regras de associação: vendas cruzadas e recomendação" title="Regras de associação: vendas cruzadas e recomendação" /></a>
+            </div>
+    
+    
+    <div class="entry-content">
+		<p>Caros leitores, fizemos um novo hangout na semana passada, desta vez sobre regras de associação. Vocês podem conferir aqui o vídeo: Para resumir, no vídeo falamos um pouco sobre o que são as regras de associação, as aplicações em vendas cruzadas e recomendação e foi apresentado também um exemplo prático da famosa &#8220;market basket analysis&#8221; ou análise de cestas de mercado. O material usado na apresentação, com os slides em PDF e os códigos, está&#8230;</p>
+		<a class="read-more" href="./../../2016/03/01/regras-de-associacao-vendas-cruzadas-e-recomendacao/index.html">Read More</a>
+
+			</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+								<span class="cat-links">
+				Posted in <a href="./../data-mining/index.html" rel="category tag">Data Mining</a>, <a href="./../educacao/index.html" rel="category tag">Educação</a>, <a href="./../estatistica/index.html" rel="category tag">Estatística</a>, <a href="./index.html" rel="category tag">Mineração de Dados</a>, <a href="./../r-e-rstudio/index.html" rel="category tag">R e RStudio</a>			</span>
+			
+					
+				<span class="comments-link"><a href="./../../2016/03/01/regras-de-associacao-vendas-cruzadas-e-recomendacao/index.html#comments">1 Comment</a></span>
+		
+			</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+
+			
+				
+<article id="post-830" class="post-830 post type-post status-publish format-standard has-post-thumbnail hentry category-data-mining category-educacao category-estatistica category-mineracao-de-dados category-r-e-rstudio">
+	<header class="entry-header">
+		<h2 class="entry-title"><a href="./../../2016/02/22/cluster-segmentacao-de-clientes/index.html" rel="bookmark">Cluster &#8211; Segmentação de Clientes</a></h2>
+				<div class="entry-meta">
+			<span class="posted-on">Posted on <a href="./../../2016/02/22/cluster-segmentacao-de-clientes/index.html" rel="bookmark"><time class="entry-date published" datetime="2016-02-22T04:46:50+00:00">fevereiro 22, 2016</time><time class="updated" datetime="2016-02-24T22:41:29+00:00">fevereiro 24, 2016</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="./../../author/admin/index.html">Flavio Barros</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	<div class="post-thumb">
+                        <a href="./../../2016/02/22/cluster-segmentacao-de-clientes/index.html"><img src="./../../wp-content/uploads/2016/02/dendograma.png" alt="Cluster &#8211; Segmentação de Clientes" title="Cluster &#8211; Segmentação de Clientes" /></a>
+            </div>
+    
+    
+    <div class="entry-content">
+		<p>OBS: Caros visitantes, curtam a  página do R Mining no Facebook, aqui ao lado! Agradeço muito. Caros leitores do blog, por conta de diversos fatores eu só estou conseguindo postar agora, pela primeira vez esse ano, em fevereiro. Enfim, demorou, mas eu tenho algo que eu acho que pode ser interessante. Um grupo de amigos, arquitetos de soluções em grandes empresas de São Paulo, está organizando alguns hangouts sobre Big Data. Você pode assistir os&#8230;</p>
+		<a class="read-more" href="./../../2016/02/22/cluster-segmentacao-de-clientes/index.html">Read More</a>
+
+			</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+								<span class="cat-links">
+				Posted in <a href="./../data-mining/index.html" rel="category tag">Data Mining</a>, <a href="./../educacao/index.html" rel="category tag">Educação</a>, <a href="./../estatistica/index.html" rel="category tag">Estatística</a>, <a href="./index.html" rel="category tag">Mineração de Dados</a>, <a href="./../r-e-rstudio/index.html" rel="category tag">R e RStudio</a>			</span>
+			
+					
+				<span class="comments-link"><a href="./../../2016/02/22/cluster-segmentacao-de-clientes/index.html#respond">Leave a comment</a></span>
+		
+			</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+
+			
+				
+<article id="post-760" class="post-760 post type-post status-publish format-standard has-post-thumbnail hentry category-aprendizado-de-maquina category-data-mining category-machine-learning category-mineracao-de-dados category-moocs tag-coursera tag-data-science">
+	<header class="entry-header">
+		<h2 class="entry-title"><a href="./../../2015/09/29/curso-pratical-machine-learning-do-coursera/index.html" rel="bookmark">Curso &#8220;Pratical Machine Learning&#8221; do Coursera</a></h2>
+				<div class="entry-meta">
+			<span class="posted-on">Posted on <a href="./../../2015/09/29/curso-pratical-machine-learning-do-coursera/index.html" rel="bookmark"><time class="entry-date published" datetime="2015-09-29T21:53:50+00:00">setembro 29, 2015</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="./../../author/admin/index.html">Flavio Barros</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	<div class="post-thumb">
+                        <a href="./../../2015/09/29/curso-pratical-machine-learning-do-coursera/index.html"><img src="./../../wp-content/uploads/2015/09/PredictionMachineLearning.jpg" alt="Curso &#8220;Pratical Machine Learning&#8221; do Coursera" title="Curso &#8220;Pratical Machine Learning&#8221; do Coursera" /></a>
+            </div>
+    
+    
+    <div class="entry-content">
+		<p>Em mais uma rodada das resenhas de cursos sobre Data Science, desta vez vou apresentar minha avaliação do curso &#8220;Pratical Machine Learning&#8220;, ou Machine Learning Prático. 1. Sobre o que é o curso? Este é o penúltimo curso da especialização em Data Science do Coursera do Coursera. Já falei sobre o último da sequência aqui nesse blog, o Developing Data Products, mas este é o último onde são apresentados conceitos novos de Data Science. Como o&#8230;</p>
+		<a class="read-more" href="./../../2015/09/29/curso-pratical-machine-learning-do-coursera/index.html">Read More</a>
+
+			</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+								<span class="cat-links">
+				Posted in <a href="./../aprendizado-de-maquina/index.html" rel="category tag">Aprendizado de Máquina</a>, <a href="./../data-mining/index.html" rel="category tag">Data Mining</a>, <a href="./../machine-learning/index.html" rel="category tag">Machine Learning</a>, <a href="./index.html" rel="category tag">Mineração de Dados</a>, <a href="./../moocs/index.html" rel="category tag">MOOCS</a>			</span>
+			
+						<span class="tags-links">
+				Tagged <a href="./../../tag/coursera/index.html" rel="tag">Coursera</a>, <a href="./../../tag/data-science/index.html" rel="tag">Data Science</a>			</span>
+					
+				<span class="comments-link"><a href="./../../2015/09/29/curso-pratical-machine-learning-do-coursera/index.html#comments">1 Comment</a></span>
+		
+			</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+
+			
+				
+<article id="post-746" class="post-746 post type-post status-publish format-standard has-post-thumbnail hentry category-aprendizado-de-maquina category-estatistica category-mineracao-de-dados category-preparacao-de-dados category-r-e-rstudio">
+	<header class="entry-header">
+		<h2 class="entry-title"><a href="./../../2015/09/14/reconhecimento-de-digitos-escritos-a-mao-parte-2/index.html" rel="bookmark">Reconhecimento de dígitos escritos a mão – PARTE 2</a></h2>
+				<div class="entry-meta">
+			<span class="posted-on">Posted on <a href="./../../2015/09/14/reconhecimento-de-digitos-escritos-a-mao-parte-2/index.html" rel="bookmark"><time class="entry-date published" datetime="2015-09-14T09:00:02+00:00">setembro 14, 2015</time><time class="updated" datetime="2017-01-17T07:37:13+00:00">janeiro 17, 2017</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="./../../author/admin/index.html">Flavio Barros</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	<div class="post-thumb">
+                        <a href="./../../2015/09/14/reconhecimento-de-digitos-escritos-a-mao-parte-2/index.html"><img src="./../../wp-content/uploads/2016/03/todos_digitos-1.png" alt="Reconhecimento de dígitos escritos a mão – PARTE 2" title="Reconhecimento de dígitos escritos a mão – PARTE 2" /></a>
+            </div>
+    
+    
+    <div class="entry-content">
+		<p>Na Parte 1 desse post (que já publiquei faz um tempão!) eu fiz uma classificação de imagens de dígitos escritos mão usando o k-nn (algoritmo dos vizinhos mais próximos) usando as informações das imagens sem nenhum tipo de tratamento, isto é, sem nenhum método de preparação. Como foi mostrado, o k-nn só foi capaz de classificar razoavelmente bem com com k = 1 e conseguiu uma acurácia de apenas 78%, algo muito distante do que ainda&#8230;</p>
+		<a class="read-more" href="./../../2015/09/14/reconhecimento-de-digitos-escritos-a-mao-parte-2/index.html">Read More</a>
+
+			</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+								<span class="cat-links">
+				Posted in <a href="./../aprendizado-de-maquina/index.html" rel="category tag">Aprendizado de Máquina</a>, <a href="./../estatistica/index.html" rel="category tag">Estatística</a>, <a href="./index.html" rel="category tag">Mineração de Dados</a>, <a href="./../preparacao-de-dados/index.html" rel="category tag">Preparação de Dados</a>, <a href="./../r-e-rstudio/index.html" rel="category tag">R e RStudio</a>			</span>
+			
+					
+				<span class="comments-link"><a href="./../../2015/09/14/reconhecimento-de-digitos-escritos-a-mao-parte-2/index.html#comments">7 Comments</a></span>
+		
+			</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+
+			
+				
+<article id="post-730" class="post-730 post type-post status-publish format-standard has-post-thumbnail hentry category-estatistica category-mineracao-de-dados category-preparacao-de-dados category-r-e-rstudio">
+	<header class="entry-header">
+		<h2 class="entry-title"><a href="./../../2015/09/07/preparacao-de-dados-parte-2/index.html" rel="bookmark">Preparação de dados &#8211; Parte 2</a></h2>
+				<div class="entry-meta">
+			<span class="posted-on">Posted on <a href="./../../2015/09/07/preparacao-de-dados-parte-2/index.html" rel="bookmark"><time class="entry-date published" datetime="2015-09-07T10:00:37+00:00">setembro 7, 2015</time><time class="updated" datetime="2015-09-08T11:29:57+00:00">setembro 8, 2015</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="./../../author/flavio/index.html">Flavio Barros</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	<div class="post-thumb">
+                        <a href="./../../2015/09/07/preparacao-de-dados-parte-2/index.html"><img src="./../../wp-content/uploads/2015/09/caveira_text.png" alt="Preparação de dados &#8211; Parte 2" title="Preparação de dados &#8211; Parte 2" /></a>
+            </div>
+    
+    
+    <div class="entry-content">
+		<p>Neste post eu vou falar sobre como trabalhar com GRANDES ARQUIVOS DE TEXTO em chunks no R. Esse pode ser um problema complicado e que pode aparecer na vida do analista trabalhando com arquivos de log por exemplo. Antes de continuar o post gostaria de salientar que estou utilizando o termo chunk para designar um pedaço do arquivo de texto, isto é, estou dizendo que vamos trabalhar com grandes arquivos de texto, pedaço por pedaço. Mas por que&#8230;</p>
+		<a class="read-more" href="./../../2015/09/07/preparacao-de-dados-parte-2/index.html">Read More</a>
+
+			</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+								<span class="cat-links">
+				Posted in <a href="./../estatistica/index.html" rel="category tag">Estatística</a>, <a href="./index.html" rel="category tag">Mineração de Dados</a>, <a href="./../preparacao-de-dados/index.html" rel="category tag">Preparação de Dados</a>, <a href="./../r-e-rstudio/index.html" rel="category tag">R e RStudio</a>			</span>
+			
+					
+				<span class="comments-link"><a href="./../../2015/09/07/preparacao-de-dados-parte-2/index.html#respond">Leave a comment</a></span>
+		
+			</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+
+			                        
+            <span class='page-numbers current'>1</span>
+<a class='page-numbers' href='./page/2/index.html'>2</a>
+<a class="next page-numbers" href="./page/2/index.html">&raquo;</a>
+		
+		</main><!-- #main -->
+	</div><!-- #primary -->
+
+
+    
+            <div id="secondary-right" class="widget-area secondary-sidebar f-right clearfix" role="complementary">
+                        <div id="sidebar-section-top" class="widget-area sidebar clearfix">
+                 		<aside id="profitmag-popular-posts-3" class="widget profitmag_widget_popular_entries">		<h3 class="widget-title"><span>Popular</span></h3>		<ul>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./../../2016/09/27/como-fazer-um-carometro-em-shiny/index.html"><img src="./../../wp-content/uploads/2016/09/tiririca.jpg" alt="Como fazer um carômetro em Shiny" title="Como fazer um carômetro em Shiny" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./../../2016/09/27/como-fazer-um-carometro-em-shiny/index.html">Como fazer um carômetro em Shiny</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>setembro 27, 2016</div>
+			
+			</li>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./../../2016/03/12/livros-recomendados-data-science/index.html"><img src="./../../wp-content/uploads/2016/03/data_smart.jpg" alt="Livros recomendados &#8211; Data Science" title="Livros recomendados &#8211; Data Science" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./../../2016/03/12/livros-recomendados-data-science/index.html">Livros recomendados &#8211; Data Science</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>março 12, 2016</div>
+			
+			</li>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./../../2013/06/10/anova-e-teste-de-tukey-no-r/index.html"><img src="./../../wp-content/uploads/2013/06/ANOVA-193x112.png" alt="ANOVA e  teste de Tukey no R" title="ANOVA e  teste de Tukey no R" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./../../2013/06/10/anova-e-teste-de-tukey-no-r/index.html">ANOVA e  teste de Tukey no R</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>junho 10, 2013</div>
+			
+			</li>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./../../2014/10/14/como-fazer-mapas-eleitorais/index.html"><img src="./../../wp-content/uploads/2014/10/sampa.png" alt="Como fazer mapas eleitorais" title="Como fazer mapas eleitorais" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./../../2014/10/14/como-fazer-mapas-eleitorais/index.html">Como fazer mapas eleitorais</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>outubro 14, 2014</div>
+			
+			</li>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./../../2014/02/25/genetic-data-large-matrices-glmnet/index.html"><img src="./../../wp-content/uploads/2014/02/geneticdata-193x112.jpg" alt="Genetic data, large matrices and glmnet()" title="Genetic data, large matrices and glmnet()" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./../../2014/02/25/genetic-data-large-matrices-glmnet/index.html">Genetic data, large matrices and glmnet()</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>fevereiro 25, 2014</div>
+			
+			</li>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./../../2015/04/30/dockerizando-shiny-apps/index.html"><img src="./../../wp-content/uploads/2017/01/shiny-193x112.png" alt="Dockerizando Shiny Apps" title="Dockerizando Shiny Apps" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./../../2015/04/30/dockerizando-shiny-apps/index.html">Dockerizando Shiny Apps</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>abril 30, 2015</div>
+			
+			</li>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./../../2016/10/15/usando-r-com-o-monetdb/index.html"><img src="./../../wp-content/uploads/2016/10/monetdb-final-500.png" alt="Usando R com o MonetDB" title="Usando R com o MonetDB" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./../../2016/10/15/usando-r-com-o-monetdb/index.html">Usando R com o MonetDB</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>outubro 15, 2016</div>
+			
+			</li>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./../../2015/04/30/dockerizing-a-shiny-app/index.html"><img src="./../../wp-content/uploads/2017/01/shiny-193x112.png" alt="Dockerizing a Shiny App" title="Dockerizing a Shiny App" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./../../2015/04/30/dockerizing-a-shiny-app/index.html">Dockerizing a Shiny App</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>abril 30, 2015</div>
+			
+			</li>
+				</ul>
+		</aside><aside id="categories-7" class="widget widget_categories"><h3 class="widget-title"><span>Categorias</span></h3>		<ul>
+	<li class="cat-item cat-item-41"><a href="./../aprendizado-de-maquina/index.html" >Aprendizado de Máquina</a>
+</li>
+	<li class="cat-item cat-item-58"><a href="./../data-mining/index.html" >Data Mining</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="./../digital-ocean/index.html" >Digital Ocean</a>
+</li>
+	<li class="cat-item cat-item-49"><a href="./../django/index.html" >Django</a>
+</li>
+	<li class="cat-item cat-item-46"><a href="./../docker/index.html" >Docker</a>
+</li>
+	<li class="cat-item cat-item-6"><a href="./../educacao/index.html" >Educação</a>
+</li>
+	<li class="cat-item cat-item-13"><a href="./../english/index.html" >English</a>
+</li>
+	<li class="cat-item cat-item-4"><a href="./../estatistica/index.html" >Estatística</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="./../git-github/index.html" >Git &amp; Github</a>
+</li>
+	<li class="cat-item cat-item-67"><a href="./../linux/index.html" >Linux</a>
+</li>
+	<li class="cat-item cat-item-57"><a href="./../machine-learning/index.html" >Machine Learning</a>
+</li>
+	<li class="cat-item cat-item-3 current-cat"><a href="./index.html" >Mineração de Dados</a>
+</li>
+	<li class="cat-item cat-item-74"><a href="./../monetdb/index.html" >MonetDB</a>
+</li>
+	<li class="cat-item cat-item-2"><a href="./../moocs/index.html" >MOOCS</a>
+</li>
+	<li class="cat-item cat-item-72"><a href="./../politica/index.html" >Política</a>
+</li>
+	<li class="cat-item cat-item-56"><a href="./../preparacao-de-dados/index.html" >Preparação de Dados</a>
+</li>
+	<li class="cat-item cat-item-5"><a href="./../r-e-rstudio/index.html" >R e RStudio</a>
+</li>
+	<li class="cat-item cat-item-14"><a href="./../r-bloggers/index.html" >r-bloggers</a>
+</li>
+	<li class="cat-item cat-item-73"><a href="./../sgbd/index.html" >SGBD</a>
+</li>
+	<li class="cat-item cat-item-50"><a href="./../shiny/index.html" >Shiny</a>
+</li>
+	<li class="cat-item cat-item-38"><a href="./../wordpress/index.html" >Wordpress</a>
+</li>
+		</ul>
+</aside><aside id="tag_cloud-7" class="widget widget_tag_cloud"><h3 class="widget-title"><span>Tags</span></h3><div class="tagcloud"><a href='./../../tag/anova/index.html' class='tag-link-8 tag-link-position-1' title='2 tópicos' style='font-size: 12.581818181818pt;'>ANOVA</a>
+<a href='./../../tag/boas-praticas/index.html' class='tag-link-54 tag-link-position-2' title='1 tópico' style='font-size: 8pt;'>boas práticas</a>
+<a href='./../../tag/comparacoes-multiplas/index.html' class='tag-link-10 tag-link-position-3' title='1 tópico' style='font-size: 8pt;'>Comparações múltiplas</a>
+<a href='./../../tag/controle-de-versao/index.html' class='tag-link-53 tag-link-position-4' title='1 tópico' style='font-size: 8pt;'>controle de versão</a>
+<a href='./../../tag/coursera/index.html' class='tag-link-22 tag-link-position-5' title='2 tópicos' style='font-size: 12.581818181818pt;'>Coursera</a>
+<a href='./../../tag/data-table/index.html' class='tag-link-34 tag-link-position-6' title='1 tópico' style='font-size: 8pt;'>data.table</a>
+<a href='./../../tag/data-science/index.html' class='tag-link-66 tag-link-position-7' title='1 tópico' style='font-size: 8pt;'>Data Science</a>
+<a href='./../../tag/deploy/index.html' class='tag-link-51 tag-link-position-8' title='2 tópicos' style='font-size: 12.581818181818pt;'>deploy</a>
+<a href='./../../tag/deployment/index.html' class='tag-link-45 tag-link-position-9' title='1 tópico' style='font-size: 8pt;'>deployment</a>
+<a href='./../../tag/edx/index.html' class='tag-link-20 tag-link-position-10' title='1 tópico' style='font-size: 8pt;'>edX</a>
+<a href='./../../tag/ensino-a-distancia/index.html' class='tag-link-12 tag-link-position-11' title='1 tópico' style='font-size: 8pt;'>ensino à distância</a>
+<a href='./../../tag/ggplot2/index.html' class='tag-link-36 tag-link-position-12' title='1 tópico' style='font-size: 8pt;'>ggplot2</a>
+<a href='./../../tag/git/index.html' class='tag-link-48 tag-link-position-13' title='2 tópicos' style='font-size: 12.581818181818pt;'>git</a>
+<a href='./../../tag/glmnet/index.html' class='tag-link-29 tag-link-position-14' title='2 tópicos' style='font-size: 12.581818181818pt;'>glmnet</a>
+<a href='./../../tag/handwritten-recognition/index.html' class='tag-link-39 tag-link-position-15' title='1 tópico' style='font-size: 8pt;'>handwritten recognition</a>
+<a href='./../../tag/ibge/index.html' class='tag-link-33 tag-link-position-16' title='1 tópico' style='font-size: 8pt;'>IBGE</a>
+<a href='./../../tag/implantacao/index.html' class='tag-link-47 tag-link-position-17' title='2 tópicos' style='font-size: 12.581818181818pt;'>implantação</a>
+<a href='./../../tag/k-nn/index.html' class='tag-link-63 tag-link-position-18' title='2 tópicos' style='font-size: 12.581818181818pt;'>k-nn</a>
+<a href='./../../tag/lasso/index.html' class='tag-link-28 tag-link-position-19' title='2 tópicos' style='font-size: 12.581818181818pt;'>Lasso</a>
+<a href='./../../tag/machine-learning/index.html' class='tag-link-40 tag-link-position-20' title='1 tópico' style='font-size: 8pt;'>machine learning</a>
+<a href='./../../tag/mapas/index.html' class='tag-link-35 tag-link-position-21' title='1 tópico' style='font-size: 8pt;'>mapas</a>
+<a href='./../../tag/mnist/index.html' class='tag-link-60 tag-link-position-22' title='2 tópicos' style='font-size: 12.581818181818pt;'>mnist</a>
+<a href='./../../tag/mooc/index.html' class='tag-link-19 tag-link-position-23' title='1 tópico' style='font-size: 8pt;'>MOOC</a>
+<a href='./../../tag/moodle/index.html' class='tag-link-7 tag-link-position-24' title='1 tópico' style='font-size: 8pt;'>moodle</a>
+<a href='./../../tag/pnad/index.html' class='tag-link-32 tag-link-position-25' title='1 tópico' style='font-size: 8pt;'>PNAD</a>
+<a href='./../../tag/post-hoc/index.html' class='tag-link-11 tag-link-position-26' title='1 tópico' style='font-size: 8pt;'>post-hoc</a>
+<a href='./../../tag/r-code/index.html' class='tag-link-16 tag-link-position-27' title='1 tópico' style='font-size: 8pt;'>R code</a>
+<a href='./../../tag/shiny/index.html' class='tag-link-43 tag-link-position-28' title='2 tópicos' style='font-size: 12.581818181818pt;'>shiny</a>
+<a href='./../../tag/statistical-test/index.html' class='tag-link-17 tag-link-position-29' title='1 tópico' style='font-size: 8pt;'>statistical test</a>
+<a href='./../../tag/statistics/index.html' class='tag-link-15 tag-link-position-30' title='1 tópico' style='font-size: 8pt;'>statistics</a>
+<a href='./../../tag/tukey/index.html' class='tag-link-9 tag-link-position-31' title='2 tópicos' style='font-size: 12.581818181818pt;'>Tukey</a>
+<a href='./../../tag/udacity/index.html' class='tag-link-21 tag-link-position-32' title='1 tópico' style='font-size: 8pt;'>Udacity</a>
+<a href='./../../tag/web/index.html' class='tag-link-44 tag-link-position-33' title='6 tópicos' style='font-size: 22pt;'>web</a></div>
+</aside>                </div>
+                
+                
+        
+                    
+                    
+            
+                    
+                
+        
+        
+                
+                
+        </div>      
+
+    
+
+	</div><!-- #content -->
+    </div><!-- content-wrapper-->
+
+	<footer id="colophon" class="site-footer clearrfix" role="contentinfo">
+        <div class="wrapper footer-wrapper clearfix">
+
+                <div class="top-bottom clearfix">
+                		<div id="footer-top">
+                                                
+                        </div><!-- #foter-top -->
+                        
+                        <div id="footer-bottom">    
+                                                     
+                        </div><!-- #foter-bottom -->
+                </div><!-- top-bottom-->
+                <div class="footer-copyright border t-center">
+                    <p>                        
+                                    Copyright 2016. All rights reserved                                                </p>
+                    <div class="site-info">
+                        <a href="https://wordpress.org/">Proudly powered by WordPress</a>
+                        <span class="sep"> | </span>
+                        Profitmag by <a href="http://rigorousthemes.com/" rel="designer">Rigorous Themes</a>                    </div><!-- .site-info -->
+                    
+                </div>
+                
+
+        </div><!-- footer-wrapper-->
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+<script type='text/javascript' src='./../../wp-content/themes/profitmag/js/jquery.bxslider.js?ver=4.7.1'></script>
+<script type='text/javascript' src='./../../wp-content/themes/profitmag/js/jquery.ticker.js?ver=4.7.1'></script>
+<script type='text/javascript' src='./../../wp-content/themes/profitmag/js/jquery.mCustomScrollbar.min.js?ver=1.0.0'></script>
+<script type='text/javascript' src='./../../wp-content/themes/profitmag/js/jquery.mousewheel.min.js?ver=2.0.19'></script>
+<script type='text/javascript' src='./../../wp-content/themes/profitmag/js/navigation.js?ver=20120206'></script>
+<script type='text/javascript' src='./../../wp-content/themes/profitmag/js/custom.js?ver=1.0'></script>
+<script type='text/javascript' src='./../../wp-includes/js/wp-embed.min.js?ver=4.7.1'></script>
+
+</body>
+</html>

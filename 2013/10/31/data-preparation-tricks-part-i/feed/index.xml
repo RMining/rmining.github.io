@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>Comentários sobre: Data Preparation &#8211; Part I</title>
+	<atom:link href="./index.html" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Mineração de Dados, Estatística, Tecnologia</description>
+	<lastBuildDate>Thu, 22 Dec 2016 18:35:36 +0000</lastBuildDate>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.7.1</generator>
+	<item>
+		<title>Por: Data Preparation - Part I - Flavio Barros &#124; R f...</title>
+		<link>./../index.html#comment-10</link>
+		<dc:creator><![CDATA[Data Preparation - Part I - Flavio Barros &#124; R f...]]></dc:creator>
+		<pubDate>Thu, 31 Oct 2013 21:55:31 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=281#comment-10</guid>
+		<description><![CDATA[[&#8230;] The R language provides tools for modeling and visualization, but is still an excellent tool for handling/preparing data.&#160; [&#8230;]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] The R language provides tools for modeling and visualization, but is still an excellent tool for handling/preparing data.&nbsp; [&#8230;]</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

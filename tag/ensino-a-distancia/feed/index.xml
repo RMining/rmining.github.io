@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>ensino à distância &#8211; R Mining</title>
+	<atom:link href="./index.html" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Mineração de Dados, Estatística, Tecnologia</description>
+	<lastBuildDate>Tue, 17 Jan 2017 10:04:59 +0000</lastBuildDate>
+	<language>pt-BR</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.7.1</generator>
+	<item>
+		<title>Plataforma edX liberada!</title>
+		<link>./../../../2013/06/01/plataforma-edx-liberada/index.html</link>
+		<comments>./../../../2013/06/01/plataforma-edx-liberada/index.html#respond</comments>
+		<pubDate>Sat, 01 Jun 2013 17:34:15 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Educação]]></category>
+		<category><![CDATA[MOOCS]]></category>
+		<category><![CDATA[ensino à distância]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=65</guid>
+		<description><![CDATA[O edX é uma iniciativa de ensino à distância fundada por Harvard e MIT. Além da parceria com as Universidades para criar, gerenciar e oferecer gratuitamente os cursos, também foi criada uma plataforma com recursos Web 2.0 e inteligência artificial que permite a eles oferecerem cursos com milhares participantes e um staff reduzido. No oferecimento desses cursos chamados MOOC, a plataforma é uma peça fundamental. Como forma de fomentar esse modelo de educação superior e permitir...]]></description>
+				<content:encoded><![CDATA[<p><script type="text/javascript">// <![CDATA[
+<span class="mceItemHidden" data-mce-bogus="1">
+    bb_bid = "1693329";
+    bb_lang = "en-US";
+    bb_name = "<span class="hiddenSpellError" pre="" data-mce-bogus="1">custom</span>";
+    bb_limit = "7";
+    bb_format = "<span class="hiddenSpellError" pre="" data-mce-bogus="1">bbc</span>";
+</span>
+// ]]&gt;</script><br />
+<script src="http://static.boo-box.com/javascripts/embed.js" type="text/javascript"></script></p>
+<p style="text-align: justify;">O edX é uma iniciativa de ensino à distância fundada por Harvard e MIT. Além da parceria com as Universidades para criar, gerenciar e oferecer gratuitamente os cursos, também foi criada uma plataforma com recursos Web 2.0 e inteligência artificial que permite a eles oferecerem cursos com milhares participantes e um <em>staff</em> reduzido. No oferecimento desses cursos chamados MOOC, a plataforma é uma peça fundamental.</p>
+<p style="text-align: justify;"><a href="http://www.flaviobarros.net/wp-content/uploads/2013/06/edX.png"><img class="aligncenter size-full wp-image-153" src="http://www.flaviobarros.net/wp-content/uploads/2013/06/edX.png" alt="edX" width="200" height="200" srcset="./../../../wp-content/uploads/2013/06/edX.png 200w, ./../../../wp-content/uploads/2013/06/edX-150x150.png 150w, ./../../../wp-content/uploads/2013/06/edX-90x90.png 90w" sizes="(max-width: 200px) 100vw, 200px" /></a></p>
+<p style="text-align: justify;">Como forma de fomentar esse modelo de educação superior e permitir o acesso a essas tecnologias em todas as partes do mundo, o edX se juntou a Stanford para construir uma plataforma de código aberto que pode ser utilizada por empresas, universidades e individuais. A partir de hoje, dia 1 de junho de 2013, a plataforma estará disponível para download. Qualquer pessoa pode instalar, criar cursos e oferece-los on-line. De acordo com as palavras do fundador do edX: &#8220;eu sempre digo que o edX vai se tornar o Linux da educação&#8221;, assim espero.</p>
+<p style="text-align: justify;"> Maiores detalhes em<span style="color: #0000ff;"> <a href="http://code.edx.org/"><span style="color: #0000ff;">http://code.edx.org/</span></a></span>.</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2013/06/01/plataforma-edx-liberada/feed/index.html</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

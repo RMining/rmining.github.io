@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>Comentários sobre: Dockerizando Shiny Apps</title>
+	<atom:link href="./index.html" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Mineração de Dados, Estatística, Tecnologia</description>
+	<lastBuildDate>Thu, 22 Dec 2016 18:35:36 +0000</lastBuildDate>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.7.1</generator>
+	<item>
+		<title>Por: Compartilhe Shiny Apps com o Docker e o Kitematic! - R Mining</title>
+		<link>./../index.html#comment-112</link>
+		<dc:creator><![CDATA[Compartilhe Shiny Apps com o Docker e o Kitematic! - R Mining]]></dc:creator>
+		<pubDate>Mon, 28 Dec 2015 04:39:14 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=531#comment-112</guid>
+		<description><![CDATA[[&#8230;]      Dockerizando Shiny Apps    Nenhum Comentário &#124; abr. 30, 2015 [&#8230;]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;]      Dockerizando Shiny Apps    Nenhum Comentário | abr. 30, 2015 [&#8230;]</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Por: Novo endereço: www.rmining.net !! - Flavio Barros</title>
+		<link>./../index.html#comment-99</link>
+		<dc:creator><![CDATA[Novo endereço: www.rmining.net !! - Flavio Barros]]></dc:creator>
+		<pubDate>Fri, 02 Oct 2015 21:12:25 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=531#comment-99</guid>
+		<description><![CDATA[[&#8230;] Dockerizando Shiny Apps [&#8230;]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] Dockerizando Shiny Apps [&#8230;]</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Por: Dockerizando Shiny Apps - Flavio Barros &#124; Big D...</title>
+		<link>./../index.html#comment-66</link>
+		<dc:creator><![CDATA[Dockerizando Shiny Apps - Flavio Barros &#124; Big D...]]></dc:creator>
+		<pubDate>Tue, 05 May 2015 18:05:51 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=531#comment-66</guid>
+		<description><![CDATA[[&#8230;] Depois de uma longa pausa de mais de quatro meses, finalmente estou voltando a postar aqui. Infelizmente, diversos compromissos me impediram de continuar postando, mas acabei por dar uma repaginada no blog, alterar a implanta&#231;&#227;o (agora esse blog roda inteiramente dentro de um cont&#234;iner docker, com algumas outras coisas legais que pretendo postar mais para &#8230;&#160; [&#8230;]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] Depois de uma longa pausa de mais de quatro meses, finalmente estou voltando a postar aqui. Infelizmente, diversos compromissos me impediram de continuar postando, mas acabei por dar uma repaginada no blog, alterar a implanta&ccedil;&atilde;o (agora esse blog roda inteiramente dentro de um cont&ecirc;iner docker, com algumas outras coisas legais que pretendo postar mais para &hellip;&nbsp; [&#8230;]</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Por: Dockerizando Apps do Shiny - Peguei do</title>
+		<link>./../index.html#comment-64</link>
+		<dc:creator><![CDATA[Dockerizando Apps do Shiny - Peguei do]]></dc:creator>
+		<pubDate>Mon, 04 May 2015 16:13:59 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=531#comment-64</guid>
+		<description><![CDATA[[&#8230;] “Como esse post pode vir a ter leitores com diversos backgrounds eu vou inicialmente falar um pouco sobre várias tecnologias, como a linguagem R, os Apps do Shiny e o Docker. Vou falar para que servem e o problema que está sendo resolvido aqui. Se você já sabe o que é o R e o Shiny pode pular para o item 2 sobre o Docker.” [referência: flaviobarros.net] [&#8230;]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] “Como esse post pode vir a ter leitores com diversos backgrounds eu vou inicialmente falar um pouco sobre várias tecnologias, como a linguagem R, os Apps do Shiny e o Docker. Vou falar para que servem e o problema que está sendo resolvido aqui. Se você já sabe o que é o R e o Shiny pode pular para o item 2 sobre o Docker.” [referência: flaviobarros.net] [&#8230;]</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

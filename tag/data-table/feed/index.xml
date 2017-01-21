@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>data.table &#8211; R Mining</title>
+	<atom:link href="./index.html" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Mineração de Dados, Estatística, Tecnologia</description>
+	<lastBuildDate>Tue, 17 Jan 2017 10:04:59 +0000</lastBuildDate>
+	<language>pt-BR</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.7.1</generator>
+	<item>
+		<title>Leitura da PNAD 2013 com o R</title>
+		<link>./../../../2014/09/24/leitura-da-pnad-2013-com-o-r/index.html</link>
+		<comments>./../../../2014/09/24/leitura-da-pnad-2013-com-o-r/index.html#comments</comments>
+		<pubDate>Thu, 25 Sep 2014 00:30:15 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Estatística]]></category>
+		<category><![CDATA[R e RStudio]]></category>
+		<category><![CDATA[data.table]]></category>
+		<category><![CDATA[IBGE]]></category>
+		<category><![CDATA[PNAD]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=437</guid>
+		<description><![CDATA[Com o erro recente na divulgação dos resultados da PNAD 2013, o nome do IBGE e também os resultados dessa pesquisa, chegaram na grande mídia de um forma muito negativa. Ainda assim, a maioria das pessoas desconhece o que é a PNAD, como esses dados são obtidos e como eles podem ser baixados e utilizados. Neste post vou fornecer uma breve explicação do que é PNAD, como esses dados são distribuídos (na forma de microdados)...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">Com o <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://epocanegocios.globo.com/Informacao/Dilemas/noticia/2014/09/ibge-pnad-2013-contem-erros-extremamente-graves.html" target="_blank">erro recente</a></span> na divulgação dos resultados da PNAD 2013, o nome do IBGE e também os resultados dessa pesquisa, chegaram na grande mídia de um forma muito negativa. Ainda assim, a maioria das pessoas desconhece o que é a PNAD, como esses dados são obtidos e como eles podem ser baixados e utilizados. Neste post vou fornecer uma breve explicação do que é PNAD, como esses dados são distribuídos (na forma de microdados) e como você pode facilmente obtê-los e utiliza-los a partir de ferramentas gratuitas como o <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://cran.r-project.org/" target="_blank">R</a></span>.</p>
+<p style="text-align: justify;"><span id="more-437"></span></p>
+<p style="text-align: justify;"><a href="http://www.flaviobarros.net/wp-content/uploads/2014/09/pnad2013.jpg"><img class="aligncenter size-full wp-image-444" src="http://www.flaviobarros.net/wp-content/uploads/2014/09/pnad2013.jpg" alt="pnad2013" width="600" height="565" srcset="./../../../wp-content/uploads/2014/09/pnad2013.jpg 600w, ./../../../wp-content/uploads/2014/09/pnad2013-300x282.jpg 300w" sizes="(max-width: 600px) 100vw, 600px" /></a></p>
+<p style="text-align: justify;">Vamos à primeira questão: o que é a PNAD? A PNAD é uma sigla para Pesquisa Nacional por Amostra de Domicílios. Segundo o IBGE: &#8220;Obtém informações anuais sobre características demográficas e socioeconômicas da população, como sexo, idade, educação, trabalho e rendimento, e características dos domicílios, e, com periodicidade variável, informações sobre migração, fecundidade, nupcialidade, entre outras, tendo como unidade de coleta os domicílios. Temas específicos abrangendo aspectos demográficos, sociais e econômicos também são investigados.&#8221; É uma pesquisa muito importante para o país, pois é partir dela que obtemos diversos indicadores sobre a população, a economia, a educação, dentre outros. Mas, no entanto, como o próprio nome da pesquisa indica, a pesquisa é feita por amostra, tal que nem todos os domicílios do país são visitados. Na PNAD 2013 por exemplo, foram visitados somente 148.697 domicílios de mais de <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://www.censo2010.ibge.gov.br/sinopse/index.php?dados=P12&amp;uf=00" target="_blank">57 milhões</a></span> (Censo 2010).</p>
+<p style="text-align: justify;">Mas como essa amostra é escolhida? Como uma amostra tão pequena, de menos de 0,3% do total de domicílios, pode representar dados confiáveis da população? A resposta a essa questão está relacionada à <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://www.amazon.com/Sampling-Techniques-3rd-William-Cochran/dp/047116240X/ref=sr_1_3?ie=UTF8&amp;qid=1411586961&amp;sr=8-3&amp;keywords=sampling+theory" target="_blank">teoria de amostragem</a></span>, algo que não vou tratar nesse post, mas vou apenas dizer que é possível, com a metodologia certa, obter informações confiáveis da população a partir de uma amostra tão pequena. O IBGE, além de disponibilizar os dados, também disponibiliza o <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://www.ibge.gov.br/home/estatistica/populacao/trabalhoerendimento/pnad2012/microdados.shtm" target="_blank">procedimento amostral utilizado</a></span>. No link citado, ao baixar o arquivo Metodologia.zip, na pasta descompactada, no arquivo &#8220;Notas Metodológicas Pesquisa Básica  2013.doc&#8221;, o processo de seleção da amostra é apresentado de forma detalhada. Basicamente , é uma amostra probabilística de domicílios, realizada em três estágios:</p>
+<p style="text-align: justify;">1) no primeiro estágio  os municípios são classificados em duas categorias, autorrepresentativos e não autorepresentativos, isto é, aqueles municípios que COM CERTEZA vão fazer parte da amostra e aqueles que PODEM fazer parte da amostra. Os municípios não autorepresentativos passam então por um processo de estratificação, e em cada estrato são selecionados alguns municípios, COM REPOSIÇÃO e proporcionalmente à população residente, de acordo com o Censo 2010.</p>
+<p style="text-align: justify;">2) No segundo estágio, nos municípios escolhidos no primeiro estágio, são selecionados os <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://www.censo2010.ibge.gov.br/sinopseporsetores/" target="_blank">setores censitários</a></span>, com reposição e com probabilidade proporcional à população residente de acordo com o Censo 2010.</p>
+<p style="text-align: justify;">3) Por fim, no último estágio, são selecionados com EQUIPROBABILIDADE, em cada setor censitário amostrado no segundo estágio, as unidades domiciliares.</p>
+<p style="text-align: justify;">Assim, após a coleta, o IBGE compila e oferta estes dados na forma de microdados. Mas o que são os microdados? Veja o seguinte exemplo:</p>
+<pre class="lang:r highlight:0 decode:true">20131100001500111                                                                 1228091101011.00000000000090.01297567000023.0001733261200                 019101100010000001                 20140919
+20131100001500210                                                                 1228091101011.00000000000090.01297567000023.0001733261200                 019101100010000001                 20140919</pre>
+<p style="text-align: justify;">Como pode-se ver, são os dados crus, sem uma separação clara entre os campos, tal que para a leitura dos microdados é necessário um dicionário que informa o início de cada campo, o tamanho do campo e qual é a variável. Além disso é necessário ter acesso ao questionário utilizado e um descritor das variáveis. Todas estas informações estão disponíveis no arquivo <a href="ftp://ftp.ibge.gov.br/Trabalho_e_Rendimento/Pesquisa_Nacional_por_Amostra_de_Domicilios_anual/microdados/2013/Dados.zip" target="_blank">Dados.zip</a>, tal que a partir dele é possível reproduzir o procedimento de leitura que eu vou apresentar.</p>
+<p style="text-align: justify;">Inicialmente, faça o download destes aquivos, e nas planilhas &#8220;Dicionário de variáveis de domicílios da Pesquisa Básica &#8211; 2013.xls&#8221;  E &#8220;Dicionário de variáveis de pessoas da Pesquisa Básica &#8211; 2013&#8221;, exporte para um CSV as três primeiras colunas: Posição Inicial, Tamanho, Código de variável. No meu caso salvei como dicdom.csv e dicpes.csv. Como você vai verificar, existem dois arquivos separados, um para os domicílios e outro para as pessoas (DOM2013.txt e PES2013.txt), tal que em cada domicílio pode haver informações relativas a uma pessoa (único morador) ou mais. Você vai notar que o arquivo de pessoas é razoavelmente maior.</p>
+<p style="text-align: justify;">Supondo que você está usando o R em um determinado diretório, e a pasta com os microdados, chamada nesse caso de Dados, está nesse mesmo diretório, execute o script:</p>
+<pre class="lang:r decode:true">library(bit64)
+library(data.table)
+library(descr)
+library(reshape)
+library(survey)
+library(xlsx)
+
+## Criando o dicionário a partir das três primeiras colunas da planilha
+dicdom &lt;- read.csv(file = 'dicdom.csv', header=F)
+dicdom &lt;- dicdom[complete.cases(dicdom),]
+colnames(dicdom) &lt;- c('inicio', 'tamanho', 'variavel')
+
+dicpes &lt;- read.csv(file = 'dicpes.csv', header=F)
+dicpes &lt;- dicpes[complete.cases(dicpes),]
+colnames(dicpes) &lt;- c('inicio', 'tamanho', 'variavel')
+
+## Parâmetro com o final de cada campo
+end_dom = dicdom$inicio + dicdom$tamanho - 1
+end_pes = dicpes$inicio + dicpes$tamanho - 1
+
+## Converte o microdado para um arquivo csv
+fwf2csv(fwffile='Dados/DOM2013.txt', csvfile='dadosdom.csv', names=dicdom$variavel, begin=dicdom$inicio, end=end_dom)
+fwf2csv(fwffile='Dados/PES2013.txt', csvfile='dadospes.csv', names=dicpes$variavel, begin=dicpes$inicio, end=end_pes)
+
+## Efetua a leitura do conjunto de dados com o fread do data.table
+dadosdom &lt;- fread(input='dadosdom.csv', sep='auto', sep2='auto', integer64='double')
+dadospes &lt;- fread(input='dadospes.csv', sep='auto', sep2='auto', integer64='double')</pre>
+<p style="text-align: justify;">e pronto! Segundos depois você vai ter lido todos os dados referentes aos domicílios e as pessoas. Veja que a leitura é muito rápida, e este procedimento é uma melhora de outra solução que você pode verificar <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://www.asdfree.com/search/label/pesquisa%20nacional%20por%20amostra%20de%20domicilios%20%28pnad%29" target="_blank">aqui</a></span>.</p>
+<p style="text-align: justify;">Qualquer dúvida com relação ao procedimento, entre em contato por meio dos comentários, e boas análises!</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2014/09/24/leitura-da-pnad-2013-com-o-r/feed/index.html</wfw:commentRss>
+		<slash:comments>13</slash:comments>
+		</item>
+	</channel>
+</rss>

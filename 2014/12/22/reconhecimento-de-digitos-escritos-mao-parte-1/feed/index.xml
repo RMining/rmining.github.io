@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>Comentários sobre: Reconhecimento de dígitos escritos a mão &#8211; Parte 1</title>
+	<atom:link href="./index.html" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Mineração de Dados, Estatística, Tecnologia</description>
+	<lastBuildDate>Thu, 22 Dec 2016 18:35:36 +0000</lastBuildDate>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.7.1</generator>
+	<item>
+		<title>Por: RECONHECIMENTO DE DÍGITOS ESCRITOS A MÃO – PARTE 3 - R Mining</title>
+		<link>./../index.html#comment-115</link>
+		<dc:creator><![CDATA[RECONHECIMENTO DE DÍGITOS ESCRITOS A MÃO – PARTE 3 - R Mining]]></dc:creator>
+		<pubDate>Tue, 15 Mar 2016 02:54:41 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=493#comment-115</guid>
+		<description><![CDATA[[&#8230;] Parte 1 desse post (que já publiquei faz um tempão!) eu fiz uma classificação de imagens de dígitos [&#8230;]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] Parte 1 desse post (que já publiquei faz um tempão!) eu fiz uma classificação de imagens de dígitos [&#8230;]</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Por: Reconhecimento de dígitos escritos a mão – PARTE 2 - R Mining</title>
+		<link>./../index.html#comment-98</link>
+		<dc:creator><![CDATA[Reconhecimento de dígitos escritos a mão – PARTE 2 - R Mining]]></dc:creator>
+		<pubDate>Mon, 21 Sep 2015 19:27:21 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=493#comment-98</guid>
+		<description><![CDATA[[&#8230;]      Reconhecimento de dígitos escritos a mão &#8211; Parte 1    Nenhum Comentário &#124; dez 22, 2014 [&#8230;]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;]      Reconhecimento de dígitos escritos a mão &#8211; Parte 1    Nenhum Comentário | dez 22, 2014 [&#8230;]</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Por: Handwritten digit recognition - Part1 - Flavio Barros</title>
+		<link>./../index.html#comment-59</link>
+		<dc:creator><![CDATA[Handwritten digit recognition - Part1 - Flavio Barros]]></dc:creator>
+		<pubDate>Mon, 22 Dec 2014 19:00:17 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=493#comment-59</guid>
+		<description><![CDATA[[&#8230;] OBS: There is a version in portuguese. [&#8230;]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] OBS: There is a version in portuguese. [&#8230;]</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

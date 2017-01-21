@@ -1,0 +1,601 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Flavio Barros &#8211; R Mining</title>
+	<atom:link href="./index.html" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Mineração de Dados, Estatística, Tecnologia</description>
+	<lastBuildDate>Tue, 17 Jan 2017 10:04:59 +0000</lastBuildDate>
+	<language>pt-BR</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.7.1</generator>
+	<item>
+		<title>Curso &#8220;As Ferramentas do Cientista de Dados&#8221; do Coursera</title>
+		<link>./../../../2015/09/10/curso-as-ferramentas-do-cientista-de-dados-do-coursera/index.html</link>
+		<comments>./../../../2015/09/10/curso-as-ferramentas-do-cientista-de-dados-do-coursera/index.html#comments</comments>
+		<pubDate>Fri, 11 Sep 2015 00:24:53 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Educação]]></category>
+		<category><![CDATA[Estatística]]></category>
+		<category><![CDATA[Git & Github]]></category>
+		<category><![CDATA[MOOCS]]></category>
+		<category><![CDATA[R e RStudio]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=741</guid>
+		<description><![CDATA[Hoje eu vou fazer uma pequena resenha sobre o curso &#8220;As Ferramentas do Cientista de Dados&#8221; oferecido pelo Coursera, com o objetivo de avaliar o curso e direcionar os leitores sobre a escolha de fazê-lo ou não. Sobre o que é o curso? Inicialmente eu gostaria de destacar que esse é o curso inicial da especialização em Data Science do Coursera, oferecida em parceria com professores da Johns Hopkins University. A especialização compreende 10 cursos...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">Hoje eu vou fazer uma pequena resenha sobre o curso &#8220;<span style="color: #0000ff;"><a style="color: #0000ff;" href="https://www.coursera.org/course/datascitoolbox">As Ferramentas do Cientista de Dados</a></span>&#8221; oferecido pelo Coursera, com o objetivo de avaliar o curso e direcionar os leitores sobre a escolha de fazê-lo ou não.</p>
+<h2 style="text-align: justify;">Sobre o que é o curso?</h2>
+<p style="text-align: justify;">Inicialmente eu gostaria de destacar que esse é o curso inicial da especialização em <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://www.coursera.org/specializations/jhudatascience?utm_medium=courseDescripTop">Data Science do Coursera</a></span>, oferecida em parceria com professores da Johns Hopkins University. A especialização compreende 10 cursos que em tese capacitam o aluno como um cientista de dados júnior.</p>
+<p style="text-align: justify;">Esse curso em especial atua como uma forma de preparação inicial, introduzindo as ideias da especialização como um todo e fornecendo aos alunos um direcionamento com relação as ferramentas que ele vai utilizar durante os 9 cursos seguintes. Em resumo, ele oferece:</p>
+<ul>
+<li style="text-align: justify;">Introdução sobre todos os outros 9 cursos</li>
+<li style="text-align: justify;">Breve introdução ao <a href="https://www.r-project.org/">R</a> &amp; <a href="https://www.rstudio.com/">RStudio</a></li>
+<li style="text-align: justify;">Como instalar pacotes no <a href="https://www.r-project.org/">R</a></li>
+<li style="text-align: justify;">Introdução ao <a href="http://rmarkdown.rstudio.com/">RMarkdown</a></li>
+<li style="text-align: justify;"><a href="https://git-scm.com/book/pt-br/v1/Primeiros-passos-No%C3%A7%C3%B5es-B%C3%A1sicas-de-Git">Git</a> e <a href="https://github.com/">Github</a></li>
+<li style="text-align: justify;">Introdução ao que é Ciência de Dados e Big Data</li>
+</ul>
+<h2>Quanto tempo leva?</h2>
+<p style="text-align: justify;">O curso é previsto para 3 semanas, mas de fato com um mínimo de dedicação é possível realizar TODAS AS TAREFAS EM 1 HORA. Não estou brincando, realmente em uma hora você pode terminar tudo, principalmente se você já usou um <a href="http://git-scm.com/">git</a> ou <a href="https://github.com/">github</a> pelo menos uma vez na vida. Eu me inscrevi para avaliar o curso e fiz tudo em uma hora.</p>
+<h2 style="text-align: justify;">Vale a pena?</h2>
+<p style="text-align: justify;">Essa é uma questão difícil de responder, mas atualmente eu diria que não. Por quê? Porque o curso isoladamente não significa nada. Se o aluno pretende aprender a usar o <a href="http://git-scm.com/">git</a> e <a href="https://github.com/">github</a> existem recursos gratuitos muito melhores na internet. Além disso a introdução que ele faz dos outros cursos, e mesmo alguns conteúdos apresentados, bem poderiam fazer parte dos outros 9 cursos da especialização. Enfim, só faz sentido fazer esse curso se você planeja terminar a especialização inteira, uma vez que você é obrigado a concluir os 10 cursos para poder participar do <a href="https://www.coursera.org/course/dsscapstone">projeto final</a>.</p>
+<h2 style="text-align: justify;">Nem a parte sobre Git vale a pena?</h2>
+<p style="text-align: justify;">Como eu disse eu acredito que esse curso poderia ser canibalizado pelos outros, e na minha opinião, não havia a necessidade de criar um curso separado só para isso. Ainda assim posso dizer que a introdução ao Git e Github é razoável, pensando em um usuário que nunca viu Git e não sabe o que é.</p>
+<h2 style="text-align: justify;">Conclusão</h2>
+<p style="text-align: justify;">Se você pretende fazer a especialização vai ter que fazer esse curso, caso contrário existem materiais melhores, gratuitos, onde você pode ter uma boa ideia e uma boa introdução a todos os tópicos tratados nesse curso.</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2015/09/10/curso-as-ferramentas-do-cientista-de-dados-do-coursera/feed/index.html</wfw:commentRss>
+		<slash:comments>7</slash:comments>
+		</item>
+		<item>
+		<title>Preparação de dados &#8211; Parte 2</title>
+		<link>./../../../2015/09/07/preparacao-de-dados-parte-2/index.html</link>
+		<comments>./../../../2015/09/07/preparacao-de-dados-parte-2/index.html#respond</comments>
+		<pubDate>Mon, 07 Sep 2015 13:00:37 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Estatística]]></category>
+		<category><![CDATA[Mineração de Dados]]></category>
+		<category><![CDATA[Preparação de Dados]]></category>
+		<category><![CDATA[R e RStudio]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=730</guid>
+		<description><![CDATA[Neste post eu vou falar sobre como trabalhar com GRANDES ARQUIVOS DE TEXTO em chunks no R. Esse pode ser um problema complicado e que pode aparecer na vida do analista trabalhando com arquivos de log por exemplo. Antes de continuar o post gostaria de salientar que estou utilizando o termo chunk para designar um pedaço do arquivo de texto, isto é, estou dizendo que vamos trabalhar com grandes arquivos de texto, pedaço por pedaço. Mas por que...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">Neste post eu vou falar sobre como trabalhar com GRANDES ARQUIVOS DE TEXTO em <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://www.wordreference.com/enpt/chunk">chunks</a></span> no R. Esse pode ser um problema complicado e que pode aparecer na vida do analista trabalhando com <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://en.wikipedia.org/wiki/Logfile">arquivos de log</a></span> por exemplo. Antes de continuar o post gostaria de salientar que estou utilizando o termo <em>chunk </em>para designar um pedaço do arquivo de texto, isto é, estou dizendo que vamos trabalhar com grandes arquivos de texto, pedaço por pedaço.</p>
+<h2>Mas por que chunks?</h2>
+<p style="text-align: justify;">Bom, se você já teve oportunidade de trabalhar com grandes arquivos de dados no R você já deve ter percebido que dependendo do tamanho do arquivo o simples procedimento de leitura pode demorar muito tempo. Isso ocorre porque o R trabalha com arquivos de dados diretamente na memória RAM tal que arquivos gigantescos ou podem ocupar toda a memória RAM do seu computador, inviabilizando a leitura, ou mesmo podem até ser lidos mas deixarem o computador extremamente lento tomando muito tempo da análise.</p>
+<p style="text-align: justify;">Para mostrar um exemplo prático de como trabalhar com este tipo de arquivo no R vamos utilizar um conjunto de dados muito interessante com informações de vôos, o <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://stat-computing.org/dataexpo/2009/the-data.html">Airlines</a></span>. Vamos trabalhar somente com as informações relativas a 1988, mas que sozinhas já são suficiente para dar uma tremenda dor de cabeça. Para trabalhar com esses dados eu vou usar o pacote <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://cran.r-project.org/web/packages/iterators/index.html">iterators</a></span>, um pacote que permite ler um arquivo linha por linha, ou chunk por chunk, mas sem ter que carregar o arquivo inteiro na memória. Para você ter uma ideia de como isso funciona tente rodar esse código:</p>
+<pre class="lang:r decode:true">## Instalando e carregando o pacote
+install.packages('iterators')
+library(iterators)
+
+## Efetuando a conexão de leitura do arquivo, direto do formato bz2 (uma espécie de zip).
+con &lt;- bzfile('1988.csv.bz2', 'r')</pre>
+<p style="text-align: justify;">Preste atenção que o objeto <strong>con</strong> armazena somente uma CONEXÃO. EU não estou lendo o arquivo ainda e portanto não o estou carregando na memória. Esse tipo de conexão é parecida com a que você poderia criar em um <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://pt.wikipedia.org/wiki/Sistema_de_gerenciamento_de_banco_de_dados">sistema de gerenciamento de banco de dados</a></span> antes de fazer a primeira consulta em SQL.</p>
+<p style="text-align: justify;">OK, agora que temos a conexão vamos criar um iterator (ou iterador):</p>
+<pre class="lang:r decode:true">## Cria um iterador que lê uma linha do arquivo por vez (n = 1)
+it &lt;- ireadLines(con, n=1)
+
+## Comando para ir retornando linha a linha
+nextElem(it)
+nextElem(it)</pre>
+<p style="text-align: justify;">Como você pode ver você está imprimindo no terminal linha por linha do arquivo. Assim, se você quiser trabalhar linha por linha, ou mesmo chunk por chunk (n &gt; 1) você pode ir carregando pequenos pedaços do arquivo que não vão ocupar a memória inteira.</p>
+<h2 style="text-align: justify;">Mas como saber qual é a última linha?</h2>
+<p style="text-align: justify;">Como estamos lendo linha a linha não temos como saber de antemão quantas linhas devemos ler. Assim a solução para o problema é tentar pegar o erro que ocorre quando chegamos na última linha do arquivo e pedimos mais uma com o nextElem(it). Quando fazemos isso a função retorna um erro, o qual podemos &#8220;transformar&#8221; em um FALSE do R e usar esse sinal em um programa para encerrar o trabalho.</p>
+<pre class="lang:r decode:true">tryCatch(expr=nextElem(it), error=function(e) return(FALSE))</pre>
+<p>esse comando retorna um  FALSE quando chega no fim do arquivo. Esse é um truque muito útil na preparação com grandes arquivos de texto.</p>
+<h2>Exemplo do Stackoverflow</h2>
+<p style="text-align: justify;">Há um tempo atrás surgiu uma pergunta no stackoverflow justamente sobre grandes arquivos de texto. Você encontrar a pergunta aqui: <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://pt.stackoverflow.com/questions/35469/pre-processar-grande-arquivo-de-texto-txt-substituir-por/35645#35645" target="_blank">Pre-processar grande arquivo de texto</a></span>. Veja que há também uma solução interessante do Carlos Cinelli (do <a href="http://analisereal.com/" target="_blank">analisereal.com</a>) que não faz uso do iterators. É uma solução que usa o seguinte método: lê 4000 linhas por vez e pula as linhas já lidas anteriormente. Eu acredito que a estratégia com iterators pode ser melhor pois você só vai varrer o arquivo uma vez, isto é, na solução com iterator você tem um apontador para a linha que parou e pode continuar a partir dali, até chegar no final do arquivo. Na solução usando o read.csv() ou read.table() em cada iteração o arquivo é lido novamente e todas as linhas já lidas são puladas.</p>
+<pre class="lang:r decode:true ">## Carregando o pacote
+library(iterators)
+
+## Defindo a função que troca vírgula por ponto
+change_dot &lt;- function(file, saida='teste.txt', chunk=1) {
+
+  ## Cria conexão com arquivo a ser lido
+  con1 &lt;- file(file, 'r')
+
+  ## Cria conexão onde será escrito o novo arquivo
+  con2 &lt;- file(saida, open = 'w')
+  linha &lt;- 0
+
+  ## Criando o iterador
+  it &lt;- ireadLines(con1, n=chunk)
+
+  ## Lendo a primeira linha e escrevendo no outro arquivo
+  out &lt;- tryCatch(expr=write(x = gsub(pattern = ',', replacement = '.', x = nextElem(it)), con2), 
+                   error=function(e) e)
+
+  ## Observe o uso do tryCatch() para saber o fim do arquivo
+  while(!any(class(out) == "error")) {
+    linha = linha + 1
+    print(paste('Escrita linha ', linha))
+    out &lt;- tryCatch(expr=write(x = gsub(pattern = ',', replacement = '.', x = nextElem(it)), con2, append = T), 
+                  error=function(e) e)
+  }
+}</pre>
+<p>Nesse caso em específico o tempo total para a realização da tarefa foi de aproximadamente 6 segundos.</p>
+<p>Gostou do artigo ou achou a dica útil?! Curta nossa página no Facebook!</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2015/09/07/preparacao-de-dados-parte-2/feed/index.html</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Preparação de dados &#8211; Parte 1</title>
+		<link>./../../../2015/09/02/preparacao-de-dados-parte-1/index.html</link>
+		<comments>./../../../2015/09/02/preparacao-de-dados-parte-1/index.html#respond</comments>
+		<pubDate>Thu, 03 Sep 2015 02:28:06 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Aprendizado de Máquina]]></category>
+		<category><![CDATA[Estatística]]></category>
+		<category><![CDATA[Mineração de Dados]]></category>
+		<category><![CDATA[R e RStudio]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=723</guid>
+		<description><![CDATA[A linguagem R oferece ferramentas que podem ser usadas para visualização, modelagem e leitura de bancos de dados. Mas uma de suas características mais importantes é que é uma excelente ferramenta para preparação de dados. Naturalmente, como em outras linguagens, existem alguns truques que podem (e devem!) ser utilizados para melhorar a performance das tarefas, e especialmente no caso do R essas escolhas tem um impacto gigantesco na performance do scripts. Assim, neste post vou...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">A linguagem R oferece ferramentas que podem ser usadas para visualização, modelagem e leitura de bancos de dados. Mas uma de suas características mais importantes é que é uma excelente ferramenta para preparação de dados. Naturalmente, como em outras linguagens, existem alguns truques que podem (e devem!) ser utilizados para melhorar a performance das tarefas, e especialmente no caso do R essas escolhas tem um impacto gigantesco na performance do scripts. Assim, neste post vou apresentar alguns dos truques mais importantes que devem ser utilizados no R e também vou apresentar um método muito importante na preparação que é o split-apply-recombine.</p>
+<h2 style="text-align: justify;">1. Usando o apply, lappy, tapply</h2>
+<p style="text-align: justify;">Algumas vezes os apply&#8217;s podem deixar o código mais rápido ou no mínimo eliminar alguns for&#8217;s deixando o código mais legível. O fato é que, pelo menos no R, é fortemente aconselhável <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://stackoverflow.com/questions/2908822/speed-up-the-loop-operation-in-r">evitar o uso do for</a></span>. Dessa forma, ao invés de usar o for é melhor executar as interações em matrizes, listas e data.frames usando a família apply. Um exemplo:</p>
+<pre class="lang:r decode:true ">matriz &lt;- matrix(round(runif(9,1,10),0),nrow=3)
+apply(matriz, 1, sum) ## sum by row
+apply(matriz, 2, sum) ## sum by column</pre>
+<p style="text-align: justify;">Particularmente neste exemplo você pode não ter um ganho de performance, mas o código pelo menos fica um pouco mais legível.</p>
+<p style="text-align: justify;">Já que estamos falando de médias, o tapply é especialmente útil na tarefa de obter médias por grupo. A seguir um exemplo onde você consegue tirar uma média para grupos em uma única linha:</p>
+<pre tabindex="0">mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+Datsun 710          22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+Hornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+Valiant             18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+Duster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
+Merc 240D           24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+Merc 230            22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+Merc 280            19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
+Merc 280C           17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4
+Merc 450SE          16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3
+Merc 450SL          17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3
+Merc 450SLC         15.2   8 275.8 180 3.07 3.780 18.00  0  0    3    3
+Cadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4
+Lincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4
+Chrysler Imperial   14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4
+Fiat 128            32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+Honda Civic         30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+Toyota Corolla      33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+Toyota Corona       21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+Dodge Challenger    15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2
+AMC Javelin         15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2
+Camaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4
+Pontiac Firebird    19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2
+Fiat X1-9           27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+Porsche 914-2       26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+Lotus Europa        30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+Ford Pantera L      15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4
+Ferrari Dino        19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6
+Maserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8
+Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2</pre>
+<p>com</p>
+<pre class="lang:r decode:true ">tapply(mtcars$hp, mtcars$cyl, mean)</pre>
+<p>e você tem a média da potência por capacidade do cilindro. Esta função é extremamente útil em análise descritiva, principalmente quando você tem uma variável numérica que deve ser resumida em função de outra variável categórica. Entretanto algumas vezes temos listas e não vetores tal que é necessário fazer uso do lapply. Vamos gerar dados de exemplo:</p>
+<pre class="lang:r decode:true ">lista &lt;- list(a=c('one', 'tow', 'three'), b=c(1,2,3), c=c(12, 'a'))</pre>
+<p>Cada elemento na lista é um vetor. Digamos que você queira saber quantos elementos existem em cada vetor, mas sem usar um for! Vejamos:</p>
+<pre class="lang:r decode:true ">lapply(lista, length) ## return a list
+sapply(lista, length) ## coerce to a vector</pre>
+<pre tabindex="0">$a
+[1] 3
+
+$b
+[1] 3
+
+$c
+[1] 2</pre>
+<pre tabindex="0">a b c 
+3 3 2</pre>
+<h2>2. Split, apply and recombine</h2>
+<p style="text-align: justify;">Esta é uma técnica que simplesmente DEVE SER CONHECIDA. É o fundamento por detrás de pacotes como o <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://cran.r-project.org/web/packages/plyr/index.html">plyr</a></span> e <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://cran.r-project.org/web/packages/dplyr/index.html">dplyr</a></span> e é a mesma estratégia utilizada no <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://pt.wikipedia.org/wiki/MapReduce">MapReduce</a></span>. Aqui vou usar somente funções do pacote base mas em outra oportunidade planejo apresentar as vantagens de fazer isso com dplyr. Voltando para o conjunto de dados mtcars, suponha que queiramos ajustar modelos de regressão da variável mpg (milha por galão) contra disp, agrupado por gears, e então comparar os coeficientes das regressões. Como fazemos isso?</p>
+<p style="text-align: justify;"><a href="http://www.flaviobarros.net/wp-content/uploads/2013/10/mpg1.png"><img class="aligncenter size-full wp-image-323" src="http://www.flaviobarros.net/wp-content/uploads/2013/10/mpg1.png" alt="mpg" width="480" height="480" srcset="./../../../wp-content/uploads/2013/10/mpg1.png 480w, ./../../../wp-content/uploads/2013/10/mpg1-150x150.png 150w, ./../../../wp-content/uploads/2013/10/mpg1-300x300.png 300w, ./../../../wp-content/uploads/2013/10/mpg1-90x90.png 90w" sizes="(max-width: 480px) 100vw, 480px" /></a></p>
+<pre class="lang:r decode:true ">data &lt;- split(mtcars, mtcars$gear) ## split
+fits &lt;- lapply(data, function(x) return(lm(x$mpg~x$disp)$coef)) ## apply
+do.call(rbind, fits) ## recombine</pre>
+<pre tabindex="0">  (Intercept)      x$disp
+3    24.51557 -0.02577046
+4    39.56753 -0.12221268
+5    31.66095 -0.05077512</pre>
+<p>Como você pode ver, em três passos está pronto: separa, aplica e agrega. É uma técnica poderosa que pode ser aplicada em diferentes contextos. Veja que o tapply usa esta estratégia internamente para calcular as médias por grupo: split no grupo, aplica a função média, junta as médias para apresentar no final.</p>
+<p>Você conseguiria reproduzir o resultado do tapply com o split e o sapply? Poste nos comentários!</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2015/09/02/preparacao-de-dados-parte-1/feed/index.html</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Curso &#8220;Developing Data Products&#8221; do Coursera</title>
+		<link>./../../../2015/08/24/curso-developing-data-products-do-coursera/index.html</link>
+		<comments>./../../../2015/08/24/curso-developing-data-products-do-coursera/index.html#comments</comments>
+		<pubDate>Mon, 24 Aug 2015 15:35:53 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Educação]]></category>
+		<category><![CDATA[Estatística]]></category>
+		<category><![CDATA[MOOCS]]></category>
+		<category><![CDATA[R e RStudio]]></category>
+		<category><![CDATA[Shiny]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=702</guid>
+		<description><![CDATA[Eu acabei de terminar as atividades desse curso do Coursera: Developing Data Products ou Desenvolvendo Produtos baseados em Dados. Assim, nesse post, vou fazer um overview do curso para que você saiba se vale a pena ou não fazê-lo. 1. O que é o curso? O nome do curso pode parecer obscuro a primeira vista, principalmente para quem não é da área, mas o curso é simplesmente sobre como você pode transformar dados/análises em produtos, isto é,...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">Eu acabei de terminar as atividades desse curso do Coursera: <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://www.coursera.org/course/devdataprod" target="_blank">Developing Data Products</a> <span style="color: #000000;">ou <span style="color: #333333;">Desenvolvendo</span> <span style="color: #333333;">Produtos baseados em Dados. Assim, nesse post, vou fazer um overview do curso para que você saiba se vale a pena ou não fazê-lo.</span></span></span></p>
+<h2 style="text-align: justify;">1. O que é o curso?</h2>
+<p style="text-align: justify;">O nome do curso pode parecer obscuro a primeira vista, principalmente para quem não é da área, mas o curso é simplesmente sobre como você pode transformar dados/análises em produtos, isto é, sair dos dados crús para um produto usável até por quem não tem nenhuma intimidade com análise de dados/estatística.</p>
+<p style="text-align: justify;">Todo estatístico ou analista, pelo menos alguma vez, produziu algum produto baseado em dados, seja um  um relatório ou uma apresentação em slides. Entretanto, esse curso não se trata de como criar relatórios, mas sim de como criar aplicações web interativas, apresentações/visualizações que podem ser compartilhadas na web, pacotes do R e funções que podem ser compartilhadas em uma API. Enfim, o curso é sobre como um cientista de dados pode compartilhar seu trabalho na web com outras pessoas.</p>
+<h2 style="text-align: justify;">2. Pré-requisitos</h2>
+<p>Esse curso é o último curso da <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://www.coursera.org/specialization/jhudatascience/1" target="_blank">Especialização em Data Sciensce do Coursera</a></span>, assim subtendem-se muitos pré-requisitos:</p>
+<ul>
+<li>Domínio da linguagem R.</li>
+<li>Domínio de ferramentas como <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://git-scm.com/book/pt-br/v1/Primeiros-passos-No%C3%A7%C3%B5es-B%C3%A1sicas-de-Git">Git</a></span>, <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://github.com/">Github</a></span>, <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://www.rstudio.com/">RStudio</a></span>, <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://rmarkdown.rstudio.com/">RMarkdown</a></span> e etc.</li>
+<li>Domínio de estatística e modelagem de dados.</li>
+</ul>
+<p style="text-align: justify;">ENTRETANTO, se você é, por exemplo, um analista com experiência prática em algum pacote estatístico, que domina o R ou tem a facilidade de aprender novas linguagens, esse curso pode ser para você. Minha única ressalva é que se você tem experiência somente com interfaces Point &amp; Click e nunca ouviu falar do R, talvez precise fazer algum treinamento sobre o R e <a href="https://git-scm.com/book/pt-br/v1/Primeiros-passos-No%C3%A7%C3%B5es-B%C3%A1sicas-de-Git"><span style="color: #0000ff;">Git</span></a>.</p>
+<h2 style="text-align: justify;">3. Conteúdo</h2>
+<p>O curso aborda os seguintes tópicos:</p>
+<ol>
+<li>Aplicações Shiny.</li>
+<li>Criação de pacotes do R.</li>
+<li>Apresentações interativas com RStudio Presenter e Slidfy.</li>
+<li>rCharts.</li>
+<li>Plot.ly.</li>
+</ol>
+<p style="text-align: justify;">A ênfase com certeza é no Shiny. Aliás o projeto final de curso é com o Shiny e é onde você será mais cobrado.</p>
+<p style="text-align: justify;">As avaliações foram por meio de quizes e por meio de um projeto final que consistia na criação de uma aplicação Shiny e uma apresentação sobre a aplicação.</p>
+<h2>Minha experiência</h2>
+<ul>
+<li style="text-align: justify;">Eu achei o curso muito interessante, principalmente porque eu já tinha experiência com o Shiny, especialmente a implantação.</li>
+<li style="text-align: justify;">Em termos de dificuldade o curso é mediano e a parte mais exigente é a criação do aplicativo em Shiny.</li>
+<li style="text-align: justify;">A criação de pacotes em R é um bônus, e se você é um usuário básico eu acredito que aprender a criar seus próprios pacotes é um grande bônus desse curso.</li>
+<li style="text-align: justify;">A criação de apresentações é trivial e se for seu único interesse não valeria a pena fazer o curso inteiro.</li>
+</ul>
+<p style="text-align: justify;"> O curso exige umas 4 horas por semana e aprender a usar bem o Shiny realmente vale a pena. Muitos estatísticos não são programadores web e a possibilidade de transformar suas análises em websites completos sem ter que aprender novas linguagens de programação é uma habilidade muito interessante.</p>
+<p style="text-align: justify;">O curso é bem introdutório com relação ao Shiny e se você quiser se aprofundar você DEVE ver <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://www.rstudio.com/resources/webinars/">esse material</a></span>.</p>
+<h2 style="text-align: justify;">Conclusão</h2>
+<p style="text-align: justify;">Vale muito a pena, o material é muito bom e é um dos melhores meios para começar a usar o Shiny. Eu acredito que o Shiny é, de uma certa forma, revolucionário uma vez que para emular algo parecido um cientista de dados deveria dominar diversas habilidades como programação web, implantação de software, infraestrutura, estatística e etc. Com o Shiny basta saber usar o R e você já consegue modelar, analisar, criar visualizações e compartilhar tudo na Web.</p>
+<p style="text-align: justify;">ENTRETANTO, esteja ciente que é um curso BÁSICO. A partir do que você aprender aqui você vai ter uma base sólida para começar a criar suas aplicações, MAS VAI TER que consultar outros materiais, principalmente os materiais produzidos pela equipe do RStudio.</p>
+<p style="text-align: justify;">Por fim, veja algumas aplicações feitas em Shiny para você ter uma ideia do potencial dessa ferramenta:</p>
+<ol>
+<li style="text-align: justify;"><span style="color: #0000ff;"><a style="color: #0000ff;" href="https://gallery.shinyapps.io/slr_diag/">Linear Regression Diagnostics</a></span></li>
+<li style="text-align: justify;"><span style="color: #0000ff;"><a style="color: #0000ff;" href="https://trestletech.shinyapps.io/dallas-police/">Police Calls</a></span></li>
+</ol>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2015/08/24/curso-developing-data-products-do-coursera/feed/index.html</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+		<item>
+		<title>R &#038; RStudio no Docker com 2 cliques!</title>
+		<link>./../../../2015/08/21/r-rstudio-no-docker-com-2-cliques/index.html</link>
+		<comments>./../../../2015/08/21/r-rstudio-no-docker-com-2-cliques/index.html#comments</comments>
+		<pubDate>Fri, 21 Aug 2015 22:46:14 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Docker]]></category>
+		<category><![CDATA[Estatística]]></category>
+		<category><![CDATA[Linux]]></category>
+		<category><![CDATA[R e RStudio]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=688</guid>
+		<description><![CDATA[Quem já me pagou uma visita aqui já deve ter percebido umas três coisas: eu gosto muito de usar R; eu gosto muito de usar o Docker; eu gosto de combinar os dois; Como sou colaborador do r-bloggers, talvez o agregador de blogs mais importante para comunidade de usuários de R &#38; Data Science no mundo, eu regularmente publico material em inglês aqui, infelizmente. Infelizmente porque eu percebi que deixei de compartilhar alguns recursos muito...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">Quem já me pagou uma visita aqui já deve ter percebido umas três coisas:</p>
+<ol>
+<li>eu gosto muito de usar R;</li>
+<li>eu gosto muito de usar o Docker;</li>
+<li>eu gosto de combinar os dois;</li>
+</ol>
+<p style="text-align: justify;">Como sou colaborador do <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://www.r-bloggers.com/">r-bloggers</a></span>, talvez o agregador de blogs mais importante para comunidade de usuários de R &amp; Data Science no mundo, eu regularmente publico material em inglês aqui, infelizmente. Infelizmente porque eu percebi que deixei de compartilhar alguns recursos muito úteis que qualquer usuário do R &amp; RStudio poderia se beneficiar, principalmente no Brasil onde eu percebo que falta material sobre a linguagem. Assim vou remediar um pouco esse problema (eu espero!) com uma dica para o uso do Docker, principalmente para professores que usam o R em seus cursos.</p>
+<h2 style="text-align: justify;">Mas para qual PROBLEMA?</h2>
+<p style="text-align: justify;">Bem, um dos principais problemas que eu já tive em cursos onde o R é o ambiente principal utilizado é com relação a uniformidade do ambiente de trabalho dos alunos. Acredito que quem já usou o software alguma vez, com grandes turmas, já deve ter se deparado com o seguinte cenário: você escolhe usar o R pois não tem um software estatístico no laboratório, decide usar um RStudio, ou alguma outra interface gráfica para &#8220;facilitar&#8221; a vida dos alunos, MAS, INFELIZMENTE, a &#8220;informática&#8221; da instituição nunca consegue garantir um ambiente 100% para os alunos, e você só descobre o problema na hora da aula, justamente quando os alunos precisam rodar aquele script super importante que você preparou em casa! E não adianta reclamar, pois por mais que você solicite  nunca está 100%.</p>
+<p style="text-align: justify;">Isso é um grande problema, mas talvez não seja culpa só do departamento de TI da instituição. O grande problema é que é muito difícil garantir que tudo funcione quando os laboratórios das universidades utilizam computadores com diferentes configurações, diferentes sistemas operacionais e tem equipes com diferentes perfis. Enfim, é um problema grave e que não para por ai.</p>
+<p style="text-align: justify;">Outro problema associado a esse, e que também traz uma tremenda dor de cabeça, é quando você pede para um usuário instalar o R &amp; RStudio em casa. Em um universo perfeito (no meu!) todo munda usa o Linux e com um <a href="https://help.ubuntu.com/12.04/serverguide/apt-get.html" target="_blank">apt-get install</a> está tudo resolvido. Infelizmente, a maioria das pessoas não só usa o Windows como também usa o Word como editor de textos principal para preparar trabalhos e relatórios (<a href="https://pt.wikipedia.org/wiki/LaTeX" target="_blank">LATEX</a> e <a href="https://pt.wikipedia.org/wiki/Markdown">Markdown</a>?!). Dado isto, aquele relatório bonitinho e bem formatado que você esperava que pudesse ser produzido na aula mesmo, só copiando e colando os códigos em R no <a href="http://rmarkdown.rstudio.com/">RMarkdown</a> esquece! Não só porque a galera não quer usar, mas porque quando eles tentam compilar para Latex o miserável nunca está instalado e funcionando corretamente!</p>
+<h2 style="text-align: justify;">Qual seria a solução?</h2>
+<p>A solução está no Docker. Eu já falei dele aqui nesse blog mas para quem caiu aqui de para-quedas vou fornecer o mesmo texto sobre o Docker.</p>
+<h2>Docker</h2>
+<p style="text-align: justify;">Se você de alguma forma acompanha notícias do mundo open source então você provavelmente já ouviu falar do <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://www.docker.com/" target="_blank">Docker</a></span>. O Docker é uma ferramenta fantástica que permite criar contêineres de software, totalmente isolados do sistema operacional hospedeiro. Ele funciona como uma máquina virtual, mas é simplesmente muito mais leve.</p>
+<p style="text-align: justify;">A ideia por trás do docker é que o desenvolvedor cria um contêiner com todas as bilbiotecas e dependêcias que desejar garantindo que tudo funciona. O responsável pela implantação do software não precisa saber o que há dentro do contêiner, ele só precisa ser capaz de rodar contêineres no servidor. Ainda que uma funcionalidade como essa pudesse ser obtida com máquinas virtuais, elas acabavam vindo com muito mais que o necessário, tal que os arquivos eram muito grandes (&gt;&gt;1Gb) e tornavam o sistema hospedeiro muito lento.</p>
+<p style="text-align: justify;">O docker por outro lado, não usa um SO completo, ele compartilha o mesmo Kernel do hospedeiro mas é um ambiente completamente isolado. Assim, rodar contêineres do docker é muito, mas muito mais leve que rodar uma máquina virtual. Os recursos do docker não param por ai, ele também permite uma espécie de versionamento de contêineres e tem uma espécie de github para contêineres, o <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://hub.docker.com/account/signup/" target="_blank">Docker Hub</a></span>, de onde o usuário pode baixar e usar imagens prontas para diversos softwares, como o MySQL, Postgres, LAMP, WordPress, dentre outros. Nesse vídeo um dos criadores do projeto fala sobre o Docker.</p>
+<h2 style="text-align: justify;">R &amp; RStudio, Rocker o Kitematic</h2>
+<p style="text-align: justify;">Logo depois que Docker apareceu, apareceram também diversos projetos associados que criaram um ecossistema de ferramentas. Dentre estas ferramentas, uma que é muito interessante é o <a href="https://kitematic.com/" target="_blank">Kitematic</a>. O Kitematic é uma interface gráfica para manipulação de contêineres e acesso ao Docker Hub. Com ele o usuário praticamente não precisa saber nada sobre docker para poder utilizar um software &#8220;conteinerizado&#8221;. Assim, o usuário pode instalar com alguns cliques, desde o WordPress, um <a href="http://www.flaviobarros.net/2015/08/10/share-your-shiny-apps-with-docker-and-kitematic/" target="_blank">App Shiny</a> ou o RStudio.</p>
+<p style="text-align: justify;">Especialmente no caso do R &amp; RStudio &amp; Shiny, existe um projeto chamado <a href="http://dirk.eddelbuettel.com/blog/2014/10/23/">Rocker</a> que mantém contêineres oficiais para o R, o <a href="https://www.rstudio.com/products/rstudio/#Server">RStudio Server</a> e o <a href="https://www.rstudio.com/products/shiny/">Shiny Server</a>. Com esses contêineres, com apenas alguns comandos do docker, você pode ter um RStudio server, completamente configurado, rodando na sua máquina, sem precisar instalar o R ou qualquer outra biblioteca. Tudo que você precisa é instalar o docker, e se ele estiver instalado COM CERTEZA qualquer pessoa que rodar seu contêiner vai conseguir ter acesso a um ambiente sempre igual. Enfim, é a solução para a homogeneização de ambientes para cursos e universidades, em qualquer sistema operacional.</p>
+<h2 style="text-align: justify;">Como eu posso fazer isso?</h2>
+<p style="text-align: justify;">Bom, ao invés de me alongar mais no texto vou te apresentar um screencast de exemplo. Veja que eu estou usando o Linux, onde o Kitematic roda ainda de forma <a href="https://github.com/kitematic/kitematic/issues/49">experimental</a>, mas o mesmo procedimento pode ser feito no Windows e no Mac. O Kitematic suporta oficialmente estas duas plataformas.</p>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/0iKT-JX-P6Y?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<h2>Conclusão</h2>
+<p>É uma solução que pode universalizar uma plataforma idêntica para todos. Em resumo apresenta as seguintes vantagens em relação a uma instalação tradicional:</p>
+<ol>
+<li>Todos rodam uma plataforma idêntica. Se é possível fazer algo em uma então será possível repetir em todas, COM CERTEZA;</li>
+<li>Não há problemas com bibliotecas, o que estiver no contêiner todos vão ter;</li>
+<li>Só é necessário instalar um único programa, o Docker;</li>
+<li>É uma solução multiplataforma: funciona no Linux, no Windows no Mac. Os ambientes são idênticos;</li>
+<li>Não há necessidade de usar a linha de comando, só interfaces gráficas;</li>
+</ol>
+<p style="text-align: justify;">
+]]></content:encoded>
+			<wfw:commentRss>./../../../2015/08/21/r-rstudio-no-docker-com-2-cliques/feed/index.html</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+		</item>
+		<item>
+		<title>Share your Shiny Apps with Docker and Kitematic!</title>
+		<link>./../../../2015/08/10/share-your-shiny-apps-with-docker-and-kitematic/index.html</link>
+		<comments>./../../../2015/08/10/share-your-shiny-apps-with-docker-and-kitematic/index.html#comments</comments>
+		<pubDate>Mon, 10 Aug 2015 05:13:58 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Docker]]></category>
+		<category><![CDATA[Linux]]></category>
+		<category><![CDATA[R e RStudio]]></category>
+		<category><![CDATA[r-bloggers]]></category>
+		<category><![CDATA[Shiny]]></category>
+		<category><![CDATA[web]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=680</guid>
+		<description><![CDATA[Some time ago i wrote on this blog about how to dockerize a Shiny App. If you don&#8217;t know what Docker is and what i mean by &#8220;dockerizing a Shiny App&#8221; i advise you to read this post before: Dockerizing a Shiny App I used this solution to create an easy way to deploy Shiny Apps on web servers, once that, if you want to share your apps, you have to choose between three possible...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">Some time ago i wrote on this blog about how to dockerize a Shiny App. If you don&#8217;t know what Docker is and what i mean by &#8220;dockerizing a Shiny App&#8221; i advise you to read this post before:</p>
+<p><a href="http://www.flaviobarros.net/2015/04/30/dockerizing-a-shiny-app/" target="_blank">Dockerizing a Shiny App</a></p>
+<p style="text-align: justify;">I used this solution to create an easy way to deploy Shiny Apps on web servers, once that, if you want to share your apps, you have to choose between three possible solutions:</p>
+<p style="text-align: justify;">1) Share your ui.R and server.R files with someone who is able to run your app on RStudio.</p>
+<p style="text-align: justify;">2) Share your app online with <a href="http://www.shinyapps.io/" target="_blank">shinyapps.io</a>.</p>
+<p style="text-align: justify;">3) Share your app with your own server (Ex: at AWS).</p>
+<p style="text-align: justify;">4) <a href="http://www.flaviobarros.net/2015/05/11/git-pushing-shiny-apps-with-docker-dokku/" target="_blank">Git push you app on your own server</a>.</p>
+<p style="text-align: justify;">The solution 1) isn&#8217;t viable to non technical users. The solution 2) is easier, but can be expensive. The solution 3) can involve a lot of technicalities but can be cheaper then solution 3). The solution 4) is compromise between solutions 2) and 3), and is my preference.</p>
+<p style="text-align: justify;">HOWEVER, recently i knew about a project from Docker Inc. with a good potential: the Kitematic! With Kitematic the user can have a GUI where he can download and use softwares on Docker images. So, the <a href="https://hub.docker.com/" target="_blank">Docker Hub</a> becomes something like an App Store where he can simply download and use apps installed inside docker containers. See this video to understand what Kitematic can do:</p>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/QEr340gjV1Q?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<p style="text-align: justify;">This is Huge because, once you dockerize your Shiny App, doesn&#8217;t matter how complex it is, you can share it on Docker Hub just like any app. Kitematic can be used at Windows, Mac and <a href="https://github.com/kitematic/kitematic/issues/49" target="_blank">experimentaly on Linux</a>. I recorded this video (in Linux) to show you how to install my dockerized shiny app with some clicks:</p>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/7MH_bCjoFT4?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<p>Remember, before you share your app you will need to dockerize it and upload to Docker Hub.</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2015/08/10/share-your-shiny-apps-with-docker-and-kitematic/feed/index.html</wfw:commentRss>
+		<slash:comments>3</slash:comments>
+		</item>
+		<item>
+		<title>Criando repositórios no Github a partir shell</title>
+		<link>./../../../2015/05/14/criando-repositorios-no-github-a-partir-shell/index.html</link>
+		<comments>./../../../2015/05/14/criando-repositorios-no-github-a-partir-shell/index.html#comments</comments>
+		<pubDate>Thu, 14 May 2015 17:52:34 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Git & Github]]></category>
+		<category><![CDATA[Linux]]></category>
+		<category><![CDATA[boas práticas]]></category>
+		<category><![CDATA[controle de versão]]></category>
+		<category><![CDATA[web]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=656</guid>
+		<description><![CDATA[Esse vai ser um post curto, com um dica rápida. É algo que eu uso e acho bem útil, portanto vou compartilhar. Bom, inicialmente, para quem não sabe, o Github é um Web Hosting para projetos que utilizam o sistema de controle de versões git. O Github é excelente e você pode criar projetos open source, ou mesmo pagar pelo serviço para ter repositórios privados. O Github é hoje o padrão em termos de repositório...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">Esse vai ser um post curto, com um dica rápida. É algo que eu uso e acho bem útil, portanto vou compartilhar. Bom, inicialmente, para quem não sabe, o <a href="https://github.com/" target="_blank">Github</a> é um Web Hosting para projetos que utilizam o sistema de controle de versões <a href="http://git-scm.com/" target="_blank">git</a>. O Github é excelente e você pode criar projetos open source, ou mesmo pagar pelo serviço para ter repositórios privados. O Github é hoje o padrão em termos de repositório de projetos de código fonte aberto. A maior parte dos grandes projetos open source é desenvolvida por lá, e só para citar alguns dos grandes, estão lá por exemplo: o <a href="https://github.com/torvalds/linux" target="_blank">Linux</a>, o <a href="https://github.com/WordPress/WordPress" target="_blank">WordPress</a>, vários projetos da fundação <a href="https://github.com/apache" target="_blank">Apache</a>,  <a href="https://github.com/dotnet" target="_blank">.NET</a>, <a href="https://github.com/django/django" target="_blank">Django</a>, <a href="https://github.com/rails/rails" target="_blank">Rails</a>, o <a href="https://github.com/docker/docker" target="_blank">Docker</a> dentre muitos outros.</p>
+<p style="text-align: justify;">Eu uso em diversos projetos meus, a maioria de código fonte aberto. MAS, uma coisa que me incomodava, era a necessidade de entrar na interface web, logar e ter que criar lá o novo repositório. Só depois disso que eu poderia voltar para o terminal e adicionar o repositório remoto com um <a href="http://git-scm.com/book/pt-br/v1/Git-Essencial-Trabalhando-com-Remotos" target="_blank">git remote</a>. De fato, o que eu gostaria mesmo era de fazer tudo do terminal: criar um repositório novo com o git, criar um projeto no github, adicionar o remoto e já dar um git push, sem navegador, sem interface web!</p>
+<p style="text-align: justify;">Fazer isso é possível, pois o Github conta com uma <a href="https://developer.github.com/v3/" target="_blank">API</a> que pode ser utilizada por outras aplicações. Aliás, a bem da verdade, o Github tem GUI&#8217;s completas para o <a href="https://windows.github.com/" target="_blank">Windows</a> e para o <a href="https://mac.github.com/" target="_blank">MAC</a>, sem contar as <a href="http://git-scm.com/downloads/guis" target="_blank">muitas outras</a> que existem por ai, mas eu queria simplesmente um comando. Pensando nisso eu fiz o comando eu mesmo com o <a href="https://www.python.org/" target="_blank">Python</a>: o código fonte você encontra <a href="https://github.com/flaviobarros/create_git_repo" target="_blank">aqui</a>.</p>
+<pre class="lang:python decode:true ">#!/usr/bin/env python
+# This Python file uses the following encoding: utf-8
+
+import os
+
+usuario = "seu_usuario"
+
+print 'Defina o título do projeto: '
+projectname = raw_input()
+
+print 'Defina a descrição do projeto: '
+description = raw_input()
+
+comando = 'curl -u ' + usuario + ' https://api.github.com/user/repos ' + "'" + '-d' + '{"name":"' + projectname + '","description":"' + description + '"}' + "'"
+
+print(comando)
+os.system(comando)</pre>
+<p style="text-align: justify;">Não é ciência de foguete, mas supre a demanda. Basta trocar o &#8220;seu_usuario&#8221; pelo seu usuário no Github, colocar esse arquivo no PATH do seu Sistema Operacional e o comando ficará disponível na linha de comando. O fluxo de trabalho fica muito simples:</p>
+<p>1) crie um repositório do git do zero;</p>
+<pre class="lang:sh decode:true">git init</pre>
+<p>2) adicione os arquivos;</p>
+<pre class="lang:r decode:true">git add -A .</pre>
+<p>3) dê o primeiro commit;</p>
+<pre class="lang:sh decode:true">git commit -am "Primeiro commit"</pre>
+<p>4) Use o novo comando create_git_repo e crie o repositório no github;</p>
+<pre class="lang:sh decode:true">create_git_repo</pre>
+<p>5) Adicione o remoto;</p>
+<pre class="lang:sh decode:true ">git remote add origin git@github.com:seu_usuario/seu_projeto.git</pre>
+<p>6) Envie tudo para o remoto;</p>
+<pre class="lang:sh decode:true ">git push origin master</pre>
+<p>Enfim, você não precisa sair do terminal!</p>
+<p style="text-align: justify;">Um detalhe importante é que na primeira pergunta o script lhe pede o título do projeto. Coloque o título da forma como vai querer o &#8220;seu_proejto.git&#8221;, i.e, se quiser com underline já coloque underline, ou qualquer outro caractere.</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2015/05/14/criando-repositorios-no-github-a-partir-shell/feed/index.html</wfw:commentRss>
+		<slash:comments>5</slash:comments>
+		</item>
+		<item>
+		<title>Git pushing Shiny Apps with Docker &#038; Dokku</title>
+		<link>./../../../2015/05/11/git-pushing-shiny-apps-with-docker-dokku/index.html</link>
+		<comments>./../../../2015/05/11/git-pushing-shiny-apps-with-docker-dokku/index.html#comments</comments>
+		<pubDate>Tue, 12 May 2015 00:35:26 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Digital Ocean]]></category>
+		<category><![CDATA[Docker]]></category>
+		<category><![CDATA[English]]></category>
+		<category><![CDATA[R e RStudio]]></category>
+		<category><![CDATA[r-bloggers]]></category>
+		<category><![CDATA[Shiny]]></category>
+		<category><![CDATA[deploy]]></category>
+		<category><![CDATA[git]]></category>
+		<category><![CDATA[web]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=636</guid>
+		<description><![CDATA[At this post i will show you how to deploy Shiny Apps easily with a simple git push. But, what&#8217;s a git push? I&#8217;m referring to the git command used with remote repositories. With this command you can deploy apps easily with a PaaS (Platform as a Service) like Heroku. If you never heard about Heroku or know nothing about PaaS, i will show you what is it and how can we use a similar...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">At this post i will show you how to deploy Shiny Apps easily with a simple <a href="http://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes#Pushing-to-Your-Remotes" target="_blank">git push</a>. But, what&#8217;s a git push? I&#8217;m referring to the git command used with <a href="http://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes" target="_blank">remote repositories</a>. With this command you can deploy apps easily with a <a href="http://en.wikipedia.org/wiki/Platform_as_a_service" target="_blank">PaaS</a> (Platform as a Service) like <a href="https://www.heroku.com/" target="_blank">Heroku</a>. If you never heard about Heroku or know nothing about PaaS, i will show you what is it and how can we use a similar resource to easily deploy a Shiny App on <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a> with <a href="http://www.docker.com/" target="_blank">Docker</a>.</p>
+<h2>1.Heroku</h2>
+<p style="text-align: justify;">Anyone who have worked with web know, or at least heard about Heroku. Heroku is a PaaS, an acronym for Platform as a Service. The idea behind Heroku is that the developer does not need to worry about the problems related to the implementation of its software, it simply develops, adds some files in the project, gives a git push to Heroku and he takes care of the rest.</p>
+<p style="text-align: justify;">Heroku is an excellent service, can scale to large apps, is easy to learn and use, BUT it can be very <a href="https://www.heroku.com/pricing" target="_blank">expensive</a>! Just to understand how easy is work with Heroku, i will deploy an example web app made with <a href="https://www.djangoproject.com/" target="_blank">Django</a>; the code can be found <a href="http://tutorial.djangogirls.org/en/index.html" target="_blank">here</a> and you can visit the app here: <a href="http://flavio-django-blog.herokuapp.com/" target="_blank">http://flavio-django-blog.herokuapp.com/</a></p>
+<p>&nbsp;</p>
+<p><script id="asciicast-19469" src="https://asciinema.org/a/19469.js" async="" type="text/javascript"></script></p>
+<h2>2.Docker and Dokku</h2>
+<p style="text-align: justify;">I wrote some time ago about Dockerizing a Shiny App: <a href="http://www.flaviobarros.net/2015/04/30/dockerizing-a-shiny-app/" target="_blank">Dockerizing a Shiny App</a> (read before continue). In fact, i did that because i was researching about a method to easily deploy Shiny Apps just like any regular web app, (ex. Node or Django). Some months ago, i found <a href="https://github.com/btubbs/heroku-buildpack-shiny" target="_blank">this project</a>, where the author claims to be able to run Shiny Apps on Heroku. I tried, but never was able to make it work. Another problem, was that i was searching something that i could host on my own server.</p>
+<p style="text-align: justify;">At the end, after discovering Docker, i started to use <a href="https://github.com/progrium/dokku" target="_blank">Dokku</a> instead of Heroku. Dokku in turn, is a kind of Heroku clone, made from Docker. It works the same way as Heroku, such that for web apps, like those made with Django, deployment is identical. Just so you see how it works, I installed Dokku on <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a> and implemented the same previous application made in Django. You can check the app here: <a href="http://djangogirls.flaviobarros.net/" target="_blank">http://djangogirls.flaviobarros.net/</a></p>
+<p><script id="asciicast-19472" src="https://asciinema.org/a/19472.js" async="" type="mce-mce-mce-mce-mce-mce-mce-mce-mce-mce-mce-mce-mce-text/javascript"></script></p>
+<p style="text-align: justify;">In my opinian Dokku is one of the best apps made with Docker. With it we can deploy multiple technologies at the very same server. In fact, you can build a cheaper version of Heroku, for about U$5,00 as is the case of <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a>. Right now, i&#8217;m running a <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a> Server, hosting this WordPress installation, two Django Web Apps and a Shiny App and there is plenty of space for much more, all for a 10 bucks VPS on Digital Ocean <img src="https://s.w.org/images/core/emoji/2.2.1/72x72/1f609.png" alt="😉" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+<h2>3.Git pushing the Wordcloud Shiny App</h2>
+<p style="text-align: justify;">Some time ago, Dokku featured <a href="https://docs.docker.com/reference/builder/" target="_blank">Dockerfile</a> build support. With this feature becomes possible to git push any app that could be builded from a Dockerfile.  A Dockerfile, is nothing more then a recipe to build Docker Images, something like the <a href="https://registry.hub.docker.com/u/flaviobarros/shiny-wordcloud/" target="_blank">Word Cloud</a> image that i released at <a href="https://hub.docker.com/" target="_blank">Docker Hub</a>.</p>
+<p style="text-align: justify;">With this in mind, i thought: why don&#8217;t change the official <a href="https://registry.hub.docker.com/u/rocker/shiny/" target="_blank">Shiny Server docker image</a> to host a single Shiny App? I just needed an image that:</p>
+<p style="text-align: justify;">1) Exposes 80 PORT;</p>
+<p style="text-align: justify;">2) Serves just an app;</p>
+<p style="text-align: justify;">3) Could be builded from a Dockerfile;</p>
+<p style="text-align: justify;">In fact, to build <a href="https://github.com/flaviobarros/shiny-wordcloud" target="_blank">shiny-wordcloud</a>, i forked <a href="https://github.com/rocker-org/shiny" target="_blank">rocker/shiny</a>  and implemented this features by means of some modifications on the Dockerfile (commits: <a href="https://github.com/flaviobarros/shiny-wordcloud/commit/451346b4c806cef84b214661e6caf664a57abc44" target="_blank">1</a>, <a href="https://github.com/flaviobarros/shiny-wordcloud/commit/ef16a049b8b32943f3ed568ada61e1def148b505" target="_blank">2</a>  and <a href="https://github.com/flaviobarros/shiny-wordcloud/commit/ab394841c30fd9bfe90fbeb0a89f012f216679c4" target="_blank">3</a>) and a <a href="https://github.com/flaviobarros/shiny-wordcloud/blob/master/shiny-server.conf" target="_blank">conf file</a>. Now i have fully working Dockerfile that i can use to git push Shiny Apps to Dokku! From now on, i will show you how you can install Dokku at <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a> and how i deployed the Wordcloud Shiny App at my server with a simple git push!</p>
+<h3>3.1 Git pushing to my server</h3>
+<p style="text-align: justify;">Just follow the video. You can visit the app here: <a href="http://wordcloud.flaviobarros.net/" target="_blank">http://wordcloud.flaviobarros.net/</a></p>
+<p><script id="asciicast-8qi8v3vc7mu90s066hy81fowj" src="https://asciinema.org/a/8qi8v3vc7mu90s066hy81fowj.js" async="" type="text/javascript"></script></p>
+<h3>3.2 Installing Dokku on Digital Ocean</h3>
+<p style="text-align: justify;">Follow this screencast. In the end you will have your server available at an IP. If you want a domain, will have to register it (ex. Godaddy) and point it to <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a> DNS. You can follow <a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-a-host-name-with-digitalocean" target="_blank">this tutorial</a> to setup a DNS on <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a>. If you have any problem let me know.</p>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/pOaZ7QwuxKU?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<h3 style="text-align: justify;">3.3 Important details</h3>
+<p style="text-align: justify;">I have used a SSH key that i have stored at <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a>. Usually, when you spin up your <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a> droplets, you get an email as soon as the process completes, letting you know the droplet’s IP address and password. Although this email is convenient, there is a more secure (and faster) way of gaining access to your server <i>without the need for email</i>. This can be done by setting up SSH keys. Follow this <a href="https://www.digitalocean.com/community/tutorials/how-to-use-ssh-keys-with-digitalocean-droplets" target="_blank">tutorial</a> to get this done.</p>
+<h2 style="text-align: justify;">Conclusion</h2>
+<p style="text-align: justify;">Recently i saw two interesting blog posts about Shiny App deployment:</p>
+<p style="text-align: justify;">1) <a href="http://www.r-bloggers.com/run-shiny-app-on-a-ubuntu-server-on-the-amazon-cloud/" target="_blank">Run Shiny app on a Ubuntu server on the Amazon Cloud</a></p>
+<p style="text-align: justify;">2) <a href="http://www.r-bloggers.com/how-to-get-your-very-own-rstudio-server-and-shiny-server-with-digitalocean/" target="_blank">How to get your very own RStudio Server and Shiny Server with DigitalOcean</a></p>
+<p style="text-align: justify;">In both scenarios this approach has several advantages:</p>
+<p style="text-align: justify;"> &#8211; You can replicate this dokku installation on Amazon and have the same functionality.</p>
+<p style="text-align: justify;">&#8211; When you are running multiple Shiny Apps on the same Shiny Server, you are using a <a href="http://www.r-bloggers.com/shiny-server-open-source-edition-solution-for-cpu-bound-apps/" target="_blank">single R instance</a>. SO, if you have more then one app deployed your server can slow down. With this solution, each app is isolated with your own Shiny Server instance, which is more reliable.</p>
+<p style="text-align: justify;">&#8211; The deployment process is easier. Once dokku is installed you don&#8217;t need to connect to the server to deploy an app. Just use git push!</p>
+<p style="text-align: justify;">&#8211; You can deploy multiple Shiny Apps, and multiple Web Apps. You can have Shiny, WordPress, Django and etc, on the same server.</p>
+<p style="text-align: justify;">&#8211; With <a href="https://github.com/dokku-alt/dokku-alt" target="_blank">dokku-alt</a> (an improved fork of Dokku) you can <a href="https://github.com/dokku-alt/dokku-alt#http-basic-auth-support" target="_blank">setup passwords</a> to access your Shiny Apps, something that is only available on Shiny Server Pro.</p>
+<p style="text-align: justify;">IMPORTANT: through any link to <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a> in this post,  you will earn U$10.00 credit without commitment to keep up the service. With this credit you can keep a simple VPS with 512MB RAM, for two months for free!</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2015/05/11/git-pushing-shiny-apps-with-docker-dokku/feed/index.html</wfw:commentRss>
+		<slash:comments>4</slash:comments>
+		</item>
+		<item>
+		<title>Git push no Django com o Dokku &#8211; básico</title>
+		<link>./../../../2015/05/02/git-push-no-django-com-o-dokku-basico/index.html</link>
+		<comments>./../../../2015/05/02/git-push-no-django-com-o-dokku-basico/index.html#comments</comments>
+		<pubDate>Sat, 02 May 2015 22:28:20 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Digital Ocean]]></category>
+		<category><![CDATA[Django]]></category>
+		<category><![CDATA[Docker]]></category>
+		<category><![CDATA[Linux]]></category>
+		<category><![CDATA[git]]></category>
+		<category><![CDATA[implantação]]></category>
+		<category><![CDATA[web]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=613</guid>
+		<description><![CDATA[1. Introdução Quem trabalha com web, se não conhece, pelo menos já ouviu falar do Heroku. O Heroku é um PaaS, uma sigla para (Platform as a Service) ou Plataforma como Serviço. A ideia por detrás do Heroku é que o desenvolvedor não precise se preocupar mais com os problemas relacionados à implantação do seu software, ele simplesmente desenvolve, adiciona alguns arquivos no projeto, dá um git push para o Heroku e ele coloca no...]]></description>
+				<content:encoded><![CDATA[<h2 style="text-align: justify;">1. Introdução</h2>
+<p style="text-align: justify;">Quem trabalha com web, se não conhece, pelo menos já ouviu falar do <a href="https://www.heroku.com/" target="_blank">Heroku</a>. O Heroku é um PaaS, uma sigla para (Platform as a Service) ou Plataforma como Serviço. A ideia por detrás do Heroku é que o desenvolvedor não precise se preocupar mais com os problemas relacionados à implantação do seu software, ele simplesmente desenvolve, adiciona alguns arquivos no projeto, dá um <a href="http://git-scm.com/book/pt-br/v1/Git-Essencial-Trabalhando-com-Remotos" target="_blank">git push</a> para o Heroku e ele coloca no ar para você.</p>
+<p style="text-align: justify;">Isso é praticamente o sonho para quem trabalha com web, principalmente por conta da dor de cabeça que é configurar e manter um servidor. Outra vantagem é que você usa um sistema de controle de versões para o seu código (o <a href="http://git-scm.com/book/pt-br/v1/Primeiros-passos-Uma-Breve-Hist%C3%B3ria-do-Git" target="_blank">git</a> no caso) e você tem muito mais controle sobre seu projeto. Por fim, se o tráfego crescer, é simples escalar com Heroku, basta ir adicionando os <a href="https://devcenter.heroku.com/articles/dynos" target="_blank">dynos</a>. Parece ótimo, MAS tem alguma desvantagem nisso? SIM, o <a href="https://www.heroku.com/pricing" target="_blank">PREÇO</a>!</p>
+<p style="text-align: justify;">Só para você entender do que eu estou falando, eu vou fazer o deploy de uma aplicação <a href="https://www.djangoproject.com/" target="_blank">Django</a>. É um projeto que eu fiz seguindo o tutorial do <a href="http://tutorial.djangogirls.org/en/index.html" target="_blank">djangogirls</a>; o código fonte está disponível <a href="https://github.com/flaviobarros/djangogirls" target="_blank">aqui</a> no Github caso queira reproduzir.</p>
+<p><script id="asciicast-19469" src="https://asciinema.org/a/19469.js" async="" type="text/javascript"></script></p>
+<div class="post-single-content box mark-links" style="text-align: justify;">
+<p>Você pode visitar a aplicação nesse domínio: <a href="http://flavio-django-blog.herokuapp.com/" target="_blank">http://flavio-django-blog.herokuapp.com/</a></p>
+<h2>2. Docker e Dokku</h2>
+<p>Se você de alguma forma acompanha notícias do mundo open source então você provavelmente já ouviu falar do <a href="http://www.docker.com/" target="_blank">Docker</a>. O Docker é uma ferramenta fantástica que permite criar contêineres de software, totalmente isolados do sistema operacional hospedeiro. Ele funciona como uma máquina virtual, mas é simplesmente muito mais leve. A ideia por trás do docker é que o desenvolvedor cria um contêiner com todas as bilbiotecas e dependêcias que desejar garantindo que tudo funciona. O responsável pela implantação do software não precisa saber o que há dentro do contêiner, ele só precisa ser capaz de rodar contêineres no servidor.</p>
+<p>Ainda que uma funcionalidade como essa pudesse ser obtida com máquinas virtuais, elas acabavam vindo com muito mais que o necessário, tal que os arquivos eram muito grandes (&gt;&gt;1Gb) e tornavam o sistema hospedeiro muito lento. O docker por outro lado, não usa um SO completo, ele compartilha o mesmo Kernel do hospedeiro (sim, atualmente ele precisa rodar no Linux) mas é um ambiente completamente isolado. Assim, rodar contêineres do docker é muito, mas muito mais leve que rodar uma máquina virtual. Os recursos do docker não param por ai, ele também permite uma espécie de versionamento de contêineres e tem uma espécie de github para contêineres, o <a href="https://hub.docker.com/account/signup/" target="_blank">Docker Hub</a>, de onde o usuário pode baixar e usar imagens prontas para diversos softwares, como o MySQL, Postgres, LAMP, WordPress, dentre outros.</p>
+<p>O <a href="http://progrium.com/blog/2013/06/19/dokku-the-smallest-paas-implementation-youve-ever-seen/" target="_blank">Dokku</a> por sua vez, foi o “killer app” do Docker. Foi com esse projeto que muitas pessoas conseguiram ver o tamanho do potencial dessa ferramenta. De fato, como vamos ver aqui, com ele é possível ter praticamente a mesma funcionalidade do Heroku, só que a um custo muito mais baixo, uma vez que o <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a>, oferece um VPS básico (Virtual Private Server, ou Servidor Privado Virtual) por U$5,00 ou R$15,00 aproximadamente. E não é um hardware qualquer, mas com 512Mb de RAM e 20Gb em SSD! Isso é mais do que suficiente para rodar diversas instalações do WordPress, não somente uma.</p>
+<h2>3. Instalando o Dokku no Digital Ocean</h2>
+<p>Inicialmente, já vou alerta-lo que, ao invés do <a href="https://github.com/progrium/dokku" target="_blank">dokku</a> original, eu vou instalar e usar um fork, o <a href="https://github.com/dokku-alt/dokku-alt" target="_blank">dokku-alt</a>. Mas por quê? Bem, simplesmente porque o dokku-alt já vem com diversos recursos e <a href="http://progrium.viewdocs.io/dokku/plugins" target="_blank">plugins</a> instalados que eu precisaria instalar na unha caso quisesse o dokku original. Para facilitar para o leitor, ao invés dos comandos, no screencast abaixo eu mostro a instalação do dokku em um droplet do <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a>.</p>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/PwvEOdXR3q4?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<p>A etapa final da instalação exige que você tenha uma chave SSH pública. Caso você não tenha, siga <a href="http://Atualmente/ eu já uso o dokku para hospedar esta instalação do WordPress. Assim, eu vou exp" target="_blank">esse tutorial</a>. Veja o comando e um exemplo do que você vai copiar e colar:</p>
+<pre class="lang:sh decode:true">$ cat ~/.ssh/id_rsa.pub</pre>
+<p>e a saída vai ser algo assim:</p>
+<pre class="lang:r decode:true ">ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAklOUpkDHrfHY17SbrmTIpNLTGK9Tjom/BWDSU
+GPl+nafzlHDTYW7hdI4yZ5ew18JH4JW9jbhUFrviQzM7xlELEVf4h9lFX5QVkbPppSwg0cda3
+Pbv7kOdJ/MTyBlWXFCR+HAo3FXRitBqxiX1nKhXpHAZsMciLq8V6RjsNAQwdsdMFvSlVK/7XA
+t3FaoJoAsncM1Q9x5+3V0Ww68/eIFmb1zuUFljQJKprrX88XypNDvjYNby6vw/Pb0rwert/En
+mZ+AW4OZPnTPI89ZPmVMLuayrD2cE86Z/il8b+gw3r3+1nKatmIkjn2so1d01QraTlMqVSsbx
+NrRFi9wrf+M7Q== schacon@agadorlaptop.local</pre>
+<p>que você deve copiar e colar na janela do navegador, no último passo da instalação do dokku-alt.</p>
+<h2>4. Git push com Django</h2>
+<p>Atualmente eu já uso o dokku para hospedar esta instalação do WordPress. Assim, eu vou experimentar o mesmo processo utilizado anteriormente no Heroku, só que no meu próprio PaaS com o dokku-alt, que já está configurado no domínio desse site.</p>
+<p><script id="asciicast-19472" src="https://asciinema.org/a/19472.js" async="" type="mce-mce-mce-mce-mce-mce-mce-mce-mce-mce-mce-mce-mce-text/javascript"></script><br />
+Agora você pode visitar a aplicação no domínio: <a href="http://djangogirls.flaviobarros.net/">http://djangogirls.flaviobarros.net/</a></p>
+<p>Veja que o procedimento foi idêntico ao Heroku e dessa forma é possível replicar a mesma funcionalidade por um custo muito menor.</p>
+<h2>5. Detalhes importantes</h2>
+<p>Você deve gerar um Procfile dentro do seu projeto. No caso desse repositório, o arquivo já existia uma vez que foi preparado para isso, mas caso estiver criando um projeto do zero, você deve adicionar esse arquivo. O mesmo vale para o requirements.txt. Para todos os efeitos, os seguinte comandos geram estes arquivos:</p>
+<pre class="lang:r decode:true ">pip freeze &gt; requirements.txt</pre>
+<pre class="lang:sh decode:true ">echo "web: gunicorn djangogirls.wsgi" &gt; Procfile</pre>
+<p>Outro detalhe importante é que eu estou usando o sqlite3 como banco de dados. Assim, eu gerei o arquivo do banco localmente, o db.sqlite3, tal que este arquivo foi junto no git push. EM GERAL VOCÊ NÃO VAI FAZER ISSO. O que você devia fazer é uma configuração alternativa local, com o SQlite3, e uma configuração em produção, utilizando o Postgres por exemplo.</p>
+<p>No caso do Postgres ou do MySQL, o dokku-alt já conta com plugins para a criação desses bancos e comandos para linkar o banco a sua aplicação. Em outro post posso mostrar mais detalhes.</p>
+<h2> Conclusão</h2>
+<p>Se você já usa o Heroku, passar a utilizar o Dokku é simples. Basta preparar um servidor e você pode trabalhar normalmente, como se estivesse usando o Heroku. Caso você nunca tenha utilizado o Heroku minha sugestão é que você teste as duas formas de instalação.</p>
+<p>IMPORTANTE: acessando qualquer link dessa página para o <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a>, ao fazer o cadastro você vai ganhar U$10,00 de crédito sem compromisso de manter o serviço. Com esse crédito você poderá manter um VPS simples, com 512Mb de RAM, por dois meses de graça! Use os links desse post.</p>
+</div>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2015/05/02/git-push-no-django-com-o-dokku-basico/feed/index.html</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+		</item>
+		<item>
+		<title>Dockerizing a Shiny App</title>
+		<link>./../../../2015/04/30/dockerizing-a-shiny-app/index.html</link>
+		<comments>./../../../2015/04/30/dockerizing-a-shiny-app/index.html#comments</comments>
+		<pubDate>Thu, 30 Apr 2015 23:16:57 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Digital Ocean]]></category>
+		<category><![CDATA[Docker]]></category>
+		<category><![CDATA[English]]></category>
+		<category><![CDATA[R e RStudio]]></category>
+		<category><![CDATA[r-bloggers]]></category>
+		<category><![CDATA[Shiny]]></category>
+		<category><![CDATA[deployment]]></category>
+		<category><![CDATA[shiny]]></category>
+		<category><![CDATA[web]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=592</guid>
+		<description><![CDATA[After a long pause of more than four months, I am finally back to post here. Unfortunately, many commitments prevented me keep posting, but coming back, i changed the deployment (now this blog runs entirely within a docker container with some other cool things I intend to post more forward) and wrote this post. 1. R e apps Shiny If you are reading this post here, you probably know what Shiny is. OK, but in...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">After a long pause of more than four months, I am finally back to post here. Unfortunately, many commitments prevented me keep posting, but coming back, i changed the deployment (now this blog runs entirely within a docker container with some other cool things I intend to post more forward) and wrote this post.</p>
+<h2 style="text-align: justify;">1. R e apps Shiny</h2>
+<p>If you are reading this post here, you probably know what Shiny is. OK, but in the case you don&#8217;t, you can see it in action! This is the App that i dockerized. Soon you will able to run it at any computer with docker installed.</p>
+<div class="wpview-body" contenteditable="false">
+<div class="wpview-content wpview-type-embedURL"><span class="embed-youtube"><iframe width="640" height="390" class="youtube-player" type="text/html" src="http://www.youtube.com/embed/CWWPvA6SK6k?version=3&amp;rel=1&amp;fs=1&amp;showsearch=0&amp;showinfo=1&amp;iv_load_policy=1&amp;wmode=transparent" allowfullscreen="allowfullscreen" frameborder="0"></iframe></span></div>
+</div>
+<div class="wpview-overlay"></div>
+<h2 style="text-align: justify;">2. Docker</h2>
+<p style="text-align: justify;">If you somehow accompanies the open source world news then you probably have heard of <a style="color: #0000ff;" href="http://www.docker.com/" target="_blank">Docker</a>. Docker is a fantastic tool for creating software containers, totally isolated from the host operating system. It works like a virtual machine, but it&#8217;s much lighter.</p>
+<p style="text-align: justify;">The idea behind docker is that the developer creates a container with all dependencies that he wants, make sure that everything works and done. The staff responsible for software deployment does not need to know what is inside the container, it just needs to be able to run container on the server. While this feature could be achieved with virtual machines, they ended up coming with much more than necessary, so the VM files are too large and the host system becomes very slow.</p>
+<p style="text-align: justify;">On the other hand, docker does not use a full OS, it shares the same host kernel (yes, it needs to run on Linux) but is a completely isolated environment. So run a docker containers is much lighter than run a virtual machine. Docker features do not stop there, it also allows a kind of versioning and has a kind of github for containers, the <a style="color: #0000ff;" href="https://hub.docker.com/account/signup/" target="_blank">Docker Hub</a>, where the user can download and use ready images  for various software, such as MySQL, Postgres , LAMP, WordPress, RStudio, among others. If you want to better understand what is Docker, watch this video.</p>
+<div class="wpview-body" contenteditable="false">
+<div class="wpview-content wpview-type-embedURL"><span class="embed-youtube"><iframe width="640" height="390" class="youtube-player" type="text/html" src="http://www.youtube.com/embed/Q5POuMHxW-0?version=3&amp;rel=1&amp;fs=1&amp;showsearch=0&amp;showinfo=1&amp;iv_load_policy=1&amp;wmode=transparent" allowfullscreen="allowfullscreen" frameborder="0"></iframe></span></div>
+</div>
+<div class="wpview-overlay"></div>
+<h2 style="text-align: justify;">3. Dockerizing a Shiny app</h2>
+<p style="text-align: justify;">I just showed you an example of a Shiny app running on RStudio locally. For development it&#8217;s ok, but if I want to make it available to anyone? One solution is send the project files. For a basic shiny application just two files are needed (ui.R and server.R).</p>
+<p style="text-align: justify;">But what if I want to put on the web? There are two alternatives:</p>
+<p style="text-align: justify;">1) A <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://www.rstudio.com/products/shiny/shiny-server/" target="_blank">Shiny Server</a></span></p>
+<p style="text-align: justify;">2) The PaaS <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://www.shinyapps.io/" target="_blank">shinyapps.io</a></span></p>
+<p style="text-align: justify;">Option 1) can be very complicated for some users, sometimes not workable, due to the need to install and configure a server.</p>
+<p style="text-align: justify;">Option 2) is more interesting, however you it can be expensive, since the free plan can be very limited for some needs.</p>
+<p style="text-align: justify;">How docker can help? Initially with the docker you can create a shiny server  using one command. This greatly simplifies deployment of a server. See this short video:</p>
+<div class="wpview-body" contenteditable="false">
+<div class="wpview-content wpview-type-embedURL"><span class="embed-youtube"><iframe width="640" height="390" class="youtube-player" type="text/html" src="http://www.youtube.com/embed/H94eSQrPoYI?version=3&amp;rel=1&amp;fs=1&amp;showsearch=0&amp;showinfo=1&amp;iv_load_policy=1&amp;wmode=transparent" allowfullscreen="allowfullscreen" frameborder="0"></iframe></span></div>
+</div>
+<div class="wpview-overlay"></div>
+<p>You just need:</p>
+<pre class="lang:zsh decode:true">docker run --rm -p 3838:3838 rocker/shiny</pre>
+<p><strong> WINDOWS AND MAC USERS:</strong> You will need <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://boot2docker.io/" target="_blank">boot2docker</a></span> to reproduce this.</p>
+<p style="text-align: justify;">This solution seems to solve the problem. However you can still find several problems such as:</p>
+<p style="text-align: justify;">1) How can i put my apps on the server?</p>
+<p style="text-align: justify;">2) How can i get a url directly to my app?</p>
+<p style="text-align: justify;">3) And this 3838, how can i change it?</p>
+<p style="text-align: justify;">4) How can i create an image for my app?</p>
+<p style="text-align: justify;">To solve these problems I created a sample container, with a sample app, which appears in the browser as the image is running. Its available at Docker Hub, and it&#8217;s ready to test and use. The source code is on <a style="color: #0000ff;" href="https://github.com/flaviobarros/shiny-wordcloud" target="_blank">Github</a>.</p>
+<p style="text-align: justify;">At the following videos i show you how to deploy this app locally and on <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a>. First local:</p>
+<div class="wpview-body" contenteditable="false">
+<div class="wpview-content wpview-type-embedURL"><span class="embed-youtube"><iframe width="640" height="390" class="youtube-player" type="text/html" src="http://www.youtube.com/embed/nhslu5WZy6I?version=3&amp;rel=1&amp;fs=1&amp;showsearch=0&amp;showinfo=1&amp;iv_load_policy=1&amp;wmode=transparent" allowfullscreen="allowfullscreen" frameborder="0"></iframe></span></div>
+</div>
+<div class="wpview-overlay"></div>
+<p>And on Digital Ocean:</p>
+<div class="wpview-body" contenteditable="false">
+<div class="wpview-content wpview-type-embedURL"><span class="embed-youtube"><iframe width="640" height="390" class="youtube-player" type="text/html" src="http://www.youtube.com/embed/X68N_efY0KU?version=3&amp;rel=1&amp;fs=1&amp;showsearch=0&amp;showinfo=1&amp;iv_load_policy=1&amp;wmode=transparent" allowfullscreen="allowfullscreen" frameborder="0"></iframe></span></div>
+</div>
+<div class="wpview-overlay"></div>
+<p style="text-align: justify;">Note that when using the aforementioned command, you do not returns straight to the terminal and you will need a Ctrl + C to close the container. So, to keep the container running and return to the terminal, you should use &amp;.</p>
+<pre class="lang:zsh decode:true">docker run --rm -p 80:80 flaviobarros/shiny &amp;</pre>
+<p style="text-align: justify;">You can run this app on <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://aws.amazon.com/pt/" target="_blank">Amazon Web Services</a></span>, <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://cloud.google.com/" target="_blank">Google Cloud</a></span> and <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://azure.microsoft.com/pt-br/" target="_blank">Microsoft Azure</a></span>, as all of them have support for docker. However, my suggestion is <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a> that is a lot easier to use.</p>
+<p style="text-align: justify;">IMPORTANT: through any link to <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a> in this post,  you will earn U$10.00 credit without commitment to keep up the service. With this credit you can keep a simple VPS with 512MB RAM, for two months for free!</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2015/04/30/dockerizing-a-shiny-app/feed/index.html</wfw:commentRss>
+		<slash:comments>9</slash:comments>
+		</item>
+	</channel>
+</rss>

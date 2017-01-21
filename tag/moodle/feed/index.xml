@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>moodle &#8211; R Mining</title>
+	<atom:link href="./index.html" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Mineração de Dados, Estatística, Tecnologia</description>
+	<lastBuildDate>Tue, 17 Jan 2017 10:04:59 +0000</lastBuildDate>
+	<language>pt-BR</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.7.1</generator>
+	<item>
+		<title>Plataforma Moodle</title>
+		<link>./../../../2013/05/31/plataforma-moodle/index.html</link>
+		<pubDate>Fri, 31 May 2013 01:04:11 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Educação]]></category>
+		<category><![CDATA[MOOCS]]></category>
+		<category><![CDATA[moodle]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=39</guid>
+		<description><![CDATA[O Moodle, uma sigla para &#8220;Modular Object-Oriented Dynamic Learning Environment&#8220;, é um sistema de gestão de aprendizagem ou também um LMS (Learn Management System) gratuito e de código aberto. Com o Moodle é possível criar cursos online, utilizar como suporte ao ensino presencial ou como um plataforma para o ensino à distância. Além das funcionalidades básicas como forums, chat, disponibilidade de materiais e etc, é possível estender as funções do Moodle com uma séries de plugins....]]></description>
+				<content:encoded><![CDATA[<p>O Moodle, uma sigla para &#8220;<b>Modular Object-Oriented Dynamic Learning Environment</b>&#8220;, é um sistema de gestão de aprendizagem ou também um LMS (Learn Management System) gratuito e de código aberto. Com o Moodle é possível criar cursos online, utilizar como suporte ao ensino presencial ou como um plataforma para o ensino à distância. Além das funcionalidades básicas como forums, chat, disponibilidade de materiais e etc, é possível estender as funções do Moodle com uma séries de plugins. Assim o Moodle é um dos LMS&#8217;s mais flexíveis do mercado atualmente. Veja o vídeo a seguir para maiores detalhes:</p>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/K1J6qeWkZPk?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<p style="text-align: justify;">Pelo que eu sei a plataforma já fou utilizada para oferecimentos dos MOOC&#8217;s, mas no entanto ainda faltam certos recursos que são essenciais nesse tipo de curso. Em posts futuros pretendo discutir mais a questão do Moodle vs MOOC&#8217;s.</p>
+<p>&nbsp;</p>
+]]></content:encoded>
+			</item>
+	</channel>
+</rss>

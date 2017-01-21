@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>Comentários sobre: Git push no Django com o Dokku &#8211; básico</title>
+	<atom:link href="./index.html" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Mineração de Dados, Estatística, Tecnologia</description>
+	<lastBuildDate>Thu, 22 Dec 2016 18:35:36 +0000</lastBuildDate>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.7.1</generator>
+	<item>
+		<title>Por: Novo endereço: www.rmining.net - Flavio Barros</title>
+		<link>./../index.html#comment-101</link>
+		<dc:creator><![CDATA[Novo endereço: www.rmining.net - Flavio Barros]]></dc:creator>
+		<pubDate>Fri, 02 Oct 2015 22:58:34 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=613#comment-101</guid>
+		<description><![CDATA[[&#8230;] Git push no Django com o Dokku [&#8230;]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] Git push no Django com o Dokku [&#8230;]</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Por: Git push no Django com o Dokku - Básico - Peguei do</title>
+		<link>./../index.html#comment-69</link>
+		<dc:creator><![CDATA[Git push no Django com o Dokku - Básico - Peguei do]]></dc:creator>
+		<pubDate>Fri, 08 May 2015 17:42:28 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=613#comment-69</guid>
+		<description><![CDATA[[&#8230;] “O Dokku por sua vez, foi o “killer app” do Docker. Foi com esse projeto que muitas pessoas conseguiram ver o tamanho do potencial dessa ferramenta. De fato, como vamos ver aqui, com ele é possível ter praticamente a mesma funcionalidade do Heroku, só que a um custo muito mais baixo, uma vez que o Digital Ocean, oferece um VPS básico (Virtual Private Server, ou Servidor Privado Virtual) por U&#036;5,00 ou R&#036;15,00 aproximadamente. E não é um hardware qualquer, mas com 512Mb de RAM e 20Gb em SSD! Isso é mais do que suficiente para rodar diversas instalações do WordPress, não somente uma.” [referência: flaviobarros.net] [&#8230;]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] “O Dokku por sua vez, foi o “killer app” do Docker. Foi com esse projeto que muitas pessoas conseguiram ver o tamanho do potencial dessa ferramenta. De fato, como vamos ver aqui, com ele é possível ter praticamente a mesma funcionalidade do Heroku, só que a um custo muito mais baixo, uma vez que o Digital Ocean, oferece um VPS básico (Virtual Private Server, ou Servidor Privado Virtual) por U&#036;5,00 ou R&#036;15,00 aproximadamente. E não é um hardware qualquer, mas com 512Mb de RAM e 20Gb em SSD! Isso é mais do que suficiente para rodar diversas instalações do WordPress, não somente uma.” [referência: flaviobarros.net] [&#8230;]</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

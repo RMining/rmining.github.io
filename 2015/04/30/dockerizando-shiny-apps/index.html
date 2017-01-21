@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="./../../../../xmlrpc.php">
+
+<title>Dockerizando Shiny Apps &#8211; R Mining</title>
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Feed para R Mining &raquo;" href="./../../../../feed/index.html" />
+<link rel="alternate" type="application/rss+xml" title="Feed de comentários para R Mining &raquo;" href="./../../../../comments/feed/index.html" />
+<link rel="alternate" type="application/rss+xml" title="Feed de comentários para R Mining &raquo; Dockerizando Shiny Apps" href="./feed/index.html" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/svg\/","svgExt":".svg","source":{"concatemoji":".\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.7.1"}};
+			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),!(j.toDataURL().length<3e3)&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,65039,8205,55356,57096),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,55356,57096),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55357,56425,55356,57341,8205,55357,56507),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55357,56425,55356,57341,55357,56507),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='profitmag-font-awesome-css'  href='./../../../../wp-content/themes/profitmag/css/font-awesome.min.css?ver=4.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-bxslider-style-css'  href='./../../../../wp-content/themes/profitmag/css/jquery.bxslider.css?ver=4.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-ticker-style-css'  href='./../../../../wp-content/themes/profitmag/css/ticker-style.css?ver=4.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-noivolightbox-style-css'  href='./../../../../wp-content/themes/profitmag/css/nivo-lightbox.css?ver=4.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-scrollcss-css'  href='./../../../../wp-content/themes/profitmag/css/jquery.mCustomScrollbar.css?ver=4.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-google-font-css'  href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic&#038;subset=latin,latin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-style-css'  href='./../../../../wp-content/themes/profitmag/style.css?ver=4.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-responsive-css'  href='./../../../../wp-content/themes/profitmag/css/responsive.css?ver=4.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-color-scheme-css'  href='./../../../../wp-content/themes/profitmag/css/orange.css' type='text/css' media='all' />
+<script type='text/javascript' src='./../../../../wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='./../../../../wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript' src='./../../../../wp-content/themes/profitmag/js/nivo-lightbox.min.js?ver=4.7.1'></script>
+<script type='text/javascript' src='./../../../../wp-content/themes/profitmag/js/jquery.slicknav.min.js?ver=4.7.1'></script>
+<script type='text/javascript' src='./../../../../wp-content/themes/profitmag/js/modernizr.min.js?ver=2.6.2'></script>
+<link rel='https://api.w.org/' href='./../../../../wp-json/index.html' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="./../../../../xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="./../../../../wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Handwritten digit recognition &#8211; Part1' href='./../../../../2014/12/22/handwritten-digit-recognition-part1/index.html' />
+<link rel='next' title='Dockerizing a Shiny App' href='./../dockerizing-a-shiny-app/index.html' />
+<meta name="generator" content="WordPress 4.7.1" />
+<link rel="canonical" href="./index.html" />
+<link rel='shortlink' href='./../../../../index.html?p=531' />
+<link rel="alternate" type="application/json+oembed" href="./../../../../wp-json/oembed/1.0/embed/index.html?url=http%3A%2F%2F%2F2015%2F04%2F30%2Fdockerizando-shiny-apps%2F" />
+<link rel="alternate" type="text/xml+oembed" href="./../../../../wp-json/oembed/1.0/embed/index.html?url=http%3A%2F%2F%2F2015%2F04%2F30%2Fdockerizando-shiny-apps%2F&#038;format=xml" />
+<style type="text/css"></style></head>
+
+<body class="post-template-default single single-post postid-531 single-format-standard group-blog right_sidebar">
+
+<div id="page" class="hfeed site">
+	
+
+	<header id="masthead" class="site-header clearfix" role="banner">
+        <div class="top-header-block clearfix">
+            <div class="wrapper">
+                        
+                        <div class="right-header f-right">
+                                                    </div>
+             </div>          
+         </div><!-- .top-header-block -->
+
+        <div class="wrapper header-wrapper clearfix">
+        		<div class="header-container"> 
+                
+                    
+                    
+                    <div class="site-branding clearfix">
+            			<div class="site-logo f-left">
+                           
+                                
+                                     <a href="./../../../../index.html" rel="home" class="site-title">
+
+                                        R Mining                                    </a> 
+                                    
+                                        <p class="site-description">Mineração de Dados, Estatística, Tecnologia</p>
+
+                                                               
+                        </div>
+                        
+                                                			
+            		</div>
+
+                                
+            		<nav id="site-navigation" class="main-navigation home-nav-icon clearfix menu-left" role="navigation" >
+            			<div class="desktop-menu clearfix">
+                                                        <div class="home-icon">
+                                    <a href="./../../../../index.html" title="R Mining"><i class="fa fa-home"></i></a>
+                                </div>
+                                <div class="menu-links-container"><ul id="menu-links" class="menu"><li id="menu-item-173" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-173"><a href="http://www.r-bloggers.com/">R-Bloggers! Dicas e códigos para R.</a></li>
+<li id="menu-item-846" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-846"><a href="./../../../../sobre-mim/index.html">Sobre mim</a></li>
+<li id="menu-item-822" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-822"><a href="./../../../../newsletter/index.html">newsletter</a></li>
+</ul></div>
+                        <div class="search-block">
+                                                            <form role="search" method="get" id="searchform" class="searchform" action="./../../../../index.html" >
+    <div><label class="screen-reader-text" for="s"></label>
+    <input type="text" value="" name="s" id="s" placeholder="Search" />
+    <input type="submit" id="searchsubmit" value="Search" />
+    </div>
+    </form>                                                    </div>
+                        </div>
+                        <div class="responsive-slick-menu clearfix"></div>
+                        
+            		</nav><!-- #site-navigation -->
+        
+                </div> <!-- .header-container -->
+        </div><!-- header-wrapper-->
+        
+	</header><!-- #masthead -->
+    
+
+    <div class="wrapper content-wrapper clearfix">
+
+        <div class="slider-feature-wrap clearfix">
+            <!-- Slider -->
+                        
+            <!-- Featured Post Beside Slider -->
+                    	
+                    </div>    
+            <div id="content" class="site-content">
+    
+   
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+
+		            
+			
+<article id="post-531" class="post-531 post type-post status-publish format-standard has-post-thumbnail hentry category-digital-ocean category-docker category-estatistica category-linux category-r-e-rstudio category-shiny tag-deploy tag-implantacao tag-shiny tag-web">
+	<header class="entry-header">
+		<h1 class="entry-title">Dockerizando Shiny Apps</h1>
+		<div class="entry-meta">
+			<span class="posted-on">Posted on <a href="./index.html" rel="bookmark"><time class="entry-date published" datetime="2015-04-30T00:16:13+00:00">abril 30, 2015</time><time class="updated" datetime="2017-01-17T07:31:58+00:00">janeiro 17, 2017</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="./../../../../author/flavio/index.html">Flavio Barros</a></span></span>		</div><!-- .entry-meta -->
+	</header><!-- .entry-header -->
+
+	<div class="single-feat clearfix">
+        <figure class="single-thumb">
+            <img width="374" height="294" src="./../../../../wp-content/uploads/2017/01/shiny.png" class="attachment-single-thumb size-single-thumb wp-post-image" alt="" srcset="./../../../../wp-content/uploads/2017/01/shiny.png 374w, ./../../../../wp-content/uploads/2017/01/shiny-300x236.png 300w, ./../../../../wp-content/uploads/2017/01/shiny-117x91.png 117w" sizes="(max-width: 374px) 100vw, 374px" />        </figure>
+        
+        <div class="related-post">
+            <h2 class="block-title"><span class="bordertitle-red"></span>Related Post</h2>
+            <ul>                
+                    <li><a href="./../../../../2016/10/15/usando-r-com-o-monetdb/index.html" title="Usando R com o MonetDB">Usando R com o MonetDB</a></li> 
+                   
+                    
+                    <li><a href="./../../../../2016/09/27/como-fazer-um-carometro-em-shiny/index.html" title="Como fazer um carômetro em Shiny">Como fazer um carômetro em Shiny</a></li> 
+                   
+                    
+                    <li><a href="./../../../../2016/04/21/onde-estudar-estatistica/index.html" title="Onde estudar Estatística?">Onde estudar Estatística?</a></li> 
+                   
+                    
+                    <li><a href="./../../../../2016/04/04/impeachment-analise-das-intencoes/index.html" title="Impeachment &#8211; Análise das Intenções">Impeachment &#8211; Análise das Intenções</a></li> 
+                   
+                    
+                    <li><a href="./../../../../2016/03/14/reconhecimento-de-digitos-escritos-mao-parte-3/index.html" title="RECONHECIMENTO DE DÍGITOS ESCRITOS A MÃO – PARTE 3">RECONHECIMENTO DE DÍGITOS ESCRITOS A MÃO – PARTE 3</a></li> 
+                   
+    </ul>    
+                <ul>
+                
+            </ul>
+        </div>
+    </div>
+    
+    <div class="entry-content">
+		
+        <figure></figure>
+        <p style="text-align: justify;">Depois de uma longa pausa de mais de quatro meses, finalmente estou voltando a postar aqui. Infelizmente, diversos compromissos me impediram de continuar postando, mas acabei por dar uma repaginada no blog, alterar a implantação (agora esse blog roda inteiramente dentro de um contêiner docker, com algumas outras coisas legais que pretendo postar mais para frente) e fazer esse post.</p>
+<p style="text-align: justify;">Como esse post pode vir a ter leitores com diversos backgrounds eu vou inicialmente falar um pouco sobre várias tecnologias, como a linguagem R, os Apps do Shiny e o Docker.  Vou falar para que servem e o problema que está sendo resolvido aqui. Se você já sabe o que é o R e o Shiny pode pular para o item 2 sobre o Docker.</p>
+<h2 style="text-align: justify;">1. R e apps Shiny</h2>
+<p style="text-align: justify;">Inicialmente o que são Shiny Apps? Bom, quem já trabalha com <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://cran.r-project.org/" target="_blank">R</a></span> já deve ter ouvido falar do <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://shiny.rstudio.com/" target="_blank">Shiny</a></span>. O projeto Shiny é um framework para aplicações web feito especificamente para  a linguagem R. Para quem não conhece, a linguagem R é uma linguagem de programação criada especificamente para estatística/análise de dados e que vem <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://www.infoq.com/br/news/2014/10/ranking-linguagens-ieee" target="_blank">ganhando muita popularidade</a></span> no segmento corporativo.</p>
+<p style="text-align: justify;">O R já vinha sendo praticamente o padrão em termos de software para Estatística na academia, principalmente por conta de ser um software <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://pt.wikipedia.org/wiki/C%C3%B3digo_aberto" target="_blank">open source</a></span>. Também vem sendo adotado de forma massiva na indústria, principalmente nos EUA, justamente porque conta com bibliotecas para praticamente qualquer tarefa na área de análise de dados e gráficos. Essas bibliotecas, em sua maioria, foram criadas pelos próprios usuários, e estendem a linguagem de tal forma que é possível produzir <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://r4stats.com/examples/graphics-ggplot2/" target="_blank">gráficos de altíssima qualidade</a> </span>ou criar modelos de forma <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://topepo.github.io/caret/index.html" target="_blank">muito simples</a></span>. Existem também grandes empresas investindo na linguagem, como a <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://www.revolutionanalytics.com/" target="_blank">Revolution Analytics</a></span>, que foi recentemente <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://blog.revolutionanalytics.com/2015/04/revolution-analytics-microsoft.html" target="_blank">comprada pela Microsoft</a></span>. Essa compra sinaliza o interesse que empresas do porte da Microsoft tem na linguagem R.</p>
+<p style="text-align: justify;">Entretanto, um dos pontos fracos do R, é que se trata de uma linguagem de nicho, feita especificamente para análise de dados. Assim, nem sempre era fácil disponibilizar suas análises e resultados na internet de forma interativa. Houve iniciativas nesse sentido, mas no fim das contas, se o usuário queria disponibilizar suas análises na web, ou devia usar meios estáticos, como páginas em HTML e arquivos em PDF, ou criar aplicações com tecnologias como o Javascript, e de alguma forma ligar um <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://rforge.net/Rserve/doc.html" target="_blank">servidor na web</a></span> rodando o R a estas aplicações.</p>
+<p style="text-align: justify;">Esse tipo de solução funciona, mas exige ou um profissional com conhecimentos sólidos em javascript, infraestrutura e estatística/análise de dados, ou pelo menos uma equipe multidisciplinar. Na prática isso significava que um usuário comum do R teria muitas dificuldades em criar aplicações web a partir das suas análises.</p>
+<p style="text-align: justify;">É nesse ponto que entra o Shiny. O Shiny é um freamework web, criado pela equipe do <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://www.rstudio.com/" target="_blank">RStudio</a></span>, que permite que o usuário do R crie apps web, utilizando somente a própria linguagem. A sobrecarga para o usuário é mínima, tal que este pode desenvolver e rodar suas aplicações localmente de forma muito simples, com um comando como o runApp(). Só para demonstrar como funciona o processo, assista rapidamente a esse vídeo, onde é rodado um app do Shiny pela IDE RStudio.</p>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/CWWPvA6SK6k?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<h2 style="text-align: justify;">2. Docker</h2>
+<p style="text-align: justify;">Se você de alguma forma acompanha notícias do mundo open source então você provavelmente já ouviu falar do <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://www.docker.com/" target="_blank">Docker</a></span>. O Docker é uma ferramenta fantástica que permite criar contêineres de software, totalmente isolados do sistema operacional hospedeiro. Ele funciona como uma máquina virtual, mas é simplesmente muito mais leve.</p>
+<p style="text-align: justify;">A ideia por trás do docker é que o desenvolvedor cria um contêiner com todas as bilbiotecas e dependêcias que desejar garantindo que tudo funciona. O responsável pela implantação do software não precisa saber o que há dentro do contêiner, ele só precisa ser capaz de rodar contêineres no servidor. Ainda que uma funcionalidade como essa pudesse ser obtida com máquinas virtuais, elas acabavam vindo com muito mais que o necessário, tal que os arquivos eram muito grandes (&gt;&gt;1Gb) e tornavam o sistema hospedeiro muito lento.</p>
+<p style="text-align: justify;">O docker por outro lado, não usa um SO completo, ele compartilha o mesmo Kernel do hospedeiro (sim, atualmente ele precisa rodar no Linux) mas é um ambiente completamente isolado. Assim, rodar contêineres do docker é muito, mas muito mais leve que rodar uma máquina virtual. Os recursos do docker não param por ai, ele também permite uma espécie de versionamento de contêineres e tem uma espécie de github para contêineres, o <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://hub.docker.com/account/signup/" target="_blank">Docker Hub</a></span>, de onde o usuário pode baixar e usar imagens prontas para diversos softwares, como o MySQL, Postgres, LAMP, WordPress, dentre outros. Se você quiser entender melhor o que é o Docker, assista a esse vídeo de um dos fundadores do projeto.</p>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/Q5POuMHxW-0?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<h2 style="text-align: justify;">3. Dockerizando uma app do Shiny</h2>
+<p style="text-align: justify;">Na parte 1, eu mostrei um exemplo de um app do Shiny rodando no RStudio localmente. Para desenvolver está ok, mas e se eu quiser disponibilizar para alguém? Uma solução é você enviar os arquivos do projeto, tal que a pessoa que vai receber precisa somente de uma instalação do R com o pacote shiny para rodar a aplicação. Como uma aplicação básica do shiny precisa somente de dois arquivos (ui.R e server.R), você só precisaria enviar esses arquivos.</p>
+<p style="text-align: justify;">Mas e se eu quiser colocar na web? Existem basicamente duas alternativas:</p>
+<p style="text-align: justify;">1) Preparar um servidor com o <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://www.rstudio.com/products/shiny/shiny-server/" target="_blank">Shiny Server</a></span></p>
+<p style="text-align: justify;">2) Usar o serviço <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://www.shinyapps.io/" target="_blank">shinyapps.io</a></span></p>
+<p style="text-align: justify;">A opção 1) pode ser muito complicada para alguns usuários, as vezes inviável, por conta da necessidade de instalar e configurar um servidor.</p>
+<p style="text-align: justify;">A opção 2) é mais interessante, entretanto pode sair bem caro, uma vez que o plano free pode ser muito limitado para algumas necessidades.</p>
+<p style="text-align: justify;">Como o docker pode ajudar? Inicialmente com o docker é possível criar um servidor com o shiny usando um comando. Isso simplifica bastante a implantação de um servidor. Veja neste pequeno vídeo um exemplo:</p>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/H94eSQrPoYI?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<p>Enfim, basta rodar o comando:</p>
+<pre class="lang:zsh decode:true">docker run --rm -p 3838:3838 rocker/shiny</pre>
+<p>que você tem um servidor do shiny rodando na máquina.</p>
+<p style="text-align: justify;"><strong>USUÁRIOS DO WINDOWS E MAC:</strong> Vocês vão precisar do <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://boot2docker.io/" target="_blank">boot2docker</a></span> instalado para rodar o contêiner localmente. Como eu estou usando o Linux no vídeo, o terminal já está naturalmente disponível, mas se você instalar o <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://boot2docker.io/" target="_blank">boot2docker</a></span> vai ter um terminal a disposição para reproduzir o que eu estou fazendo nesse vídeo e no próximo abaixo.</p>
+<p style="text-align: justify;">Essa solução parece resolver o problema, pois para disponibilizar seus apps basta criar um servidor e instalar o docker. Entretanto o usuário ainda pode encontrar diversos problemas como:</p>
+<p style="text-align: justify;">1) Como colocar meus apps nesse servidor?</p>
+<p style="text-align: justify;">2) Como colocar um endereço na web direto para minha aplicação?</p>
+<p style="text-align: justify;">3) Como tirar aquele 3838 do meu endereço?</p>
+<p style="text-align: justify;">4) Como criar uma imagem docker com meu app?</p>
+<p style="text-align: justify;">Foi pensando em resolver esses problemas que eu criei um contêiner de exemplo, com um app pronto, que aparece na barra do navegador assim que a imagem está rodando. Já subi a imagem no Docker Hub, e ela está pronta para você testar e usar. A imagem está disponível <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://registry.hub.docker.com/u/flaviobarros/shiny-wordcloud/" target="_blank">nesse link</a></span> e o código fonte está no <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://github.com/flaviobarros/shiny-wordcloud" target="_blank">Github</a></span> caso queria fazer seus próprios apps.</p>
+<p style="text-align: justify;">Aqui nesses dois vídeos eu mostro como rodar esse contêiner localmente e depois como rodar no <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a>. Primeiro localmente:</p>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/nhslu5WZy6I?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<p style="text-align: justify;">E agora no Digital Ocean:</p>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/X68N_efY0KU?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<p style="text-align: justify;"> É importante observar que no vídeo, ao usar o comando citado, você não volta direto ao terminal, tal que seria necessário um Ctrl + C para encerrar o contêiner. Assim, para manter o contêiner rodando e voltar ao terminal, você deve utilizar o &amp; no final do comando.</p>
+<pre class="lang:zsh decode:true">docker run --rm -p 80:80 flaviobarros/shiny &amp;</pre>
+<p style="text-align: justify;">enfim, é possível testar localmente com um comando e também é possível rodar na web imediatamente com um servidor e o docker instalado. Veja que eu usei o ip do servidor no navegador, mas é bem simples apontar um domínio para não precisar do ip.</p>
+<p style="text-align: justify;">Você pode rodar esse app na <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://aws.amazon.com/pt/" target="_blank">Amazon Web Services</a></span>, no <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://cloud.google.com/" target="_blank">Google Cloud</a></span> e na <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://azure.microsoft.com/pt-br/" target="_blank">Microsoft Azure</a></span>, já que todos eles já oferecem suporte ao docker. Entretanto minha sugestão é que você comece com o <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a> que é muito mais fácil de usar.</p>
+<p style="text-align: justify;">IMPORTANTE: acessando qualquer link dessa página para o <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a>, ao fazer o cadastro você vai ganhar U$10,00 de crédito sem compromisso de manter o serviço. Com esse crédito você poderá manter um VPS simples, com 512Mb de RAM, por dois meses de graça! Use os links desse post.</p>
+			</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		
+						<span class="cat-links">
+				Posted in <a href="./../../../../category/digital-ocean/index.html" rel="category tag">Digital Ocean</a>, <a href="./../../../../category/docker/index.html" rel="category tag">Docker</a>, <a href="./../../../../category/estatistica/index.html" rel="category tag">Estatística</a>, <a href="./../../../../category/linux/index.html" rel="category tag">Linux</a>, <a href="./../../../../category/r-e-rstudio/index.html" rel="category tag">R e RStudio</a>, <a href="./../../../../category/shiny/index.html" rel="category tag">Shiny</a>			</span>
+			
+						<span class="tags-links">
+				Tagged <a href="./../../../../tag/deploy/index.html" rel="tag">deploy</a>, <a href="./../../../../tag/implantacao/index.html" rel="tag">implantação</a>, <a href="./../../../../tag/shiny/index.html" rel="tag">shiny</a>, <a href="./../../../../tag/web/index.html" rel="tag">web</a>			</span>
+					     
+	
+
+			</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+
+			
+	<nav class="navigation post-navigation" role="navigation">
+		<h2 class="screen-reader-text">Navegação de Post</h2>
+		<div class="nav-links"><div class="nav-previous"><a href="./../../../../2014/12/22/handwritten-digit-recognition-part1/index.html" rel="prev">Handwritten digit recognition &#8211; Part1</a></div><div class="nav-next"><a href="./../dockerizing-a-shiny-app/index.html" rel="next">Dockerizing a Shiny App</a></div></div>
+	</nav>
+			
+<div id="comments" class="comments-area">
+
+	
+			<h2 class="comments-title">
+			<span class="bordertitle-red"></span>			
+			COMMENTS		</h2>
+
+		
+		<ul class="comment-list">
+			    <li class="pingback even thread-even depth-1" id="comment-64">
+        <div id="div-comment-64" class="comment-body clearfix">
+        <div class="comment-author vcard">
+        <cite class="fn"><a href='http://www.pegueido.com.br/dockerizando-apps-do-shiny/' rel='external nofollow' class='url'>Dockerizando Apps do Shiny - Peguei do</a></cite>    </div>
+    
+    <div class="comment-meta commentmetadata"><a href="./index.html#comment-64">
+        <i class="fa fa-clock-o"></i>
+maio 4, 2015 at 1:13 pm</a>    </div>
+
+    <p>[&#8230;] “Como esse post pode vir a ter leitores com diversos backgrounds eu vou inicialmente falar um pouco sobre várias tecnologias, como a linguagem R, os Apps do Shiny e o Docker. Vou falar para que servem e o problema que está sendo resolvido aqui. Se você já sabe o que é o R e o Shiny pode pular para o item 2 sobre o Docker.” [referência: flaviobarros.net] [&#8230;]</p>
+
+    <div class="reply">
+    <i class="fa fa-thumbs-up"></i>
+    <i class="fa fa-thumbs-down"></i>
+        </div>
+        </div>
+    </li><!-- #comment-## -->
+    <li class="pingback odd alt thread-odd thread-alt depth-1" id="comment-66">
+        <div id="div-comment-66" class="comment-body clearfix">
+        <div class="comment-author vcard">
+        <cite class="fn"><a href='http://www.scoop.it/t/big-data-statistics-and-machine-learning/p/4042926018/2015/05/05/dockerizando-shiny-apps-flavio-barros' rel='external nofollow' class='url'>Dockerizando Shiny Apps - Flavio Barros | Big D...</a></cite>    </div>
+    
+    <div class="comment-meta commentmetadata"><a href="./index.html#comment-66">
+        <i class="fa fa-clock-o"></i>
+maio 5, 2015 at 3:05 pm</a>    </div>
+
+    <p>[&#8230;] Depois de uma longa pausa de mais de quatro meses, finalmente estou voltando a postar aqui. Infelizmente, diversos compromissos me impediram de continuar postando, mas acabei por dar uma repaginada no blog, alterar a implanta&ccedil;&atilde;o (agora esse blog roda inteiramente dentro de um cont&ecirc;iner docker, com algumas outras coisas legais que pretendo postar mais para &hellip;&nbsp; [&#8230;]</p>
+
+    <div class="reply">
+    <i class="fa fa-thumbs-up"></i>
+    <i class="fa fa-thumbs-down"></i>
+        </div>
+        </div>
+    </li><!-- #comment-## -->
+    <li class="pingback even thread-even depth-1" id="comment-99">
+        <div id="div-comment-99" class="comment-body clearfix">
+        <div class="comment-author vcard">
+        <cite class="fn"><a href='http://www.flaviobarros.net/2015/10/02/novo-endereco-www-rmining-net/' rel='external nofollow' class='url'>Novo endereço: www.rmining.net !! - Flavio Barros</a></cite>    </div>
+    
+    <div class="comment-meta commentmetadata"><a href="./index.html#comment-99">
+        <i class="fa fa-clock-o"></i>
+outubro 2, 2015 at 6:12 pm</a>    </div>
+
+    <p>[&#8230;] Dockerizando Shiny Apps [&#8230;]</p>
+
+    <div class="reply">
+    <i class="fa fa-thumbs-up"></i>
+    <i class="fa fa-thumbs-down"></i>
+        </div>
+        </div>
+    </li><!-- #comment-## -->
+    <li class="pingback odd alt thread-odd thread-alt depth-1" id="comment-112">
+        <div id="div-comment-112" class="comment-body clearfix">
+        <div class="comment-author vcard">
+        <cite class="fn"><a href='./../../../12/28/compartilhe-shiny-apps-com-o-docker-e-o-kitematic/index.html' rel='external nofollow' class='url'>Compartilhe Shiny Apps com o Docker e o Kitematic! - R Mining</a></cite>    </div>
+    
+    <div class="comment-meta commentmetadata"><a href="./index.html#comment-112">
+        <i class="fa fa-clock-o"></i>
+dezembro 28, 2015 at 2:39 am</a>    </div>
+
+    <p>[&#8230;]      Dockerizando Shiny Apps    Nenhum Comentário | abr. 30, 2015 [&#8230;]</p>
+
+    <div class="reply">
+    <i class="fa fa-thumbs-up"></i>
+    <i class="fa fa-thumbs-down"></i>
+        </div>
+        </div>
+    </li><!-- #comment-## -->
+		</ul><!-- .comment-list -->
+
+		
+	
+			<p class="no-comments">Comments are closed.</p>
+	
+	
+</div><!-- #comments -->
+                        
+            
+            
+		
+		</main><!-- #main -->
+	</div><!-- #primary -->
+
+
+    
+            <div id="secondary-right" class="widget-area secondary-sidebar f-right clearfix" role="complementary">
+                        <div id="sidebar-section-top" class="widget-area sidebar clearfix">
+                 		<aside id="profitmag-popular-posts-3" class="widget profitmag_widget_popular_entries">		<h3 class="widget-title"><span>Popular</span></h3>		<ul>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./../../../../2016/09/27/como-fazer-um-carometro-em-shiny/index.html"><img src="./../../../../wp-content/uploads/2016/09/tiririca.jpg" alt="Como fazer um carômetro em Shiny" title="Como fazer um carômetro em Shiny" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./../../../../2016/09/27/como-fazer-um-carometro-em-shiny/index.html">Como fazer um carômetro em Shiny</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>setembro 27, 2016</div>
+			
+			</li>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./../../../../2016/03/12/livros-recomendados-data-science/index.html"><img src="./../../../../wp-content/uploads/2016/03/data_smart.jpg" alt="Livros recomendados &#8211; Data Science" title="Livros recomendados &#8211; Data Science" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./../../../../2016/03/12/livros-recomendados-data-science/index.html">Livros recomendados &#8211; Data Science</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>março 12, 2016</div>
+			
+			</li>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./../../../../2013/06/10/anova-e-teste-de-tukey-no-r/index.html"><img src="./../../../../wp-content/uploads/2013/06/ANOVA-193x112.png" alt="ANOVA e  teste de Tukey no R" title="ANOVA e  teste de Tukey no R" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./../../../../2013/06/10/anova-e-teste-de-tukey-no-r/index.html">ANOVA e  teste de Tukey no R</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>junho 10, 2013</div>
+			
+			</li>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./../../../../2014/10/14/como-fazer-mapas-eleitorais/index.html"><img src="./../../../../wp-content/uploads/2014/10/sampa.png" alt="Como fazer mapas eleitorais" title="Como fazer mapas eleitorais" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./../../../../2014/10/14/como-fazer-mapas-eleitorais/index.html">Como fazer mapas eleitorais</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>outubro 14, 2014</div>
+			
+			</li>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./../../../../2014/02/25/genetic-data-large-matrices-glmnet/index.html"><img src="./../../../../wp-content/uploads/2014/02/geneticdata-193x112.jpg" alt="Genetic data, large matrices and glmnet()" title="Genetic data, large matrices and glmnet()" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./../../../../2014/02/25/genetic-data-large-matrices-glmnet/index.html">Genetic data, large matrices and glmnet()</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>fevereiro 25, 2014</div>
+			
+			</li>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./index.html"><img src="./../../../../wp-content/uploads/2017/01/shiny-193x112.png" alt="Dockerizando Shiny Apps" title="Dockerizando Shiny Apps" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./index.html">Dockerizando Shiny Apps</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>abril 30, 2015</div>
+			
+			</li>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./../../../../2016/10/15/usando-r-com-o-monetdb/index.html"><img src="./../../../../wp-content/uploads/2016/10/monetdb-final-500.png" alt="Usando R com o MonetDB" title="Usando R com o MonetDB" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./../../../../2016/10/15/usando-r-com-o-monetdb/index.html">Usando R com o MonetDB</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>outubro 15, 2016</div>
+			
+			</li>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./../dockerizing-a-shiny-app/index.html"><img src="./../../../../wp-content/uploads/2017/01/shiny-193x112.png" alt="Dockerizing a Shiny App" title="Dockerizing a Shiny App" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./../dockerizing-a-shiny-app/index.html">Dockerizing a Shiny App</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>abril 30, 2015</div>
+			
+			</li>
+				</ul>
+		</aside><aside id="categories-7" class="widget widget_categories"><h3 class="widget-title"><span>Categorias</span></h3>		<ul>
+	<li class="cat-item cat-item-41"><a href="./../../../../category/aprendizado-de-maquina/index.html" >Aprendizado de Máquina</a>
+</li>
+	<li class="cat-item cat-item-58"><a href="./../../../../category/data-mining/index.html" >Data Mining</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="./../../../../category/digital-ocean/index.html" >Digital Ocean</a>
+</li>
+	<li class="cat-item cat-item-49"><a href="./../../../../category/django/index.html" >Django</a>
+</li>
+	<li class="cat-item cat-item-46"><a href="./../../../../category/docker/index.html" >Docker</a>
+</li>
+	<li class="cat-item cat-item-6"><a href="./../../../../category/educacao/index.html" >Educação</a>
+</li>
+	<li class="cat-item cat-item-13"><a href="./../../../../category/english/index.html" >English</a>
+</li>
+	<li class="cat-item cat-item-4"><a href="./../../../../category/estatistica/index.html" >Estatística</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="./../../../../category/git-github/index.html" >Git &amp; Github</a>
+</li>
+	<li class="cat-item cat-item-67"><a href="./../../../../category/linux/index.html" >Linux</a>
+</li>
+	<li class="cat-item cat-item-57"><a href="./../../../../category/machine-learning/index.html" >Machine Learning</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="./../../../../category/mineracao-de-dados/index.html" >Mineração de Dados</a>
+</li>
+	<li class="cat-item cat-item-74"><a href="./../../../../category/monetdb/index.html" >MonetDB</a>
+</li>
+	<li class="cat-item cat-item-2"><a href="./../../../../category/moocs/index.html" >MOOCS</a>
+</li>
+	<li class="cat-item cat-item-72"><a href="./../../../../category/politica/index.html" >Política</a>
+</li>
+	<li class="cat-item cat-item-56"><a href="./../../../../category/preparacao-de-dados/index.html" >Preparação de Dados</a>
+</li>
+	<li class="cat-item cat-item-5"><a href="./../../../../category/r-e-rstudio/index.html" >R e RStudio</a>
+</li>
+	<li class="cat-item cat-item-14"><a href="./../../../../category/r-bloggers/index.html" >r-bloggers</a>
+</li>
+	<li class="cat-item cat-item-73"><a href="./../../../../category/sgbd/index.html" >SGBD</a>
+</li>
+	<li class="cat-item cat-item-50"><a href="./../../../../category/shiny/index.html" >Shiny</a>
+</li>
+	<li class="cat-item cat-item-38"><a href="./../../../../category/wordpress/index.html" >Wordpress</a>
+</li>
+		</ul>
+</aside><aside id="tag_cloud-7" class="widget widget_tag_cloud"><h3 class="widget-title"><span>Tags</span></h3><div class="tagcloud"><a href='./../../../../tag/anova/index.html' class='tag-link-8 tag-link-position-1' title='2 tópicos' style='font-size: 12.581818181818pt;'>ANOVA</a>
+<a href='./../../../../tag/boas-praticas/index.html' class='tag-link-54 tag-link-position-2' title='1 tópico' style='font-size: 8pt;'>boas práticas</a>
+<a href='./../../../../tag/comparacoes-multiplas/index.html' class='tag-link-10 tag-link-position-3' title='1 tópico' style='font-size: 8pt;'>Comparações múltiplas</a>
+<a href='./../../../../tag/controle-de-versao/index.html' class='tag-link-53 tag-link-position-4' title='1 tópico' style='font-size: 8pt;'>controle de versão</a>
+<a href='./../../../../tag/coursera/index.html' class='tag-link-22 tag-link-position-5' title='2 tópicos' style='font-size: 12.581818181818pt;'>Coursera</a>
+<a href='./../../../../tag/data-table/index.html' class='tag-link-34 tag-link-position-6' title='1 tópico' style='font-size: 8pt;'>data.table</a>
+<a href='./../../../../tag/data-science/index.html' class='tag-link-66 tag-link-position-7' title='1 tópico' style='font-size: 8pt;'>Data Science</a>
+<a href='./../../../../tag/deploy/index.html' class='tag-link-51 tag-link-position-8' title='2 tópicos' style='font-size: 12.581818181818pt;'>deploy</a>
+<a href='./../../../../tag/deployment/index.html' class='tag-link-45 tag-link-position-9' title='1 tópico' style='font-size: 8pt;'>deployment</a>
+<a href='./../../../../tag/edx/index.html' class='tag-link-20 tag-link-position-10' title='1 tópico' style='font-size: 8pt;'>edX</a>
+<a href='./../../../../tag/ensino-a-distancia/index.html' class='tag-link-12 tag-link-position-11' title='1 tópico' style='font-size: 8pt;'>ensino à distância</a>
+<a href='./../../../../tag/ggplot2/index.html' class='tag-link-36 tag-link-position-12' title='1 tópico' style='font-size: 8pt;'>ggplot2</a>
+<a href='./../../../../tag/git/index.html' class='tag-link-48 tag-link-position-13' title='2 tópicos' style='font-size: 12.581818181818pt;'>git</a>
+<a href='./../../../../tag/glmnet/index.html' class='tag-link-29 tag-link-position-14' title='2 tópicos' style='font-size: 12.581818181818pt;'>glmnet</a>
+<a href='./../../../../tag/handwritten-recognition/index.html' class='tag-link-39 tag-link-position-15' title='1 tópico' style='font-size: 8pt;'>handwritten recognition</a>
+<a href='./../../../../tag/ibge/index.html' class='tag-link-33 tag-link-position-16' title='1 tópico' style='font-size: 8pt;'>IBGE</a>
+<a href='./../../../../tag/implantacao/index.html' class='tag-link-47 tag-link-position-17' title='2 tópicos' style='font-size: 12.581818181818pt;'>implantação</a>
+<a href='./../../../../tag/k-nn/index.html' class='tag-link-63 tag-link-position-18' title='2 tópicos' style='font-size: 12.581818181818pt;'>k-nn</a>
+<a href='./../../../../tag/lasso/index.html' class='tag-link-28 tag-link-position-19' title='2 tópicos' style='font-size: 12.581818181818pt;'>Lasso</a>
+<a href='./../../../../tag/machine-learning/index.html' class='tag-link-40 tag-link-position-20' title='1 tópico' style='font-size: 8pt;'>machine learning</a>
+<a href='./../../../../tag/mapas/index.html' class='tag-link-35 tag-link-position-21' title='1 tópico' style='font-size: 8pt;'>mapas</a>
+<a href='./../../../../tag/mnist/index.html' class='tag-link-60 tag-link-position-22' title='2 tópicos' style='font-size: 12.581818181818pt;'>mnist</a>
+<a href='./../../../../tag/mooc/index.html' class='tag-link-19 tag-link-position-23' title='1 tópico' style='font-size: 8pt;'>MOOC</a>
+<a href='./../../../../tag/moodle/index.html' class='tag-link-7 tag-link-position-24' title='1 tópico' style='font-size: 8pt;'>moodle</a>
+<a href='./../../../../tag/pnad/index.html' class='tag-link-32 tag-link-position-25' title='1 tópico' style='font-size: 8pt;'>PNAD</a>
+<a href='./../../../../tag/post-hoc/index.html' class='tag-link-11 tag-link-position-26' title='1 tópico' style='font-size: 8pt;'>post-hoc</a>
+<a href='./../../../../tag/r-code/index.html' class='tag-link-16 tag-link-position-27' title='1 tópico' style='font-size: 8pt;'>R code</a>
+<a href='./../../../../tag/shiny/index.html' class='tag-link-43 tag-link-position-28' title='2 tópicos' style='font-size: 12.581818181818pt;'>shiny</a>
+<a href='./../../../../tag/statistical-test/index.html' class='tag-link-17 tag-link-position-29' title='1 tópico' style='font-size: 8pt;'>statistical test</a>
+<a href='./../../../../tag/statistics/index.html' class='tag-link-15 tag-link-position-30' title='1 tópico' style='font-size: 8pt;'>statistics</a>
+<a href='./../../../../tag/tukey/index.html' class='tag-link-9 tag-link-position-31' title='2 tópicos' style='font-size: 12.581818181818pt;'>Tukey</a>
+<a href='./../../../../tag/udacity/index.html' class='tag-link-21 tag-link-position-32' title='1 tópico' style='font-size: 8pt;'>Udacity</a>
+<a href='./../../../../tag/web/index.html' class='tag-link-44 tag-link-position-33' title='6 tópicos' style='font-size: 22pt;'>web</a></div>
+</aside>                </div>
+                
+                
+        
+                    
+                    
+            
+                    
+                
+        
+        
+                
+                
+        </div>      
+
+    
+
+
+	</div><!-- #content -->
+    </div><!-- content-wrapper-->
+
+	<footer id="colophon" class="site-footer clearrfix" role="contentinfo">
+        <div class="wrapper footer-wrapper clearfix">
+
+                <div class="top-bottom clearfix">
+                		<div id="footer-top">
+                                                
+                        </div><!-- #foter-top -->
+                        
+                        <div id="footer-bottom">    
+                                                     
+                        </div><!-- #foter-bottom -->
+                </div><!-- top-bottom-->
+                <div class="footer-copyright border t-center">
+                    <p>                        
+                                    Copyright 2016. All rights reserved                                                </p>
+                    <div class="site-info">
+                        <a href="https://wordpress.org/">Proudly powered by WordPress</a>
+                        <span class="sep"> | </span>
+                        Profitmag by <a href="http://rigorousthemes.com/" rel="designer">Rigorous Themes</a>                    </div><!-- .site-info -->
+                    
+                </div>
+                
+
+        </div><!-- footer-wrapper-->
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+<script type='text/javascript' src='./../../../../wp-content/themes/profitmag/js/jquery.bxslider.js?ver=4.7.1'></script>
+<script type='text/javascript' src='./../../../../wp-content/themes/profitmag/js/jquery.ticker.js?ver=4.7.1'></script>
+<script type='text/javascript' src='./../../../../wp-content/themes/profitmag/js/jquery.mCustomScrollbar.min.js?ver=1.0.0'></script>
+<script type='text/javascript' src='./../../../../wp-content/themes/profitmag/js/jquery.mousewheel.min.js?ver=2.0.19'></script>
+<script type='text/javascript' src='./../../../../wp-content/themes/profitmag/js/navigation.js?ver=20120206'></script>
+<script type='text/javascript' src='./../../../../wp-content/themes/profitmag/js/custom.js?ver=1.0'></script>
+<script type='text/javascript' src='./../../../../wp-includes/js/wp-embed.min.js?ver=4.7.1'></script>
+
+</body>
+</html>

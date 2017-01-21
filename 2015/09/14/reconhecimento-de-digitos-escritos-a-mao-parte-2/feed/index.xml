@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>Comentários sobre: Reconhecimento de dígitos escritos a mão – PARTE 2</title>
+	<atom:link href="./index.html" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Mineração de Dados, Estatística, Tecnologia</description>
+	<lastBuildDate>Thu, 22 Dec 2016 18:35:36 +0000</lastBuildDate>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.7.1</generator>
+	<item>
+		<title>Por: RECONHECIMENTO DE DÍGITOS ESCRITOS A MÃO – PARTE 3 - R Mining</title>
+		<link>./../index.html#comment-116</link>
+		<dc:creator><![CDATA[RECONHECIMENTO DE DÍGITOS ESCRITOS A MÃO – PARTE 3 - R Mining]]></dc:creator>
+		<pubDate>Mon, 21 Mar 2016 23:59:45 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=746#comment-116</guid>
+		<description><![CDATA[[&#8230;] Parte 2 eu trabalhei com um método de redução de dimensionalidade, o PCA, e também foram explorados [&#8230;]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] Parte 2 eu trabalhei com um método de redução de dimensionalidade, o PCA, e também foram explorados [&#8230;]</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Por: RECONHECIMENTO DE DÍGITOS ESCRITOS A MÃO – PARTE 2 - Flavio Barros</title>
+		<link>./../index.html#comment-103</link>
+		<dc:creator><![CDATA[RECONHECIMENTO DE DÍGITOS ESCRITOS A MÃO – PARTE 2 - Flavio Barros]]></dc:creator>
+		<pubDate>Fri, 02 Oct 2015 23:02:24 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=746#comment-103</guid>
+		<description><![CDATA[[&#8230;] RECONHECIMENTO DE DÍGITOS ESCRITOS A MÃO – PARTE 2 [&#8230;]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] RECONHECIMENTO DE DÍGITOS ESCRITOS A MÃO – PARTE 2 [&#8230;]</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Por: Reconhecimento computacional de dígitos escritos a mão - Parte 2 - Peguei do</title>
+		<link>./../index.html#comment-97</link>
+		<dc:creator><![CDATA[Reconhecimento computacional de dígitos escritos a mão - Parte 2 - Peguei do]]></dc:creator>
+		<pubDate>Thu, 17 Sep 2015 05:54:07 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=746#comment-97</guid>
+		<description><![CDATA[[&#8230;] Assim, nesta segunda parte, vou explorar outras alternativas além do k-nn, e mais do que isso, tentar aplicar algum método de preparação para melhorar a performance dos algoritmos. Aqui vou repetir o procedimento de leitura do outro post, para facilitar a reprodução dessa análise.” [referência: flaviobarros.net] [&#8230;]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] Assim, nesta segunda parte, vou explorar outras alternativas além do k-nn, e mais do que isso, tentar aplicar algum método de preparação para melhorar a performance dos algoritmos. Aqui vou repetir o procedimento de leitura do outro post, para facilitar a reprodução dessa análise.” [referência: flaviobarros.net] [&#8230;]</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Por: Flavio Barros</title>
+		<link>./../index.html#comment-96</link>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+		<pubDate>Thu, 17 Sep 2015 01:05:00 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=746#comment-96</guid>
+		<description><![CDATA[A título de curiosidade eu rodei novamente o SVM com Kernel RBF e ajuste de hiperparâmetros por validação cruzada. Consegui o meu melhor score no kaggle até agora: 0.97929 quase 98%. Só que demorou mais de 8 horas para ajustar. Em breve vou apresentar esses resultados na Parte 3.]]></description>
+		<content:encoded><![CDATA[<p>A título de curiosidade eu rodei novamente o SVM com Kernel RBF e ajuste de hiperparâmetros por validação cruzada. Consegui o meu melhor score no kaggle até agora: 0.97929 quase 98%. Só que demorou mais de 8 horas para ajustar. Em breve vou apresentar esses resultados na Parte 3.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Por: Paulo Junior</title>
+		<link>./../index.html#comment-95</link>
+		<dc:creator><![CDATA[Paulo Junior]]></dc:creator>
+		<pubDate>Wed, 16 Sep 2015 00:11:00 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=746#comment-95</guid>
+		<description><![CDATA[aaah muito bom!!]]></description>
+		<content:encoded><![CDATA[<p>aaah muito bom!!</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Por: Flavio Barros</title>
+		<link>./../index.html#comment-94</link>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+		<pubDate>Tue, 15 Sep 2015 23:47:00 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=746#comment-94</guid>
+		<description><![CDATA[OI Paulo Junior. É possível sim. Na verdade eu já consegui superar os 97% no dataset do MNIST com o randomForest inclusive. O SVM com Kernel RBF tem um desempenho dessa ordem mais ou menos também. Mas isso eu deixei para colocar na parte 3 ;-)]]></description>
+		<content:encoded><![CDATA[<p>OI Paulo Junior. É possível sim. Na verdade eu já consegui superar os 97% no dataset do MNIST com o randomForest inclusive. O SVM com Kernel RBF tem um desempenho dessa ordem mais ou menos também. Mas isso eu deixei para colocar na parte 3 😉</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Por: Paulo Junior</title>
+		<link>./../index.html#comment-93</link>
+		<dc:creator><![CDATA[Paulo Junior]]></dc:creator>
+		<pubDate>Mon, 14 Sep 2015 13:06:00 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=746#comment-93</guid>
+		<description><![CDATA[Bom dia, daria para usar SVM com vários tipos de kernel&#039;s ? Lembro que fiz algo parecido com Rede Neural e o resultado era em torno de 94%]]></description>
+		<content:encoded><![CDATA[<p>Bom dia, daria para usar SVM com vários tipos de kernel&#8217;s ? Lembro que fiz algo parecido com Rede Neural e o resultado era em torno de 94%</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Git &amp; Github &#8211; R Mining</title>
+	<atom:link href="./index.html" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Mineração de Dados, Estatística, Tecnologia</description>
+	<lastBuildDate>Tue, 17 Jan 2017 10:04:59 +0000</lastBuildDate>
+	<language>pt-BR</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.7.1</generator>
+	<item>
+		<title>Como fazer um carômetro em Shiny</title>
+		<link>./../../../2016/09/27/como-fazer-um-carometro-em-shiny/index.html</link>
+		<comments>./../../../2016/09/27/como-fazer-um-carometro-em-shiny/index.html#respond</comments>
+		<pubDate>Tue, 27 Sep 2016 16:18:01 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Git & Github]]></category>
+		<category><![CDATA[R e RStudio]]></category>
+		<category><![CDATA[Shiny]]></category>
+
+		<guid isPermaLink="false">./../../../index.html?p=971</guid>
+		<description><![CDATA[Eu venho utilizando o Shiny há um bom tempo. Eu acho que é uma tecnologia fantástica que permite aos usuários da linguagem R criarem pequenas aplicações web que expões scripts, pacotes, funções e diversos outros produtos baseados em dados, sem a necessidade de aprender Javascript, CSS e etc. De fato o que o Shiny faz não é ciência de foguete, mas o público que utiliza o R, em sua maioria, não são programadores web, tal...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">Eu venho utilizando o Shiny há um bom tempo. Eu acho que é uma tecnologia fantástica que permite aos usuários da linguagem R criarem pequenas aplicações web que expões scripts, pacotes, funções e diversos outros produtos baseados em dados, sem a necessidade de aprender Javascript, CSS e etc. De fato o que o Shiny faz não é ciência de foguete, mas o público que utiliza o R, em sua maioria, não são programadores web, tal que com essa tecnologia eles podem criar pequenas aplicações imediatamente.</p>
+<h2 style="text-align: justify;">Carômetro</h2>
+<p style="text-align: justify;">Eu não sei ao certo onde surgiu esse termo, mas é utilizado em geral como um repositório de informações de pessoas com uma foto associada, com a &#8220;cara&#8221; das pessoas. Eu que já fui professor em escolas da educação básica e já vi em várias delas o uso do carômetro para identificação dos alunos em conselhos. Mais recentemente ele vem sendo bastante utilizado na política e de fato há vários exemplos em várias linguagens de como fazer <a href="https://github.com/germanocorrea/carometro">carômetros</a>.</p>
+<h2>Carômetro no Shiny</h2>
+<p style="text-align: justify;">Quando eu tive a ideia de construir esse carômetro em Shiny eu fui procurar na internet achando que seria algo trivial de fazer. De fato, não que seja algo muito complicado como em breve você vai ver, mas não encontrei nada pronto e também não me foi imediato qual a melhor estratégia usar. O que eu fiz então? Basicamente eu utilizei o <a href="https://rstudio.github.io/shinydashboard/">ShinyDashboard</a>, coloquei as imagens dentro de um box() e adicionei todas as informações necessárias, salvas em um arquivo de dados com as informações de cada deputado.</p>
+<p style="text-align: justify;">O código no Github está disponível aqui:</p>
+<p><a href="https://github.com/flaviobarros/carometro">https://github.com/flaviobarros/carometro</a></p>
+<h2>Detalhes</h2>
+<p>Para quem não tem experiência com o Shiny eu vou salientar dois recursos que eu utilizei. O primeiro foi com relação a filtragem dos dados da tabela deputados. No excerto de código a seguir, que está no arquivo <a href="https://github.com/flaviobarros/carometro/blob/master/server.R">server.R</a>, você vai ver que eu crio uma função para a tabela, baseada nos inputs das caixas de seleção, e sempre que preciso apresentar os dados dos deputados eu me refiro ao função deputados(), tal que garanto que a filtragem é executada toda vez, mantendo a apresentação atualizada.</p>
+<pre class="lang:r decode:true ">## Observer
+  deputados &lt;- reactive({
+    load("./data/deputados.rda")
+    deputados &lt;- deputados %&gt;%
+      filter(voto %in% input$voto)
+  })</pre>
+<p>Esse é um padrão chamado observer, muito útil nesse tipo de situação.</p>
+<p style="text-align: justify;">O segundo recurso que eu utilizei nesse app, e que pode parecer bem estranho, é que parte da UI está dentro do <a href="https://github.com/flaviobarros/carometro/blob/master/server.R">server.R</a>. Eu fiz isso porque desde a primeira apresentação, essa parte da UI DEPENDE DOS DADOS FILTRADOS dos deputados. Essa apresentação depende da função deputados(), logo eu declarei um espaço para os boxes no ui.R mas a renderização de fato ocorre dentro do server, depois que os dados de deputados são filtrados.</p>
+<h2 style="text-align: justify;">Preview</h2>
+<p>Segue um gif com o preview da aplicação.</p>
+<p><a href="./../../../wp-content/uploads/2016/09/anim.gif"><img class="aligncenter size-full wp-image-974" src="./../../../wp-content/uploads/2016/09/anim.gif" alt="carometro" width="1331" height="738" /></a></p>
+<p>Ela também se encontra disponível no shinyapps.io: <a href="https://flaviobarros.shinyapps.io/carometro/">https://flaviobarros.shinyapps.io/carometro/</a></p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2016/09/27/como-fazer-um-carometro-em-shiny/feed/index.html</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Curso &#8220;As Ferramentas do Cientista de Dados&#8221; do Coursera</title>
+		<link>./../../../2015/09/10/curso-as-ferramentas-do-cientista-de-dados-do-coursera/index.html</link>
+		<comments>./../../../2015/09/10/curso-as-ferramentas-do-cientista-de-dados-do-coursera/index.html#comments</comments>
+		<pubDate>Fri, 11 Sep 2015 00:24:53 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Educação]]></category>
+		<category><![CDATA[Estatística]]></category>
+		<category><![CDATA[Git & Github]]></category>
+		<category><![CDATA[MOOCS]]></category>
+		<category><![CDATA[R e RStudio]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=741</guid>
+		<description><![CDATA[Hoje eu vou fazer uma pequena resenha sobre o curso &#8220;As Ferramentas do Cientista de Dados&#8221; oferecido pelo Coursera, com o objetivo de avaliar o curso e direcionar os leitores sobre a escolha de fazê-lo ou não. Sobre o que é o curso? Inicialmente eu gostaria de destacar que esse é o curso inicial da especialização em Data Science do Coursera, oferecida em parceria com professores da Johns Hopkins University. A especialização compreende 10 cursos...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">Hoje eu vou fazer uma pequena resenha sobre o curso &#8220;<span style="color: #0000ff;"><a style="color: #0000ff;" href="https://www.coursera.org/course/datascitoolbox">As Ferramentas do Cientista de Dados</a></span>&#8221; oferecido pelo Coursera, com o objetivo de avaliar o curso e direcionar os leitores sobre a escolha de fazê-lo ou não.</p>
+<h2 style="text-align: justify;">Sobre o que é o curso?</h2>
+<p style="text-align: justify;">Inicialmente eu gostaria de destacar que esse é o curso inicial da especialização em <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://www.coursera.org/specializations/jhudatascience?utm_medium=courseDescripTop">Data Science do Coursera</a></span>, oferecida em parceria com professores da Johns Hopkins University. A especialização compreende 10 cursos que em tese capacitam o aluno como um cientista de dados júnior.</p>
+<p style="text-align: justify;">Esse curso em especial atua como uma forma de preparação inicial, introduzindo as ideias da especialização como um todo e fornecendo aos alunos um direcionamento com relação as ferramentas que ele vai utilizar durante os 9 cursos seguintes. Em resumo, ele oferece:</p>
+<ul>
+<li style="text-align: justify;">Introdução sobre todos os outros 9 cursos</li>
+<li style="text-align: justify;">Breve introdução ao <a href="https://www.r-project.org/">R</a> &amp; <a href="https://www.rstudio.com/">RStudio</a></li>
+<li style="text-align: justify;">Como instalar pacotes no <a href="https://www.r-project.org/">R</a></li>
+<li style="text-align: justify;">Introdução ao <a href="http://rmarkdown.rstudio.com/">RMarkdown</a></li>
+<li style="text-align: justify;"><a href="https://git-scm.com/book/pt-br/v1/Primeiros-passos-No%C3%A7%C3%B5es-B%C3%A1sicas-de-Git">Git</a> e <a href="https://github.com/">Github</a></li>
+<li style="text-align: justify;">Introdução ao que é Ciência de Dados e Big Data</li>
+</ul>
+<h2>Quanto tempo leva?</h2>
+<p style="text-align: justify;">O curso é previsto para 3 semanas, mas de fato com um mínimo de dedicação é possível realizar TODAS AS TAREFAS EM 1 HORA. Não estou brincando, realmente em uma hora você pode terminar tudo, principalmente se você já usou um <a href="http://git-scm.com/">git</a> ou <a href="https://github.com/">github</a> pelo menos uma vez na vida. Eu me inscrevi para avaliar o curso e fiz tudo em uma hora.</p>
+<h2 style="text-align: justify;">Vale a pena?</h2>
+<p style="text-align: justify;">Essa é uma questão difícil de responder, mas atualmente eu diria que não. Por quê? Porque o curso isoladamente não significa nada. Se o aluno pretende aprender a usar o <a href="http://git-scm.com/">git</a> e <a href="https://github.com/">github</a> existem recursos gratuitos muito melhores na internet. Além disso a introdução que ele faz dos outros cursos, e mesmo alguns conteúdos apresentados, bem poderiam fazer parte dos outros 9 cursos da especialização. Enfim, só faz sentido fazer esse curso se você planeja terminar a especialização inteira, uma vez que você é obrigado a concluir os 10 cursos para poder participar do <a href="https://www.coursera.org/course/dsscapstone">projeto final</a>.</p>
+<h2 style="text-align: justify;">Nem a parte sobre Git vale a pena?</h2>
+<p style="text-align: justify;">Como eu disse eu acredito que esse curso poderia ser canibalizado pelos outros, e na minha opinião, não havia a necessidade de criar um curso separado só para isso. Ainda assim posso dizer que a introdução ao Git e Github é razoável, pensando em um usuário que nunca viu Git e não sabe o que é.</p>
+<h2 style="text-align: justify;">Conclusão</h2>
+<p style="text-align: justify;">Se você pretende fazer a especialização vai ter que fazer esse curso, caso contrário existem materiais melhores, gratuitos, onde você pode ter uma boa ideia e uma boa introdução a todos os tópicos tratados nesse curso.</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2015/09/10/curso-as-ferramentas-do-cientista-de-dados-do-coursera/feed/index.html</wfw:commentRss>
+		<slash:comments>7</slash:comments>
+		</item>
+		<item>
+		<title>Criando repositórios no Github a partir shell</title>
+		<link>./../../../2015/05/14/criando-repositorios-no-github-a-partir-shell/index.html</link>
+		<comments>./../../../2015/05/14/criando-repositorios-no-github-a-partir-shell/index.html#comments</comments>
+		<pubDate>Thu, 14 May 2015 17:52:34 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Git & Github]]></category>
+		<category><![CDATA[Linux]]></category>
+		<category><![CDATA[boas práticas]]></category>
+		<category><![CDATA[controle de versão]]></category>
+		<category><![CDATA[web]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=656</guid>
+		<description><![CDATA[Esse vai ser um post curto, com um dica rápida. É algo que eu uso e acho bem útil, portanto vou compartilhar. Bom, inicialmente, para quem não sabe, o Github é um Web Hosting para projetos que utilizam o sistema de controle de versões git. O Github é excelente e você pode criar projetos open source, ou mesmo pagar pelo serviço para ter repositórios privados. O Github é hoje o padrão em termos de repositório...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">Esse vai ser um post curto, com um dica rápida. É algo que eu uso e acho bem útil, portanto vou compartilhar. Bom, inicialmente, para quem não sabe, o <a href="https://github.com/" target="_blank">Github</a> é um Web Hosting para projetos que utilizam o sistema de controle de versões <a href="http://git-scm.com/" target="_blank">git</a>. O Github é excelente e você pode criar projetos open source, ou mesmo pagar pelo serviço para ter repositórios privados. O Github é hoje o padrão em termos de repositório de projetos de código fonte aberto. A maior parte dos grandes projetos open source é desenvolvida por lá, e só para citar alguns dos grandes, estão lá por exemplo: o <a href="https://github.com/torvalds/linux" target="_blank">Linux</a>, o <a href="https://github.com/WordPress/WordPress" target="_blank">WordPress</a>, vários projetos da fundação <a href="https://github.com/apache" target="_blank">Apache</a>,  <a href="https://github.com/dotnet" target="_blank">.NET</a>, <a href="https://github.com/django/django" target="_blank">Django</a>, <a href="https://github.com/rails/rails" target="_blank">Rails</a>, o <a href="https://github.com/docker/docker" target="_blank">Docker</a> dentre muitos outros.</p>
+<p style="text-align: justify;">Eu uso em diversos projetos meus, a maioria de código fonte aberto. MAS, uma coisa que me incomodava, era a necessidade de entrar na interface web, logar e ter que criar lá o novo repositório. Só depois disso que eu poderia voltar para o terminal e adicionar o repositório remoto com um <a href="http://git-scm.com/book/pt-br/v1/Git-Essencial-Trabalhando-com-Remotos" target="_blank">git remote</a>. De fato, o que eu gostaria mesmo era de fazer tudo do terminal: criar um repositório novo com o git, criar um projeto no github, adicionar o remoto e já dar um git push, sem navegador, sem interface web!</p>
+<p style="text-align: justify;">Fazer isso é possível, pois o Github conta com uma <a href="https://developer.github.com/v3/" target="_blank">API</a> que pode ser utilizada por outras aplicações. Aliás, a bem da verdade, o Github tem GUI&#8217;s completas para o <a href="https://windows.github.com/" target="_blank">Windows</a> e para o <a href="https://mac.github.com/" target="_blank">MAC</a>, sem contar as <a href="http://git-scm.com/downloads/guis" target="_blank">muitas outras</a> que existem por ai, mas eu queria simplesmente um comando. Pensando nisso eu fiz o comando eu mesmo com o <a href="https://www.python.org/" target="_blank">Python</a>: o código fonte você encontra <a href="https://github.com/flaviobarros/create_git_repo" target="_blank">aqui</a>.</p>
+<pre class="lang:python decode:true ">#!/usr/bin/env python
+# This Python file uses the following encoding: utf-8
+
+import os
+
+usuario = "seu_usuario"
+
+print 'Defina o título do projeto: '
+projectname = raw_input()
+
+print 'Defina a descrição do projeto: '
+description = raw_input()
+
+comando = 'curl -u ' + usuario + ' https://api.github.com/user/repos ' + "'" + '-d' + '{"name":"' + projectname + '","description":"' + description + '"}' + "'"
+
+print(comando)
+os.system(comando)</pre>
+<p style="text-align: justify;">Não é ciência de foguete, mas supre a demanda. Basta trocar o &#8220;seu_usuario&#8221; pelo seu usuário no Github, colocar esse arquivo no PATH do seu Sistema Operacional e o comando ficará disponível na linha de comando. O fluxo de trabalho fica muito simples:</p>
+<p>1) crie um repositório do git do zero;</p>
+<pre class="lang:sh decode:true">git init</pre>
+<p>2) adicione os arquivos;</p>
+<pre class="lang:r decode:true">git add -A .</pre>
+<p>3) dê o primeiro commit;</p>
+<pre class="lang:sh decode:true">git commit -am "Primeiro commit"</pre>
+<p>4) Use o novo comando create_git_repo e crie o repositório no github;</p>
+<pre class="lang:sh decode:true">create_git_repo</pre>
+<p>5) Adicione o remoto;</p>
+<pre class="lang:sh decode:true ">git remote add origin git@github.com:seu_usuario/seu_projeto.git</pre>
+<p>6) Envie tudo para o remoto;</p>
+<pre class="lang:sh decode:true ">git push origin master</pre>
+<p>Enfim, você não precisa sair do terminal!</p>
+<p style="text-align: justify;">Um detalhe importante é que na primeira pergunta o script lhe pede o título do projeto. Coloque o título da forma como vai querer o &#8220;seu_proejto.git&#8221;, i.e, se quiser com underline já coloque underline, ou qualquer outro caractere.</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2015/05/14/criando-repositorios-no-github-a-partir-shell/feed/index.html</wfw:commentRss>
+		<slash:comments>5</slash:comments>
+		</item>
+	</channel>
+</rss>

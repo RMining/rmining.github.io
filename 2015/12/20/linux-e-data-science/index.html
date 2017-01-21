@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="./../../../../xmlrpc.php">
+
+<title>Linux e data science &#8211; R Mining</title>
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Feed para R Mining &raquo;" href="./../../../../feed/index.html" />
+<link rel="alternate" type="application/rss+xml" title="Feed de comentários para R Mining &raquo;" href="./../../../../comments/feed/index.html" />
+<link rel="alternate" type="application/rss+xml" title="Feed de comentários para R Mining &raquo; Linux e data science" href="./feed/index.html" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/svg\/","svgExt":".svg","source":{"concatemoji":".\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.7.1"}};
+			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),!(j.toDataURL().length<3e3)&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,65039,8205,55356,57096),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,55356,57096),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55357,56425,55356,57341,8205,55357,56507),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55357,56425,55356,57341,55357,56507),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='profitmag-font-awesome-css'  href='./../../../../wp-content/themes/profitmag/css/font-awesome.min.css?ver=4.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-bxslider-style-css'  href='./../../../../wp-content/themes/profitmag/css/jquery.bxslider.css?ver=4.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-ticker-style-css'  href='./../../../../wp-content/themes/profitmag/css/ticker-style.css?ver=4.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-noivolightbox-style-css'  href='./../../../../wp-content/themes/profitmag/css/nivo-lightbox.css?ver=4.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-scrollcss-css'  href='./../../../../wp-content/themes/profitmag/css/jquery.mCustomScrollbar.css?ver=4.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-google-font-css'  href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic&#038;subset=latin,latin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-style-css'  href='./../../../../wp-content/themes/profitmag/style.css?ver=4.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-responsive-css'  href='./../../../../wp-content/themes/profitmag/css/responsive.css?ver=4.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-color-scheme-css'  href='./../../../../wp-content/themes/profitmag/css/orange.css' type='text/css' media='all' />
+<script type='text/javascript' src='./../../../../wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='./../../../../wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript' src='./../../../../wp-content/themes/profitmag/js/nivo-lightbox.min.js?ver=4.7.1'></script>
+<script type='text/javascript' src='./../../../../wp-content/themes/profitmag/js/jquery.slicknav.min.js?ver=4.7.1'></script>
+<script type='text/javascript' src='./../../../../wp-content/themes/profitmag/js/modernizr.min.js?ver=2.6.2'></script>
+<link rel='https://api.w.org/' href='./../../../../wp-json/index.html' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="./../../../../xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="./../../../../wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Curso &#8220;Pratical Machine Learning&#8221; do Coursera' href='./../../../09/29/curso-pratical-machine-learning-do-coursera/index.html' />
+<link rel='next' title='Compartilhe Shiny Apps com o Docker e o Kitematic!' href='./../../28/compartilhe-shiny-apps-com-o-docker-e-o-kitematic/index.html' />
+<meta name="generator" content="WordPress 4.7.1" />
+<link rel="canonical" href="./index.html" />
+<link rel='shortlink' href='./../../../../index.html?p=778' />
+<link rel="alternate" type="application/json+oembed" href="./../../../../wp-json/oembed/1.0/embed/index.html?url=http%3A%2F%2F%2F2015%2F12%2F20%2Flinux-e-data-science%2F" />
+<link rel="alternate" type="text/xml+oembed" href="./../../../../wp-json/oembed/1.0/embed/index.html?url=http%3A%2F%2F%2F2015%2F12%2F20%2Flinux-e-data-science%2F&#038;format=xml" />
+<style type="text/css"></style></head>
+
+<body class="post-template-default single single-post postid-778 single-format-standard group-blog right_sidebar">
+
+<div id="page" class="hfeed site">
+	
+
+	<header id="masthead" class="site-header clearfix" role="banner">
+        <div class="top-header-block clearfix">
+            <div class="wrapper">
+                        
+                        <div class="right-header f-right">
+                                                    </div>
+             </div>          
+         </div><!-- .top-header-block -->
+
+        <div class="wrapper header-wrapper clearfix">
+        		<div class="header-container"> 
+                
+                    
+                    
+                    <div class="site-branding clearfix">
+            			<div class="site-logo f-left">
+                           
+                                
+                                     <a href="./../../../../index.html" rel="home" class="site-title">
+
+                                        R Mining                                    </a> 
+                                    
+                                        <p class="site-description">Mineração de Dados, Estatística, Tecnologia</p>
+
+                                                               
+                        </div>
+                        
+                                                			
+            		</div>
+
+                                
+            		<nav id="site-navigation" class="main-navigation home-nav-icon clearfix menu-left" role="navigation" >
+            			<div class="desktop-menu clearfix">
+                                                        <div class="home-icon">
+                                    <a href="./../../../../index.html" title="R Mining"><i class="fa fa-home"></i></a>
+                                </div>
+                                <div class="menu-links-container"><ul id="menu-links" class="menu"><li id="menu-item-173" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-173"><a href="http://www.r-bloggers.com/">R-Bloggers! Dicas e códigos para R.</a></li>
+<li id="menu-item-846" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-846"><a href="./../../../../sobre-mim/index.html">Sobre mim</a></li>
+<li id="menu-item-822" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-822"><a href="./../../../../newsletter/index.html">newsletter</a></li>
+</ul></div>
+                        <div class="search-block">
+                                                            <form role="search" method="get" id="searchform" class="searchform" action="./../../../../index.html" >
+    <div><label class="screen-reader-text" for="s"></label>
+    <input type="text" value="" name="s" id="s" placeholder="Search" />
+    <input type="submit" id="searchsubmit" value="Search" />
+    </div>
+    </form>                                                    </div>
+                        </div>
+                        <div class="responsive-slick-menu clearfix"></div>
+                        
+            		</nav><!-- #site-navigation -->
+        
+                </div> <!-- .header-container -->
+        </div><!-- header-wrapper-->
+        
+	</header><!-- #masthead -->
+    
+
+    <div class="wrapper content-wrapper clearfix">
+
+        <div class="slider-feature-wrap clearfix">
+            <!-- Slider -->
+                        
+            <!-- Featured Post Beside Slider -->
+                    	
+                    </div>    
+            <div id="content" class="site-content">
+    
+   
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+
+		            
+			
+<article id="post-778" class="post-778 post type-post status-publish format-standard has-post-thumbnail hentry category-linux">
+	<header class="entry-header">
+		<h1 class="entry-title">Linux e data science</h1>
+		<div class="entry-meta">
+			<span class="posted-on">Posted on <a href="./index.html" rel="bookmark"><time class="entry-date published" datetime="2015-12-20T17:49:47+00:00">dezembro 20, 2015</time><time class="updated" datetime="2015-12-21T00:20:42+00:00">dezembro 21, 2015</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="./../../../../author/admin/index.html">Flavio Barros</a></span></span>		</div><!-- .entry-meta -->
+	</header><!-- .entry-header -->
+
+	<div class="single-feat clearfix">
+        <figure class="single-thumb">
+            <img width="304" height="353" src="./../../../../wp-content/uploads/2015/12/tux.png" class="attachment-single-thumb size-single-thumb wp-post-image" alt="" srcset="./../../../../wp-content/uploads/2015/12/tux.png 2000w, ./../../../../wp-content/uploads/2015/12/tux-259x300.png 259w, ./../../../../wp-content/uploads/2015/12/tux-768x891.png 768w, ./../../../../wp-content/uploads/2015/12/tux-883x1024.png 883w" sizes="(max-width: 304px) 100vw, 304px" />        </figure>
+        
+        <div class="related-post">
+            <h2 class="block-title"><span class="bordertitle-red"></span>Related Post</h2>
+            <ul>                
+                    <li><a href="./../../28/compartilhe-shiny-apps-com-o-docker-e-o-kitematic/index.html" title="Compartilhe Shiny Apps com o Docker e o Kitematic!">Compartilhe Shiny Apps com o Docker e o Kitematic!</a></li> 
+                   
+                    
+                    <li><a href="./../../../08/21/r-rstudio-no-docker-com-2-cliques/index.html" title="R &#038; RStudio no Docker com 2 cliques!">R &#038; RStudio no Docker com 2 cliques!</a></li> 
+                   
+                    
+                    <li><a href="./../../../08/10/share-your-shiny-apps-with-docker-and-kitematic/index.html" title="Share your Shiny Apps with Docker and Kitematic!">Share your Shiny Apps with Docker and Kitematic!</a></li> 
+                   
+                    
+                    <li><a href="./../../../05/14/criando-repositorios-no-github-a-partir-shell/index.html" title="Criando repositórios no Github a partir shell">Criando repositórios no Github a partir shell</a></li> 
+                   
+                    
+                    <li><a href="./../../../05/02/git-push-no-django-com-o-dokku-basico/index.html" title="Git push no Django com o Dokku &#8211; básico">Git push no Django com o Dokku &#8211; básico</a></li> 
+                   
+    </ul>    
+                <ul>
+                
+            </ul>
+        </div>
+    </div>
+    
+    <div class="entry-content">
+		
+        <figure></figure>
+        <p style="text-align: justify;">Até hoje, infelizmente, nunca escrevi sobre o Linux neste blog. Infelizmente pois o Linux foi, e ainda é, um dos meus hobbies prediletos. Eu tive uma das primeiras experiências com o Linux por meio do <a href="https://pt.wikipedia.org/wiki/Conectiva#Vers.C3.B5es_instal.C3.A1veis">Conectiva 4</a>, em 1999, mas acabei na época não o utilizando integralmente, principalmente, por conta dos famigerados <a href="https://pt.wikipedia.org/wiki/Winmodem">winmodems</a>. Também utilizei esporadicamente outra famosa distribuição Live CD brasileira, o <a href="https://pt.wikipedia.org/wiki/Kurumin">Kurumin Linux</a>, mas só passei a utilizar o Linux integralmente a partir de 2004 com Slackware 10.0.</p>
+<p style="text-align: justify;">Enfim, desde 2004 eu utilizo o Linux integralmente em minhas máquinas, desktops e servidores, tal que nesses anos todos tive a oportunidade de ver melhor as diferenças entre as plataformas e se vale a pena ou não utilizar o Linux hoje em dia. Assim, nesse post, pretendo apresentar para os leitores o porque eu acredito que ainda vale muito a pena aprender a utilizar o Linux, porque é importante ter esse conhecimento da perspectiva de um cientista de dados e quais as distribuições Linux que indicaria para alguém utilizar. Então vamos a algumas questões importantes!</p>
+<h2 style="text-align: justify;">1. O que é o Linux?</h2>
+<p style="text-align: justify;">O termo Linux é vulgarmente utilizado para se referir a um <a href="https://pt.wikipedia.org/wiki/Sistema_operativo">sistema operacional </a>completo. Entretanto, para ser mais preciso, as distribuições Linux que você encontra por aí, como o <a href="https://www.debian.org/index.pt.html">Debian</a> e o <a href="https://getfedora.org/">Fedora</a> por exemplo, são na verdade sistemas operacionais completos, com Kernel, compiladores, bibliotecas e etc, que devem ser designados como <a href="https://pt.wikipedia.org/wiki/Linux">GNU Linux</a> (pelo menos da perspectiva da <a href="https://pt.wikipedia.org/wiki/Free_Software_Foundation">FSF</a>). O Linux mesmo, na verdade, é o <a href="https://en.wikipedia.org/wiki/Kernel_(operating_system)">Kernel</a> Linux, uma parte fundamental de qualquer sistema operacional completo, o núcleo do sistema, e que outros sistemas operacionais, como o próprio <a href="https://pt.wikipedia.org/wiki/Microsoft_Windows">Windows</a> ou <a href="https://pt.wikipedia.org/wiki/OS_X">OS X</a>, também têm. Não vou entrar em detalhes sobre a história do <a href="https://www.kernel.org/">Kernel Linux</a>, mas em linhas gerais é um Kernel que foi desenvolvido como um projeto pessoal de Linus Torvalds, e que revolucionou a <a href="https://pt.wikipedia.org/wiki/Linus_Torvalds">tecnologia da informação</a>.</p>
+<h2 style="text-align: justify;">2. Por que eu deveria aprender a usar o Linux?</h2>
+<p style="text-align: justify;">Da perspectiva de um Cientista de Dados, ou um profissional de TI, ou qualquer pessoa da área técnica, eu considero muito importante aprender, ou ter uma noção básica deste sistema operacional, porque o Linux praticamente move a internet. Para você ter uma ideia da importância desse sistema operacional hoje, ele é utilizado internamente pelas maiores empresas de tecnologia do mundo, como o Google e a Amazon, e é utilizado na infraestrutura de diversas partes da internet, como roteadores, servidores, hosts e etc. Só para não dizer que eu tirei da cartola essa informação, segundo a <a href="http://w3techs.com/">W3techs</a>, sistemas operacionais <a href="https://pt.wikipedia.org/wiki/Unix">Unix</a> <a href="http://w3techs.com/technologies/overview/operating_system/all">contemplam dois terços</a> da fatia de mercado de servidores. Desses dois terços, mais da metade são <a href="http://w3techs.com/technologies/details/os-unix/all/all">máquinas Linux</a>. Também vale ressaltar que um dos sistemas operacionais mais bem sucedidos em dispositivos móveis, o <a href="https://pt.wikipedia.org/wiki/Android">Android</a>, é basicamente o Linux. Assim, mesmo que você esteja usando o Windows ou o OS X na sua máquina, na verdade você acaba indiretamente utilizando o Linux, seja no celular, ao acessar um site ou mesmo no roteador da sua casa.</p>
+<h2 style="text-align: justify;">3. Ok, mas porque eu deveria tentar usar no desktop?</h2>
+<p style="text-align: justify;">Bem, da perspectiva de um cientista de dados é importante, pois com a emergência do Big Data, internet das coisas, web inteligente, uma das formas de ofertar os produtos baseados em dados que você pode criar, é disponibiliza-los na internet, utilizando principalmente o Linux. Assim, o conhecimento que você adquire no uso diário da plataforma, pode ser aproveitado depois quando você precisar fazer implantações de software dos seus produtos e análises. Aliás eu já mostrei aqui nesse blog como fazer implantações de <a href="./../../../05/11/git-pushing-shiny-apps-with-docker-dokku/index.html">aplicações Shiny</a> e do <a href="./../../../../2014/12/03/wordpress-do-digital-ocean/index.html">WordPress</a> em um servidor privado usando Linux. Esse blog mesmo que você está lendo foi implantado usando o Linux.</p>
+<h2 style="text-align: justify;">4. E para um usuário não técnico?</h2>
+<p style="text-align: justify;">Na minha opinião uma das vantagens do Linux é que ele é, em geral, mais seguro que sistemas Windows. Eu digo em geral porque isso nem sempre é verdade para todos os usuários, e a segurança não é só uma questão dos sistema operacional em si. Não vou me aprofundar no tema segurança, mas dentre as razões de o Linux ser mais seguro, se destacam:</p>
+<ul>
+<li style="text-align: justify;">Como a fatia de mercado é menor em desktops, praticamente <a href="http://www.diolinux.com.br/2014/02/por-que-linux-android-nao-pega-virus.html">não existem vírus</a>;</li>
+<li style="text-align: justify;">Você pode obter a maioria dos aplicativos pela própria distribuição, o que é muito mais seguro;</li>
+<li style="text-align: justify;">A arquitetura do sistema é mais segura;</li>
+<li style="text-align: justify;">Como é <a href="https://pt.wikipedia.org/wiki/C%C3%B3digo_aberto">open source</a> as falhas de segurança podem ser encontradas e corrigidas rapidamente;</li>
+</ul>
+<p style="text-align: justify;">Existem diversos outros fatores, mas não vou me aprofundar nesse tema aqui. O importante é saber que do ponto de vista de um usuário mediano o Linux costuma ser mais seguro. Naturalmente é importante tomar cuidados mínimos.</p>
+<p style="text-align: justify;">Uma outra questão importante é com relação ao desempenho em computadores antigos. Com relação a isso eu gosto de destacar a história da minha Mãe, que usava o Windows 7 e um Duron com 2Gb de RAM. O micro além de estar sempre muito lento, e praticamente inviabilizar certas tarefas, ainda por cima demorava vários minutos para iniciar e desligar. Com o <a href="http://windows.microsoft.com/pt-br/windows/end-support-help">fim do suporte ao Windows XP</a> (mais leve) ficou praticamente inviável usar o computador com o Windows 7: além de eu ter que dar manutenção sempre que a visitava, a lentidão atrapalhava muito o trabalho e as atividades dela. Para testar se o Linux, em 2015, finalmente poderia ser usado tranquilamente por um usuário leigo, eu fiz uma experiência instalando o <a href="http://elementaryosbr.org/">Elementary OS</a> na máquina. O resultado foi muito bom, e até hoje, praticamente um ano, ela tem utilizado o computador tranquilamente, mostrando como o Linux está mais maduro para usuários finais no desktop.</p>
+<p style="text-align: justify;">Outra vantagem que eu acho interessante é o uso em micro e pequenas empresas. Afinal muitas empresas brasileiras são tão pequenas que o custo de licenças de software podem pesar muito no orçamento e o recurso da pirataria não é uma opção aceitável. Assim, o uso de máquinas Linux, com suítes de escritório open source (<a href="https://www.libreoffice.org/">Libre Office</a> por ex), podem ser uma opção viável para estar de acordo com a lei e usufruir de uma infraestrutura de software robusta. Uma outra vantagem ainda é usar o Linux como um <a href="http://sms.it-ccs.com/">mini servidor</a> na empresa, para compartilhar arquivos, internet, cache, segurança e etc.</p>
+<h2 style="text-align: justify;">5. Certo, mas onde eu pego? Qual Linux instalar?</h2>
+<p style="text-align: justify;">Primeiro gostaria de salientar que o Linux é um pouco diferente do Windows com relação ao que você vai instalar. O Linux é o Kernel, mas organizações ou empresas precisam agregar diversos outros softwares para construir um sistema operacional completo que possa ser usado no Desktop. Assim, essas organizações criam as conhecidas distribuições, como o <a href="http://www.ubuntu.com/">Ubuntu</a> e o <a href="https://www.opensuse.org/">openSUSE</a>, que você deve baixar e instalar. Para ajuda-lo na escolha vou comentar brevemente algo sobre algumas distribuições, minha impressão geral sobre elas, e alguns links úteis para você.</p>
+<p style="text-align: justify;">[tabby title = &#8220;Slackware&#8221;]</p>
+<p style="text-align: justify;"><a href="./../../../../wp-content/uploads/2015/12/slackware.png" rel="attachment wp-att-781"><img class="aligncenter size-full wp-image-781" src="./../../../../wp-content/uploads/2015/12/slackware.png" alt="slackware" width="445" height="126" srcset="./../../../../wp-content/uploads/2015/12/slackware.png 445w, ./../../../../wp-content/uploads/2015/12/slackware-300x85.png 300w" sizes="(max-width: 445px) 100vw, 445px" /></a></p>
+<p style="text-align: justify;">É a distribuição Linux mais antiga em atividade. O Slackware é uma distribuição que não conta com ferramentas gráficas para configuração e instalação de programas. Você deve utilizar somente o terminal. A primeira vista pode parecer um absurdo fazer isso hoje em dia, mas a ideia da distribuição é ser muito simples, segura, robusta e fácil de configurar. Minha sugestão é que, se você nunca usou o Linux, comece com outra distribuição mais fácil de usar (GUI e instalação simples) e depois tente o Slackware. Naturalmente se você tiver a disposição e a mente aberta para utiliza-lo é uma excelente distribuição.</p>
+<p style="text-align: justify;">Eu tenho um carinho especial pois a utilizei por muitos anos e foi a primeira distribuição Linux que passei a utilizar exclusivamente. Em um próximo post vou falar sobre ela. Confira <a href="https://www.youtube.com/watch?v=Irsdf-OFo-E">esse vídeo</a> para maiores detalhes sobre a distribuição.</p>
+<ul>
+<li style="text-align: justify;">Download: <a href="http://www.slackware.com/">http://www.slackware.com/</a></li>
+</ul>
+<p>[tabby title = &#8220;Debian&#8221;]</p>
+<p><a href="./../../../../wp-content/uploads/2015/12/debian.png" rel="attachment wp-att-784"><img class="aligncenter wp-image-784" src="./../../../../wp-content/uploads/2015/12/debian.png" alt="debian" width="542" height="140" srcset="./../../../../wp-content/uploads/2015/12/debian.png 600w, ./../../../../wp-content/uploads/2015/12/debian-300x78.png 300w" sizes="(max-width: 542px) 100vw, 542px" /></a></p>
+<p style="text-align: justify;">O Debian é uma das mais antigas distribuições Linux. É conhecido como um dos mais bem sucedidos projetos open source e é mantido exclusivamente pela comunidade. Dentre as características mais marcantes da distribuição destaca-se que é uma distribuição muito sólida que conta com diversos pacotes de software e é a base de um ecossistema gigantesco de distribuições, incluindo o famoso Ubuntu. O Debian é um sistema operacional completo que pode ser utilizado como servidor e desktop, que pode ser baixado nas versões stable, testing e sid. O stable é super estável mas com software um pouco desatualizado; o testing, base do Ubuntu e diversas outras distribuições, é a distribuição de testes; o sid é experimental e pode ser muito instável. De acordo com a W3techs, é usado por <a href="http://w3techs.com/technologies/details/os-linux/all/all">mais de 32%</a> do total de servidores que usam Linux!</p>
+<p style="text-align: justify;">O Debian é a segunda distribuição que mais usei, e no geral é muito sólida e livre de bugs. Uso sem problemas no Desktop, mas não sugeriria para o usuário iniciante que veio do Windows, devido ao fato de não contar com as facilidades de outras distribuições. Entretanto, no geral, é uma distribuição mais simples e mais fácil que o Slackware. Excelente em servidores. Vejam esse <a href="https://www.youtube.com/watch?v=t9lYbrMS770&amp;index=2&amp;list=PLbBPNfi_li9t3kcNOeGIt4Q9qmhRoReN3">vídeo</a> que é muito interessante e conta com maiores detalhes.</p>
+<p style="text-align: justify;">Download: <a href="https://www.debian.org/index.pt.html">https://www.debian.org/index.pt.html</a></p>
+<p style="text-align: justify;">[tabby title = &#8220;Ubuntu&#8221;]</p>
+<p style="text-align: justify;"><a href="./../../../../wp-content/uploads/2015/12/ublogo2.png" rel="attachment wp-att-786"><img class="aligncenter wp-image-786" src="./../../../../wp-content/uploads/2015/12/ublogo2.png" alt="" width="423" height="110" srcset="./../../../../wp-content/uploads/2015/12/ublogo2.png 1501w, ./../../../../wp-content/uploads/2015/12/ublogo2-300x78.png 300w, ./../../../../wp-content/uploads/2015/12/ublogo2-768x200.png 768w, ./../../../../wp-content/uploads/2015/12/ublogo2-1024x267.png 1024w" sizes="(max-width: 423px) 100vw, 423px" /></a></p>
+<p style="text-align: justify;">O Ubuntu é uma distribuição derivada do Debian, com o foco no usuário final. É simples de instalar e usar e conta com ferramentas exclusivas da distribuição. É uma das distribuições Linux mais utilizadas e é fácil encontrar materiais e ajuda online. O ubuntu lança uma versão nova a cada 6 meses aproximadamente, mas também lança versões com suporte de longo prazo, as versões LTS.</p>
+<p style="text-align: justify;">É uma das distribuições que eu sugiro a um iniciante no Linux. Além de ser fácil de configurar, o Ubuntu tem uma empresa por trás, a <a href="http://www.canonical.com/">Canonical</a>, tal que se você precisar de suporte pago (um pequeno negócio por exemplo) é simples obter. Outro ponto positivo é que o Ubuntu tem investido bastante no segmento de servidores, tal que o que você aprender no uso diário com o Ubuntu no desktop pode ser transferido facilmente para a administração de servidores. Veja esse <a href="https://www.youtube.com/watch?v=mbPFsV3jl4s&amp;list=PLbBPNfi_li9t3kcNOeGIt4Q9qmhRoReN3&amp;index=3">vídeo</a> para maiores detalhes.</p>
+<p style="text-align: justify;">Download: <a href="http://www.ubuntu.com/download/desktop">http://www.ubuntu.com/download/desktop</a></p>
+<p style="text-align: justify;">[tabby title = &#8220;Mint&#8221;]</p>
+<p style="text-align: justify;"><a href="./../../../../wp-content/uploads/2015/12/mint.jpg" rel="attachment wp-att-787"><img class="aligncenter wp-image-787" src="./../../../../wp-content/uploads/2015/12/mint.jpg" alt="mint" width="183" height="183" srcset="./../../../../wp-content/uploads/2015/12/mint.jpg 360w, ./../../../../wp-content/uploads/2015/12/mint-150x150.jpg 150w, ./../../../../wp-content/uploads/2015/12/mint-300x300.jpg 300w, ./../../../../wp-content/uploads/2015/12/mint-65x65.jpg 65w" sizes="(max-width: 183px) 100vw, 183px" /></a></p>
+<p style="text-align: justify;">O Mint é derivado do Ubuntu. Entretanto é totalmente compatível com o mesmo, compartilhando os mesmos repositórios de software. É uma distribuição &#8220;mais pronta&#8221; out of the box, tal que basta instalar e começar a usar. O Mint inclui codecs e outras alterações no Ubuntu, e acompanha o lançamento das versões LTS. Na minha experiência com o Mint eu diria que é uma distribuição estável, sólida, com excelente suporte da comunidade, softwares atualizados  e pouco trabalho de manutenção. Enfim, é um excelente distribuição para quem está saindo do Windows e é super fácil de usar. É uma das minhas sugestões junto ao Ubuntu.</p>
+<p style="text-align: justify;">Download: <a href="http://www.linuxmint.com/">http://www.linuxmint.com/</a></p>
+<p style="text-align: justify;">[tabby title = &#8220;openSUSE&#8221;]</p>
+<p style="text-align: justify;"><a href="./../../../../wp-content/uploads/2015/12/OpenSUSE_official-logo-color.svg_.png" rel="attachment wp-att-788"><img class="aligncenter wp-image-788" src="./../../../../wp-content/uploads/2015/12/OpenSUSE_official-logo-color.svg_.png" alt="OpenSUSE_official-logo-color.svg" width="295" height="186" srcset="./../../../../wp-content/uploads/2015/12/OpenSUSE_official-logo-color.svg_.png 1280w, ./../../../../wp-content/uploads/2015/12/OpenSUSE_official-logo-color.svg_-300x190.png 300w, ./../../../../wp-content/uploads/2015/12/OpenSUSE_official-logo-color.svg_-768x486.png 768w, ./../../../../wp-content/uploads/2015/12/OpenSUSE_official-logo-color.svg_-1024x648.png 1024w" sizes="(max-width: 295px) 100vw, 295px" /></a></p>
+<p style="text-align: justify;">O openSUSE é uma distribuição Linux que foi originariamente derivada do Slackware, mas que com o tempo passou a ser feita do zero. É uma distribuição muito utilizada na Europa e uma das mais utilizadas no mundo. Assim como o Ubuntu, é uma distribuição que conta com uma empresa por trás, a <a href="https://www.novell.com/home/">Novell</a>, tal que é fácil conseguir versões do SUSE para servidores e com suporte. É uma distribuições fácil de usar, com foco no usuário final e eu destacaria que é uma das melhores distribuições com o KDE, conta com uma ferramenta de configuração fantástica, o YAST, e é bastante estável e sólida. Junto ao Ubuntu e ao Mint é uma das minhas sugestões. Assista esse <a href="https://www.youtube.com/watch?v=QKC0ALUSBYg&amp;index=5&amp;list=PLbBPNfi_li9t3kcNOeGIt4Q9qmhRoReN3">vídeo</a> para maiores detalhes sobre a distribuição.</p>
+<p style="text-align: justify;">Download: <a href="https://www.opensuse.org/">https://www.opensuse.org/</a></p>
+<p style="text-align: justify;">[tabby title = &#8220;Fedora/Red Hat/CentOS&#8221;]</p>
+<p style="text-align: justify;"><a href="./../../../../wp-content/uploads/2015/12/fedora_red_hat_centos.jpg" rel="attachment wp-att-790"><img class="aligncenter wp-image-790" src="./../../../../wp-content/uploads/2015/12/fedora_red_hat_centos.jpg" alt="fedora_red_hat_centos" width="232" height="232" srcset="./../../../../wp-content/uploads/2015/12/fedora_red_hat_centos.jpg 500w, ./../../../../wp-content/uploads/2015/12/fedora_red_hat_centos-150x150.jpg 150w, ./../../../../wp-content/uploads/2015/12/fedora_red_hat_centos-300x300.jpg 300w, ./../../../../wp-content/uploads/2015/12/fedora_red_hat_centos-65x65.jpg 65w" sizes="(max-width: 232px) 100vw, 232px" /></a></p>
+<p style="text-align: justify;">Começando pelo <a href="https://www.redhat.com/pt-br">Red Hat</a>, esta é uma distribuição que se tornou uma empresa. A empresa Red Hat oferece a versão do sistema operacional voltado para servidores e desktops em empresas, que se caracteriza por ser muito estável e oferecer excelente suporte. A Red Hat é uma das empresas de software livre mais bem sucedidas da história e também é uma distribuição que marcou a história do Linux. Se você pretende seguir carreira com Linux em grandes empresas essa é uma distribuição que você deve aprender. Veja esse <a href="https://www.youtube.com/watch?v=zr67VlMqsrk&amp;list=PLbBPNfi_li9t3kcNOeGIt4Q9qmhRoReN3&amp;index=4">vídeo</a> para maiores detalhes.</p>
+<p style="text-align: justify;">O <a href="https://www.centos.org/">CentOS</a> é a versão gratuita e sem suporte do Red Hat Enterprise. Como a Red Hat utiliza código open source ela deve fornecer o código fonte da distribuição de alguma maneira (<a href="https://pt.wikipedia.org/wiki/GNU_General_Public_License">GPL</a>). Assim, a equipe do CentOS recompila os fontes, retira as marcas da Red Hat e oferece uma versão comunitária que pode ser usada por empresas e indivíduos, geralmente em servidores. De acordo com a W3techs, os servidores CentOS correspondem a <a href="http://w3techs.com/technologies/details/os-linux/all/all">20%</a> do total de servidores Linux!</p>
+<p style="text-align: justify;">Quando o Red Hat passou a focar a distribuição em grandes empresas nasceu o projeto <a href="https://getfedora.org/">Fedora</a>, que é mantido pela comunidade, com suporte da empresa, e você pode utilizar como desktop. É uma das melhores experiências com o <a href="https://www.gnome.org/">Gnome</a> que você pode encontrar por aí e funciona como uma espécie de versão de testes para o Red Hat Enterprise. Assim espere várias atualizações, um ciclo curto de lançamentos de versões e novas tecnologias. Eu sugiro que você evite o Fedora no começo; se o Red Hat está para o Debian stable, o Fedora está para o Debian testing. Assim, como uma primeira experiência, minha sugestão é que você tente utilizar distribuições com suporte de mais longo prazo, e menos experimentais. ENTRETANTO, gostaria de salientar que na última versão, o Fedora 23, o feedback que tenho visto na comunidade é de que a distribuição está bem estável.</p>
+<p style="text-align: justify;">Download: <a href="https://getfedora.org/">https://getfedora.org/</a></p>
+<p>[tabbyending]</p>
+<h2>6. O que você usa e por que?</h2>
+<p style="text-align: justify;">Eu usei por muitos anos o Slackware em desktops e servidores. Depois com o tempo eu testei diversas outras distribuições por algumas semanas (Fedora, Arch Linux, Mandriva, Ubuntu, SUSE e etc), mas acabei ficando no Debian stable. Cada usuário tem suas necessidades, e de acordo com o meu perfil, minhas demandas são as seguintes:</p>
+<ul>
+<li style="text-align: justify;">Distribuição <strong>estável e livre de bugs</strong> para trabalhar. Para mim é fundamental, uma vez que quando eu tenho que finalizar algo o computador não pode ficar no meu caminho.</li>
+<li style="text-align: justify;">Eu uso <strong>100% a linha de comando</strong> para tarefas administrativas. Assim, para meu uso, uma interface carregada, cheia de recursos, não é necessária.</li>
+<li style="text-align: justify;"><strong>Mínimo possível de atualizações</strong> e não necessito usar versões novas de vários programas.</li>
+<li style="text-align: justify;"><strong>Raramente jogo no computador</strong>, assim eu não preciso de um sistema com tanto suporte a jogos.</li>
+<li style="text-align: justify;">Passo quase 100% do tempo no <strong>RStudio, Navegador e no terminal</strong>. As vezes assisto a algum vídeo.</li>
+<li style="text-align: justify;">Faço algumas <strong>edições de vídeo simples</strong>.</li>
+</ul>
+<p style="text-align: justify;">Devido as minhas necessidades o Slackware e o Debian stable são mais do que suficientes. São minhas distribuições prediletas por isso. Mas veja que meu perfil é bastante diferente da maioria dos usuários, pois muitas pessoas jogam no computador, preferem interfaces gráficas ao invés de usar a linha de comando e preferem ter versões mais novas dos programas. Nesses casos, em geral, o Slackware e o Debian não são as melhores opções. E também é importante lembrar que não existe melhor ou pior, cada distribuição atende melhor determinados perfis de usuário. Todas as distribuições que eu usei foram excelentes, mas as que eu tive melhor experiência em termos das minhas demandas foram essas duas. Também gostaria de salientar que não existe nenhum mérito em utilizar a linha de comando ao invés de interfaces gráficas. Eu acostumei a fazer isso por uma questão de comodidade.</p>
+<h2 style="text-align: justify;">Conclusão</h2>
+<p style="text-align: justify;">O fato concreto é que existem várias distribuições Linux que são tão fáceis de usar quanto o Windows ou o OS X. Essas distribuições são bonitas, seguras, fáceis de usar e instalar, e você ainda vai aprender algo que depois pode usar para fazer implantação em servidores. As três distribuições que eu recomendo são o <a href="http://www.linuxmint.com/download.php">Mint</a>, <a href="http://www.ubuntu.com/download/desktop">Ubuntu LTS</a> e o <a href="https://software.opensuse.org/421/pt_BR">openSUSE</a>. Veja que eu estou deixando de fora o Fedora, pois na minha experiência com o mesmo, eu percebi que ele tem um volume muito grande de atualizações e costuma experimentar bastante com a distribuição. Fora que lança mais de uma versão por ano com suporte curto. Também deixei de fora distribuições <a href="https://pt.wikipedia.org/wiki/Rolling_release">rolling release</a>, como o <a href="https://www.archlinux-br.org/">Arch Linux</a>, que apesar de excelentes, tem alguns inconvenientes com relação a configuração e atualizações constantes que eu sugeriria para você experimentar depois.</p>
+<h2 style="text-align: justify;">SITES</h2>
+<p style="text-align: justify;">Se você quiser aprender mais sobre o Linux existem diversos sites em português com muito material. Vou apresentar uma lista de recomendações aqui:</p>
+<ul>
+<li><a href="https://www.vivaolinux.com.br/">Viva o Linux</a>: muitos tutoriais, dicas e etc. Produzido pela comunidade.</li>
+<li><a href="http://br-linux.org/">Br-Linux</a>: notícias sempre atualizadas sobre o Linux.</li>
+<li>Blog <a href="http://www.diolinux.com.br/">Diolinux</a>: dicas linux, reviews e vídeos.</li>
+<li>Blog <a href="http://www.linuxdescomplicado.com.br/">Linux Descomplicado</a>: notícias e reviews.</li>
+<li>Blog <a href="http://tocadotux.blogspot.ca/">Toca do Tux</a>: notícias, vídeos e reviews. Vários vídeos que eu postei aqui são de lá!</li>
+<li><a href="https://debian-handbook.info/browse/pt-BR/stable/">O Manual do Administrador Debian</a>: um livro online fantástico. Tem tudo que você precisar saber sobre o Debian e a administração do Debian.</li>
+<li><a href="http://slackbookptbr.sourceforge.net/slackbookptbr-1.0.2.pdf">Slackware Essentials</a> (Português): é o guia essencial do Slackware. Não é tão completo quanto o manual do Administrador Debian, mas é muito bom também.</li>
+</ul>
+<p style="text-align: justify;">
+			</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		
+						<span class="cat-links">
+				Posted in <a href="./../../../../category/linux/index.html" rel="category tag">Linux</a>			</span>
+			
+					     
+	
+
+			</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+
+			
+	<nav class="navigation post-navigation" role="navigation">
+		<h2 class="screen-reader-text">Navegação de Post</h2>
+		<div class="nav-links"><div class="nav-previous"><a href="./../../../09/29/curso-pratical-machine-learning-do-coursera/index.html" rel="prev">Curso &#8220;Pratical Machine Learning&#8221; do Coursera</a></div><div class="nav-next"><a href="./../../28/compartilhe-shiny-apps-com-o-docker-e-o-kitematic/index.html" rel="next">Compartilhe Shiny Apps com o Docker e o Kitematic!</a></div></div>
+	</nav>
+			
+<div id="comments" class="comments-area">
+
+	
+	
+	
+		<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title"><span class="bordertitle-red"></span>Leave a Comment <small><a rel="nofollow" id="cancel-comment-reply-link" href="./index.html#respond" style="display:none;">Cancelar resposta</a></small></h3><p class="must-log-in">Você precisa fazer o <a href="./../../../../wp-login.php?redirect_to=http%3A%2F%2F%2F2015%2F12%2F20%2Flinux-e-data-science%2F">login</a> para publicar um comentário.</p>	</div><!-- #respond -->
+	
+</div><!-- #comments -->
+                        
+            
+            
+		
+		</main><!-- #main -->
+	</div><!-- #primary -->
+
+
+    
+            <div id="secondary-right" class="widget-area secondary-sidebar f-right clearfix" role="complementary">
+                        <div id="sidebar-section-top" class="widget-area sidebar clearfix">
+                 		<aside id="profitmag-popular-posts-3" class="widget profitmag_widget_popular_entries">		<h3 class="widget-title"><span>Popular</span></h3>		<ul>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./../../../../2016/09/27/como-fazer-um-carometro-em-shiny/index.html"><img src="./../../../../wp-content/uploads/2016/09/tiririca.jpg" alt="Como fazer um carômetro em Shiny" title="Como fazer um carômetro em Shiny" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./../../../../2016/09/27/como-fazer-um-carometro-em-shiny/index.html">Como fazer um carômetro em Shiny</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>setembro 27, 2016</div>
+			
+			</li>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./../../../../2016/03/12/livros-recomendados-data-science/index.html"><img src="./../../../../wp-content/uploads/2016/03/data_smart.jpg" alt="Livros recomendados &#8211; Data Science" title="Livros recomendados &#8211; Data Science" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./../../../../2016/03/12/livros-recomendados-data-science/index.html">Livros recomendados &#8211; Data Science</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>março 12, 2016</div>
+			
+			</li>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./../../../../2013/06/10/anova-e-teste-de-tukey-no-r/index.html"><img src="./../../../../wp-content/uploads/2013/06/ANOVA-193x112.png" alt="ANOVA e  teste de Tukey no R" title="ANOVA e  teste de Tukey no R" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./../../../../2013/06/10/anova-e-teste-de-tukey-no-r/index.html">ANOVA e  teste de Tukey no R</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>junho 10, 2013</div>
+			
+			</li>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./../../../../2014/10/14/como-fazer-mapas-eleitorais/index.html"><img src="./../../../../wp-content/uploads/2014/10/sampa.png" alt="Como fazer mapas eleitorais" title="Como fazer mapas eleitorais" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./../../../../2014/10/14/como-fazer-mapas-eleitorais/index.html">Como fazer mapas eleitorais</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>outubro 14, 2014</div>
+			
+			</li>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./../../../../2014/02/25/genetic-data-large-matrices-glmnet/index.html"><img src="./../../../../wp-content/uploads/2014/02/geneticdata-193x112.jpg" alt="Genetic data, large matrices and glmnet()" title="Genetic data, large matrices and glmnet()" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./../../../../2014/02/25/genetic-data-large-matrices-glmnet/index.html">Genetic data, large matrices and glmnet()</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>fevereiro 25, 2014</div>
+			
+			</li>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./../../../04/30/dockerizando-shiny-apps/index.html"><img src="./../../../../wp-content/uploads/2017/01/shiny-193x112.png" alt="Dockerizando Shiny Apps" title="Dockerizando Shiny Apps" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./../../../04/30/dockerizando-shiny-apps/index.html">Dockerizando Shiny Apps</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>abril 30, 2015</div>
+			
+			</li>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./../../../../2016/10/15/usando-r-com-o-monetdb/index.html"><img src="./../../../../wp-content/uploads/2016/10/monetdb-final-500.png" alt="Usando R com o MonetDB" title="Usando R com o MonetDB" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./../../../../2016/10/15/usando-r-com-o-monetdb/index.html">Usando R com o MonetDB</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>outubro 15, 2016</div>
+			
+			</li>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./../../../04/30/dockerizing-a-shiny-app/index.html"><img src="./../../../../wp-content/uploads/2017/01/shiny-193x112.png" alt="Dockerizing a Shiny App" title="Dockerizing a Shiny App" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./../../../04/30/dockerizing-a-shiny-app/index.html">Dockerizing a Shiny App</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>abril 30, 2015</div>
+			
+			</li>
+				</ul>
+		</aside><aside id="categories-7" class="widget widget_categories"><h3 class="widget-title"><span>Categorias</span></h3>		<ul>
+	<li class="cat-item cat-item-41"><a href="./../../../../category/aprendizado-de-maquina/index.html" >Aprendizado de Máquina</a>
+</li>
+	<li class="cat-item cat-item-58"><a href="./../../../../category/data-mining/index.html" >Data Mining</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="./../../../../category/digital-ocean/index.html" >Digital Ocean</a>
+</li>
+	<li class="cat-item cat-item-49"><a href="./../../../../category/django/index.html" >Django</a>
+</li>
+	<li class="cat-item cat-item-46"><a href="./../../../../category/docker/index.html" >Docker</a>
+</li>
+	<li class="cat-item cat-item-6"><a href="./../../../../category/educacao/index.html" >Educação</a>
+</li>
+	<li class="cat-item cat-item-13"><a href="./../../../../category/english/index.html" >English</a>
+</li>
+	<li class="cat-item cat-item-4"><a href="./../../../../category/estatistica/index.html" >Estatística</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="./../../../../category/git-github/index.html" >Git &amp; Github</a>
+</li>
+	<li class="cat-item cat-item-67"><a href="./../../../../category/linux/index.html" >Linux</a>
+</li>
+	<li class="cat-item cat-item-57"><a href="./../../../../category/machine-learning/index.html" >Machine Learning</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="./../../../../category/mineracao-de-dados/index.html" >Mineração de Dados</a>
+</li>
+	<li class="cat-item cat-item-74"><a href="./../../../../category/monetdb/index.html" >MonetDB</a>
+</li>
+	<li class="cat-item cat-item-2"><a href="./../../../../category/moocs/index.html" >MOOCS</a>
+</li>
+	<li class="cat-item cat-item-72"><a href="./../../../../category/politica/index.html" >Política</a>
+</li>
+	<li class="cat-item cat-item-56"><a href="./../../../../category/preparacao-de-dados/index.html" >Preparação de Dados</a>
+</li>
+	<li class="cat-item cat-item-5"><a href="./../../../../category/r-e-rstudio/index.html" >R e RStudio</a>
+</li>
+	<li class="cat-item cat-item-14"><a href="./../../../../category/r-bloggers/index.html" >r-bloggers</a>
+</li>
+	<li class="cat-item cat-item-73"><a href="./../../../../category/sgbd/index.html" >SGBD</a>
+</li>
+	<li class="cat-item cat-item-50"><a href="./../../../../category/shiny/index.html" >Shiny</a>
+</li>
+	<li class="cat-item cat-item-38"><a href="./../../../../category/wordpress/index.html" >Wordpress</a>
+</li>
+		</ul>
+</aside><aside id="tag_cloud-7" class="widget widget_tag_cloud"><h3 class="widget-title"><span>Tags</span></h3><div class="tagcloud"><a href='./../../../../tag/anova/index.html' class='tag-link-8 tag-link-position-1' title='2 tópicos' style='font-size: 12.581818181818pt;'>ANOVA</a>
+<a href='./../../../../tag/boas-praticas/index.html' class='tag-link-54 tag-link-position-2' title='1 tópico' style='font-size: 8pt;'>boas práticas</a>
+<a href='./../../../../tag/comparacoes-multiplas/index.html' class='tag-link-10 tag-link-position-3' title='1 tópico' style='font-size: 8pt;'>Comparações múltiplas</a>
+<a href='./../../../../tag/controle-de-versao/index.html' class='tag-link-53 tag-link-position-4' title='1 tópico' style='font-size: 8pt;'>controle de versão</a>
+<a href='./../../../../tag/coursera/index.html' class='tag-link-22 tag-link-position-5' title='2 tópicos' style='font-size: 12.581818181818pt;'>Coursera</a>
+<a href='./../../../../tag/data-table/index.html' class='tag-link-34 tag-link-position-6' title='1 tópico' style='font-size: 8pt;'>data.table</a>
+<a href='./../../../../tag/data-science/index.html' class='tag-link-66 tag-link-position-7' title='1 tópico' style='font-size: 8pt;'>Data Science</a>
+<a href='./../../../../tag/deploy/index.html' class='tag-link-51 tag-link-position-8' title='2 tópicos' style='font-size: 12.581818181818pt;'>deploy</a>
+<a href='./../../../../tag/deployment/index.html' class='tag-link-45 tag-link-position-9' title='1 tópico' style='font-size: 8pt;'>deployment</a>
+<a href='./../../../../tag/edx/index.html' class='tag-link-20 tag-link-position-10' title='1 tópico' style='font-size: 8pt;'>edX</a>
+<a href='./../../../../tag/ensino-a-distancia/index.html' class='tag-link-12 tag-link-position-11' title='1 tópico' style='font-size: 8pt;'>ensino à distância</a>
+<a href='./../../../../tag/ggplot2/index.html' class='tag-link-36 tag-link-position-12' title='1 tópico' style='font-size: 8pt;'>ggplot2</a>
+<a href='./../../../../tag/git/index.html' class='tag-link-48 tag-link-position-13' title='2 tópicos' style='font-size: 12.581818181818pt;'>git</a>
+<a href='./../../../../tag/glmnet/index.html' class='tag-link-29 tag-link-position-14' title='2 tópicos' style='font-size: 12.581818181818pt;'>glmnet</a>
+<a href='./../../../../tag/handwritten-recognition/index.html' class='tag-link-39 tag-link-position-15' title='1 tópico' style='font-size: 8pt;'>handwritten recognition</a>
+<a href='./../../../../tag/ibge/index.html' class='tag-link-33 tag-link-position-16' title='1 tópico' style='font-size: 8pt;'>IBGE</a>
+<a href='./../../../../tag/implantacao/index.html' class='tag-link-47 tag-link-position-17' title='2 tópicos' style='font-size: 12.581818181818pt;'>implantação</a>
+<a href='./../../../../tag/k-nn/index.html' class='tag-link-63 tag-link-position-18' title='2 tópicos' style='font-size: 12.581818181818pt;'>k-nn</a>
+<a href='./../../../../tag/lasso/index.html' class='tag-link-28 tag-link-position-19' title='2 tópicos' style='font-size: 12.581818181818pt;'>Lasso</a>
+<a href='./../../../../tag/machine-learning/index.html' class='tag-link-40 tag-link-position-20' title='1 tópico' style='font-size: 8pt;'>machine learning</a>
+<a href='./../../../../tag/mapas/index.html' class='tag-link-35 tag-link-position-21' title='1 tópico' style='font-size: 8pt;'>mapas</a>
+<a href='./../../../../tag/mnist/index.html' class='tag-link-60 tag-link-position-22' title='2 tópicos' style='font-size: 12.581818181818pt;'>mnist</a>
+<a href='./../../../../tag/mooc/index.html' class='tag-link-19 tag-link-position-23' title='1 tópico' style='font-size: 8pt;'>MOOC</a>
+<a href='./../../../../tag/moodle/index.html' class='tag-link-7 tag-link-position-24' title='1 tópico' style='font-size: 8pt;'>moodle</a>
+<a href='./../../../../tag/pnad/index.html' class='tag-link-32 tag-link-position-25' title='1 tópico' style='font-size: 8pt;'>PNAD</a>
+<a href='./../../../../tag/post-hoc/index.html' class='tag-link-11 tag-link-position-26' title='1 tópico' style='font-size: 8pt;'>post-hoc</a>
+<a href='./../../../../tag/r-code/index.html' class='tag-link-16 tag-link-position-27' title='1 tópico' style='font-size: 8pt;'>R code</a>
+<a href='./../../../../tag/shiny/index.html' class='tag-link-43 tag-link-position-28' title='2 tópicos' style='font-size: 12.581818181818pt;'>shiny</a>
+<a href='./../../../../tag/statistical-test/index.html' class='tag-link-17 tag-link-position-29' title='1 tópico' style='font-size: 8pt;'>statistical test</a>
+<a href='./../../../../tag/statistics/index.html' class='tag-link-15 tag-link-position-30' title='1 tópico' style='font-size: 8pt;'>statistics</a>
+<a href='./../../../../tag/tukey/index.html' class='tag-link-9 tag-link-position-31' title='2 tópicos' style='font-size: 12.581818181818pt;'>Tukey</a>
+<a href='./../../../../tag/udacity/index.html' class='tag-link-21 tag-link-position-32' title='1 tópico' style='font-size: 8pt;'>Udacity</a>
+<a href='./../../../../tag/web/index.html' class='tag-link-44 tag-link-position-33' title='6 tópicos' style='font-size: 22pt;'>web</a></div>
+</aside>                </div>
+                
+                
+        
+                    
+                    
+            
+                    
+                
+        
+        
+                
+                
+        </div>      
+
+    
+
+
+	</div><!-- #content -->
+    </div><!-- content-wrapper-->
+
+	<footer id="colophon" class="site-footer clearrfix" role="contentinfo">
+        <div class="wrapper footer-wrapper clearfix">
+
+                <div class="top-bottom clearfix">
+                		<div id="footer-top">
+                                                
+                        </div><!-- #foter-top -->
+                        
+                        <div id="footer-bottom">    
+                                                     
+                        </div><!-- #foter-bottom -->
+                </div><!-- top-bottom-->
+                <div class="footer-copyright border t-center">
+                    <p>                        
+                                    Copyright 2016. All rights reserved                                                </p>
+                    <div class="site-info">
+                        <a href="https://wordpress.org/">Proudly powered by WordPress</a>
+                        <span class="sep"> | </span>
+                        Profitmag by <a href="http://rigorousthemes.com/" rel="designer">Rigorous Themes</a>                    </div><!-- .site-info -->
+                    
+                </div>
+                
+
+        </div><!-- footer-wrapper-->
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+<script type='text/javascript' src='./../../../../wp-content/themes/profitmag/js/jquery.bxslider.js?ver=4.7.1'></script>
+<script type='text/javascript' src='./../../../../wp-content/themes/profitmag/js/jquery.ticker.js?ver=4.7.1'></script>
+<script type='text/javascript' src='./../../../../wp-content/themes/profitmag/js/jquery.mCustomScrollbar.min.js?ver=1.0.0'></script>
+<script type='text/javascript' src='./../../../../wp-content/themes/profitmag/js/jquery.mousewheel.min.js?ver=2.0.19'></script>
+<script type='text/javascript' src='./../../../../wp-content/themes/profitmag/js/navigation.js?ver=20120206'></script>
+<script type='text/javascript' src='./../../../../wp-content/themes/profitmag/js/custom.js?ver=1.0'></script>
+<script type='text/javascript' src='./../../../../wp-includes/js/comment-reply.min.js?ver=4.7.1'></script>
+<script type='text/javascript' src='./../../../../wp-includes/js/wp-embed.min.js?ver=4.7.1'></script>
+
+</body>
+</html>

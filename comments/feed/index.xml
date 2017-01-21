@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>Comentários sobre R Mining</title>
+	<atom:link href="./index.html" rel="self" type="application/rss+xml" />
+	<link>./../../index.html</link>
+	<description>Mineração de Dados, Estatística, Tecnologia</description>
+	<lastBuildDate>Thu, 22 Dec 2016 18:35:36 +0000</lastBuildDate>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.7.1</generator>
+	<item>
+		<title>Comentário sobre Impeachment &#8211; Análise das Intenções por Previsões do Impeachment: usando análise de dados como informação de contexto político &#124; IBPAD</title>
+		<link>./../../2016/04/04/impeachment-analise-das-intencoes/index.html#comment-120</link>
+		<dc:creator><![CDATA[Previsões do Impeachment: usando análise de dados como informação de contexto político &#124; IBPAD]]></dc:creator>
+		<pubDate>Thu, 22 Dec 2016 18:35:36 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=930#comment-120</guid>
+		<description><![CDATA[[&#8230;] Barros, do site (R Mining) fez diversas ponderações ao método do Prof. Régis que valem a leitura. Destacamos aqui sua [&#8230;]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] Barros, do site (R Mining) fez diversas ponderações ao método do Prof. Régis que valem a leitura. Destacamos aqui sua [&#8230;]</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Comentário sobre Regras de associação: vendas cruzadas e recomendação por Data Mining &#8211; Regras de Associação: Vendas Cruzadas e Recomendação &#8211; Lombz</title>
+		<link>./../../2016/03/01/regras-de-associacao-vendas-cruzadas-e-recomendacao/index.html#comment-119</link>
+		<dc:creator><![CDATA[Data Mining &#8211; Regras de Associação: Vendas Cruzadas e Recomendação &#8211; Lombz]]></dc:creator>
+		<pubDate>Wed, 26 Oct 2016 02:18:58 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=841#comment-119</guid>
+		<description><![CDATA[[&#8230;] Blog do Flavio Margarito [&#8230;]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] Blog do Flavio Margarito [&#8230;]</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Comentário sobre Impeachment &#8211; Análise das Intenções por Previsões do Impeachment: usando análise de dados como informação de contexto político &#124; Blog do IBPAD</title>
+		<link>./../../2016/04/04/impeachment-analise-das-intencoes/index.html#comment-118</link>
+		<dc:creator><![CDATA[Previsões do Impeachment: usando análise de dados como informação de contexto político &#124; Blog do IBPAD]]></dc:creator>
+		<pubDate>Sat, 16 Apr 2016 22:29:03 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=930#comment-118</guid>
+		<description><![CDATA[[&#8230;] Barros, do site (R Mining) fez diversas ponderações ao método do Prof. Régis que valem a leitura. Destacamos aqui sua [&#8230;]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] Barros, do site (R Mining) fez diversas ponderações ao método do Prof. Régis que valem a leitura. Destacamos aqui sua [&#8230;]</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Comentário sobre RECONHECIMENTO DE DÍGITOS ESCRITOS A MÃO – PARTE 3 por Reconhecimento computacional de dígitos: modelagem completa - Peguei do</title>
+		<link>./../../2016/03/14/reconhecimento-de-digitos-escritos-mao-parte-3/index.html#comment-117</link>
+		<dc:creator><![CDATA[Reconhecimento computacional de dígitos: modelagem completa - Peguei do]]></dc:creator>
+		<pubDate>Tue, 22 Mar 2016 16:09:24 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=851#comment-117</guid>
+		<description><![CDATA[[&#8230;] Nessa última parte da sequência sobre como criar modelos preditivos para predição de imagens de dígitos, vou mostrar como é possível treinar melhores modelos com muito mais dados e como é possível melhorar a performance dos algoritmos com melhores hiperparâmetros. Referência: rmining.net [&#8230;]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] Nessa última parte da sequência sobre como criar modelos preditivos para predição de imagens de dígitos, vou mostrar como é possível treinar melhores modelos com muito mais dados e como é possível melhorar a performance dos algoritmos com melhores hiperparâmetros. Referência: rmining.net [&#8230;]</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Comentário sobre Reconhecimento de dígitos escritos a mão – PARTE 2 por RECONHECIMENTO DE DÍGITOS ESCRITOS A MÃO – PARTE 3 - R Mining</title>
+		<link>./../../2015/09/14/reconhecimento-de-digitos-escritos-a-mao-parte-2/index.html#comment-116</link>
+		<dc:creator><![CDATA[RECONHECIMENTO DE DÍGITOS ESCRITOS A MÃO – PARTE 3 - R Mining]]></dc:creator>
+		<pubDate>Mon, 21 Mar 2016 23:59:45 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=746#comment-116</guid>
+		<description><![CDATA[[&#8230;] Parte 2 eu trabalhei com um método de redução de dimensionalidade, o PCA, e também foram explorados [&#8230;]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] Parte 2 eu trabalhei com um método de redução de dimensionalidade, o PCA, e também foram explorados [&#8230;]</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Comentário sobre Reconhecimento de dígitos escritos a mão &#8211; Parte 1 por RECONHECIMENTO DE DÍGITOS ESCRITOS A MÃO – PARTE 3 - R Mining</title>
+		<link>./../../2014/12/22/reconhecimento-de-digitos-escritos-mao-parte-1/index.html#comment-115</link>
+		<dc:creator><![CDATA[RECONHECIMENTO DE DÍGITOS ESCRITOS A MÃO – PARTE 3 - R Mining]]></dc:creator>
+		<pubDate>Tue, 15 Mar 2016 02:54:41 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=493#comment-115</guid>
+		<description><![CDATA[[&#8230;] Parte 1 desse post (que já publiquei faz um tempão!) eu fiz uma classificação de imagens de dígitos [&#8230;]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] Parte 1 desse post (que já publiquei faz um tempão!) eu fiz uma classificação de imagens de dígitos [&#8230;]</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Comentário sobre Livros recomendados &#8211; Data Science por Flavio Barros</title>
+		<link>./../../2016/03/12/livros-recomendados-data-science/index.html#comment-114</link>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+		<pubDate>Sat, 12 Mar 2016 21:56:00 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=858#comment-114</guid>
+		<description><![CDATA[Vlw Eduardo! Obrigado.]]></description>
+		<content:encoded><![CDATA[<p>Vlw Eduardo! Obrigado.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Comentário sobre Livros recomendados &#8211; Data Science por Eduardo D'Avila</title>
+		<link>./../../2016/03/12/livros-recomendados-data-science/index.html#comment-113</link>
+		<dc:creator><![CDATA[Eduardo D'Avila]]></dc:creator>
+		<pubDate>Sat, 12 Mar 2016 20:53:00 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=858#comment-113</guid>
+		<description><![CDATA[Excelente post.
+Obrigado por compartilhar.]]></description>
+		<content:encoded><![CDATA[<p>Excelente post.<br />
+Obrigado por compartilhar.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Comentário sobre Dockerizando Shiny Apps por Compartilhe Shiny Apps com o Docker e o Kitematic! - R Mining</title>
+		<link>./../../2015/04/30/dockerizando-shiny-apps/index.html#comment-112</link>
+		<dc:creator><![CDATA[Compartilhe Shiny Apps com o Docker e o Kitematic! - R Mining]]></dc:creator>
+		<pubDate>Mon, 28 Dec 2015 04:39:14 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=531#comment-112</guid>
+		<description><![CDATA[[&#8230;]      Dockerizando Shiny Apps    Nenhum Comentário &#124; abr. 30, 2015 [&#8230;]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;]      Dockerizando Shiny Apps    Nenhum Comentário | abr. 30, 2015 [&#8230;]</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Comentário sobre MOOCs and courses to learn R por Flavio Barros</title>
+		<link>./../../2014/03/14/online-multimedia-resources-learn-r/index.html#comment-110</link>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+		<pubDate>Tue, 06 Oct 2015 13:19:00 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=376#comment-110</guid>
+		<description><![CDATA[Thanks. Maybe this post is a little outdated.]]></description>
+		<content:encoded><![CDATA[<p>Thanks. Maybe this post is a little outdated.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

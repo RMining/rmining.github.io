@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>Comentários sobre: ANOVA and Tukey&#8217;s test on R</title>
+	<atom:link href="./index.html" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Mineração de Dados, Estatística, Tecnologia</description>
+	<lastBuildDate>Thu, 22 Dec 2016 18:35:36 +0000</lastBuildDate>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.7.1</generator>
+	<item>
+		<title>Por: cheap mac utilities</title>
+		<link>./../index.html#comment-17</link>
+		<dc:creator><![CDATA[cheap mac utilities]]></dc:creator>
+		<pubDate>Tue, 18 Mar 2014 04:15:44 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=155#comment-17</guid>
+		<description><![CDATA[&lt;strong&gt;...Trackback: More Informations on that topic&lt;/strong&gt;
+
+[...]you make blogging glance[...]]]></description>
+		<content:encoded><![CDATA[<p><strong>&#8230;Trackback: More Informations on that topic</strong></p>
+<p>[&#8230;]you make blogging glance[&#8230;]</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Por: Models &#124; Pearltrees</title>
+		<link>./../index.html#comment-3</link>
+		<dc:creator><![CDATA[Models &#124; Pearltrees]]></dc:creator>
+		<pubDate>Wed, 19 Jun 2013 19:12:05 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=155#comment-3</guid>
+		<description><![CDATA[[...] ANOVA and Tukey&#039;s test on R &#124; Flavio Barros [...]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] ANOVA and Tukey&#039;s test on R | Flavio Barros [&#8230;]</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

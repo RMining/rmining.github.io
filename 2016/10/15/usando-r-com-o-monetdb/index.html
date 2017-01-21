@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="./../../../../xmlrpc.php">
+
+<title>Usando R com o MonetDB &#8211; R Mining</title>
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Feed para R Mining &raquo;" href="./../../../../feed/index.html" />
+<link rel="alternate" type="application/rss+xml" title="Feed de comentários para R Mining &raquo;" href="./../../../../comments/feed/index.html" />
+<link rel="alternate" type="application/rss+xml" title="Feed de comentários para R Mining &raquo; Usando R com o MonetDB" href="./feed/index.html" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/svg\/","svgExt":".svg","source":{"concatemoji":".\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.7.1"}};
+			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),!(j.toDataURL().length<3e3)&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,65039,8205,55356,57096),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,55356,57096),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55357,56425,55356,57341,8205,55357,56507),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55357,56425,55356,57341,55357,56507),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='profitmag-font-awesome-css'  href='./../../../../wp-content/themes/profitmag/css/font-awesome.min.css?ver=4.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-bxslider-style-css'  href='./../../../../wp-content/themes/profitmag/css/jquery.bxslider.css?ver=4.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-ticker-style-css'  href='./../../../../wp-content/themes/profitmag/css/ticker-style.css?ver=4.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-noivolightbox-style-css'  href='./../../../../wp-content/themes/profitmag/css/nivo-lightbox.css?ver=4.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-scrollcss-css'  href='./../../../../wp-content/themes/profitmag/css/jquery.mCustomScrollbar.css?ver=4.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-google-font-css'  href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic&#038;subset=latin,latin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-style-css'  href='./../../../../wp-content/themes/profitmag/style.css?ver=4.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-responsive-css'  href='./../../../../wp-content/themes/profitmag/css/responsive.css?ver=4.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-color-scheme-css'  href='./../../../../wp-content/themes/profitmag/css/orange.css' type='text/css' media='all' />
+<script type='text/javascript' src='./../../../../wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='./../../../../wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript' src='./../../../../wp-content/themes/profitmag/js/nivo-lightbox.min.js?ver=4.7.1'></script>
+<script type='text/javascript' src='./../../../../wp-content/themes/profitmag/js/jquery.slicknav.min.js?ver=4.7.1'></script>
+<script type='text/javascript' src='./../../../../wp-content/themes/profitmag/js/modernizr.min.js?ver=2.6.2'></script>
+<link rel='https://api.w.org/' href='./../../../../wp-json/index.html' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="./../../../../xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="./../../../../wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Como fazer um carômetro em Shiny' href='./../../../09/27/como-fazer-um-carometro-em-shiny/index.html' />
+<meta name="generator" content="WordPress 4.7.1" />
+<link rel="canonical" href="./index.html" />
+<link rel='shortlink' href='./../../../../index.html?p=980' />
+<link rel="alternate" type="application/json+oembed" href="./../../../../wp-json/oembed/1.0/embed/index.html?url=http%3A%2F%2F%2F2016%2F10%2F15%2Fusando-r-com-o-monetdb%2F" />
+<link rel="alternate" type="text/xml+oembed" href="./../../../../wp-json/oembed/1.0/embed/index.html?url=http%3A%2F%2F%2F2016%2F10%2F15%2Fusando-r-com-o-monetdb%2F&#038;format=xml" />
+<style type="text/css"></style></head>
+
+<body class="post-template-default single single-post postid-980 single-format-standard group-blog right_sidebar">
+
+<div id="page" class="hfeed site">
+	
+
+	<header id="masthead" class="site-header clearfix" role="banner">
+        <div class="top-header-block clearfix">
+            <div class="wrapper">
+                        
+                        <div class="right-header f-right">
+                                                    </div>
+             </div>          
+         </div><!-- .top-header-block -->
+
+        <div class="wrapper header-wrapper clearfix">
+        		<div class="header-container"> 
+                
+                    
+                    
+                    <div class="site-branding clearfix">
+            			<div class="site-logo f-left">
+                           
+                                
+                                     <a href="./../../../../index.html" rel="home" class="site-title">
+
+                                        R Mining                                    </a> 
+                                    
+                                        <p class="site-description">Mineração de Dados, Estatística, Tecnologia</p>
+
+                                                               
+                        </div>
+                        
+                                                			
+            		</div>
+
+                                
+            		<nav id="site-navigation" class="main-navigation home-nav-icon clearfix menu-left" role="navigation" >
+            			<div class="desktop-menu clearfix">
+                                                        <div class="home-icon">
+                                    <a href="./../../../../index.html" title="R Mining"><i class="fa fa-home"></i></a>
+                                </div>
+                                <div class="menu-links-container"><ul id="menu-links" class="menu"><li id="menu-item-173" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-173"><a href="http://www.r-bloggers.com/">R-Bloggers! Dicas e códigos para R.</a></li>
+<li id="menu-item-846" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-846"><a href="./../../../../sobre-mim/index.html">Sobre mim</a></li>
+<li id="menu-item-822" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-822"><a href="./../../../../newsletter/index.html">newsletter</a></li>
+</ul></div>
+                        <div class="search-block">
+                                                            <form role="search" method="get" id="searchform" class="searchform" action="./../../../../index.html" >
+    <div><label class="screen-reader-text" for="s"></label>
+    <input type="text" value="" name="s" id="s" placeholder="Search" />
+    <input type="submit" id="searchsubmit" value="Search" />
+    </div>
+    </form>                                                    </div>
+                        </div>
+                        <div class="responsive-slick-menu clearfix"></div>
+                        
+            		</nav><!-- #site-navigation -->
+        
+                </div> <!-- .header-container -->
+        </div><!-- header-wrapper-->
+        
+	</header><!-- #masthead -->
+    
+
+    <div class="wrapper content-wrapper clearfix">
+
+        <div class="slider-feature-wrap clearfix">
+            <!-- Slider -->
+                        
+            <!-- Featured Post Beside Slider -->
+                    	
+                    </div>    
+            <div id="content" class="site-content">
+    
+   
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+
+		            
+			
+<article id="post-980" class="post-980 post type-post status-publish format-standard has-post-thumbnail hentry category-monetdb category-r-e-rstudio category-sgbd">
+	<header class="entry-header">
+		<h1 class="entry-title">Usando R com o MonetDB</h1>
+		<div class="entry-meta">
+			<span class="posted-on">Posted on <a href="./index.html" rel="bookmark"><time class="entry-date published" datetime="2016-10-15T11:00:47+00:00">outubro 15, 2016</time><time class="updated" datetime="2016-10-16T12:27:34+00:00">outubro 16, 2016</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="./../../../../author/admin/index.html">Flavio Barros</a></span></span>		</div><!-- .entry-meta -->
+	</header><!-- .entry-header -->
+
+	<div class="single-feat clearfix">
+        <figure class="single-thumb">
+            <img width="500" height="206" src="./../../../../wp-content/uploads/2016/10/monetdb-final-500.png" class="attachment-single-thumb size-single-thumb wp-post-image" alt="" srcset="./../../../../wp-content/uploads/2016/10/monetdb-final-500.png 500w, ./../../../../wp-content/uploads/2016/10/monetdb-final-500-300x124.png 300w" sizes="(max-width: 500px) 100vw, 500px" />        </figure>
+        
+        <div class="related-post">
+            <h2 class="block-title"><span class="bordertitle-red"></span>Related Post</h2>
+            <ul>                
+                    <li><a href="./../../../09/27/como-fazer-um-carometro-em-shiny/index.html" title="Como fazer um carômetro em Shiny">Como fazer um carômetro em Shiny</a></li> 
+                   
+                    
+                    <li><a href="./../../../03/14/reconhecimento-de-digitos-escritos-mao-parte-3/index.html" title="RECONHECIMENTO DE DÍGITOS ESCRITOS A MÃO – PARTE 3">RECONHECIMENTO DE DÍGITOS ESCRITOS A MÃO – PARTE 3</a></li> 
+                   
+                    
+                    <li><a href="./../../../03/12/livros-recomendados-data-science/index.html" title="Livros recomendados &#8211; Data Science">Livros recomendados &#8211; Data Science</a></li> 
+                   
+                    
+                    <li><a href="./../../../03/01/regras-de-associacao-vendas-cruzadas-e-recomendacao/index.html" title="Regras de associação: vendas cruzadas e recomendação">Regras de associação: vendas cruzadas e recomendação</a></li> 
+                   
+                    
+                    <li><a href="./../../../02/22/cluster-segmentacao-de-clientes/index.html" title="Cluster &#8211; Segmentação de Clientes">Cluster &#8211; Segmentação de Clientes</a></li> 
+                   
+    </ul>    
+                <ul>
+                
+            </ul>
+        </div>
+    </div>
+    
+    <div class="entry-content">
+		
+        <figure></figure>
+        <p style="text-align: justify;">Quem já trabalha com a linguagem R há um certo tempo provavelmente já está ciente das limitações da linguagem com relação a conjuntos de dados maiores que a memória RAM. Esse é um problema complicado que está associado com o fato de que quando o R cria um objeto, esse objeto é carregado inteiro na memória. Então, caso o usuário esteja efetuando a leitura de um conjunto de dados, a menos que esse conjunto &#8220;caiba&#8221; na memória, não será possível utiliza-lo dentro do R. Em muitos problemas comumente encontrados em estatística elementar, como analisar dados de experimentos, realizar alguns testes de hipóteses, criar visualizações, dentre outros, isso não é uma limitação pois os objetos são muito menores que a memória RAM do computador. ENTRETANTO, nessa era do &#8220;big data&#8221; não é difícil encontrar situações onde o usuário acaba  tendo problemas sérios com essa dificuldade do R. Umas destas situações sendo a análise de diversos conjuntos de dados públicos, como o Censo Demográfico, ENEM, Censo Escolar, RAIS e etc.</p>
+<p style="text-align: justify;">Mas como resolver esse problema? Há uma <a href="http://pt.stackoverflow.com/questions/30631/estrat%C3%A9gias-para-analisar-bases-de-dados-muito-grandes-em-r-que-n%C3%A3o-caibam-na-m/34004#34004">questão</a> no stackoverflow onde foi perguntado exatamente isso, e eu como um dos participantes forneci minhas apreciações sobre o tema. Basicamente, em situações onde o conjunto de dados é &#8220;manejável&#8221; dentro de um PC comum, mas é maior que a RAM, o ideal é usar um pacote como o <a href="https://cran.r-project.org/web/packages/ff/index.html">ff</a> ou <a href="https://cran.r-project.org/web/packages/bigmemory/index.html">bigmemory</a> ou mesmo utilizar um SGBD. Eu diria que quando estamos trabalhando com conjuntos de dados que superam bastante o tamanho da memória RAM, para mim, o ideal é sempre trabalhar com sistemas de gerenciamento de banco de dados, como o PostgreSQL, o MySQL ou o MonetDB. Especialmente com microdados públicos, que em geral você só precisa ler uma vez e a partir daí só consultar. Além de permitir o armazenamento consistente dos dados, também é possível utilizar o pacote dplyr no R, com o <a href="https://cran.r-project.org/web/packages/dplyr/vignettes/databases.html" rel="nofollow">backend de bancos de dados</a>, tal que você pode utilizar as tabelas do banco utilizando praticamente a mesma sintaxe que utilizaria com um data.frame. É uma solução que é rápida, não tem as limitações que o R têm com RAM e que você pode utilizar depois por muito tempo.</p>
+<h2 style="text-align: justify;">Qual utilizar?</h2>
+<p style="text-align: justify;">De cara recomendo o PostgreSQL e o MySQL. São open source, amplamente utilizados e documentados e tem diversos recursos que se espera em um SGBD. ENTRETANTO HÁ UM PROBLEMA: você precisa instala-los e configura-los. Pode não parecer um grande problema mas o fato é que isso, por si, já impõe uma séria barreira para muitos usuários do R. É uma barreira também por conta de que muitos usuários que não precisam de todos os recursos que sistemas como esse oferecem podem não investir em uma solução como essa pelo trabalho extra necessário para resolver um simples problema com a manipulação de arquivos maiores que a RAM. Porém há alternativas! Dos SGBDs disponíveis, dois que não dão nenhum trabalho de usar com R, não precisando ter que instalar nenhum outro software além do prórprio R, são:</p>
+<ul style="text-align: justify;">
+<li><a href="https://www.sqlite.org/" rel="nofollow">SQLite3</a>;</li>
+<li><a href="https://www.monetdb.org/Home" rel="nofollow">MonetDB</a>;</li>
+</ul>
+<p style="text-align: justify;">O primeiro pode ser utilizado facilmente a partir do R por meio do pacote <a href="https://cran.r-project.org/" rel="nofollow">RSQlite</a> e o segundo por meio do pacote <a href="https://cran.r-project.org/" rel="nofollow">MonetDBLite</a>. O meu preferido, e o que eu vou utilizar aqui como exemplo, é o MonetDB. Vou utilizá-lo porque dos dois é aquele que faz o armazenamento por <a href="https://en.wikipedia.org/wiki/Column-oriented_DBMS" rel="nofollow">colunas</a>. ASSIM, a operação de escrita é um pouco mais cara, mas qualquer operação de consulta é muito mais barata. Se você trabalha com dados que não precisam ser escritos com frequência, mas precisam ser lidos com frequência, sistemas de gerenciamento de banco de dados colunares são superiores. Por outro lado, se além de ler você também precisa escrever no banco frequentemente, um banco como o SQLite (e outros) deve ser superior. Especificamente no caso de microdados, como Censo, ENEM ou Censo Escolar, que você deve carregar o banco uma vez e somente ler a partir daí, acredito que o MonetDB é a melhor opção disponível hoje.</p>
+<h2 style="text-align: justify;">Aplicação</h2>
+<p style="text-align: justify;">Para utilizar a solução que vou propor aqui você deve ter o pacote MonetDBLite instalado no seu computador. No console do R digite:</p>
+<pre class="lang:r decode:true">install.packages('MonetDBLite', dependencies = TRUE)</pre>
+<p style="text-align: justify;">A partir daí, o próximo passo será carregar os dados no banco. Felizmente o MonetDBLite é um pacote que permite fazer isso de forma automática utilizando a função monetdb.read.csv(). Supondo que você está com o conjunto de dados do <a href="http://download.inep.gov.br/microdados/microdados_enem2014.zip">ENEM</a>, no meu caso o microdados_enem2014.csv, no mesmo diretório de trabalho onde você vai rodar o script, execute os seguintes comandos:</p>
+<pre class="lang:r decode:true">## Carregando os pacotes necessários
+library(MonetDBLite)
+library(DBI)
+
+## Definindo um diretório
+dbdir &lt;- 'database/'
+
+## Criando a conexão com um banco, criado na pasta database
+con &lt;- dbConnect( MonetDBLite::MonetDBLite() , dbdir )
+
+## Fazendo a ingestao do csv no banco
+monetdb.read.csv(conn = con, files = 'microdados_enem2014.csv', tablename = 'enem2014', header = TRUE, na.strings = '', delim = ',')
+
+## Listando as tabelas no banco
+dbListTables(con)
+
+## Contanto o número de registros no banco
+dbGetQuery(con, 'SELECT count(*) FROM enem2014')
+
+## Consultando as 100 primeiras linhas
+teste &lt;- dbGetQuery(con, "SELECT * FROM enem2014 LIMIT 100")</pre>
+<p style="text-align: justify;">O carregamento não demorou nem um minuto aqui na minha máquina, core i5 e 16Gb de RAM. Mas acredito que em uma máquina mais modesta deve demorar um pouco mais. Outro ponto fundamental é que o ideal é que o arquivo esteja em UTF-8 para o carregamento, e os csv&#8217;s do ENEM estão em ISO-8859-1. Eu converti o arquivo facilmente por meio do comando iconv no terminal do Linux:</p>
+<pre class="lang:r decode:true">iconv -f ISO-8859-1 -t UTF-8 MICRODADOS_ENEM_2014.csv &gt; microdados_enem2014.csv</pre>
+<p style="text-align: justify;">mas no Windows você deve seguir o procedimento de instalação do iconv mostrado <a href="https://dbaportal.eu/2012/10/24/iconv-for-windows/" rel="nofollow">aqui</a>. De fato há várias maneiras de mudar a codificação de arquivos no Windows e essa é somente uma sugestão.</p>
+<p style="text-align: justify;">Outro ponto a salientar é que como o banco e a tabela no banco já foram criados, você pode fazer consultas diretamente em SQL, como se estivesse no terminal do banco. Se você souber SQL seu problema está resolvido e basta gerar os dados necessários a partir da consulta e depois processá-los como data.frame no R.</p>
+<h2 style="text-align: justify;">Usando o dplyr</h2>
+<p style="text-align: justify;">Naturalmente a melhor opção para usar bancos de dados com o R é utilizando o dplyr diretamente, o que permite ao usuário do R trabalhar com o banco sem escrever uma única linha de SQL. O mais legal dessa estratégia é que o dplyr converte os comandos em R para querys em SQL e até os resultados intermediários das consultas ficam dentro do banco de dados, tal que não há problemas de performance relacionados as limitações do R com a memória RAM.</p>
+<p style="text-align: justify;">Como um exemplo, vamos consultar a nota média dos alunos por estado e dependência administrativa, usando o dplyr.</p>
+<pre class="lang:r decode:true">## Carregando o pacote
+library(dplyr)
+
+## Ligando o dplyr na tabela
+my_db &lt;- MonetDBLite::src_monetdb(embedded=dbdir)
+my_tbl &lt;- tbl(my_db, "enem2014")
+
+## Obtendo média de matemática por estado e dependência administrativa
+consulta &lt;- my_tbl %&gt;% group_by(COD_UF_ESC, ID_DEPENDENCIA_ADM_ESC) %&gt;% summarise(mean(NOTA_MT))
+
+## Salvando a consulta como um data.frame
+consulta &lt;- collect(consulta)</pre>
+<p style="text-align: justify;">o que resulta em:</p>
+<pre class="lang:r decode:true">  COD_UF_ESC ID_DEPENDENCIA_ADM_ESC       L1
+        &lt;int&gt;                  &lt;int&gt;    &lt;dbl&gt;
+1          NA                     NA 472.1223
+2          26                      2 441.0514
+3          32                      2 454.2741
+4          35                      2 468.1310
+5          11                      2 440.4378
+6          33                      4 554.1954
+7          33                      2 456.5003
+8          23                      2 436.1984
+9          29                      2 433.5961
+10         53                      4 447.5004</pre>
+<p style="text-align: justify;">Veja que será necessário converter os códigos das Unidades da Federação e da dependência administrativa para os respectivos nomes, que estão disponíveis no dicionário que vem com os dados do ENEM. Outro ponto é que ao final da consulta, para &#8220;salvar&#8221; o resultado da consulta como um data.frame no R você deve usar a função collect().</p>
+<p style="text-align: justify;">Por fim, ao terminar de utilizar o banco, você pode desconectar e desligar a instância do MonetDB que foi criada e está rodando na sua máquina:</p>
+<pre class="lang:r decode:true">## Desconectando do banco
+dbDisconnect(con, shutdown=TRUE)</pre>
+<p style="text-align: justify;">fique tranquilo que seus dados estão intactos. Se você precisar usar o banco depois basta reconectar como já fizemos anteriormente:</p>
+<pre class="lang:r decode:true">## Criando a conexão com um banco, criado na pasta database
+con &lt;- dbConnect( MonetDBLite::MonetDBLite() , dbdir )</pre>
+<h2>Conclusão</h2>
+<p>Esta é uma solução excelente quando o analista pode consultar um grande banco, filtrar conjuntos menores e depois analisa-los dentro do R. Também é uma forma econômica de manter grandes conjuntos de dados armazenados para futuras consultas em diversos projetos. ENTRETANTO não é a solução indicada quando você precisa criar modelos diretamente no SGBD. Sendo o caso, o ideal é utilizar outros tipos de soluções.</p>
+			</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		
+						<span class="cat-links">
+				Posted in <a href="./../../../../category/monetdb/index.html" rel="category tag">MonetDB</a>, <a href="./../../../../category/r-e-rstudio/index.html" rel="category tag">R e RStudio</a>, <a href="./../../../../category/sgbd/index.html" rel="category tag">SGBD</a>			</span>
+			
+					     
+	
+
+			</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+
+			
+	<nav class="navigation post-navigation" role="navigation">
+		<h2 class="screen-reader-text">Navegação de Post</h2>
+		<div class="nav-links"><div class="nav-previous"><a href="./../../../09/27/como-fazer-um-carometro-em-shiny/index.html" rel="prev">Como fazer um carômetro em Shiny</a></div></div>
+	</nav>
+			
+<div id="comments" class="comments-area">
+
+	
+	
+	
+		<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title"><span class="bordertitle-red"></span>Leave a Comment <small><a rel="nofollow" id="cancel-comment-reply-link" href="./index.html#respond" style="display:none;">Cancelar resposta</a></small></h3><p class="must-log-in">Você precisa fazer o <a href="./../../../../wp-login.php?redirect_to=http%3A%2F%2F%2F2016%2F10%2F15%2Fusando-r-com-o-monetdb%2F">login</a> para publicar um comentário.</p>	</div><!-- #respond -->
+	
+</div><!-- #comments -->
+                        
+            
+            
+		
+		</main><!-- #main -->
+	</div><!-- #primary -->
+
+
+    
+            <div id="secondary-right" class="widget-area secondary-sidebar f-right clearfix" role="complementary">
+                        <div id="sidebar-section-top" class="widget-area sidebar clearfix">
+                 		<aside id="profitmag-popular-posts-3" class="widget profitmag_widget_popular_entries">		<h3 class="widget-title"><span>Popular</span></h3>		<ul>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./../../../09/27/como-fazer-um-carometro-em-shiny/index.html"><img src="./../../../../wp-content/uploads/2016/09/tiririca.jpg" alt="Como fazer um carômetro em Shiny" title="Como fazer um carômetro em Shiny" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./../../../09/27/como-fazer-um-carometro-em-shiny/index.html">Como fazer um carômetro em Shiny</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>setembro 27, 2016</div>
+			
+			</li>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./../../../03/12/livros-recomendados-data-science/index.html"><img src="./../../../../wp-content/uploads/2016/03/data_smart.jpg" alt="Livros recomendados &#8211; Data Science" title="Livros recomendados &#8211; Data Science" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./../../../03/12/livros-recomendados-data-science/index.html">Livros recomendados &#8211; Data Science</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>março 12, 2016</div>
+			
+			</li>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./../../../../2013/06/10/anova-e-teste-de-tukey-no-r/index.html"><img src="./../../../../wp-content/uploads/2013/06/ANOVA-193x112.png" alt="ANOVA e  teste de Tukey no R" title="ANOVA e  teste de Tukey no R" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./../../../../2013/06/10/anova-e-teste-de-tukey-no-r/index.html">ANOVA e  teste de Tukey no R</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>junho 10, 2013</div>
+			
+			</li>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./../../../../2014/10/14/como-fazer-mapas-eleitorais/index.html"><img src="./../../../../wp-content/uploads/2014/10/sampa.png" alt="Como fazer mapas eleitorais" title="Como fazer mapas eleitorais" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./../../../../2014/10/14/como-fazer-mapas-eleitorais/index.html">Como fazer mapas eleitorais</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>outubro 14, 2014</div>
+			
+			</li>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./../../../../2014/02/25/genetic-data-large-matrices-glmnet/index.html"><img src="./../../../../wp-content/uploads/2014/02/geneticdata-193x112.jpg" alt="Genetic data, large matrices and glmnet()" title="Genetic data, large matrices and glmnet()" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./../../../../2014/02/25/genetic-data-large-matrices-glmnet/index.html">Genetic data, large matrices and glmnet()</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>fevereiro 25, 2014</div>
+			
+			</li>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./../../../../2015/04/30/dockerizando-shiny-apps/index.html"><img src="./../../../../wp-content/uploads/2017/01/shiny-193x112.png" alt="Dockerizando Shiny Apps" title="Dockerizando Shiny Apps" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./../../../../2015/04/30/dockerizando-shiny-apps/index.html">Dockerizando Shiny Apps</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>abril 30, 2015</div>
+			
+			</li>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./index.html"><img src="./../../../../wp-content/uploads/2016/10/monetdb-final-500.png" alt="Usando R com o MonetDB" title="Usando R com o MonetDB" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./index.html">Usando R com o MonetDB</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>outubro 15, 2016</div>
+			
+			</li>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./../../../../2015/04/30/dockerizing-a-shiny-app/index.html"><img src="./../../../../wp-content/uploads/2017/01/shiny-193x112.png" alt="Dockerizing a Shiny App" title="Dockerizing a Shiny App" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./../../../../2015/04/30/dockerizing-a-shiny-app/index.html">Dockerizing a Shiny App</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>abril 30, 2015</div>
+			
+			</li>
+				</ul>
+		</aside><aside id="categories-7" class="widget widget_categories"><h3 class="widget-title"><span>Categorias</span></h3>		<ul>
+	<li class="cat-item cat-item-41"><a href="./../../../../category/aprendizado-de-maquina/index.html" >Aprendizado de Máquina</a>
+</li>
+	<li class="cat-item cat-item-58"><a href="./../../../../category/data-mining/index.html" >Data Mining</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="./../../../../category/digital-ocean/index.html" >Digital Ocean</a>
+</li>
+	<li class="cat-item cat-item-49"><a href="./../../../../category/django/index.html" >Django</a>
+</li>
+	<li class="cat-item cat-item-46"><a href="./../../../../category/docker/index.html" >Docker</a>
+</li>
+	<li class="cat-item cat-item-6"><a href="./../../../../category/educacao/index.html" >Educação</a>
+</li>
+	<li class="cat-item cat-item-13"><a href="./../../../../category/english/index.html" >English</a>
+</li>
+	<li class="cat-item cat-item-4"><a href="./../../../../category/estatistica/index.html" >Estatística</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="./../../../../category/git-github/index.html" >Git &amp; Github</a>
+</li>
+	<li class="cat-item cat-item-67"><a href="./../../../../category/linux/index.html" >Linux</a>
+</li>
+	<li class="cat-item cat-item-57"><a href="./../../../../category/machine-learning/index.html" >Machine Learning</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="./../../../../category/mineracao-de-dados/index.html" >Mineração de Dados</a>
+</li>
+	<li class="cat-item cat-item-74"><a href="./../../../../category/monetdb/index.html" >MonetDB</a>
+</li>
+	<li class="cat-item cat-item-2"><a href="./../../../../category/moocs/index.html" >MOOCS</a>
+</li>
+	<li class="cat-item cat-item-72"><a href="./../../../../category/politica/index.html" >Política</a>
+</li>
+	<li class="cat-item cat-item-56"><a href="./../../../../category/preparacao-de-dados/index.html" >Preparação de Dados</a>
+</li>
+	<li class="cat-item cat-item-5"><a href="./../../../../category/r-e-rstudio/index.html" >R e RStudio</a>
+</li>
+	<li class="cat-item cat-item-14"><a href="./../../../../category/r-bloggers/index.html" >r-bloggers</a>
+</li>
+	<li class="cat-item cat-item-73"><a href="./../../../../category/sgbd/index.html" >SGBD</a>
+</li>
+	<li class="cat-item cat-item-50"><a href="./../../../../category/shiny/index.html" >Shiny</a>
+</li>
+	<li class="cat-item cat-item-38"><a href="./../../../../category/wordpress/index.html" >Wordpress</a>
+</li>
+		</ul>
+</aside><aside id="tag_cloud-7" class="widget widget_tag_cloud"><h3 class="widget-title"><span>Tags</span></h3><div class="tagcloud"><a href='./../../../../tag/anova/index.html' class='tag-link-8 tag-link-position-1' title='2 tópicos' style='font-size: 12.581818181818pt;'>ANOVA</a>
+<a href='./../../../../tag/boas-praticas/index.html' class='tag-link-54 tag-link-position-2' title='1 tópico' style='font-size: 8pt;'>boas práticas</a>
+<a href='./../../../../tag/comparacoes-multiplas/index.html' class='tag-link-10 tag-link-position-3' title='1 tópico' style='font-size: 8pt;'>Comparações múltiplas</a>
+<a href='./../../../../tag/controle-de-versao/index.html' class='tag-link-53 tag-link-position-4' title='1 tópico' style='font-size: 8pt;'>controle de versão</a>
+<a href='./../../../../tag/coursera/index.html' class='tag-link-22 tag-link-position-5' title='2 tópicos' style='font-size: 12.581818181818pt;'>Coursera</a>
+<a href='./../../../../tag/data-table/index.html' class='tag-link-34 tag-link-position-6' title='1 tópico' style='font-size: 8pt;'>data.table</a>
+<a href='./../../../../tag/data-science/index.html' class='tag-link-66 tag-link-position-7' title='1 tópico' style='font-size: 8pt;'>Data Science</a>
+<a href='./../../../../tag/deploy/index.html' class='tag-link-51 tag-link-position-8' title='2 tópicos' style='font-size: 12.581818181818pt;'>deploy</a>
+<a href='./../../../../tag/deployment/index.html' class='tag-link-45 tag-link-position-9' title='1 tópico' style='font-size: 8pt;'>deployment</a>
+<a href='./../../../../tag/edx/index.html' class='tag-link-20 tag-link-position-10' title='1 tópico' style='font-size: 8pt;'>edX</a>
+<a href='./../../../../tag/ensino-a-distancia/index.html' class='tag-link-12 tag-link-position-11' title='1 tópico' style='font-size: 8pt;'>ensino à distância</a>
+<a href='./../../../../tag/ggplot2/index.html' class='tag-link-36 tag-link-position-12' title='1 tópico' style='font-size: 8pt;'>ggplot2</a>
+<a href='./../../../../tag/git/index.html' class='tag-link-48 tag-link-position-13' title='2 tópicos' style='font-size: 12.581818181818pt;'>git</a>
+<a href='./../../../../tag/glmnet/index.html' class='tag-link-29 tag-link-position-14' title='2 tópicos' style='font-size: 12.581818181818pt;'>glmnet</a>
+<a href='./../../../../tag/handwritten-recognition/index.html' class='tag-link-39 tag-link-position-15' title='1 tópico' style='font-size: 8pt;'>handwritten recognition</a>
+<a href='./../../../../tag/ibge/index.html' class='tag-link-33 tag-link-position-16' title='1 tópico' style='font-size: 8pt;'>IBGE</a>
+<a href='./../../../../tag/implantacao/index.html' class='tag-link-47 tag-link-position-17' title='2 tópicos' style='font-size: 12.581818181818pt;'>implantação</a>
+<a href='./../../../../tag/k-nn/index.html' class='tag-link-63 tag-link-position-18' title='2 tópicos' style='font-size: 12.581818181818pt;'>k-nn</a>
+<a href='./../../../../tag/lasso/index.html' class='tag-link-28 tag-link-position-19' title='2 tópicos' style='font-size: 12.581818181818pt;'>Lasso</a>
+<a href='./../../../../tag/machine-learning/index.html' class='tag-link-40 tag-link-position-20' title='1 tópico' style='font-size: 8pt;'>machine learning</a>
+<a href='./../../../../tag/mapas/index.html' class='tag-link-35 tag-link-position-21' title='1 tópico' style='font-size: 8pt;'>mapas</a>
+<a href='./../../../../tag/mnist/index.html' class='tag-link-60 tag-link-position-22' title='2 tópicos' style='font-size: 12.581818181818pt;'>mnist</a>
+<a href='./../../../../tag/mooc/index.html' class='tag-link-19 tag-link-position-23' title='1 tópico' style='font-size: 8pt;'>MOOC</a>
+<a href='./../../../../tag/moodle/index.html' class='tag-link-7 tag-link-position-24' title='1 tópico' style='font-size: 8pt;'>moodle</a>
+<a href='./../../../../tag/pnad/index.html' class='tag-link-32 tag-link-position-25' title='1 tópico' style='font-size: 8pt;'>PNAD</a>
+<a href='./../../../../tag/post-hoc/index.html' class='tag-link-11 tag-link-position-26' title='1 tópico' style='font-size: 8pt;'>post-hoc</a>
+<a href='./../../../../tag/r-code/index.html' class='tag-link-16 tag-link-position-27' title='1 tópico' style='font-size: 8pt;'>R code</a>
+<a href='./../../../../tag/shiny/index.html' class='tag-link-43 tag-link-position-28' title='2 tópicos' style='font-size: 12.581818181818pt;'>shiny</a>
+<a href='./../../../../tag/statistical-test/index.html' class='tag-link-17 tag-link-position-29' title='1 tópico' style='font-size: 8pt;'>statistical test</a>
+<a href='./../../../../tag/statistics/index.html' class='tag-link-15 tag-link-position-30' title='1 tópico' style='font-size: 8pt;'>statistics</a>
+<a href='./../../../../tag/tukey/index.html' class='tag-link-9 tag-link-position-31' title='2 tópicos' style='font-size: 12.581818181818pt;'>Tukey</a>
+<a href='./../../../../tag/udacity/index.html' class='tag-link-21 tag-link-position-32' title='1 tópico' style='font-size: 8pt;'>Udacity</a>
+<a href='./../../../../tag/web/index.html' class='tag-link-44 tag-link-position-33' title='6 tópicos' style='font-size: 22pt;'>web</a></div>
+</aside>                </div>
+                
+                
+        
+                    
+                    
+            
+                    
+                
+        
+        
+                
+                
+        </div>      
+
+    
+
+
+	</div><!-- #content -->
+    </div><!-- content-wrapper-->
+
+	<footer id="colophon" class="site-footer clearrfix" role="contentinfo">
+        <div class="wrapper footer-wrapper clearfix">
+
+                <div class="top-bottom clearfix">
+                		<div id="footer-top">
+                                                
+                        </div><!-- #foter-top -->
+                        
+                        <div id="footer-bottom">    
+                                                     
+                        </div><!-- #foter-bottom -->
+                </div><!-- top-bottom-->
+                <div class="footer-copyright border t-center">
+                    <p>                        
+                                    Copyright 2016. All rights reserved                                                </p>
+                    <div class="site-info">
+                        <a href="https://wordpress.org/">Proudly powered by WordPress</a>
+                        <span class="sep"> | </span>
+                        Profitmag by <a href="http://rigorousthemes.com/" rel="designer">Rigorous Themes</a>                    </div><!-- .site-info -->
+                    
+                </div>
+                
+
+        </div><!-- footer-wrapper-->
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+<script type='text/javascript' src='./../../../../wp-content/themes/profitmag/js/jquery.bxslider.js?ver=4.7.1'></script>
+<script type='text/javascript' src='./../../../../wp-content/themes/profitmag/js/jquery.ticker.js?ver=4.7.1'></script>
+<script type='text/javascript' src='./../../../../wp-content/themes/profitmag/js/jquery.mCustomScrollbar.min.js?ver=1.0.0'></script>
+<script type='text/javascript' src='./../../../../wp-content/themes/profitmag/js/jquery.mousewheel.min.js?ver=2.0.19'></script>
+<script type='text/javascript' src='./../../../../wp-content/themes/profitmag/js/navigation.js?ver=20120206'></script>
+<script type='text/javascript' src='./../../../../wp-content/themes/profitmag/js/custom.js?ver=1.0'></script>
+<script type='text/javascript' src='./../../../../wp-includes/js/comment-reply.min.js?ver=4.7.1'></script>
+<script type='text/javascript' src='./../../../../wp-includes/js/wp-embed.min.js?ver=4.7.1'></script>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>Comentários sobre: Genetic data, large matrices and glmnet()</title>
+	<atom:link href="./index.html" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Mineração de Dados, Estatística, Tecnologia</description>
+	<lastBuildDate>Thu, 22 Dec 2016 18:35:36 +0000</lastBuildDate>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.7.1</generator>
+	<item>
+		<title>Por: Genetic data, large matrices and glmnet() &#124; Patient 2 Earn</title>
+		<link>./../index.html#comment-11</link>
+		<dc:creator><![CDATA[Genetic data, large matrices and glmnet() &#124; Patient 2 Earn]]></dc:creator>
+		<pubDate>Tue, 25 Feb 2014 17:23:17 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=359#comment-11</guid>
+		<description><![CDATA[[&#8230;] article was first published on  Flavio Barros » r-bloggers, and kindly contributed to [&#8230;]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] article was first published on  Flavio Barros » r-bloggers, and kindly contributed to [&#8230;]</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

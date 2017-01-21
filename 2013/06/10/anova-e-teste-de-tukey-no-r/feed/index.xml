@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>Comentários sobre: ANOVA e  teste de Tukey no R</title>
+	<atom:link href="./index.html" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Mineração de Dados, Estatística, Tecnologia</description>
+	<lastBuildDate>Thu, 22 Dec 2016 18:35:36 +0000</lastBuildDate>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.7.1</generator>
+	<item>
+		<title>Por: Flavio Barros</title>
+		<link>./../index.html#comment-79</link>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+		<pubDate>Sun, 09 Aug 2015 22:55:00 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=75#comment-79</guid>
+		<description><![CDATA[OI Marcelo, obrigado pelo comentário. Você está certo, é plot(posthoc). Na verdade eu achei alguns erros nos comandos e fiz algumas atualizações no post.]]></description>
+		<content:encoded><![CDATA[<p>OI Marcelo, obrigado pelo comentário. Você está certo, é plot(posthoc). Na verdade eu achei alguns erros nos comandos e fiz algumas atualizações no post.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Por: Marcelo Barros</title>
+		<link>./../index.html#comment-78</link>
+		<dc:creator><![CDATA[Marcelo Barros]]></dc:creator>
+		<pubDate>Sat, 25 Jul 2015 13:56:00 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=75#comment-78</guid>
+		<description><![CDATA[Muito esclarecedor o texto, Flávio. Parabéns. Rodando aqui, com meus dados, notei que o intervalor de confiança só é plotado quando se usa o resultado do Tukey. Não usei seus dados, mas não seria plot(posthoc) ?]]></description>
+		<content:encoded><![CDATA[<p>Muito esclarecedor o texto, Flávio. Parabéns. Rodando aqui, com meus dados, notei que o intervalor de confiança só é plotado quando se usa o resultado do Tukey. Não usei seus dados, mas não seria plot(posthoc) ?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Por: affiliate marketing</title>
+		<link>./../index.html#comment-8</link>
+		<dc:creator><![CDATA[affiliate marketing]]></dc:creator>
+		<pubDate>Sat, 19 Oct 2013 13:38:37 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=75#comment-8</guid>
+		<description><![CDATA[&lt;strong&gt;Over the internet Brief article&lt;/strong&gt;
+
+The knowledge described inside the post are a few of the greatest on hand]]></description>
+		<content:encoded><![CDATA[<p><strong>Over the internet Brief article</strong></p>
+<p>The knowledge described inside the post are a few of the greatest on hand</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Por: ANOVA and Tukey&#039;s test on R &#124; Flavio Barros</title>
+		<link>./../index.html#comment-2</link>
+		<dc:creator><![CDATA[ANOVA and Tukey&#039;s test on R &#124; Flavio Barros]]></dc:creator>
+		<pubDate>Thu, 13 Jun 2013 19:38:30 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=75#comment-2</guid>
+		<description><![CDATA[[...] OBS: This is a full translation of a portuguese version. [...]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] OBS: This is a full translation of a portuguese version. [&#8230;]</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

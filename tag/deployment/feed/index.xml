@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>deployment &#8211; R Mining</title>
+	<atom:link href="./index.html" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Mineração de Dados, Estatística, Tecnologia</description>
+	<lastBuildDate>Tue, 17 Jan 2017 10:04:59 +0000</lastBuildDate>
+	<language>pt-BR</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.7.1</generator>
+	<item>
+		<title>Dockerizing a Shiny App</title>
+		<link>./../../../2015/04/30/dockerizing-a-shiny-app/index.html</link>
+		<comments>./../../../2015/04/30/dockerizing-a-shiny-app/index.html#comments</comments>
+		<pubDate>Thu, 30 Apr 2015 23:16:57 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Digital Ocean]]></category>
+		<category><![CDATA[Docker]]></category>
+		<category><![CDATA[English]]></category>
+		<category><![CDATA[R e RStudio]]></category>
+		<category><![CDATA[r-bloggers]]></category>
+		<category><![CDATA[Shiny]]></category>
+		<category><![CDATA[deployment]]></category>
+		<category><![CDATA[shiny]]></category>
+		<category><![CDATA[web]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=592</guid>
+		<description><![CDATA[After a long pause of more than four months, I am finally back to post here. Unfortunately, many commitments prevented me keep posting, but coming back, i changed the deployment (now this blog runs entirely within a docker container with some other cool things I intend to post more forward) and wrote this post. 1. R e apps Shiny If you are reading this post here, you probably know what Shiny is. OK, but in...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">After a long pause of more than four months, I am finally back to post here. Unfortunately, many commitments prevented me keep posting, but coming back, i changed the deployment (now this blog runs entirely within a docker container with some other cool things I intend to post more forward) and wrote this post.</p>
+<h2 style="text-align: justify;">1. R e apps Shiny</h2>
+<p>If you are reading this post here, you probably know what Shiny is. OK, but in the case you don&#8217;t, you can see it in action! This is the App that i dockerized. Soon you will able to run it at any computer with docker installed.</p>
+<div class="wpview-body" contenteditable="false">
+<div class="wpview-content wpview-type-embedURL"><span class="embed-youtube"><iframe width="640" height="390" class="youtube-player" type="text/html" src="http://www.youtube.com/embed/CWWPvA6SK6k?version=3&amp;rel=1&amp;fs=1&amp;showsearch=0&amp;showinfo=1&amp;iv_load_policy=1&amp;wmode=transparent" allowfullscreen="allowfullscreen" frameborder="0"></iframe></span></div>
+</div>
+<div class="wpview-overlay"></div>
+<h2 style="text-align: justify;">2. Docker</h2>
+<p style="text-align: justify;">If you somehow accompanies the open source world news then you probably have heard of <a style="color: #0000ff;" href="http://www.docker.com/" target="_blank">Docker</a>. Docker is a fantastic tool for creating software containers, totally isolated from the host operating system. It works like a virtual machine, but it&#8217;s much lighter.</p>
+<p style="text-align: justify;">The idea behind docker is that the developer creates a container with all dependencies that he wants, make sure that everything works and done. The staff responsible for software deployment does not need to know what is inside the container, it just needs to be able to run container on the server. While this feature could be achieved with virtual machines, they ended up coming with much more than necessary, so the VM files are too large and the host system becomes very slow.</p>
+<p style="text-align: justify;">On the other hand, docker does not use a full OS, it shares the same host kernel (yes, it needs to run on Linux) but is a completely isolated environment. So run a docker containers is much lighter than run a virtual machine. Docker features do not stop there, it also allows a kind of versioning and has a kind of github for containers, the <a style="color: #0000ff;" href="https://hub.docker.com/account/signup/" target="_blank">Docker Hub</a>, where the user can download and use ready images  for various software, such as MySQL, Postgres , LAMP, WordPress, RStudio, among others. If you want to better understand what is Docker, watch this video.</p>
+<div class="wpview-body" contenteditable="false">
+<div class="wpview-content wpview-type-embedURL"><span class="embed-youtube"><iframe width="640" height="390" class="youtube-player" type="text/html" src="http://www.youtube.com/embed/Q5POuMHxW-0?version=3&amp;rel=1&amp;fs=1&amp;showsearch=0&amp;showinfo=1&amp;iv_load_policy=1&amp;wmode=transparent" allowfullscreen="allowfullscreen" frameborder="0"></iframe></span></div>
+</div>
+<div class="wpview-overlay"></div>
+<h2 style="text-align: justify;">3. Dockerizing a Shiny app</h2>
+<p style="text-align: justify;">I just showed you an example of a Shiny app running on RStudio locally. For development it&#8217;s ok, but if I want to make it available to anyone? One solution is send the project files. For a basic shiny application just two files are needed (ui.R and server.R).</p>
+<p style="text-align: justify;">But what if I want to put on the web? There are two alternatives:</p>
+<p style="text-align: justify;">1) A <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://www.rstudio.com/products/shiny/shiny-server/" target="_blank">Shiny Server</a></span></p>
+<p style="text-align: justify;">2) The PaaS <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://www.shinyapps.io/" target="_blank">shinyapps.io</a></span></p>
+<p style="text-align: justify;">Option 1) can be very complicated for some users, sometimes not workable, due to the need to install and configure a server.</p>
+<p style="text-align: justify;">Option 2) is more interesting, however you it can be expensive, since the free plan can be very limited for some needs.</p>
+<p style="text-align: justify;">How docker can help? Initially with the docker you can create a shiny server  using one command. This greatly simplifies deployment of a server. See this short video:</p>
+<div class="wpview-body" contenteditable="false">
+<div class="wpview-content wpview-type-embedURL"><span class="embed-youtube"><iframe width="640" height="390" class="youtube-player" type="text/html" src="http://www.youtube.com/embed/H94eSQrPoYI?version=3&amp;rel=1&amp;fs=1&amp;showsearch=0&amp;showinfo=1&amp;iv_load_policy=1&amp;wmode=transparent" allowfullscreen="allowfullscreen" frameborder="0"></iframe></span></div>
+</div>
+<div class="wpview-overlay"></div>
+<p>You just need:</p>
+<pre class="lang:zsh decode:true">docker run --rm -p 3838:3838 rocker/shiny</pre>
+<p><strong> WINDOWS AND MAC USERS:</strong> You will need <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://boot2docker.io/" target="_blank">boot2docker</a></span> to reproduce this.</p>
+<p style="text-align: justify;">This solution seems to solve the problem. However you can still find several problems such as:</p>
+<p style="text-align: justify;">1) How can i put my apps on the server?</p>
+<p style="text-align: justify;">2) How can i get a url directly to my app?</p>
+<p style="text-align: justify;">3) And this 3838, how can i change it?</p>
+<p style="text-align: justify;">4) How can i create an image for my app?</p>
+<p style="text-align: justify;">To solve these problems I created a sample container, with a sample app, which appears in the browser as the image is running. Its available at Docker Hub, and it&#8217;s ready to test and use. The source code is on <a style="color: #0000ff;" href="https://github.com/flaviobarros/shiny-wordcloud" target="_blank">Github</a>.</p>
+<p style="text-align: justify;">At the following videos i show you how to deploy this app locally and on <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a>. First local:</p>
+<div class="wpview-body" contenteditable="false">
+<div class="wpview-content wpview-type-embedURL"><span class="embed-youtube"><iframe width="640" height="390" class="youtube-player" type="text/html" src="http://www.youtube.com/embed/nhslu5WZy6I?version=3&amp;rel=1&amp;fs=1&amp;showsearch=0&amp;showinfo=1&amp;iv_load_policy=1&amp;wmode=transparent" allowfullscreen="allowfullscreen" frameborder="0"></iframe></span></div>
+</div>
+<div class="wpview-overlay"></div>
+<p>And on Digital Ocean:</p>
+<div class="wpview-body" contenteditable="false">
+<div class="wpview-content wpview-type-embedURL"><span class="embed-youtube"><iframe width="640" height="390" class="youtube-player" type="text/html" src="http://www.youtube.com/embed/X68N_efY0KU?version=3&amp;rel=1&amp;fs=1&amp;showsearch=0&amp;showinfo=1&amp;iv_load_policy=1&amp;wmode=transparent" allowfullscreen="allowfullscreen" frameborder="0"></iframe></span></div>
+</div>
+<div class="wpview-overlay"></div>
+<p style="text-align: justify;">Note that when using the aforementioned command, you do not returns straight to the terminal and you will need a Ctrl + C to close the container. So, to keep the container running and return to the terminal, you should use &amp;.</p>
+<pre class="lang:zsh decode:true">docker run --rm -p 80:80 flaviobarros/shiny &amp;</pre>
+<p style="text-align: justify;">You can run this app on <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://aws.amazon.com/pt/" target="_blank">Amazon Web Services</a></span>, <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://cloud.google.com/" target="_blank">Google Cloud</a></span> and <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://azure.microsoft.com/pt-br/" target="_blank">Microsoft Azure</a></span>, as all of them have support for docker. However, my suggestion is <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a> that is a lot easier to use.</p>
+<p style="text-align: justify;">IMPORTANT: through any link to <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a> in this post,  you will earn U$10.00 credit without commitment to keep up the service. With this credit you can keep a simple VPS with 512MB RAM, for two months for free!</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2015/04/30/dockerizing-a-shiny-app/feed/index.html</wfw:commentRss>
+		<slash:comments>9</slash:comments>
+		</item>
+	</channel>
+</rss>

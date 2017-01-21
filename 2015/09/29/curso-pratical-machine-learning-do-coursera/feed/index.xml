@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>Comentários sobre: Curso &#8220;Pratical Machine Learning&#8221; do Coursera</title>
+	<atom:link href="./index.html" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Mineração de Dados, Estatística, Tecnologia</description>
+	<lastBuildDate>Thu, 22 Dec 2016 18:35:36 +0000</lastBuildDate>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.7.1</generator>
+	<item>
+		<title>Por: CURSO “PRATICAL MACHINE LEARNING” DO COURSERA - Flavio Barros</title>
+		<link>./../index.html#comment-102</link>
+		<dc:creator><![CDATA[CURSO “PRATICAL MACHINE LEARNING” DO COURSERA - Flavio Barros]]></dc:creator>
+		<pubDate>Fri, 02 Oct 2015 22:59:17 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=760#comment-102</guid>
+		<description><![CDATA[[&#8230;] CURSO “PRATICAL MACHINE LEARNING” DO COURSERA [&#8230;]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] CURSO “PRATICAL MACHINE LEARNING” DO COURSERA [&#8230;]</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

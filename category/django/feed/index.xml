@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Django &#8211; R Mining</title>
+	<atom:link href="./index.html" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Mineração de Dados, Estatística, Tecnologia</description>
+	<lastBuildDate>Tue, 17 Jan 2017 10:04:59 +0000</lastBuildDate>
+	<language>pt-BR</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.7.1</generator>
+	<item>
+		<title>Git push no Django com o Dokku &#8211; básico</title>
+		<link>./../../../2015/05/02/git-push-no-django-com-o-dokku-basico/index.html</link>
+		<comments>./../../../2015/05/02/git-push-no-django-com-o-dokku-basico/index.html#comments</comments>
+		<pubDate>Sat, 02 May 2015 22:28:20 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Digital Ocean]]></category>
+		<category><![CDATA[Django]]></category>
+		<category><![CDATA[Docker]]></category>
+		<category><![CDATA[Linux]]></category>
+		<category><![CDATA[git]]></category>
+		<category><![CDATA[implantação]]></category>
+		<category><![CDATA[web]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=613</guid>
+		<description><![CDATA[1. Introdução Quem trabalha com web, se não conhece, pelo menos já ouviu falar do Heroku. O Heroku é um PaaS, uma sigla para (Platform as a Service) ou Plataforma como Serviço. A ideia por detrás do Heroku é que o desenvolvedor não precise se preocupar mais com os problemas relacionados à implantação do seu software, ele simplesmente desenvolve, adiciona alguns arquivos no projeto, dá um git push para o Heroku e ele coloca no...]]></description>
+				<content:encoded><![CDATA[<h2 style="text-align: justify;">1. Introdução</h2>
+<p style="text-align: justify;">Quem trabalha com web, se não conhece, pelo menos já ouviu falar do <a href="https://www.heroku.com/" target="_blank">Heroku</a>. O Heroku é um PaaS, uma sigla para (Platform as a Service) ou Plataforma como Serviço. A ideia por detrás do Heroku é que o desenvolvedor não precise se preocupar mais com os problemas relacionados à implantação do seu software, ele simplesmente desenvolve, adiciona alguns arquivos no projeto, dá um <a href="http://git-scm.com/book/pt-br/v1/Git-Essencial-Trabalhando-com-Remotos" target="_blank">git push</a> para o Heroku e ele coloca no ar para você.</p>
+<p style="text-align: justify;">Isso é praticamente o sonho para quem trabalha com web, principalmente por conta da dor de cabeça que é configurar e manter um servidor. Outra vantagem é que você usa um sistema de controle de versões para o seu código (o <a href="http://git-scm.com/book/pt-br/v1/Primeiros-passos-Uma-Breve-Hist%C3%B3ria-do-Git" target="_blank">git</a> no caso) e você tem muito mais controle sobre seu projeto. Por fim, se o tráfego crescer, é simples escalar com Heroku, basta ir adicionando os <a href="https://devcenter.heroku.com/articles/dynos" target="_blank">dynos</a>. Parece ótimo, MAS tem alguma desvantagem nisso? SIM, o <a href="https://www.heroku.com/pricing" target="_blank">PREÇO</a>!</p>
+<p style="text-align: justify;">Só para você entender do que eu estou falando, eu vou fazer o deploy de uma aplicação <a href="https://www.djangoproject.com/" target="_blank">Django</a>. É um projeto que eu fiz seguindo o tutorial do <a href="http://tutorial.djangogirls.org/en/index.html" target="_blank">djangogirls</a>; o código fonte está disponível <a href="https://github.com/flaviobarros/djangogirls" target="_blank">aqui</a> no Github caso queira reproduzir.</p>
+<p><script id="asciicast-19469" src="https://asciinema.org/a/19469.js" async="" type="text/javascript"></script></p>
+<div class="post-single-content box mark-links" style="text-align: justify;">
+<p>Você pode visitar a aplicação nesse domínio: <a href="http://flavio-django-blog.herokuapp.com/" target="_blank">http://flavio-django-blog.herokuapp.com/</a></p>
+<h2>2. Docker e Dokku</h2>
+<p>Se você de alguma forma acompanha notícias do mundo open source então você provavelmente já ouviu falar do <a href="http://www.docker.com/" target="_blank">Docker</a>. O Docker é uma ferramenta fantástica que permite criar contêineres de software, totalmente isolados do sistema operacional hospedeiro. Ele funciona como uma máquina virtual, mas é simplesmente muito mais leve. A ideia por trás do docker é que o desenvolvedor cria um contêiner com todas as bilbiotecas e dependêcias que desejar garantindo que tudo funciona. O responsável pela implantação do software não precisa saber o que há dentro do contêiner, ele só precisa ser capaz de rodar contêineres no servidor.</p>
+<p>Ainda que uma funcionalidade como essa pudesse ser obtida com máquinas virtuais, elas acabavam vindo com muito mais que o necessário, tal que os arquivos eram muito grandes (&gt;&gt;1Gb) e tornavam o sistema hospedeiro muito lento. O docker por outro lado, não usa um SO completo, ele compartilha o mesmo Kernel do hospedeiro (sim, atualmente ele precisa rodar no Linux) mas é um ambiente completamente isolado. Assim, rodar contêineres do docker é muito, mas muito mais leve que rodar uma máquina virtual. Os recursos do docker não param por ai, ele também permite uma espécie de versionamento de contêineres e tem uma espécie de github para contêineres, o <a href="https://hub.docker.com/account/signup/" target="_blank">Docker Hub</a>, de onde o usuário pode baixar e usar imagens prontas para diversos softwares, como o MySQL, Postgres, LAMP, WordPress, dentre outros.</p>
+<p>O <a href="http://progrium.com/blog/2013/06/19/dokku-the-smallest-paas-implementation-youve-ever-seen/" target="_blank">Dokku</a> por sua vez, foi o “killer app” do Docker. Foi com esse projeto que muitas pessoas conseguiram ver o tamanho do potencial dessa ferramenta. De fato, como vamos ver aqui, com ele é possível ter praticamente a mesma funcionalidade do Heroku, só que a um custo muito mais baixo, uma vez que o <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a>, oferece um VPS básico (Virtual Private Server, ou Servidor Privado Virtual) por U$5,00 ou R$15,00 aproximadamente. E não é um hardware qualquer, mas com 512Mb de RAM e 20Gb em SSD! Isso é mais do que suficiente para rodar diversas instalações do WordPress, não somente uma.</p>
+<h2>3. Instalando o Dokku no Digital Ocean</h2>
+<p>Inicialmente, já vou alerta-lo que, ao invés do <a href="https://github.com/progrium/dokku" target="_blank">dokku</a> original, eu vou instalar e usar um fork, o <a href="https://github.com/dokku-alt/dokku-alt" target="_blank">dokku-alt</a>. Mas por quê? Bem, simplesmente porque o dokku-alt já vem com diversos recursos e <a href="http://progrium.viewdocs.io/dokku/plugins" target="_blank">plugins</a> instalados que eu precisaria instalar na unha caso quisesse o dokku original. Para facilitar para o leitor, ao invés dos comandos, no screencast abaixo eu mostro a instalação do dokku em um droplet do <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a>.</p>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/PwvEOdXR3q4?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<p>A etapa final da instalação exige que você tenha uma chave SSH pública. Caso você não tenha, siga <a href="http://Atualmente/ eu já uso o dokku para hospedar esta instalação do WordPress. Assim, eu vou exp" target="_blank">esse tutorial</a>. Veja o comando e um exemplo do que você vai copiar e colar:</p>
+<pre class="lang:sh decode:true">$ cat ~/.ssh/id_rsa.pub</pre>
+<p>e a saída vai ser algo assim:</p>
+<pre class="lang:r decode:true ">ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAklOUpkDHrfHY17SbrmTIpNLTGK9Tjom/BWDSU
+GPl+nafzlHDTYW7hdI4yZ5ew18JH4JW9jbhUFrviQzM7xlELEVf4h9lFX5QVkbPppSwg0cda3
+Pbv7kOdJ/MTyBlWXFCR+HAo3FXRitBqxiX1nKhXpHAZsMciLq8V6RjsNAQwdsdMFvSlVK/7XA
+t3FaoJoAsncM1Q9x5+3V0Ww68/eIFmb1zuUFljQJKprrX88XypNDvjYNby6vw/Pb0rwert/En
+mZ+AW4OZPnTPI89ZPmVMLuayrD2cE86Z/il8b+gw3r3+1nKatmIkjn2so1d01QraTlMqVSsbx
+NrRFi9wrf+M7Q== schacon@agadorlaptop.local</pre>
+<p>que você deve copiar e colar na janela do navegador, no último passo da instalação do dokku-alt.</p>
+<h2>4. Git push com Django</h2>
+<p>Atualmente eu já uso o dokku para hospedar esta instalação do WordPress. Assim, eu vou experimentar o mesmo processo utilizado anteriormente no Heroku, só que no meu próprio PaaS com o dokku-alt, que já está configurado no domínio desse site.</p>
+<p><script id="asciicast-19472" src="https://asciinema.org/a/19472.js" async="" type="mce-mce-mce-mce-mce-mce-mce-mce-mce-mce-mce-mce-mce-text/javascript"></script><br />
+Agora você pode visitar a aplicação no domínio: <a href="http://djangogirls.flaviobarros.net/">http://djangogirls.flaviobarros.net/</a></p>
+<p>Veja que o procedimento foi idêntico ao Heroku e dessa forma é possível replicar a mesma funcionalidade por um custo muito menor.</p>
+<h2>5. Detalhes importantes</h2>
+<p>Você deve gerar um Procfile dentro do seu projeto. No caso desse repositório, o arquivo já existia uma vez que foi preparado para isso, mas caso estiver criando um projeto do zero, você deve adicionar esse arquivo. O mesmo vale para o requirements.txt. Para todos os efeitos, os seguinte comandos geram estes arquivos:</p>
+<pre class="lang:r decode:true ">pip freeze &gt; requirements.txt</pre>
+<pre class="lang:sh decode:true ">echo "web: gunicorn djangogirls.wsgi" &gt; Procfile</pre>
+<p>Outro detalhe importante é que eu estou usando o sqlite3 como banco de dados. Assim, eu gerei o arquivo do banco localmente, o db.sqlite3, tal que este arquivo foi junto no git push. EM GERAL VOCÊ NÃO VAI FAZER ISSO. O que você devia fazer é uma configuração alternativa local, com o SQlite3, e uma configuração em produção, utilizando o Postgres por exemplo.</p>
+<p>No caso do Postgres ou do MySQL, o dokku-alt já conta com plugins para a criação desses bancos e comandos para linkar o banco a sua aplicação. Em outro post posso mostrar mais detalhes.</p>
+<h2> Conclusão</h2>
+<p>Se você já usa o Heroku, passar a utilizar o Dokku é simples. Basta preparar um servidor e você pode trabalhar normalmente, como se estivesse usando o Heroku. Caso você nunca tenha utilizado o Heroku minha sugestão é que você teste as duas formas de instalação.</p>
+<p>IMPORTANTE: acessando qualquer link dessa página para o <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a>, ao fazer o cadastro você vai ganhar U$10,00 de crédito sem compromisso de manter o serviço. Com esse crédito você poderá manter um VPS simples, com 512Mb de RAM, por dois meses de graça! Use os links desse post.</p>
+</div>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2015/05/02/git-push-no-django-com-o-dokku-basico/feed/index.html</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+		</item>
+	</channel>
+</rss>

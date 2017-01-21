@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>MOOCS &#8211; R Mining</title>
+	<atom:link href="./index.html" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Mineração de Dados, Estatística, Tecnologia</description>
+	<lastBuildDate>Tue, 17 Jan 2017 10:04:59 +0000</lastBuildDate>
+	<language>pt-BR</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.7.1</generator>
+	<item>
+		<title>Curso &#8220;Pratical Machine Learning&#8221; do Coursera</title>
+		<link>./../../../2015/09/29/curso-pratical-machine-learning-do-coursera/index.html</link>
+		<comments>./../../../2015/09/29/curso-pratical-machine-learning-do-coursera/index.html#comments</comments>
+		<pubDate>Wed, 30 Sep 2015 00:53:50 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Aprendizado de Máquina]]></category>
+		<category><![CDATA[Data Mining]]></category>
+		<category><![CDATA[Machine Learning]]></category>
+		<category><![CDATA[Mineração de Dados]]></category>
+		<category><![CDATA[MOOCS]]></category>
+		<category><![CDATA[Coursera]]></category>
+		<category><![CDATA[Data Science]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=760</guid>
+		<description><![CDATA[Em mais uma rodada das resenhas de cursos sobre Data Science, desta vez vou apresentar minha avaliação do curso &#8220;Pratical Machine Learning&#8220;, ou Machine Learning Prático. 1. Sobre o que é o curso? Este é o penúltimo curso da especialização em Data Science do Coursera do Coursera. Já falei sobre o último da sequência aqui nesse blog, o Developing Data Products, mas este é o último onde são apresentados conceitos novos de Data Science. Como o...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">Em mais uma rodada das resenhas de cursos sobre Data Science, desta vez vou apresentar minha avaliação do curso &#8220;<span style="color: #0000ff;"><a style="color: #0000ff;" href="https://www.coursera.org/course/predmachlearn">Pratical Machine Learning</a></span>&#8220;, ou Machine Learning Prático.</p>
+<h2 style="text-align: justify;">1. Sobre o que é o curso?</h2>
+<p style="text-align: justify;">Este é o penúltimo curso da especialização em <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://www.coursera.org/specializations/jhudatascience?utm_medium=courseDescripTop">Data Science do Coursera</a> </span>do Coursera. Já falei sobre o último da sequência aqui nesse blog, o <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://www.flaviobarros.net/2015/08/24/curso-developing-data-products-do-coursera/">Developing Data Products</a></span>, mas este é o último onde são apresentados conceitos novos de Data Science.</p>
+<p style="text-align: justify;">Como o nome do curso já diz é um curso sobre <a href="https://pt.wikipedia.org/wiki/Aprendizado_de_m%C3%A1quina">machine learning</a>. Mas e o prático no nome? O que quer dizer? Bem, esse prático na verdade quer dizer que esse curso não tem o aprofundamento teórico que é visto nos de <a href="https://www.coursera.org/course/statinference">Inferência</a> e <a href="https://www.coursera.org/course/regmods">Regressão</a>. Isto é, o objetivo desse curso não é apresentar o campo de machine learning de uma forma completa, mas habilitar o aluno a utilizar estas ferramentas pela primeira vez.</p>
+<p style="text-align: justify;">Na verdade, na minha opinião, os objetivos gerais desse curso são:</p>
+<ul>
+<li style="text-align: justify;">Apresentar a ideia de modelos para predição;</li>
+<li style="text-align: justify;">Apresentar a ideia de avaliação de modelos;</li>
+<li style="text-align: justify;">Mostrar como usar o <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://caret.r-forge.r-project.org/">caret</a></span>;</li>
+</ul>
+<p style="text-align: justify;">Veja que durante os cursos de inferência e regressão o foco foi no processo de inferência, ao passo que aqui o foco é no processo de criação de modelos de predição para problemas práticos. Quem já trabalhou com predição sabe que o processo completo começa na preparação, análise exploratória, criação de modelos, avaliação de modelos e implantação. Assim eu posso dizer que neste curso o foco foi em como criar os modelos e avalia-los corretamente.</p>
+<p style="text-align: justify;">Com relação a teoria de machine learning, nos vídeos são apresentados os princípios fundamentais dos algoritmos, mas de uma forma bastante superficial, somente o necessário para o aluno ter alguma ideia de como os algoritmos funcionam. Isso não é necessariamente uma deficiência do curso, mas sim uma opção dos instrutores e algo que é colocado antecipadamente.</p>
+<p style="text-align: justify;">Quanto o pacote <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://caret.r-forge.r-project.org/">caret</a></span> ele é usado extensivamente aqui. É um pacote que eu uso muito, há muito tempo, e realmente é essencial para automatizar aquelas tarefas repetitivas presentes na pipeline de criação de modelos de predição.</p>
+<h2 style="text-align: justify;">2. Pré-requisitos</h2>
+<p style="text-align: justify;">Nessa altura da especialização é um curso que demanda bastante o domínio da linguagem R. Até chegar aqui, em tese, o aluno já utilizou bastante a linguagem para preparação, análise exploratória, geração de relatórios e etc. Assim, se você não tem um bom domínio do R vai ter problemas para realizar as tarefas e o projetos. Outro ponto fundamental é que é necessário um conhecimento básico de modelagem e inferência e como utilizar o github. Enfim:</p>
+<ul>
+<li style="text-align: justify;">Linguagem R;</li>
+<li style="text-align: justify;">Git &amp; Github</li>
+<li style="text-align: justify;">Regressão e modelagem;</li>
+</ul>
+<h2>3. Conteúdo</h2>
+<p>No geral o conteúdo aborda os seguintes tópicos:</p>
+<ul>
+<li>Criação de modelos preditivos;</li>
+<li>Avaliação de modelos;</li>
+<li>Automatização com o caret;</li>
+<li>Overview dos principais algoritmos de ML;</li>
+</ul>
+<h2>Minha experiência</h2>
+<p style="text-align: justify;">Eu vi todo o material, fiz todos os quizes e o projeto final. Minha impressão é que os vídeos podem não fornecer o suficiente para um aluno que está vendo o assunto pela primeira vez. Digo isto pois eu tive a impressão que as aulas foram algo superficiais, mas seria necessário saber mais para responder corretamente todos os quizes.</p>
+<p style="text-align: justify;">Um ponto que eu gostaria de destacar é que o instrutor fala como uma batedeira. Vejam, eu entendo que ele é americano e está falando para uma audiência de língua inglesa, MAS o fato é que uma boa parcela do público é de alunos estrangeiros que não tem o inglês como o idioma nativo. Eu tenho proficiência em inglês para conversar, até consegui fazer o curso sem utilizar as legendas, mas acredito que o autor poderia fazer um esforço para facilitar a vida dos estrangeiros, minha opinião ;-). Só para comparar, no curso de Machine Learning do Andrew Ng por exemplo, você vê que há um esforço do instrutor em se fazer entender para uma ampla audiência.</p>
+<p style="text-align: justify;">O curso tem bastante material e os exercícios demandam trabalho. Não é algo que faz em dois dias e pronto. Tem que dar uma raladinha, principalmente se você não tem experiência com o R ;-). Eu diria que um aluno regular pode ter que gastar algo entre 4h a 10h por semana.</p>
+<h2 style="text-align: justify;">Conclusão</h2>
+<p style="text-align: justify;">Bom, para quem estiver fazendo a especialização não tem jeito, tem que fazer mesmo. Mas e para quem não está? Vale a pena fazer só esse? Eu particularmente acho que vale em alguns casos. O curso tem suas deficiências, questões que podem ser melhoradas, mas se eu tivesse que destacar um grande mérito seria o seguinte: você vai aprender a aplicar data science usando o R como plataforma.</p>
+<p style="text-align: justify;">Acredito que pode ser um curso bastante útil para profissionais de data science que querem migrar de plataforma; estudantes de graduação que desejam ver aplicações e entusiastas que pretendem participar de competições e modelagem. É  um bom começo.</p>
+<p style="text-align: justify;">Devo salientar que o curso está pra lá de longe de oferecer um conteúdo aprofundado sobre os aspectos de ML. Entretanto essa não é a proposta do curso e já existem dois bons complementos para esse curso, para quem pretende aprender mais sobre ML:</p>
+<ol>
+<li style="text-align: justify;"><span style="color: #0000ff;"><a style="color: #0000ff;" href="https://www.coursera.org/learn/machine-learning">Machine Learning</a></span> do Andrew Ng;</li>
+<li style="text-align: justify;"><span style="color: #0000ff;"><a style="color: #0000ff;" href="https://lagunita.stanford.edu/courses/HumanitiesandScience/StatLearning/Winter2015/about">Statistical Learning</a></span> do Trevor Hastie and Robert Tibshirani;</li>
+</ol>
+<p style="text-align: justify;">O primeiro foi o curso que inicou o Coursera, do próprio fundador, e o segundo é um curso fantástico, que deve ser oferecido agora novamente no verão, e que tem todo seu conteúdo disponível no <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://www.r-bloggers.com/in-depth-introduction-to-machine-learning-in-15-hours-of-expert-videos/">Youtube</a></span> para quem se interessar.</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2015/09/29/curso-pratical-machine-learning-do-coursera/feed/index.html</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+		<item>
+		<title>Curso &#8220;As Ferramentas do Cientista de Dados&#8221; do Coursera</title>
+		<link>./../../../2015/09/10/curso-as-ferramentas-do-cientista-de-dados-do-coursera/index.html</link>
+		<comments>./../../../2015/09/10/curso-as-ferramentas-do-cientista-de-dados-do-coursera/index.html#comments</comments>
+		<pubDate>Fri, 11 Sep 2015 00:24:53 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Educação]]></category>
+		<category><![CDATA[Estatística]]></category>
+		<category><![CDATA[Git & Github]]></category>
+		<category><![CDATA[MOOCS]]></category>
+		<category><![CDATA[R e RStudio]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=741</guid>
+		<description><![CDATA[Hoje eu vou fazer uma pequena resenha sobre o curso &#8220;As Ferramentas do Cientista de Dados&#8221; oferecido pelo Coursera, com o objetivo de avaliar o curso e direcionar os leitores sobre a escolha de fazê-lo ou não. Sobre o que é o curso? Inicialmente eu gostaria de destacar que esse é o curso inicial da especialização em Data Science do Coursera, oferecida em parceria com professores da Johns Hopkins University. A especialização compreende 10 cursos...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">Hoje eu vou fazer uma pequena resenha sobre o curso &#8220;<span style="color: #0000ff;"><a style="color: #0000ff;" href="https://www.coursera.org/course/datascitoolbox">As Ferramentas do Cientista de Dados</a></span>&#8221; oferecido pelo Coursera, com o objetivo de avaliar o curso e direcionar os leitores sobre a escolha de fazê-lo ou não.</p>
+<h2 style="text-align: justify;">Sobre o que é o curso?</h2>
+<p style="text-align: justify;">Inicialmente eu gostaria de destacar que esse é o curso inicial da especialização em <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://www.coursera.org/specializations/jhudatascience?utm_medium=courseDescripTop">Data Science do Coursera</a></span>, oferecida em parceria com professores da Johns Hopkins University. A especialização compreende 10 cursos que em tese capacitam o aluno como um cientista de dados júnior.</p>
+<p style="text-align: justify;">Esse curso em especial atua como uma forma de preparação inicial, introduzindo as ideias da especialização como um todo e fornecendo aos alunos um direcionamento com relação as ferramentas que ele vai utilizar durante os 9 cursos seguintes. Em resumo, ele oferece:</p>
+<ul>
+<li style="text-align: justify;">Introdução sobre todos os outros 9 cursos</li>
+<li style="text-align: justify;">Breve introdução ao <a href="https://www.r-project.org/">R</a> &amp; <a href="https://www.rstudio.com/">RStudio</a></li>
+<li style="text-align: justify;">Como instalar pacotes no <a href="https://www.r-project.org/">R</a></li>
+<li style="text-align: justify;">Introdução ao <a href="http://rmarkdown.rstudio.com/">RMarkdown</a></li>
+<li style="text-align: justify;"><a href="https://git-scm.com/book/pt-br/v1/Primeiros-passos-No%C3%A7%C3%B5es-B%C3%A1sicas-de-Git">Git</a> e <a href="https://github.com/">Github</a></li>
+<li style="text-align: justify;">Introdução ao que é Ciência de Dados e Big Data</li>
+</ul>
+<h2>Quanto tempo leva?</h2>
+<p style="text-align: justify;">O curso é previsto para 3 semanas, mas de fato com um mínimo de dedicação é possível realizar TODAS AS TAREFAS EM 1 HORA. Não estou brincando, realmente em uma hora você pode terminar tudo, principalmente se você já usou um <a href="http://git-scm.com/">git</a> ou <a href="https://github.com/">github</a> pelo menos uma vez na vida. Eu me inscrevi para avaliar o curso e fiz tudo em uma hora.</p>
+<h2 style="text-align: justify;">Vale a pena?</h2>
+<p style="text-align: justify;">Essa é uma questão difícil de responder, mas atualmente eu diria que não. Por quê? Porque o curso isoladamente não significa nada. Se o aluno pretende aprender a usar o <a href="http://git-scm.com/">git</a> e <a href="https://github.com/">github</a> existem recursos gratuitos muito melhores na internet. Além disso a introdução que ele faz dos outros cursos, e mesmo alguns conteúdos apresentados, bem poderiam fazer parte dos outros 9 cursos da especialização. Enfim, só faz sentido fazer esse curso se você planeja terminar a especialização inteira, uma vez que você é obrigado a concluir os 10 cursos para poder participar do <a href="https://www.coursera.org/course/dsscapstone">projeto final</a>.</p>
+<h2 style="text-align: justify;">Nem a parte sobre Git vale a pena?</h2>
+<p style="text-align: justify;">Como eu disse eu acredito que esse curso poderia ser canibalizado pelos outros, e na minha opinião, não havia a necessidade de criar um curso separado só para isso. Ainda assim posso dizer que a introdução ao Git e Github é razoável, pensando em um usuário que nunca viu Git e não sabe o que é.</p>
+<h2 style="text-align: justify;">Conclusão</h2>
+<p style="text-align: justify;">Se você pretende fazer a especialização vai ter que fazer esse curso, caso contrário existem materiais melhores, gratuitos, onde você pode ter uma boa ideia e uma boa introdução a todos os tópicos tratados nesse curso.</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2015/09/10/curso-as-ferramentas-do-cientista-de-dados-do-coursera/feed/index.html</wfw:commentRss>
+		<slash:comments>7</slash:comments>
+		</item>
+		<item>
+		<title>Curso &#8220;Developing Data Products&#8221; do Coursera</title>
+		<link>./../../../2015/08/24/curso-developing-data-products-do-coursera/index.html</link>
+		<comments>./../../../2015/08/24/curso-developing-data-products-do-coursera/index.html#comments</comments>
+		<pubDate>Mon, 24 Aug 2015 15:35:53 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Educação]]></category>
+		<category><![CDATA[Estatística]]></category>
+		<category><![CDATA[MOOCS]]></category>
+		<category><![CDATA[R e RStudio]]></category>
+		<category><![CDATA[Shiny]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=702</guid>
+		<description><![CDATA[Eu acabei de terminar as atividades desse curso do Coursera: Developing Data Products ou Desenvolvendo Produtos baseados em Dados. Assim, nesse post, vou fazer um overview do curso para que você saiba se vale a pena ou não fazê-lo. 1. O que é o curso? O nome do curso pode parecer obscuro a primeira vista, principalmente para quem não é da área, mas o curso é simplesmente sobre como você pode transformar dados/análises em produtos, isto é,...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">Eu acabei de terminar as atividades desse curso do Coursera: <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://www.coursera.org/course/devdataprod" target="_blank">Developing Data Products</a> <span style="color: #000000;">ou <span style="color: #333333;">Desenvolvendo</span> <span style="color: #333333;">Produtos baseados em Dados. Assim, nesse post, vou fazer um overview do curso para que você saiba se vale a pena ou não fazê-lo.</span></span></span></p>
+<h2 style="text-align: justify;">1. O que é o curso?</h2>
+<p style="text-align: justify;">O nome do curso pode parecer obscuro a primeira vista, principalmente para quem não é da área, mas o curso é simplesmente sobre como você pode transformar dados/análises em produtos, isto é, sair dos dados crús para um produto usável até por quem não tem nenhuma intimidade com análise de dados/estatística.</p>
+<p style="text-align: justify;">Todo estatístico ou analista, pelo menos alguma vez, produziu algum produto baseado em dados, seja um  um relatório ou uma apresentação em slides. Entretanto, esse curso não se trata de como criar relatórios, mas sim de como criar aplicações web interativas, apresentações/visualizações que podem ser compartilhadas na web, pacotes do R e funções que podem ser compartilhadas em uma API. Enfim, o curso é sobre como um cientista de dados pode compartilhar seu trabalho na web com outras pessoas.</p>
+<h2 style="text-align: justify;">2. Pré-requisitos</h2>
+<p>Esse curso é o último curso da <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://www.coursera.org/specialization/jhudatascience/1" target="_blank">Especialização em Data Sciensce do Coursera</a></span>, assim subtendem-se muitos pré-requisitos:</p>
+<ul>
+<li>Domínio da linguagem R.</li>
+<li>Domínio de ferramentas como <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://git-scm.com/book/pt-br/v1/Primeiros-passos-No%C3%A7%C3%B5es-B%C3%A1sicas-de-Git">Git</a></span>, <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://github.com/">Github</a></span>, <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://www.rstudio.com/">RStudio</a></span>, <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://rmarkdown.rstudio.com/">RMarkdown</a></span> e etc.</li>
+<li>Domínio de estatística e modelagem de dados.</li>
+</ul>
+<p style="text-align: justify;">ENTRETANTO, se você é, por exemplo, um analista com experiência prática em algum pacote estatístico, que domina o R ou tem a facilidade de aprender novas linguagens, esse curso pode ser para você. Minha única ressalva é que se você tem experiência somente com interfaces Point &amp; Click e nunca ouviu falar do R, talvez precise fazer algum treinamento sobre o R e <a href="https://git-scm.com/book/pt-br/v1/Primeiros-passos-No%C3%A7%C3%B5es-B%C3%A1sicas-de-Git"><span style="color: #0000ff;">Git</span></a>.</p>
+<h2 style="text-align: justify;">3. Conteúdo</h2>
+<p>O curso aborda os seguintes tópicos:</p>
+<ol>
+<li>Aplicações Shiny.</li>
+<li>Criação de pacotes do R.</li>
+<li>Apresentações interativas com RStudio Presenter e Slidfy.</li>
+<li>rCharts.</li>
+<li>Plot.ly.</li>
+</ol>
+<p style="text-align: justify;">A ênfase com certeza é no Shiny. Aliás o projeto final de curso é com o Shiny e é onde você será mais cobrado.</p>
+<p style="text-align: justify;">As avaliações foram por meio de quizes e por meio de um projeto final que consistia na criação de uma aplicação Shiny e uma apresentação sobre a aplicação.</p>
+<h2>Minha experiência</h2>
+<ul>
+<li style="text-align: justify;">Eu achei o curso muito interessante, principalmente porque eu já tinha experiência com o Shiny, especialmente a implantação.</li>
+<li style="text-align: justify;">Em termos de dificuldade o curso é mediano e a parte mais exigente é a criação do aplicativo em Shiny.</li>
+<li style="text-align: justify;">A criação de pacotes em R é um bônus, e se você é um usuário básico eu acredito que aprender a criar seus próprios pacotes é um grande bônus desse curso.</li>
+<li style="text-align: justify;">A criação de apresentações é trivial e se for seu único interesse não valeria a pena fazer o curso inteiro.</li>
+</ul>
+<p style="text-align: justify;"> O curso exige umas 4 horas por semana e aprender a usar bem o Shiny realmente vale a pena. Muitos estatísticos não são programadores web e a possibilidade de transformar suas análises em websites completos sem ter que aprender novas linguagens de programação é uma habilidade muito interessante.</p>
+<p style="text-align: justify;">O curso é bem introdutório com relação ao Shiny e se você quiser se aprofundar você DEVE ver <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://www.rstudio.com/resources/webinars/">esse material</a></span>.</p>
+<h2 style="text-align: justify;">Conclusão</h2>
+<p style="text-align: justify;">Vale muito a pena, o material é muito bom e é um dos melhores meios para começar a usar o Shiny. Eu acredito que o Shiny é, de uma certa forma, revolucionário uma vez que para emular algo parecido um cientista de dados deveria dominar diversas habilidades como programação web, implantação de software, infraestrutura, estatística e etc. Com o Shiny basta saber usar o R e você já consegue modelar, analisar, criar visualizações e compartilhar tudo na Web.</p>
+<p style="text-align: justify;">ENTRETANTO, esteja ciente que é um curso BÁSICO. A partir do que você aprender aqui você vai ter uma base sólida para começar a criar suas aplicações, MAS VAI TER que consultar outros materiais, principalmente os materiais produzidos pela equipe do RStudio.</p>
+<p style="text-align: justify;">Por fim, veja algumas aplicações feitas em Shiny para você ter uma ideia do potencial dessa ferramenta:</p>
+<ol>
+<li style="text-align: justify;"><span style="color: #0000ff;"><a style="color: #0000ff;" href="https://gallery.shinyapps.io/slr_diag/">Linear Regression Diagnostics</a></span></li>
+<li style="text-align: justify;"><span style="color: #0000ff;"><a style="color: #0000ff;" href="https://trestletech.shinyapps.io/dallas-police/">Police Calls</a></span></li>
+</ol>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2015/08/24/curso-developing-data-products-do-coursera/feed/index.html</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+		<item>
+		<title>MOOCs and courses to learn R</title>
+		<link>./../../../2014/03/14/online-multimedia-resources-learn-r/index.html</link>
+		<comments>./../../../2014/03/14/online-multimedia-resources-learn-r/index.html#comments</comments>
+		<pubDate>Fri, 14 Mar 2014 17:02:31 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Educação]]></category>
+		<category><![CDATA[English]]></category>
+		<category><![CDATA[MOOCS]]></category>
+		<category><![CDATA[R e RStudio]]></category>
+		<category><![CDATA[r-bloggers]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=376</guid>
+		<description><![CDATA[Inspired by this article i thought about gather here all multimedia resources that i know to learn use R. Today there is a lot of online courses, some MOOC&#8217;s too, that offer reasonable resources to start with R. I will just list the materials in sequence and offer my evaluation about them. Of course your evaluation can be different; this case fell free to comment. In the future i can update the material. Let&#8217;s begin:...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">Inspired by <span style="color: #0000ff;"><a href="http://www.r-bloggers.com/an-r-meta-book/"><span style="color: #0000ff;">this article</span></a></span> i thought about gather here all multimedia resources that i know to learn use R. Today there is a lot of online courses, some MOOC&#8217;s too, that offer reasonable resources to start with R.</p>
+<p style="text-align: justify;">I will just list the materials in sequence and offer my evaluation about them. Of course your evaluation can be different; this case fell free to comment. In the future i can update the material. Let&#8217;s begin:</p>
+<p><span style="color: #0000ff;">1. </span><a style="color: #0000ff;" href="https://www.coursera.org/course/compdata">Computing for Data Analysis</a></p>
+<p style="text-align: justify;">This course was offered multiple times from 2012 to 2014. I did the course at 2013 and the course was very well formatted, with good exercises and lots of resources. It was offered on Coursera platform, that i particularly think excellent, and take an average effort to finish. There is quiz questions and program assignments. The course is free.</p>
+<p><span style="color: #0000ff;"><span style="color: #0000ff;">2. </span></span><span style="color: #0000ff;"><a href="https://www.coursera.org/course/rprog"><span style="color: #0000ff;">R Programming</span></a></span></p>
+<p style="text-align: justify;">This course is offered at coursera too, from the same instructor as Computing for Data Analysis. According to course syllabus: &#8220;The course covers practical issues in statistical computing which includes programming in R, reading data into R, accessing R packages, writing R functions, debugging, and organizing and commenting R code. Topics in statistical data analysis and optimization will provide working examples.&#8221;</p>
+<p style="text-align: justify;">Well, once that there is now the coursera specializations, i thinks that this course is &#8220;Computing for Data Analysis&#8221; rebuilded. SO, if you already did the first course i don&#8217;t see any advantage doing this one, unless you want to get the specialization certificate.</p>
+<p><span style="color: #0000ff;"><span style="color: #0000ff;">3. </span></span><span style="color: #0000ff;"><a href="https://www.coursera.org/course/dataanalysis"><span style="color: #0000ff;">Data Analysis</span></a></span></p>
+<p style="text-align: justify;">This course was about the practical aspect of data analysis with R. All activities was in R, but the course wasn&#8217;t about R itself. But it was very good and you can learn a lot of R with it. The course is free and offered on Cousera platform.</p>
+<p style="text-align: justify;">OBS: Both, Computing for Data Analysis and Data Analysis, can be replaced for other courses on <span style="color: #0000ff;"><a href="https://www.coursera.org/specialization/jhudatascience/1?utm_medium=listingPage"><span style="color: #0000ff;">coursera specialization</span></a></span>. I won&#8217;t comment now about these new courses because some of them are being offered now and other will be offered on the  next months. Anyway both course materials are avaliable on youtube.</p>
+<p><span style="color: #0000ff;"><span style="color: #0000ff;">4. </span></span><span style="color: #0000ff;"><a href="https://www.coursera.org/specialization/jhudatascience/1?utm_medium=listingPage"><span style="color: #0000ff;">Introduction to Data Analysis with R</span></a></span></p>
+<p style="text-align: justify;">This course is being offered at bigdatauniversity platform. The course is a good starting point but i don&#8217;t this platform like so much. But the pros of this course is that you can do it on your pace and it have less material to cover. It&#8217;s a quick introduction  to R.</p>
+<p><span style="color: #0000ff;"><span style="color: #0000ff;">5. </span></span><span style="color: #0000ff;"><a href="http://bigdatauniversity.com/bdu-wp/bdu-course/data-mining-with-r-let-r-rattle-you/"><span style="color: #0000ff;">Data Mining with R</span></a></span></p>
+<p style="text-align: justify;">This course will be too offered at bigdatauniversity, but it&#8217;s not avaliable right now. It will be recorded, and you can participate through live stream from bigdatauniversity, and released on that platform. The course doesn&#8217;t have a syllabus available, but i think that the content of <span style="color: #0000ff;"><a href="http://www.amazon.com/Data-Mining-Rattle-Excavating-Knowledge/dp/1441998896/ref=sr_1_2?ie=UTF8&amp;qid=1394813754&amp;sr=8-2&amp;keywords=data+mining+with+R"><span style="color: #0000ff;">this book</span></a></span>, will probably be the topics discussed.</p>
+<p style="text-align: justify;"><span style="color: #0000ff;"><a href="http://rattle.togaware.com/"><span style="color: #0000ff;">Rattle</span></a></span> is a GUI for datamining that uses R as backend. It&#8217;s very intuitive and resembles Weka interface. While it&#8217;s not as flexible as use R directly it provides a quick way to explore and buid models with R. With Rattle() every step taken is saved on a log that you can use as scripts to automate tasks.</p>
+<p><span style="color: #0000ff;"><span style="color: #0000ff;">6. </span></span><span style="color: #0000ff;"><a href="http://bigdatauniversity.com/bdu-wp/bdu-course/using-r-with-databases/"><span style="color: #0000ff;">Using R with Databases</span></a></span></p>
+<p style="text-align: justify;">This course is too being offered at bigdatauniversity. It&#8217;s supposing you have some R skills and is about the use of databases with R. It uses IBM DB2 specifically, but you can  apply the concepts to others databases as well. It&#8217;s free and i liked it.</p>
+<p><span style="color: #0000ff;"><span style="color: #0000ff;">7. </span></span><span style="color: #0000ff;"><a href="http://online.stanford.edu/course/statistical-learning-winter-2014"><span style="color: #0000ff;">Statistical Learning</span></a></span></p>
+<p style="text-align: justify;">I&#8217;m taking this course right now and i will write a post specifically about it. BUT, just to clarify, it&#8217;s a course about machine learning (or statiscical learning if you want) based on the introductory book <span style="color: #0000ff;"><a href="http://www-bcf.usc.edu/~gareth/ISL/"><span style="color: #0000ff;">Introduction to Statistical Learning</span></a><span style="color: #0000ff;">. </span></span></p>
+<p style="text-align: justify;">The course isn&#8217;t about R itself but all the techniques are implemented using R. This course is a easy way to read the book. The course is free and is offered at openedX platform, that is a wonderful platform for MOOCs.</p>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/2wLfFB_6SKI?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<p><span style="color: #0000ff;"><span style="color: #0000ff;">8. </span></span><span style="color: #0000ff;"><a href="https://www.udemy.com/introduction-to-r/?sl=E0YSdzFTKn5uFFkoCkA%3D&amp;dtcode=n7fuldbm"><span style="color: #0000ff;">Introduction to R</span></a></span></p>
+<p style="text-align: justify;">This course is offered at <span style="color: #0000ff;"><a href="https://www.udemy.com/courses/"><span style="color: #0000ff;">Udemy</span></a></span> platform. Udemy is a great platform both to create your own course as to take a course. The course is not free, but it has good reviews of users and you have 30 days to evaluate the material and be refounded.</p>
+<p style="text-align: justify;">The author claim that you can learn the basics with 2 days of course.</p>
+<p><span style="color: #0000ff;"><span style="color: #0000ff;">9. </span></span><span style="color: #0000ff;"><a href="https://www.edx.org/course/kix/kix-kiexplorx-explore-statistics-r-1524"><span style="color: #0000ff;">Explore Statistics with R</span></a></span></p>
+<p style="text-align: justify;">This course will be released at september on edX. So no further comments.</p>
+<p><span style="color: #0000ff;"><span style="color: #0000ff;">10. </span></span><span style="color: #0000ff;"><a href="Build Web Apps in R with Shiny"><span style="color: #0000ff;">Build Web Apps in R with Shiny</span></a></span></p>
+<p style="text-align: justify;">This is another Udemy course. Worth of checking.</p>
+<p style="text-align: justify;">Obs: Coursera will offer <span style="color: #0000ff;"><a href="https://www.coursera.org/course/devdataprod"><span style="color: #0000ff;">Developing Data Products</span></a></span> for free next june. This course is about the very same topics. So maybe it&#8217;s worth wait.<span style="color: #0000ff;"><br />
+</span></p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2014/03/14/online-multimedia-resources-learn-r/feed/index.html</wfw:commentRss>
+		<slash:comments>7</slash:comments>
+		</item>
+		<item>
+		<title>Plataforma edX liberada!</title>
+		<link>./../../../2013/06/01/plataforma-edx-liberada/index.html</link>
+		<comments>./../../../2013/06/01/plataforma-edx-liberada/index.html#respond</comments>
+		<pubDate>Sat, 01 Jun 2013 17:34:15 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Educação]]></category>
+		<category><![CDATA[MOOCS]]></category>
+		<category><![CDATA[ensino à distância]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=65</guid>
+		<description><![CDATA[O edX é uma iniciativa de ensino à distância fundada por Harvard e MIT. Além da parceria com as Universidades para criar, gerenciar e oferecer gratuitamente os cursos, também foi criada uma plataforma com recursos Web 2.0 e inteligência artificial que permite a eles oferecerem cursos com milhares participantes e um staff reduzido. No oferecimento desses cursos chamados MOOC, a plataforma é uma peça fundamental. Como forma de fomentar esse modelo de educação superior e permitir...]]></description>
+				<content:encoded><![CDATA[<p><script type="text/javascript">// <![CDATA[
+<span class="mceItemHidden" data-mce-bogus="1">
+    bb_bid = "1693329";
+    bb_lang = "en-US";
+    bb_name = "<span class="hiddenSpellError" pre="" data-mce-bogus="1">custom</span>";
+    bb_limit = "7";
+    bb_format = "<span class="hiddenSpellError" pre="" data-mce-bogus="1">bbc</span>";
+</span>
+// ]]&gt;</script><br />
+<script src="http://static.boo-box.com/javascripts/embed.js" type="text/javascript"></script></p>
+<p style="text-align: justify;">O edX é uma iniciativa de ensino à distância fundada por Harvard e MIT. Além da parceria com as Universidades para criar, gerenciar e oferecer gratuitamente os cursos, também foi criada uma plataforma com recursos Web 2.0 e inteligência artificial que permite a eles oferecerem cursos com milhares participantes e um <em>staff</em> reduzido. No oferecimento desses cursos chamados MOOC, a plataforma é uma peça fundamental.</p>
+<p style="text-align: justify;"><a href="http://www.flaviobarros.net/wp-content/uploads/2013/06/edX.png"><img class="aligncenter size-full wp-image-153" src="http://www.flaviobarros.net/wp-content/uploads/2013/06/edX.png" alt="edX" width="200" height="200" srcset="./../../../wp-content/uploads/2013/06/edX.png 200w, ./../../../wp-content/uploads/2013/06/edX-150x150.png 150w, ./../../../wp-content/uploads/2013/06/edX-90x90.png 90w" sizes="(max-width: 200px) 100vw, 200px" /></a></p>
+<p style="text-align: justify;">Como forma de fomentar esse modelo de educação superior e permitir o acesso a essas tecnologias em todas as partes do mundo, o edX se juntou a Stanford para construir uma plataforma de código aberto que pode ser utilizada por empresas, universidades e individuais. A partir de hoje, dia 1 de junho de 2013, a plataforma estará disponível para download. Qualquer pessoa pode instalar, criar cursos e oferece-los on-line. De acordo com as palavras do fundador do edX: &#8220;eu sempre digo que o edX vai se tornar o Linux da educação&#8221;, assim espero.</p>
+<p style="text-align: justify;"> Maiores detalhes em<span style="color: #0000ff;"> <a href="http://code.edx.org/"><span style="color: #0000ff;">http://code.edx.org/</span></a></span>.</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2013/06/01/plataforma-edx-liberada/feed/index.html</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Plataforma Moodle</title>
+		<link>./../../../2013/05/31/plataforma-moodle/index.html</link>
+		<pubDate>Fri, 31 May 2013 01:04:11 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Educação]]></category>
+		<category><![CDATA[MOOCS]]></category>
+		<category><![CDATA[moodle]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=39</guid>
+		<description><![CDATA[O Moodle, uma sigla para &#8220;Modular Object-Oriented Dynamic Learning Environment&#8220;, é um sistema de gestão de aprendizagem ou também um LMS (Learn Management System) gratuito e de código aberto. Com o Moodle é possível criar cursos online, utilizar como suporte ao ensino presencial ou como um plataforma para o ensino à distância. Além das funcionalidades básicas como forums, chat, disponibilidade de materiais e etc, é possível estender as funções do Moodle com uma séries de plugins....]]></description>
+				<content:encoded><![CDATA[<p>O Moodle, uma sigla para &#8220;<b>Modular Object-Oriented Dynamic Learning Environment</b>&#8220;, é um sistema de gestão de aprendizagem ou também um LMS (Learn Management System) gratuito e de código aberto. Com o Moodle é possível criar cursos online, utilizar como suporte ao ensino presencial ou como um plataforma para o ensino à distância. Além das funcionalidades básicas como forums, chat, disponibilidade de materiais e etc, é possível estender as funções do Moodle com uma séries de plugins. Assim o Moodle é um dos LMS&#8217;s mais flexíveis do mercado atualmente. Veja o vídeo a seguir para maiores detalhes:</p>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/K1J6qeWkZPk?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<p style="text-align: justify;">Pelo que eu sei a plataforma já fou utilizada para oferecimentos dos MOOC&#8217;s, mas no entanto ainda faltam certos recursos que são essenciais nesse tipo de curso. Em posts futuros pretendo discutir mais a questão do Moodle vs MOOC&#8217;s.</p>
+<p>&nbsp;</p>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>MOOC&#8217;s para todos!</title>
+		<link>./../../../2013/05/30/moocs/index.html</link>
+		<pubDate>Thu, 30 May 2013 16:06:05 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[MOOCS]]></category>
+		<category><![CDATA[Coursera]]></category>
+		<category><![CDATA[edX]]></category>
+		<category><![CDATA[MOOC]]></category>
+		<category><![CDATA[Udacity]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=1</guid>
+		<description><![CDATA[&#160; Nos últimos dois anos temos visto na internet o fenômeno dos MOOC&#8217;s, sigla em inglês para (Massive Open Online Course), tendo como principais representantes o Coursera (https://www.coursera.org/), o Udacity (https://www.udacity.com/)  e o edX (https://www.edx.org/). Os três foram fundados como startups de tecnologia e vem oferecendo cursos em nível de graduação em parceria com universidades conceituadas como MIT, Harvard e Stanford. Apesar do ensino à distância não ser algo novo, essas iniciativas se diferenciam das demais por...]]></description>
+				<content:encoded><![CDATA[<p>&nbsp;</p>
+<p style="text-align: justify;">Nos últimos dois anos temos visto na internet o fenômeno dos MOOC&#8217;s, sigla em inglês para <em>(Massive Open Online Course), </em>tendo como principais representantes o Coursera (<span style="color: #3366ff;"><a href="https://www.coursera.org/"><span style="color: #3366ff;">https://www.coursera.org/</span></a></span>), o Udacity (<span style="color: #3366ff;"><a href="https://www.udacity.com/"><span style="color: #3366ff;">https://www.udacity.com/</span></a></span>)  e o edX (<span style="color: #3366ff;"><a href="https://www.edx.org/"><span style="color: #3366ff;">https://www.edx.org/</span></a></span>). Os três foram fundados como startups de tecnologia e vem oferecendo cursos em nível de graduação em parceria com universidades conceituadas como MIT, Harvard e Stanford.</p>
+<p style="text-align: justify;">Apesar do ensino à distância não ser algo novo, essas iniciativas se diferenciam das demais por conta do apelo destas instituições e dos professores que ministram os cursos. Também se destaca o fato de que os cursos são abertos e gratuitos e em alguns casos como do Coursera, é possível receber um certificado ao final.  Na sigla MOOC, o <em>massive</em> se refere ao número de estudantes que participam simultaneamente, que em alguns casos passa das centenas de milhares.</p>
+<p style="text-align: justify;">De forma a trabalhar com um volume tão elevado de participantes, todas essas iniciativas desenvolveram plataformas próprias com recursos de inteligência artificial que permitem que os alunos sejam avaliados em tempo real. Essas plataformas também contemplam recursos da Web 2.0,  cooperação entre os estudantes e professores por meio de forums e chats e avaliações on-line. Devido ao número elevado de participantes o tempo médio de resposta às dúvidas costumam ser menores que 20 minutos.</p>
+<p style="text-align: justify;">Já participei de 4 cursos: 3 na plataforma do Coursera e 1 na plataforma do Udacity. Minha experiência foi, e está sendo, muito boa. Tenho aprendido bastante sobre minhas áreas de interesse com grandes especialistas das melhores universidades americanas. Essa é uma oportunidade incrível que nem é possível determinar quanto custaria e vem sendo oferecido de graça na internet.</p>
+<p style="text-align: justify;">Infelizmente nem todos os brasileiros podem usufruir: a maioria esmagadora, com algumas exceções, são cursos oferecidos em inglês. A barreira da língua limita o acesso a esse modelo de educação que pode revolucionar o ensino superior. Uma possível solução seria que iniciativas semelhantes fossem oferecidas no Brasil em português. Para tanto seria necessário ou um convênio com universidades brasileiras ou uma plataforma de código aberto disponível para empresas, instituições e individuais. Pensando nisso a Universidade de Stanford, durante o ano de 2012 lançou uma plataforma para MOOC&#8217;s chamada class2go, na qual ofereceu alguns cursos e estava disponível para download e livre para qualquer pessoa usar. Essa plataforma contemplava todos os recursos das anteriores e o objetivo era exportar esse modelo de educação ao redor do mundo.</p>
+<p style="text-align: justify;">Somada a essa iniciativa, o edX recentemente  anunciou a abertura em código aberto de sua plataforma. O Class2go se fundirá a esse projeto e, a partir do 1 de junho de 2013, a plataforma estará disponível para qualquer pessoa usar. Particularmente estou entusiasmado com a ideia e pretendo em breve experimentar e talvez já oferecer um curso on-line!</p>
+<p style="text-align: justify;">
+]]></content:encoded>
+			</item>
+	</channel>
+</rss>

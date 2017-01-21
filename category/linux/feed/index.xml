@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Linux &#8211; R Mining</title>
+	<atom:link href="./index.html" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Mineração de Dados, Estatística, Tecnologia</description>
+	<lastBuildDate>Tue, 17 Jan 2017 10:04:59 +0000</lastBuildDate>
+	<language>pt-BR</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.7.1</generator>
+	<item>
+		<title>Compartilhe Shiny Apps com o Docker e o Kitematic!</title>
+		<link>./../../../2015/12/28/compartilhe-shiny-apps-com-o-docker-e-o-kitematic/index.html</link>
+		<comments>./../../../2015/12/28/compartilhe-shiny-apps-com-o-docker-e-o-kitematic/index.html#respond</comments>
+		<pubDate>Mon, 28 Dec 2015 04:38:59 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Docker]]></category>
+		<category><![CDATA[Linux]]></category>
+		<category><![CDATA[Shiny]]></category>
+
+		<guid isPermaLink="false">./../../../index.html?p=813</guid>
+		<description><![CDATA[Há algum tempo atrás eu escrevi nesse blog sobre como &#8220;dockerizar&#8221; uma aplicação Shiny. Se você não sabe o que é o Docker ou o que eu quero dizer com &#8220;dockerizar uma aplicação Shiny&#8221; eu lhe aconselho dar uma olhada nesse post: Dockerizando Shiny Apps Eu usei esta solução para criar uma forma fácil de fazer o deploy (ou implatação) de Apps Shiny em servidores web, uma vez que na prática, se você quiser fazer...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">Há algum tempo atrás eu escrevi nesse blog sobre como &#8220;dockerizar&#8221; uma aplicação Shiny. Se você não sabe o que é o Docker ou o que eu quero dizer com &#8220;dockerizar uma aplicação Shiny&#8221; eu lhe aconselho dar uma olhada nesse post:</p>
+<p style="text-align: justify;"><span style="color: #0000ff;"><a style="color: #0000ff;" href="./../../../2015/04/30/dockerizando-shiny-apps/index.html">Dockerizando Shiny Apps</a></span></p>
+<p style="text-align: justify;">
+<p style="text-align: justify;">Eu usei esta solução para criar uma forma fácil de fazer o deploy (ou implatação) de Apps Shiny em servidores web, uma vez que na prática, se você quiser fazer isso, você somente têm quatro opções:</p>
+<ol>
+<li style="text-align: justify;">Compartilhar os arquivos ui.R e server.R com alguém que seja capaz de roda-los no RStudio.</li>
+<li style="text-align: justify;">Compartilhar sua aplicação online por meio do <a href="http://www.shinyapps.io/" target="_blank">shinyapps.io</a>.</li>
+<li style="text-align: justify;">Compartilhar seu app online no seu próprio servidor (Ex: no AWS).</li>
+<li style="text-align: justify;">Dar um git push para seu próprio servidor.</li>
+</ol>
+<p style="text-align: justify;">
+<p style="text-align: justify;">A solução 1 não é viável para usuários não técnicos; a 2 é fácil, mas pode ser cara; a 3 pode ser mais complicada tecnicamente, mas pode ser mais barata; a solução 4 é um compromisso entre a solução 2 e a solução 3, e é a minha predileta.</p>
+<p style="text-align: justify;">ENTRETANTO, recentemente eu soube de um projeto da Docker Inc. com muito potencial: o Kitematic! Com ele o usuário tem uma GUI (interface gráfica) onde ele pode baixar e usar imagens docker. Assim o <a href="https://hub.docker.com/" target="_blank">Docker Hub</a> poderia em tese se tornar algo como um App Store onde o usuário poderia simplesmente baixar e usar apps instalados em contêineres. Veja esse vídeo para você entender melhor:</p>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/QEr340gjV1Q?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<p style="text-align: justify;">Isso é fantástico, porque uma vez que você consiga dockerizar um App Shiny, não importa quão complexo ele seja, você pode compartilha-lo tranquilamente no Docker Hub. O Kitematic pode ser usado no Windows, no Mac e <a href="https://github.com/docker/kitematic/issues/49">experimentalmente no Linux</a>. Eu fiz um vídeo (no Linux) mostrando como instalar um app Shiny dockerizado, em alguns cliques:</p>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/7MH_bCjoFT4?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<p>Mas lembre-se, antes de você compartilhar seu app você vai precisar dockeriza-lo e subir para o Docker Hub.</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2015/12/28/compartilhe-shiny-apps-com-o-docker-e-o-kitematic/feed/index.html</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Linux e data science</title>
+		<link>./../../../2015/12/20/linux-e-data-science/index.html</link>
+		<comments>./../../../2015/12/20/linux-e-data-science/index.html#respond</comments>
+		<pubDate>Sun, 20 Dec 2015 19:49:47 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Linux]]></category>
+
+		<guid isPermaLink="false">./../../../index.html?p=778</guid>
+		<description><![CDATA[Até hoje, infelizmente, nunca escrevi sobre o Linux neste blog. Infelizmente pois o Linux foi, e ainda é, um dos meus hobbies prediletos. Eu tive uma das primeiras experiências com o Linux por meio do Conectiva 4, em 1999, mas acabei na época não o utilizando integralmente, principalmente, por conta dos famigerados winmodems. Também utilizei esporadicamente outra famosa distribuição Live CD brasileira, o Kurumin Linux, mas só passei a utilizar o Linux integralmente a partir de...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">Até hoje, infelizmente, nunca escrevi sobre o Linux neste blog. Infelizmente pois o Linux foi, e ainda é, um dos meus hobbies prediletos. Eu tive uma das primeiras experiências com o Linux por meio do <a href="https://pt.wikipedia.org/wiki/Conectiva#Vers.C3.B5es_instal.C3.A1veis">Conectiva 4</a>, em 1999, mas acabei na época não o utilizando integralmente, principalmente, por conta dos famigerados <a href="https://pt.wikipedia.org/wiki/Winmodem">winmodems</a>. Também utilizei esporadicamente outra famosa distribuição Live CD brasileira, o <a href="https://pt.wikipedia.org/wiki/Kurumin">Kurumin Linux</a>, mas só passei a utilizar o Linux integralmente a partir de 2004 com Slackware 10.0.</p>
+<p style="text-align: justify;">Enfim, desde 2004 eu utilizo o Linux integralmente em minhas máquinas, desktops e servidores, tal que nesses anos todos tive a oportunidade de ver melhor as diferenças entre as plataformas e se vale a pena ou não utilizar o Linux hoje em dia. Assim, nesse post, pretendo apresentar para os leitores o porque eu acredito que ainda vale muito a pena aprender a utilizar o Linux, porque é importante ter esse conhecimento da perspectiva de um cientista de dados e quais as distribuições Linux que indicaria para alguém utilizar. Então vamos a algumas questões importantes!</p>
+<h2 style="text-align: justify;">1. O que é o Linux?</h2>
+<p style="text-align: justify;">O termo Linux é vulgarmente utilizado para se referir a um <a href="https://pt.wikipedia.org/wiki/Sistema_operativo">sistema operacional </a>completo. Entretanto, para ser mais preciso, as distribuições Linux que você encontra por aí, como o <a href="https://www.debian.org/index.pt.html">Debian</a> e o <a href="https://getfedora.org/">Fedora</a> por exemplo, são na verdade sistemas operacionais completos, com Kernel, compiladores, bibliotecas e etc, que devem ser designados como <a href="https://pt.wikipedia.org/wiki/Linux">GNU Linux</a> (pelo menos da perspectiva da <a href="https://pt.wikipedia.org/wiki/Free_Software_Foundation">FSF</a>). O Linux mesmo, na verdade, é o <a href="https://en.wikipedia.org/wiki/Kernel_(operating_system)">Kernel</a> Linux, uma parte fundamental de qualquer sistema operacional completo, o núcleo do sistema, e que outros sistemas operacionais, como o próprio <a href="https://pt.wikipedia.org/wiki/Microsoft_Windows">Windows</a> ou <a href="https://pt.wikipedia.org/wiki/OS_X">OS X</a>, também têm. Não vou entrar em detalhes sobre a história do <a href="https://www.kernel.org/">Kernel Linux</a>, mas em linhas gerais é um Kernel que foi desenvolvido como um projeto pessoal de Linus Torvalds, e que revolucionou a <a href="https://pt.wikipedia.org/wiki/Linus_Torvalds">tecnologia da informação</a>.</p>
+<h2 style="text-align: justify;">2. Por que eu deveria aprender a usar o Linux?</h2>
+<p style="text-align: justify;">Da perspectiva de um Cientista de Dados, ou um profissional de TI, ou qualquer pessoa da área técnica, eu considero muito importante aprender, ou ter uma noção básica deste sistema operacional, porque o Linux praticamente move a internet. Para você ter uma ideia da importância desse sistema operacional hoje, ele é utilizado internamente pelas maiores empresas de tecnologia do mundo, como o Google e a Amazon, e é utilizado na infraestrutura de diversas partes da internet, como roteadores, servidores, hosts e etc. Só para não dizer que eu tirei da cartola essa informação, segundo a <a href="http://w3techs.com/">W3techs</a>, sistemas operacionais <a href="https://pt.wikipedia.org/wiki/Unix">Unix</a> <a href="http://w3techs.com/technologies/overview/operating_system/all">contemplam dois terços</a> da fatia de mercado de servidores. Desses dois terços, mais da metade são <a href="http://w3techs.com/technologies/details/os-unix/all/all">máquinas Linux</a>. Também vale ressaltar que um dos sistemas operacionais mais bem sucedidos em dispositivos móveis, o <a href="https://pt.wikipedia.org/wiki/Android">Android</a>, é basicamente o Linux. Assim, mesmo que você esteja usando o Windows ou o OS X na sua máquina, na verdade você acaba indiretamente utilizando o Linux, seja no celular, ao acessar um site ou mesmo no roteador da sua casa.</p>
+<h2 style="text-align: justify;">3. Ok, mas porque eu deveria tentar usar no desktop?</h2>
+<p style="text-align: justify;">Bem, da perspectiva de um cientista de dados é importante, pois com a emergência do Big Data, internet das coisas, web inteligente, uma das formas de ofertar os produtos baseados em dados que você pode criar, é disponibiliza-los na internet, utilizando principalmente o Linux. Assim, o conhecimento que você adquire no uso diário da plataforma, pode ser aproveitado depois quando você precisar fazer implantações de software dos seus produtos e análises. Aliás eu já mostrei aqui nesse blog como fazer implantações de <a href="./../../../2015/05/11/git-pushing-shiny-apps-with-docker-dokku/index.html">aplicações Shiny</a> e do <a href="./../../../2014/12/03/wordpress-do-digital-ocean/index.html">WordPress</a> em um servidor privado usando Linux. Esse blog mesmo que você está lendo foi implantado usando o Linux.</p>
+<h2 style="text-align: justify;">4. E para um usuário não técnico?</h2>
+<p style="text-align: justify;">Na minha opinião uma das vantagens do Linux é que ele é, em geral, mais seguro que sistemas Windows. Eu digo em geral porque isso nem sempre é verdade para todos os usuários, e a segurança não é só uma questão dos sistema operacional em si. Não vou me aprofundar no tema segurança, mas dentre as razões de o Linux ser mais seguro, se destacam:</p>
+<ul>
+<li style="text-align: justify;">Como a fatia de mercado é menor em desktops, praticamente <a href="http://www.diolinux.com.br/2014/02/por-que-linux-android-nao-pega-virus.html">não existem vírus</a>;</li>
+<li style="text-align: justify;">Você pode obter a maioria dos aplicativos pela própria distribuição, o que é muito mais seguro;</li>
+<li style="text-align: justify;">A arquitetura do sistema é mais segura;</li>
+<li style="text-align: justify;">Como é <a href="https://pt.wikipedia.org/wiki/C%C3%B3digo_aberto">open source</a> as falhas de segurança podem ser encontradas e corrigidas rapidamente;</li>
+</ul>
+<p style="text-align: justify;">Existem diversos outros fatores, mas não vou me aprofundar nesse tema aqui. O importante é saber que do ponto de vista de um usuário mediano o Linux costuma ser mais seguro. Naturalmente é importante tomar cuidados mínimos.</p>
+<p style="text-align: justify;">Uma outra questão importante é com relação ao desempenho em computadores antigos. Com relação a isso eu gosto de destacar a história da minha Mãe, que usava o Windows 7 e um Duron com 2Gb de RAM. O micro além de estar sempre muito lento, e praticamente inviabilizar certas tarefas, ainda por cima demorava vários minutos para iniciar e desligar. Com o <a href="http://windows.microsoft.com/pt-br/windows/end-support-help">fim do suporte ao Windows XP</a> (mais leve) ficou praticamente inviável usar o computador com o Windows 7: além de eu ter que dar manutenção sempre que a visitava, a lentidão atrapalhava muito o trabalho e as atividades dela. Para testar se o Linux, em 2015, finalmente poderia ser usado tranquilamente por um usuário leigo, eu fiz uma experiência instalando o <a href="http://elementaryosbr.org/">Elementary OS</a> na máquina. O resultado foi muito bom, e até hoje, praticamente um ano, ela tem utilizado o computador tranquilamente, mostrando como o Linux está mais maduro para usuários finais no desktop.</p>
+<p style="text-align: justify;">Outra vantagem que eu acho interessante é o uso em micro e pequenas empresas. Afinal muitas empresas brasileiras são tão pequenas que o custo de licenças de software podem pesar muito no orçamento e o recurso da pirataria não é uma opção aceitável. Assim, o uso de máquinas Linux, com suítes de escritório open source (<a href="https://www.libreoffice.org/">Libre Office</a> por ex), podem ser uma opção viável para estar de acordo com a lei e usufruir de uma infraestrutura de software robusta. Uma outra vantagem ainda é usar o Linux como um <a href="http://sms.it-ccs.com/">mini servidor</a> na empresa, para compartilhar arquivos, internet, cache, segurança e etc.</p>
+<h2 style="text-align: justify;">5. Certo, mas onde eu pego? Qual Linux instalar?</h2>
+<p style="text-align: justify;">Primeiro gostaria de salientar que o Linux é um pouco diferente do Windows com relação ao que você vai instalar. O Linux é o Kernel, mas organizações ou empresas precisam agregar diversos outros softwares para construir um sistema operacional completo que possa ser usado no Desktop. Assim, essas organizações criam as conhecidas distribuições, como o <a href="http://www.ubuntu.com/">Ubuntu</a> e o <a href="https://www.opensuse.org/">openSUSE</a>, que você deve baixar e instalar. Para ajuda-lo na escolha vou comentar brevemente algo sobre algumas distribuições, minha impressão geral sobre elas, e alguns links úteis para você.</p>
+<p style="text-align: justify;">[tabby title = &#8220;Slackware&#8221;]</p>
+<p style="text-align: justify;"><a href="./../../../wp-content/uploads/2015/12/slackware.png" rel="attachment wp-att-781"><img class="aligncenter size-full wp-image-781" src="./../../../wp-content/uploads/2015/12/slackware.png" alt="slackware" width="445" height="126" srcset="./../../../wp-content/uploads/2015/12/slackware.png 445w, ./../../../wp-content/uploads/2015/12/slackware-300x85.png 300w" sizes="(max-width: 445px) 100vw, 445px" /></a></p>
+<p style="text-align: justify;">É a distribuição Linux mais antiga em atividade. O Slackware é uma distribuição que não conta com ferramentas gráficas para configuração e instalação de programas. Você deve utilizar somente o terminal. A primeira vista pode parecer um absurdo fazer isso hoje em dia, mas a ideia da distribuição é ser muito simples, segura, robusta e fácil de configurar. Minha sugestão é que, se você nunca usou o Linux, comece com outra distribuição mais fácil de usar (GUI e instalação simples) e depois tente o Slackware. Naturalmente se você tiver a disposição e a mente aberta para utiliza-lo é uma excelente distribuição.</p>
+<p style="text-align: justify;">Eu tenho um carinho especial pois a utilizei por muitos anos e foi a primeira distribuição Linux que passei a utilizar exclusivamente. Em um próximo post vou falar sobre ela. Confira <a href="https://www.youtube.com/watch?v=Irsdf-OFo-E">esse vídeo</a> para maiores detalhes sobre a distribuição.</p>
+<ul>
+<li style="text-align: justify;">Download: <a href="http://www.slackware.com/">http://www.slackware.com/</a></li>
+</ul>
+<p>[tabby title = &#8220;Debian&#8221;]</p>
+<p><a href="./../../../wp-content/uploads/2015/12/debian.png" rel="attachment wp-att-784"><img class="aligncenter wp-image-784" src="./../../../wp-content/uploads/2015/12/debian.png" alt="debian" width="542" height="140" srcset="./../../../wp-content/uploads/2015/12/debian.png 600w, ./../../../wp-content/uploads/2015/12/debian-300x78.png 300w" sizes="(max-width: 542px) 100vw, 542px" /></a></p>
+<p style="text-align: justify;">O Debian é uma das mais antigas distribuições Linux. É conhecido como um dos mais bem sucedidos projetos open source e é mantido exclusivamente pela comunidade. Dentre as características mais marcantes da distribuição destaca-se que é uma distribuição muito sólida que conta com diversos pacotes de software e é a base de um ecossistema gigantesco de distribuições, incluindo o famoso Ubuntu. O Debian é um sistema operacional completo que pode ser utilizado como servidor e desktop, que pode ser baixado nas versões stable, testing e sid. O stable é super estável mas com software um pouco desatualizado; o testing, base do Ubuntu e diversas outras distribuições, é a distribuição de testes; o sid é experimental e pode ser muito instável. De acordo com a W3techs, é usado por <a href="http://w3techs.com/technologies/details/os-linux/all/all">mais de 32%</a> do total de servidores que usam Linux!</p>
+<p style="text-align: justify;">O Debian é a segunda distribuição que mais usei, e no geral é muito sólida e livre de bugs. Uso sem problemas no Desktop, mas não sugeriria para o usuário iniciante que veio do Windows, devido ao fato de não contar com as facilidades de outras distribuições. Entretanto, no geral, é uma distribuição mais simples e mais fácil que o Slackware. Excelente em servidores. Vejam esse <a href="https://www.youtube.com/watch?v=t9lYbrMS770&amp;index=2&amp;list=PLbBPNfi_li9t3kcNOeGIt4Q9qmhRoReN3">vídeo</a> que é muito interessante e conta com maiores detalhes.</p>
+<p style="text-align: justify;">Download: <a href="https://www.debian.org/index.pt.html">https://www.debian.org/index.pt.html</a></p>
+<p style="text-align: justify;">[tabby title = &#8220;Ubuntu&#8221;]</p>
+<p style="text-align: justify;"><a href="./../../../wp-content/uploads/2015/12/ublogo2.png" rel="attachment wp-att-786"><img class="aligncenter wp-image-786 " src="./../../../wp-content/uploads/2015/12/ublogo2.png" alt="" width="423" height="110" srcset="./../../../wp-content/uploads/2015/12/ublogo2.png 1501w, ./../../../wp-content/uploads/2015/12/ublogo2-300x78.png 300w, ./../../../wp-content/uploads/2015/12/ublogo2-768x200.png 768w, ./../../../wp-content/uploads/2015/12/ublogo2-1024x267.png 1024w" sizes="(max-width: 423px) 100vw, 423px" /></a></p>
+<p style="text-align: justify;">O Ubuntu é uma distribuição derivada do Debian, com o foco no usuário final. É simples de instalar e usar e conta com ferramentas exclusivas da distribuição. É uma das distribuições Linux mais utilizadas e é fácil encontrar materiais e ajuda online. O ubuntu lança uma versão nova a cada 6 meses aproximadamente, mas também lança versões com suporte de longo prazo, as versões LTS.</p>
+<p style="text-align: justify;">É uma das distribuições que eu sugiro a um iniciante no Linux. Além de ser fácil de configurar, o Ubuntu tem uma empresa por trás, a <a href="http://www.canonical.com/">Canonical</a>, tal que se você precisar de suporte pago (um pequeno negócio por exemplo) é simples obter. Outro ponto positivo é que o Ubuntu tem investido bastante no segmento de servidores, tal que o que você aprender no uso diário com o Ubuntu no desktop pode ser transferido facilmente para a administração de servidores. Veja esse <a href="https://www.youtube.com/watch?v=mbPFsV3jl4s&amp;list=PLbBPNfi_li9t3kcNOeGIt4Q9qmhRoReN3&amp;index=3">vídeo</a> para maiores detalhes.</p>
+<p style="text-align: justify;">Download: <a href="http://www.ubuntu.com/download/desktop">http://www.ubuntu.com/download/desktop</a></p>
+<p style="text-align: justify;">[tabby title = &#8220;Mint&#8221;]</p>
+<p style="text-align: justify;"><a href="./../../../wp-content/uploads/2015/12/mint.jpg" rel="attachment wp-att-787"><img class="aligncenter wp-image-787" src="./../../../wp-content/uploads/2015/12/mint.jpg" alt="mint" width="183" height="183" srcset="./../../../wp-content/uploads/2015/12/mint.jpg 360w, ./../../../wp-content/uploads/2015/12/mint-150x150.jpg 150w, ./../../../wp-content/uploads/2015/12/mint-300x300.jpg 300w, ./../../../wp-content/uploads/2015/12/mint-65x65.jpg 65w" sizes="(max-width: 183px) 100vw, 183px" /></a></p>
+<p style="text-align: justify;">O Mint é derivado do Ubuntu. Entretanto é totalmente compatível com o mesmo, compartilhando os mesmos repositórios de software. É uma distribuição &#8220;mais pronta&#8221; out of the box, tal que basta instalar e começar a usar. O Mint inclui codecs e outras alterações no Ubuntu, e acompanha o lançamento das versões LTS. Na minha experiência com o Mint eu diria que é uma distribuição estável, sólida, com excelente suporte da comunidade, softwares atualizados  e pouco trabalho de manutenção. Enfim, é um excelente distribuição para quem está saindo do Windows e é super fácil de usar. É uma das minhas sugestões junto ao Ubuntu.</p>
+<p style="text-align: justify;">Download: <a href="http://www.linuxmint.com/">http://www.linuxmint.com/</a></p>
+<p style="text-align: justify;">[tabby title = &#8220;openSUSE&#8221;]</p>
+<p style="text-align: justify;"><a href="./../../../wp-content/uploads/2015/12/OpenSUSE_official-logo-color.svg_.png" rel="attachment wp-att-788"><img class="aligncenter wp-image-788" src="./../../../wp-content/uploads/2015/12/OpenSUSE_official-logo-color.svg_.png" alt="OpenSUSE_official-logo-color.svg" width="295" height="186" srcset="./../../../wp-content/uploads/2015/12/OpenSUSE_official-logo-color.svg_.png 1280w, ./../../../wp-content/uploads/2015/12/OpenSUSE_official-logo-color.svg_-300x190.png 300w, ./../../../wp-content/uploads/2015/12/OpenSUSE_official-logo-color.svg_-768x486.png 768w, ./../../../wp-content/uploads/2015/12/OpenSUSE_official-logo-color.svg_-1024x648.png 1024w" sizes="(max-width: 295px) 100vw, 295px" /></a></p>
+<p style="text-align: justify;">O openSUSE é uma distribuição Linux que foi originariamente derivada do Slackware, mas que com o tempo passou a ser feita do zero. É uma distribuição muito utilizada na Europa e uma das mais utilizadas no mundo. Assim como o Ubuntu, é uma distribuição que conta com uma empresa por trás, a <a href="https://www.novell.com/home/">Novell</a>, tal que é fácil conseguir versões do SUSE para servidores e com suporte. É uma distribuições fácil de usar, com foco no usuário final e eu destacaria que é uma das melhores distribuições com o KDE, conta com uma ferramenta de configuração fantástica, o YAST, e é bastante estável e sólida. Junto ao Ubuntu e ao Mint é uma das minhas sugestões. Assista esse <a href="https://www.youtube.com/watch?v=QKC0ALUSBYg&amp;index=5&amp;list=PLbBPNfi_li9t3kcNOeGIt4Q9qmhRoReN3">vídeo</a> para maiores detalhes sobre a distribuição.</p>
+<p style="text-align: justify;">Download: <a href="https://www.opensuse.org/">https://www.opensuse.org/</a></p>
+<p style="text-align: justify;">[tabby title = &#8220;Fedora/Red Hat/CentOS&#8221;]</p>
+<p style="text-align: justify;"><a href="./../../../wp-content/uploads/2015/12/fedora_red_hat_centos.jpg" rel="attachment wp-att-790"><img class="aligncenter wp-image-790" src="./../../../wp-content/uploads/2015/12/fedora_red_hat_centos.jpg" alt="fedora_red_hat_centos" width="232" height="232" srcset="./../../../wp-content/uploads/2015/12/fedora_red_hat_centos.jpg 500w, ./../../../wp-content/uploads/2015/12/fedora_red_hat_centos-150x150.jpg 150w, ./../../../wp-content/uploads/2015/12/fedora_red_hat_centos-300x300.jpg 300w, ./../../../wp-content/uploads/2015/12/fedora_red_hat_centos-65x65.jpg 65w" sizes="(max-width: 232px) 100vw, 232px" /></a></p>
+<p style="text-align: justify;">Começando pelo <a href="https://www.redhat.com/pt-br">Red Hat</a>, esta é uma distribuição que se tornou uma empresa. A empresa Red Hat oferece a versão do sistema operacional voltado para servidores e desktops em empresas, que se caracteriza por ser muito estável e oferecer excelente suporte. A Red Hat é uma das empresas de software livre mais bem sucedidas da história e também é uma distribuição que marcou a história do Linux. Se você pretende seguir carreira com Linux em grandes empresas essa é uma distribuição que você deve aprender. Veja esse <a href="https://www.youtube.com/watch?v=zr67VlMqsrk&amp;list=PLbBPNfi_li9t3kcNOeGIt4Q9qmhRoReN3&amp;index=4">vídeo</a> para maiores detalhes.</p>
+<p style="text-align: justify;">O <a href="https://www.centos.org/">CentOS</a> é a versão gratuita e sem suporte do Red Hat Enterprise. Como a Red Hat utiliza código open source ela deve fornecer o código fonte da distribuição de alguma maneira (<a href="https://pt.wikipedia.org/wiki/GNU_General_Public_License">GPL</a>). Assim, a equipe do CentOS recompila os fontes, retira as marcas da Red Hat e oferece uma versão comunitária que pode ser usada por empresas e indivíduos, geralmente em servidores. De acordo com a W3techs, os servidores CentOS correspondem a <a href="http://w3techs.com/technologies/details/os-linux/all/all">20%</a> do total de servidores Linux!</p>
+<p style="text-align: justify;">Quando o Red Hat passou a focar a distribuição em grandes empresas nasceu o projeto <a href="https://getfedora.org/">Fedora</a>, que é mantido pela comunidade, com suporte da empresa, e você pode utilizar como desktop. É uma das melhores experiências com o <a href="https://www.gnome.org/">Gnome</a> que você pode encontrar por aí e funciona como uma espécie de versão de testes para o Red Hat Enterprise. Assim espere várias atualizações, um ciclo curto de lançamentos de versões e novas tecnologias. Eu sugiro que você evite o Fedora no começo; se o Red Hat está para o Debian stable, o Fedora está para o Debian testing. Assim, como uma primeira experiência, minha sugestão é que você tente utilizar distribuições com suporte de mais longo prazo, e menos experimentais. ENTRETANTO, gostaria de salientar que na última versão, o Fedora 23, o feedback que tenho visto na comunidade é de que a distribuição está bem estável.</p>
+<p style="text-align: justify;">Download: <a href="https://getfedora.org/">https://getfedora.org/</a></p>
+<p>[tabbyending]</p>
+<h2>6. O que você usa e por que?</h2>
+<p style="text-align: justify;">Eu usei por muitos anos o Slackware em desktops e servidores. Depois com o tempo eu testei diversas outras distribuições por algumas semanas (Fedora, Arch Linux, Mandriva, Ubuntu, SUSE e etc), mas acabei ficando no Debian stable. Cada usuário tem suas necessidades, e de acordo com o meu perfil, minhas demandas são as seguintes:</p>
+<ul>
+<li style="text-align: justify;">Distribuição <strong>estável e livre de bugs</strong> para trabalhar. Para mim é fundamental, uma vez que quando eu tenho que finalizar algo o computador não pode ficar no meu caminho.</li>
+<li style="text-align: justify;">Eu uso <strong>100% a linha de comando</strong> para tarefas administrativas. Assim, para meu uso, uma interface carregada, cheia de recursos, não é necessária.</li>
+<li style="text-align: justify;"><strong>Mínimo possível de atualizações</strong> e não necessito usar versões novas de vários programas.</li>
+<li style="text-align: justify;"><strong>Raramente jogo no computador</strong>, assim eu não preciso de um sistema com tanto suporte a jogos.</li>
+<li style="text-align: justify;">Passo quase 100% do tempo no <strong>RStudio, Navegador e no terminal</strong>. As vezes assisto a algum vídeo.</li>
+<li style="text-align: justify;">Faço algumas <strong>edições de vídeo simples</strong>.</li>
+</ul>
+<p style="text-align: justify;">Devido as minhas necessidades o Slackware e o Debian stable são mais do que suficientes. São minhas distribuições prediletas por isso. Mas veja que meu perfil é bastante diferente da maioria dos usuários, pois muitas pessoas jogam no computador, preferem interfaces gráficas ao invés de usar a linha de comando e preferem ter versões mais novas dos programas. Nesses casos, em geral, o Slackware e o Debian não são as melhores opções. E também é importante lembrar que não existe melhor ou pior, cada distribuição atende melhor determinados perfis de usuário. Todas as distribuições que eu usei foram excelentes, mas as que eu tive melhor experiência em termos das minhas demandas foram essas duas. Também gostaria de salientar que não existe nenhum mérito em utilizar a linha de comando ao invés de interfaces gráficas. Eu acostumei a fazer isso por uma questão de comodidade.</p>
+<h2 style="text-align: justify;">Conclusão</h2>
+<p style="text-align: justify;">O fato concreto é que existem várias distribuições Linux que são tão fáceis de usar quanto o Windows ou o OS X. Essas distribuições são bonitas, seguras, fáceis de usar e instalar, e você ainda vai aprender algo que depois pode usar para fazer implantação em servidores. As três distribuições que eu recomendo são o <a href="http://www.linuxmint.com/download.php">Mint</a>, <a href="http://www.ubuntu.com/download/desktop">Ubuntu LTS</a> e o <a href="https://software.opensuse.org/421/pt_BR">openSUSE</a>. Veja que eu estou deixando de fora o Fedora, pois na minha experiência com o mesmo, eu percebi que ele tem um volume muito grande de atualizações e costuma experimentar bastante com a distribuição. Fora que lança mais de uma versão por ano com suporte curto. Também deixei de fora distribuições <a href="https://pt.wikipedia.org/wiki/Rolling_release">rolling release</a>, como o <a href="https://www.archlinux-br.org/">Arch Linux</a>, que apesar de excelentes, tem alguns inconvenientes com relação a configuração e atualizações constantes que eu sugeriria para você experimentar depois.</p>
+<h2 style="text-align: justify;">SITES</h2>
+<p style="text-align: justify;">Se você quiser aprender mais sobre o Linux existem diversos sites em português com muito material. Vou apresentar uma lista de recomendações aqui:</p>
+<ul>
+<li><a href="https://www.vivaolinux.com.br/">Viva o Linux</a>: muitos tutoriais, dicas e etc. Produzido pela comunidade.</li>
+<li><a href="http://br-linux.org/">Br-Linux</a>: notícias sempre atualizadas sobre o Linux.</li>
+<li>Blog <a href="http://www.diolinux.com.br/">Diolinux</a>: dicas linux, reviews e vídeos.</li>
+<li>Blog <a href="http://www.linuxdescomplicado.com.br/">Linux Descomplicado</a>: notícias e reviews.</li>
+<li>Blog <a href="http://tocadotux.blogspot.ca/">Toca do Tux</a>: notícias, vídeos e reviews. Vários vídeos que eu postei aqui são de lá!</li>
+<li><a href="https://debian-handbook.info/browse/pt-BR/stable/">O Manual do Administrador Debian</a>: um livro online fantástico. Tem tudo que você precisar saber sobre o Debian e a administração do Debian.</li>
+<li><a href="http://slackbookptbr.sourceforge.net/slackbookptbr-1.0.2.pdf">Slackware Essentials</a> (Português): é o guia essencial do Slackware. Não é tão completo quanto o manual do Administrador Debian, mas é muito bom também.</li>
+</ul>
+<p style="text-align: justify;">
+]]></content:encoded>
+			<wfw:commentRss>./../../../2015/12/20/linux-e-data-science/feed/index.html</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>R &#038; RStudio no Docker com 2 cliques!</title>
+		<link>./../../../2015/08/21/r-rstudio-no-docker-com-2-cliques/index.html</link>
+		<comments>./../../../2015/08/21/r-rstudio-no-docker-com-2-cliques/index.html#comments</comments>
+		<pubDate>Fri, 21 Aug 2015 22:46:14 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Docker]]></category>
+		<category><![CDATA[Estatística]]></category>
+		<category><![CDATA[Linux]]></category>
+		<category><![CDATA[R e RStudio]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=688</guid>
+		<description><![CDATA[Quem já me pagou uma visita aqui já deve ter percebido umas três coisas: eu gosto muito de usar R; eu gosto muito de usar o Docker; eu gosto de combinar os dois; Como sou colaborador do r-bloggers, talvez o agregador de blogs mais importante para comunidade de usuários de R &#38; Data Science no mundo, eu regularmente publico material em inglês aqui, infelizmente. Infelizmente porque eu percebi que deixei de compartilhar alguns recursos muito...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">Quem já me pagou uma visita aqui já deve ter percebido umas três coisas:</p>
+<ol>
+<li>eu gosto muito de usar R;</li>
+<li>eu gosto muito de usar o Docker;</li>
+<li>eu gosto de combinar os dois;</li>
+</ol>
+<p style="text-align: justify;">Como sou colaborador do <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://www.r-bloggers.com/">r-bloggers</a></span>, talvez o agregador de blogs mais importante para comunidade de usuários de R &amp; Data Science no mundo, eu regularmente publico material em inglês aqui, infelizmente. Infelizmente porque eu percebi que deixei de compartilhar alguns recursos muito úteis que qualquer usuário do R &amp; RStudio poderia se beneficiar, principalmente no Brasil onde eu percebo que falta material sobre a linguagem. Assim vou remediar um pouco esse problema (eu espero!) com uma dica para o uso do Docker, principalmente para professores que usam o R em seus cursos.</p>
+<h2 style="text-align: justify;">Mas para qual PROBLEMA?</h2>
+<p style="text-align: justify;">Bem, um dos principais problemas que eu já tive em cursos onde o R é o ambiente principal utilizado é com relação a uniformidade do ambiente de trabalho dos alunos. Acredito que quem já usou o software alguma vez, com grandes turmas, já deve ter se deparado com o seguinte cenário: você escolhe usar o R pois não tem um software estatístico no laboratório, decide usar um RStudio, ou alguma outra interface gráfica para &#8220;facilitar&#8221; a vida dos alunos, MAS, INFELIZMENTE, a &#8220;informática&#8221; da instituição nunca consegue garantir um ambiente 100% para os alunos, e você só descobre o problema na hora da aula, justamente quando os alunos precisam rodar aquele script super importante que você preparou em casa! E não adianta reclamar, pois por mais que você solicite  nunca está 100%.</p>
+<p style="text-align: justify;">Isso é um grande problema, mas talvez não seja culpa só do departamento de TI da instituição. O grande problema é que é muito difícil garantir que tudo funcione quando os laboratórios das universidades utilizam computadores com diferentes configurações, diferentes sistemas operacionais e tem equipes com diferentes perfis. Enfim, é um problema grave e que não para por ai.</p>
+<p style="text-align: justify;">Outro problema associado a esse, e que também traz uma tremenda dor de cabeça, é quando você pede para um usuário instalar o R &amp; RStudio em casa. Em um universo perfeito (no meu!) todo munda usa o Linux e com um <a href="https://help.ubuntu.com/12.04/serverguide/apt-get.html" target="_blank">apt-get install</a> está tudo resolvido. Infelizmente, a maioria das pessoas não só usa o Windows como também usa o Word como editor de textos principal para preparar trabalhos e relatórios (<a href="https://pt.wikipedia.org/wiki/LaTeX" target="_blank">LATEX</a> e <a href="https://pt.wikipedia.org/wiki/Markdown">Markdown</a>?!). Dado isto, aquele relatório bonitinho e bem formatado que você esperava que pudesse ser produzido na aula mesmo, só copiando e colando os códigos em R no <a href="http://rmarkdown.rstudio.com/">RMarkdown</a> esquece! Não só porque a galera não quer usar, mas porque quando eles tentam compilar para Latex o miserável nunca está instalado e funcionando corretamente!</p>
+<h2 style="text-align: justify;">Qual seria a solução?</h2>
+<p>A solução está no Docker. Eu já falei dele aqui nesse blog mas para quem caiu aqui de para-quedas vou fornecer o mesmo texto sobre o Docker.</p>
+<h2>Docker</h2>
+<p style="text-align: justify;">Se você de alguma forma acompanha notícias do mundo open source então você provavelmente já ouviu falar do <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://www.docker.com/" target="_blank">Docker</a></span>. O Docker é uma ferramenta fantástica que permite criar contêineres de software, totalmente isolados do sistema operacional hospedeiro. Ele funciona como uma máquina virtual, mas é simplesmente muito mais leve.</p>
+<p style="text-align: justify;">A ideia por trás do docker é que o desenvolvedor cria um contêiner com todas as bilbiotecas e dependêcias que desejar garantindo que tudo funciona. O responsável pela implantação do software não precisa saber o que há dentro do contêiner, ele só precisa ser capaz de rodar contêineres no servidor. Ainda que uma funcionalidade como essa pudesse ser obtida com máquinas virtuais, elas acabavam vindo com muito mais que o necessário, tal que os arquivos eram muito grandes (&gt;&gt;1Gb) e tornavam o sistema hospedeiro muito lento.</p>
+<p style="text-align: justify;">O docker por outro lado, não usa um SO completo, ele compartilha o mesmo Kernel do hospedeiro mas é um ambiente completamente isolado. Assim, rodar contêineres do docker é muito, mas muito mais leve que rodar uma máquina virtual. Os recursos do docker não param por ai, ele também permite uma espécie de versionamento de contêineres e tem uma espécie de github para contêineres, o <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://hub.docker.com/account/signup/" target="_blank">Docker Hub</a></span>, de onde o usuário pode baixar e usar imagens prontas para diversos softwares, como o MySQL, Postgres, LAMP, WordPress, dentre outros. Nesse vídeo um dos criadores do projeto fala sobre o Docker.</p>
+<h2 style="text-align: justify;">R &amp; RStudio, Rocker o Kitematic</h2>
+<p style="text-align: justify;">Logo depois que Docker apareceu, apareceram também diversos projetos associados que criaram um ecossistema de ferramentas. Dentre estas ferramentas, uma que é muito interessante é o <a href="https://kitematic.com/" target="_blank">Kitematic</a>. O Kitematic é uma interface gráfica para manipulação de contêineres e acesso ao Docker Hub. Com ele o usuário praticamente não precisa saber nada sobre docker para poder utilizar um software &#8220;conteinerizado&#8221;. Assim, o usuário pode instalar com alguns cliques, desde o WordPress, um <a href="http://www.flaviobarros.net/2015/08/10/share-your-shiny-apps-with-docker-and-kitematic/" target="_blank">App Shiny</a> ou o RStudio.</p>
+<p style="text-align: justify;">Especialmente no caso do R &amp; RStudio &amp; Shiny, existe um projeto chamado <a href="http://dirk.eddelbuettel.com/blog/2014/10/23/">Rocker</a> que mantém contêineres oficiais para o R, o <a href="https://www.rstudio.com/products/rstudio/#Server">RStudio Server</a> e o <a href="https://www.rstudio.com/products/shiny/">Shiny Server</a>. Com esses contêineres, com apenas alguns comandos do docker, você pode ter um RStudio server, completamente configurado, rodando na sua máquina, sem precisar instalar o R ou qualquer outra biblioteca. Tudo que você precisa é instalar o docker, e se ele estiver instalado COM CERTEZA qualquer pessoa que rodar seu contêiner vai conseguir ter acesso a um ambiente sempre igual. Enfim, é a solução para a homogeneização de ambientes para cursos e universidades, em qualquer sistema operacional.</p>
+<h2 style="text-align: justify;">Como eu posso fazer isso?</h2>
+<p style="text-align: justify;">Bom, ao invés de me alongar mais no texto vou te apresentar um screencast de exemplo. Veja que eu estou usando o Linux, onde o Kitematic roda ainda de forma <a href="https://github.com/kitematic/kitematic/issues/49">experimental</a>, mas o mesmo procedimento pode ser feito no Windows e no Mac. O Kitematic suporta oficialmente estas duas plataformas.</p>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/0iKT-JX-P6Y?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<h2>Conclusão</h2>
+<p>É uma solução que pode universalizar uma plataforma idêntica para todos. Em resumo apresenta as seguintes vantagens em relação a uma instalação tradicional:</p>
+<ol>
+<li>Todos rodam uma plataforma idêntica. Se é possível fazer algo em uma então será possível repetir em todas, COM CERTEZA;</li>
+<li>Não há problemas com bibliotecas, o que estiver no contêiner todos vão ter;</li>
+<li>Só é necessário instalar um único programa, o Docker;</li>
+<li>É uma solução multiplataforma: funciona no Linux, no Windows no Mac. Os ambientes são idênticos;</li>
+<li>Não há necessidade de usar a linha de comando, só interfaces gráficas;</li>
+</ol>
+<p style="text-align: justify;">
+]]></content:encoded>
+			<wfw:commentRss>./../../../2015/08/21/r-rstudio-no-docker-com-2-cliques/feed/index.html</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+		</item>
+		<item>
+		<title>Share your Shiny Apps with Docker and Kitematic!</title>
+		<link>./../../../2015/08/10/share-your-shiny-apps-with-docker-and-kitematic/index.html</link>
+		<comments>./../../../2015/08/10/share-your-shiny-apps-with-docker-and-kitematic/index.html#comments</comments>
+		<pubDate>Mon, 10 Aug 2015 05:13:58 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Docker]]></category>
+		<category><![CDATA[Linux]]></category>
+		<category><![CDATA[R e RStudio]]></category>
+		<category><![CDATA[r-bloggers]]></category>
+		<category><![CDATA[Shiny]]></category>
+		<category><![CDATA[web]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=680</guid>
+		<description><![CDATA[Some time ago i wrote on this blog about how to dockerize a Shiny App. If you don&#8217;t know what Docker is and what i mean by &#8220;dockerizing a Shiny App&#8221; i advise you to read this post before: Dockerizing a Shiny App I used this solution to create an easy way to deploy Shiny Apps on web servers, once that, if you want to share your apps, you have to choose between three possible...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">Some time ago i wrote on this blog about how to dockerize a Shiny App. If you don&#8217;t know what Docker is and what i mean by &#8220;dockerizing a Shiny App&#8221; i advise you to read this post before:</p>
+<p><a href="http://www.flaviobarros.net/2015/04/30/dockerizing-a-shiny-app/" target="_blank">Dockerizing a Shiny App</a></p>
+<p style="text-align: justify;">I used this solution to create an easy way to deploy Shiny Apps on web servers, once that, if you want to share your apps, you have to choose between three possible solutions:</p>
+<p style="text-align: justify;">1) Share your ui.R and server.R files with someone who is able to run your app on RStudio.</p>
+<p style="text-align: justify;">2) Share your app online with <a href="http://www.shinyapps.io/" target="_blank">shinyapps.io</a>.</p>
+<p style="text-align: justify;">3) Share your app with your own server (Ex: at AWS).</p>
+<p style="text-align: justify;">4) <a href="http://www.flaviobarros.net/2015/05/11/git-pushing-shiny-apps-with-docker-dokku/" target="_blank">Git push you app on your own server</a>.</p>
+<p style="text-align: justify;">The solution 1) isn&#8217;t viable to non technical users. The solution 2) is easier, but can be expensive. The solution 3) can involve a lot of technicalities but can be cheaper then solution 3). The solution 4) is compromise between solutions 2) and 3), and is my preference.</p>
+<p style="text-align: justify;">HOWEVER, recently i knew about a project from Docker Inc. with a good potential: the Kitematic! With Kitematic the user can have a GUI where he can download and use softwares on Docker images. So, the <a href="https://hub.docker.com/" target="_blank">Docker Hub</a> becomes something like an App Store where he can simply download and use apps installed inside docker containers. See this video to understand what Kitematic can do:</p>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/QEr340gjV1Q?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<p style="text-align: justify;">This is Huge because, once you dockerize your Shiny App, doesn&#8217;t matter how complex it is, you can share it on Docker Hub just like any app. Kitematic can be used at Windows, Mac and <a href="https://github.com/kitematic/kitematic/issues/49" target="_blank">experimentaly on Linux</a>. I recorded this video (in Linux) to show you how to install my dockerized shiny app with some clicks:</p>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/7MH_bCjoFT4?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<p>Remember, before you share your app you will need to dockerize it and upload to Docker Hub.</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2015/08/10/share-your-shiny-apps-with-docker-and-kitematic/feed/index.html</wfw:commentRss>
+		<slash:comments>3</slash:comments>
+		</item>
+		<item>
+		<title>Criando repositórios no Github a partir shell</title>
+		<link>./../../../2015/05/14/criando-repositorios-no-github-a-partir-shell/index.html</link>
+		<comments>./../../../2015/05/14/criando-repositorios-no-github-a-partir-shell/index.html#comments</comments>
+		<pubDate>Thu, 14 May 2015 17:52:34 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Git & Github]]></category>
+		<category><![CDATA[Linux]]></category>
+		<category><![CDATA[boas práticas]]></category>
+		<category><![CDATA[controle de versão]]></category>
+		<category><![CDATA[web]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=656</guid>
+		<description><![CDATA[Esse vai ser um post curto, com um dica rápida. É algo que eu uso e acho bem útil, portanto vou compartilhar. Bom, inicialmente, para quem não sabe, o Github é um Web Hosting para projetos que utilizam o sistema de controle de versões git. O Github é excelente e você pode criar projetos open source, ou mesmo pagar pelo serviço para ter repositórios privados. O Github é hoje o padrão em termos de repositório...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">Esse vai ser um post curto, com um dica rápida. É algo que eu uso e acho bem útil, portanto vou compartilhar. Bom, inicialmente, para quem não sabe, o <a href="https://github.com/" target="_blank">Github</a> é um Web Hosting para projetos que utilizam o sistema de controle de versões <a href="http://git-scm.com/" target="_blank">git</a>. O Github é excelente e você pode criar projetos open source, ou mesmo pagar pelo serviço para ter repositórios privados. O Github é hoje o padrão em termos de repositório de projetos de código fonte aberto. A maior parte dos grandes projetos open source é desenvolvida por lá, e só para citar alguns dos grandes, estão lá por exemplo: o <a href="https://github.com/torvalds/linux" target="_blank">Linux</a>, o <a href="https://github.com/WordPress/WordPress" target="_blank">WordPress</a>, vários projetos da fundação <a href="https://github.com/apache" target="_blank">Apache</a>,  <a href="https://github.com/dotnet" target="_blank">.NET</a>, <a href="https://github.com/django/django" target="_blank">Django</a>, <a href="https://github.com/rails/rails" target="_blank">Rails</a>, o <a href="https://github.com/docker/docker" target="_blank">Docker</a> dentre muitos outros.</p>
+<p style="text-align: justify;">Eu uso em diversos projetos meus, a maioria de código fonte aberto. MAS, uma coisa que me incomodava, era a necessidade de entrar na interface web, logar e ter que criar lá o novo repositório. Só depois disso que eu poderia voltar para o terminal e adicionar o repositório remoto com um <a href="http://git-scm.com/book/pt-br/v1/Git-Essencial-Trabalhando-com-Remotos" target="_blank">git remote</a>. De fato, o que eu gostaria mesmo era de fazer tudo do terminal: criar um repositório novo com o git, criar um projeto no github, adicionar o remoto e já dar um git push, sem navegador, sem interface web!</p>
+<p style="text-align: justify;">Fazer isso é possível, pois o Github conta com uma <a href="https://developer.github.com/v3/" target="_blank">API</a> que pode ser utilizada por outras aplicações. Aliás, a bem da verdade, o Github tem GUI&#8217;s completas para o <a href="https://windows.github.com/" target="_blank">Windows</a> e para o <a href="https://mac.github.com/" target="_blank">MAC</a>, sem contar as <a href="http://git-scm.com/downloads/guis" target="_blank">muitas outras</a> que existem por ai, mas eu queria simplesmente um comando. Pensando nisso eu fiz o comando eu mesmo com o <a href="https://www.python.org/" target="_blank">Python</a>: o código fonte você encontra <a href="https://github.com/flaviobarros/create_git_repo" target="_blank">aqui</a>.</p>
+<pre class="lang:python decode:true ">#!/usr/bin/env python
+# This Python file uses the following encoding: utf-8
+
+import os
+
+usuario = "seu_usuario"
+
+print 'Defina o título do projeto: '
+projectname = raw_input()
+
+print 'Defina a descrição do projeto: '
+description = raw_input()
+
+comando = 'curl -u ' + usuario + ' https://api.github.com/user/repos ' + "'" + '-d' + '{"name":"' + projectname + '","description":"' + description + '"}' + "'"
+
+print(comando)
+os.system(comando)</pre>
+<p style="text-align: justify;">Não é ciência de foguete, mas supre a demanda. Basta trocar o &#8220;seu_usuario&#8221; pelo seu usuário no Github, colocar esse arquivo no PATH do seu Sistema Operacional e o comando ficará disponível na linha de comando. O fluxo de trabalho fica muito simples:</p>
+<p>1) crie um repositório do git do zero;</p>
+<pre class="lang:sh decode:true">git init</pre>
+<p>2) adicione os arquivos;</p>
+<pre class="lang:r decode:true">git add -A .</pre>
+<p>3) dê o primeiro commit;</p>
+<pre class="lang:sh decode:true">git commit -am "Primeiro commit"</pre>
+<p>4) Use o novo comando create_git_repo e crie o repositório no github;</p>
+<pre class="lang:sh decode:true">create_git_repo</pre>
+<p>5) Adicione o remoto;</p>
+<pre class="lang:sh decode:true ">git remote add origin git@github.com:seu_usuario/seu_projeto.git</pre>
+<p>6) Envie tudo para o remoto;</p>
+<pre class="lang:sh decode:true ">git push origin master</pre>
+<p>Enfim, você não precisa sair do terminal!</p>
+<p style="text-align: justify;">Um detalhe importante é que na primeira pergunta o script lhe pede o título do projeto. Coloque o título da forma como vai querer o &#8220;seu_proejto.git&#8221;, i.e, se quiser com underline já coloque underline, ou qualquer outro caractere.</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2015/05/14/criando-repositorios-no-github-a-partir-shell/feed/index.html</wfw:commentRss>
+		<slash:comments>5</slash:comments>
+		</item>
+		<item>
+		<title>Git push no Django com o Dokku &#8211; básico</title>
+		<link>./../../../2015/05/02/git-push-no-django-com-o-dokku-basico/index.html</link>
+		<comments>./../../../2015/05/02/git-push-no-django-com-o-dokku-basico/index.html#comments</comments>
+		<pubDate>Sat, 02 May 2015 22:28:20 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Digital Ocean]]></category>
+		<category><![CDATA[Django]]></category>
+		<category><![CDATA[Docker]]></category>
+		<category><![CDATA[Linux]]></category>
+		<category><![CDATA[git]]></category>
+		<category><![CDATA[implantação]]></category>
+		<category><![CDATA[web]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=613</guid>
+		<description><![CDATA[1. Introdução Quem trabalha com web, se não conhece, pelo menos já ouviu falar do Heroku. O Heroku é um PaaS, uma sigla para (Platform as a Service) ou Plataforma como Serviço. A ideia por detrás do Heroku é que o desenvolvedor não precise se preocupar mais com os problemas relacionados à implantação do seu software, ele simplesmente desenvolve, adiciona alguns arquivos no projeto, dá um git push para o Heroku e ele coloca no...]]></description>
+				<content:encoded><![CDATA[<h2 style="text-align: justify;">1. Introdução</h2>
+<p style="text-align: justify;">Quem trabalha com web, se não conhece, pelo menos já ouviu falar do <a href="https://www.heroku.com/" target="_blank">Heroku</a>. O Heroku é um PaaS, uma sigla para (Platform as a Service) ou Plataforma como Serviço. A ideia por detrás do Heroku é que o desenvolvedor não precise se preocupar mais com os problemas relacionados à implantação do seu software, ele simplesmente desenvolve, adiciona alguns arquivos no projeto, dá um <a href="http://git-scm.com/book/pt-br/v1/Git-Essencial-Trabalhando-com-Remotos" target="_blank">git push</a> para o Heroku e ele coloca no ar para você.</p>
+<p style="text-align: justify;">Isso é praticamente o sonho para quem trabalha com web, principalmente por conta da dor de cabeça que é configurar e manter um servidor. Outra vantagem é que você usa um sistema de controle de versões para o seu código (o <a href="http://git-scm.com/book/pt-br/v1/Primeiros-passos-Uma-Breve-Hist%C3%B3ria-do-Git" target="_blank">git</a> no caso) e você tem muito mais controle sobre seu projeto. Por fim, se o tráfego crescer, é simples escalar com Heroku, basta ir adicionando os <a href="https://devcenter.heroku.com/articles/dynos" target="_blank">dynos</a>. Parece ótimo, MAS tem alguma desvantagem nisso? SIM, o <a href="https://www.heroku.com/pricing" target="_blank">PREÇO</a>!</p>
+<p style="text-align: justify;">Só para você entender do que eu estou falando, eu vou fazer o deploy de uma aplicação <a href="https://www.djangoproject.com/" target="_blank">Django</a>. É um projeto que eu fiz seguindo o tutorial do <a href="http://tutorial.djangogirls.org/en/index.html" target="_blank">djangogirls</a>; o código fonte está disponível <a href="https://github.com/flaviobarros/djangogirls" target="_blank">aqui</a> no Github caso queira reproduzir.</p>
+<p><script id="asciicast-19469" src="https://asciinema.org/a/19469.js" async="" type="text/javascript"></script></p>
+<div class="post-single-content box mark-links" style="text-align: justify;">
+<p>Você pode visitar a aplicação nesse domínio: <a href="http://flavio-django-blog.herokuapp.com/" target="_blank">http://flavio-django-blog.herokuapp.com/</a></p>
+<h2>2. Docker e Dokku</h2>
+<p>Se você de alguma forma acompanha notícias do mundo open source então você provavelmente já ouviu falar do <a href="http://www.docker.com/" target="_blank">Docker</a>. O Docker é uma ferramenta fantástica que permite criar contêineres de software, totalmente isolados do sistema operacional hospedeiro. Ele funciona como uma máquina virtual, mas é simplesmente muito mais leve. A ideia por trás do docker é que o desenvolvedor cria um contêiner com todas as bilbiotecas e dependêcias que desejar garantindo que tudo funciona. O responsável pela implantação do software não precisa saber o que há dentro do contêiner, ele só precisa ser capaz de rodar contêineres no servidor.</p>
+<p>Ainda que uma funcionalidade como essa pudesse ser obtida com máquinas virtuais, elas acabavam vindo com muito mais que o necessário, tal que os arquivos eram muito grandes (&gt;&gt;1Gb) e tornavam o sistema hospedeiro muito lento. O docker por outro lado, não usa um SO completo, ele compartilha o mesmo Kernel do hospedeiro (sim, atualmente ele precisa rodar no Linux) mas é um ambiente completamente isolado. Assim, rodar contêineres do docker é muito, mas muito mais leve que rodar uma máquina virtual. Os recursos do docker não param por ai, ele também permite uma espécie de versionamento de contêineres e tem uma espécie de github para contêineres, o <a href="https://hub.docker.com/account/signup/" target="_blank">Docker Hub</a>, de onde o usuário pode baixar e usar imagens prontas para diversos softwares, como o MySQL, Postgres, LAMP, WordPress, dentre outros.</p>
+<p>O <a href="http://progrium.com/blog/2013/06/19/dokku-the-smallest-paas-implementation-youve-ever-seen/" target="_blank">Dokku</a> por sua vez, foi o “killer app” do Docker. Foi com esse projeto que muitas pessoas conseguiram ver o tamanho do potencial dessa ferramenta. De fato, como vamos ver aqui, com ele é possível ter praticamente a mesma funcionalidade do Heroku, só que a um custo muito mais baixo, uma vez que o <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a>, oferece um VPS básico (Virtual Private Server, ou Servidor Privado Virtual) por U$5,00 ou R$15,00 aproximadamente. E não é um hardware qualquer, mas com 512Mb de RAM e 20Gb em SSD! Isso é mais do que suficiente para rodar diversas instalações do WordPress, não somente uma.</p>
+<h2>3. Instalando o Dokku no Digital Ocean</h2>
+<p>Inicialmente, já vou alerta-lo que, ao invés do <a href="https://github.com/progrium/dokku" target="_blank">dokku</a> original, eu vou instalar e usar um fork, o <a href="https://github.com/dokku-alt/dokku-alt" target="_blank">dokku-alt</a>. Mas por quê? Bem, simplesmente porque o dokku-alt já vem com diversos recursos e <a href="http://progrium.viewdocs.io/dokku/plugins" target="_blank">plugins</a> instalados que eu precisaria instalar na unha caso quisesse o dokku original. Para facilitar para o leitor, ao invés dos comandos, no screencast abaixo eu mostro a instalação do dokku em um droplet do <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a>.</p>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/PwvEOdXR3q4?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<p>A etapa final da instalação exige que você tenha uma chave SSH pública. Caso você não tenha, siga <a href="http://Atualmente/ eu já uso o dokku para hospedar esta instalação do WordPress. Assim, eu vou exp" target="_blank">esse tutorial</a>. Veja o comando e um exemplo do que você vai copiar e colar:</p>
+<pre class="lang:sh decode:true">$ cat ~/.ssh/id_rsa.pub</pre>
+<p>e a saída vai ser algo assim:</p>
+<pre class="lang:r decode:true ">ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAklOUpkDHrfHY17SbrmTIpNLTGK9Tjom/BWDSU
+GPl+nafzlHDTYW7hdI4yZ5ew18JH4JW9jbhUFrviQzM7xlELEVf4h9lFX5QVkbPppSwg0cda3
+Pbv7kOdJ/MTyBlWXFCR+HAo3FXRitBqxiX1nKhXpHAZsMciLq8V6RjsNAQwdsdMFvSlVK/7XA
+t3FaoJoAsncM1Q9x5+3V0Ww68/eIFmb1zuUFljQJKprrX88XypNDvjYNby6vw/Pb0rwert/En
+mZ+AW4OZPnTPI89ZPmVMLuayrD2cE86Z/il8b+gw3r3+1nKatmIkjn2so1d01QraTlMqVSsbx
+NrRFi9wrf+M7Q== schacon@agadorlaptop.local</pre>
+<p>que você deve copiar e colar na janela do navegador, no último passo da instalação do dokku-alt.</p>
+<h2>4. Git push com Django</h2>
+<p>Atualmente eu já uso o dokku para hospedar esta instalação do WordPress. Assim, eu vou experimentar o mesmo processo utilizado anteriormente no Heroku, só que no meu próprio PaaS com o dokku-alt, que já está configurado no domínio desse site.</p>
+<p><script id="asciicast-19472" src="https://asciinema.org/a/19472.js" async="" type="mce-mce-mce-mce-mce-mce-mce-mce-mce-mce-mce-mce-mce-text/javascript"></script><br />
+Agora você pode visitar a aplicação no domínio: <a href="http://djangogirls.flaviobarros.net/">http://djangogirls.flaviobarros.net/</a></p>
+<p>Veja que o procedimento foi idêntico ao Heroku e dessa forma é possível replicar a mesma funcionalidade por um custo muito menor.</p>
+<h2>5. Detalhes importantes</h2>
+<p>Você deve gerar um Procfile dentro do seu projeto. No caso desse repositório, o arquivo já existia uma vez que foi preparado para isso, mas caso estiver criando um projeto do zero, você deve adicionar esse arquivo. O mesmo vale para o requirements.txt. Para todos os efeitos, os seguinte comandos geram estes arquivos:</p>
+<pre class="lang:r decode:true ">pip freeze &gt; requirements.txt</pre>
+<pre class="lang:sh decode:true ">echo "web: gunicorn djangogirls.wsgi" &gt; Procfile</pre>
+<p>Outro detalhe importante é que eu estou usando o sqlite3 como banco de dados. Assim, eu gerei o arquivo do banco localmente, o db.sqlite3, tal que este arquivo foi junto no git push. EM GERAL VOCÊ NÃO VAI FAZER ISSO. O que você devia fazer é uma configuração alternativa local, com o SQlite3, e uma configuração em produção, utilizando o Postgres por exemplo.</p>
+<p>No caso do Postgres ou do MySQL, o dokku-alt já conta com plugins para a criação desses bancos e comandos para linkar o banco a sua aplicação. Em outro post posso mostrar mais detalhes.</p>
+<h2> Conclusão</h2>
+<p>Se você já usa o Heroku, passar a utilizar o Dokku é simples. Basta preparar um servidor e você pode trabalhar normalmente, como se estivesse usando o Heroku. Caso você nunca tenha utilizado o Heroku minha sugestão é que você teste as duas formas de instalação.</p>
+<p>IMPORTANTE: acessando qualquer link dessa página para o <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a>, ao fazer o cadastro você vai ganhar U$10,00 de crédito sem compromisso de manter o serviço. Com esse crédito você poderá manter um VPS simples, com 512Mb de RAM, por dois meses de graça! Use os links desse post.</p>
+</div>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2015/05/02/git-push-no-django-com-o-dokku-basico/feed/index.html</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+		</item>
+		<item>
+		<title>Dockerizando Shiny Apps</title>
+		<link>./../../../2015/04/30/dockerizando-shiny-apps/index.html</link>
+		<comments>./../../../2015/04/30/dockerizando-shiny-apps/index.html#comments</comments>
+		<pubDate>Thu, 30 Apr 2015 03:16:13 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Digital Ocean]]></category>
+		<category><![CDATA[Docker]]></category>
+		<category><![CDATA[Estatística]]></category>
+		<category><![CDATA[Linux]]></category>
+		<category><![CDATA[R e RStudio]]></category>
+		<category><![CDATA[Shiny]]></category>
+		<category><![CDATA[deploy]]></category>
+		<category><![CDATA[implantação]]></category>
+		<category><![CDATA[shiny]]></category>
+		<category><![CDATA[web]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=531</guid>
+		<description><![CDATA[Depois de uma longa pausa de mais de quatro meses, finalmente estou voltando a postar aqui. Infelizmente, diversos compromissos me impediram de continuar postando, mas acabei por dar uma repaginada no blog, alterar a implantação (agora esse blog roda inteiramente dentro de um contêiner docker, com algumas outras coisas legais que pretendo postar mais para frente) e fazer esse post. Como esse post pode vir a ter leitores com diversos backgrounds eu vou inicialmente falar...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">Depois de uma longa pausa de mais de quatro meses, finalmente estou voltando a postar aqui. Infelizmente, diversos compromissos me impediram de continuar postando, mas acabei por dar uma repaginada no blog, alterar a implantação (agora esse blog roda inteiramente dentro de um contêiner docker, com algumas outras coisas legais que pretendo postar mais para frente) e fazer esse post.</p>
+<p style="text-align: justify;">Como esse post pode vir a ter leitores com diversos backgrounds eu vou inicialmente falar um pouco sobre várias tecnologias, como a linguagem R, os Apps do Shiny e o Docker.  Vou falar para que servem e o problema que está sendo resolvido aqui. Se você já sabe o que é o R e o Shiny pode pular para o item 2 sobre o Docker.</p>
+<h2 style="text-align: justify;">1. R e apps Shiny</h2>
+<p style="text-align: justify;">Inicialmente o que são Shiny Apps? Bom, quem já trabalha com <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://cran.r-project.org/" target="_blank">R</a></span> já deve ter ouvido falar do <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://shiny.rstudio.com/" target="_blank">Shiny</a></span>. O projeto Shiny é um framework para aplicações web feito especificamente para  a linguagem R. Para quem não conhece, a linguagem R é uma linguagem de programação criada especificamente para estatística/análise de dados e que vem <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://www.infoq.com/br/news/2014/10/ranking-linguagens-ieee" target="_blank">ganhando muita popularidade</a></span> no segmento corporativo.</p>
+<p style="text-align: justify;">O R já vinha sendo praticamente o padrão em termos de software para Estatística na academia, principalmente por conta de ser um software <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://pt.wikipedia.org/wiki/C%C3%B3digo_aberto" target="_blank">open source</a></span>. Também vem sendo adotado de forma massiva na indústria, principalmente nos EUA, justamente porque conta com bibliotecas para praticamente qualquer tarefa na área de análise de dados e gráficos. Essas bibliotecas, em sua maioria, foram criadas pelos próprios usuários, e estendem a linguagem de tal forma que é possível produzir <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://r4stats.com/examples/graphics-ggplot2/" target="_blank">gráficos de altíssima qualidade</a> </span>ou criar modelos de forma <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://topepo.github.io/caret/index.html" target="_blank">muito simples</a></span>. Existem também grandes empresas investindo na linguagem, como a <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://www.revolutionanalytics.com/" target="_blank">Revolution Analytics</a></span>, que foi recentemente <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://blog.revolutionanalytics.com/2015/04/revolution-analytics-microsoft.html" target="_blank">comprada pela Microsoft</a></span>. Essa compra sinaliza o interesse que empresas do porte da Microsoft tem na linguagem R.</p>
+<p style="text-align: justify;">Entretanto, um dos pontos fracos do R, é que se trata de uma linguagem de nicho, feita especificamente para análise de dados. Assim, nem sempre era fácil disponibilizar suas análises e resultados na internet de forma interativa. Houve iniciativas nesse sentido, mas no fim das contas, se o usuário queria disponibilizar suas análises na web, ou devia usar meios estáticos, como páginas em HTML e arquivos em PDF, ou criar aplicações com tecnologias como o Javascript, e de alguma forma ligar um <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://rforge.net/Rserve/doc.html" target="_blank">servidor na web</a></span> rodando o R a estas aplicações.</p>
+<p style="text-align: justify;">Esse tipo de solução funciona, mas exige ou um profissional com conhecimentos sólidos em javascript, infraestrutura e estatística/análise de dados, ou pelo menos uma equipe multidisciplinar. Na prática isso significava que um usuário comum do R teria muitas dificuldades em criar aplicações web a partir das suas análises.</p>
+<p style="text-align: justify;">É nesse ponto que entra o Shiny. O Shiny é um freamework web, criado pela equipe do <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://www.rstudio.com/" target="_blank">RStudio</a></span>, que permite que o usuário do R crie apps web, utilizando somente a própria linguagem. A sobrecarga para o usuário é mínima, tal que este pode desenvolver e rodar suas aplicações localmente de forma muito simples, com um comando como o runApp(). Só para demonstrar como funciona o processo, assista rapidamente a esse vídeo, onde é rodado um app do Shiny pela IDE RStudio.</p>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/CWWPvA6SK6k?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<h2 style="text-align: justify;">2. Docker</h2>
+<p style="text-align: justify;">Se você de alguma forma acompanha notícias do mundo open source então você provavelmente já ouviu falar do <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://www.docker.com/" target="_blank">Docker</a></span>. O Docker é uma ferramenta fantástica que permite criar contêineres de software, totalmente isolados do sistema operacional hospedeiro. Ele funciona como uma máquina virtual, mas é simplesmente muito mais leve.</p>
+<p style="text-align: justify;">A ideia por trás do docker é que o desenvolvedor cria um contêiner com todas as bilbiotecas e dependêcias que desejar garantindo que tudo funciona. O responsável pela implantação do software não precisa saber o que há dentro do contêiner, ele só precisa ser capaz de rodar contêineres no servidor. Ainda que uma funcionalidade como essa pudesse ser obtida com máquinas virtuais, elas acabavam vindo com muito mais que o necessário, tal que os arquivos eram muito grandes (&gt;&gt;1Gb) e tornavam o sistema hospedeiro muito lento.</p>
+<p style="text-align: justify;">O docker por outro lado, não usa um SO completo, ele compartilha o mesmo Kernel do hospedeiro (sim, atualmente ele precisa rodar no Linux) mas é um ambiente completamente isolado. Assim, rodar contêineres do docker é muito, mas muito mais leve que rodar uma máquina virtual. Os recursos do docker não param por ai, ele também permite uma espécie de versionamento de contêineres e tem uma espécie de github para contêineres, o <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://hub.docker.com/account/signup/" target="_blank">Docker Hub</a></span>, de onde o usuário pode baixar e usar imagens prontas para diversos softwares, como o MySQL, Postgres, LAMP, WordPress, dentre outros. Se você quiser entender melhor o que é o Docker, assista a esse vídeo de um dos fundadores do projeto.</p>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/Q5POuMHxW-0?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<h2 style="text-align: justify;">3. Dockerizando uma app do Shiny</h2>
+<p style="text-align: justify;">Na parte 1, eu mostrei um exemplo de um app do Shiny rodando no RStudio localmente. Para desenvolver está ok, mas e se eu quiser disponibilizar para alguém? Uma solução é você enviar os arquivos do projeto, tal que a pessoa que vai receber precisa somente de uma instalação do R com o pacote shiny para rodar a aplicação. Como uma aplicação básica do shiny precisa somente de dois arquivos (ui.R e server.R), você só precisaria enviar esses arquivos.</p>
+<p style="text-align: justify;">Mas e se eu quiser colocar na web? Existem basicamente duas alternativas:</p>
+<p style="text-align: justify;">1) Preparar um servidor com o <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://www.rstudio.com/products/shiny/shiny-server/" target="_blank">Shiny Server</a></span></p>
+<p style="text-align: justify;">2) Usar o serviço <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://www.shinyapps.io/" target="_blank">shinyapps.io</a></span></p>
+<p style="text-align: justify;">A opção 1) pode ser muito complicada para alguns usuários, as vezes inviável, por conta da necessidade de instalar e configurar um servidor.</p>
+<p style="text-align: justify;">A opção 2) é mais interessante, entretanto pode sair bem caro, uma vez que o plano free pode ser muito limitado para algumas necessidades.</p>
+<p style="text-align: justify;">Como o docker pode ajudar? Inicialmente com o docker é possível criar um servidor com o shiny usando um comando. Isso simplifica bastante a implantação de um servidor. Veja neste pequeno vídeo um exemplo:</p>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/H94eSQrPoYI?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<p>Enfim, basta rodar o comando:</p>
+<pre class="lang:zsh decode:true">docker run --rm -p 3838:3838 rocker/shiny</pre>
+<p>que você tem um servidor do shiny rodando na máquina.</p>
+<p style="text-align: justify;"><strong>USUÁRIOS DO WINDOWS E MAC:</strong> Vocês vão precisar do <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://boot2docker.io/" target="_blank">boot2docker</a></span> instalado para rodar o contêiner localmente. Como eu estou usando o Linux no vídeo, o terminal já está naturalmente disponível, mas se você instalar o <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://boot2docker.io/" target="_blank">boot2docker</a></span> vai ter um terminal a disposição para reproduzir o que eu estou fazendo nesse vídeo e no próximo abaixo.</p>
+<p style="text-align: justify;">Essa solução parece resolver o problema, pois para disponibilizar seus apps basta criar um servidor e instalar o docker. Entretanto o usuário ainda pode encontrar diversos problemas como:</p>
+<p style="text-align: justify;">1) Como colocar meus apps nesse servidor?</p>
+<p style="text-align: justify;">2) Como colocar um endereço na web direto para minha aplicação?</p>
+<p style="text-align: justify;">3) Como tirar aquele 3838 do meu endereço?</p>
+<p style="text-align: justify;">4) Como criar uma imagem docker com meu app?</p>
+<p style="text-align: justify;">Foi pensando em resolver esses problemas que eu criei um contêiner de exemplo, com um app pronto, que aparece na barra do navegador assim que a imagem está rodando. Já subi a imagem no Docker Hub, e ela está pronta para você testar e usar. A imagem está disponível <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://registry.hub.docker.com/u/flaviobarros/shiny-wordcloud/" target="_blank">nesse link</a></span> e o código fonte está no <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://github.com/flaviobarros/shiny-wordcloud" target="_blank">Github</a></span> caso queria fazer seus próprios apps.</p>
+<p style="text-align: justify;">Aqui nesses dois vídeos eu mostro como rodar esse contêiner localmente e depois como rodar no <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a>. Primeiro localmente:</p>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/nhslu5WZy6I?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<p style="text-align: justify;">E agora no Digital Ocean:</p>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/X68N_efY0KU?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<p style="text-align: justify;"> É importante observar que no vídeo, ao usar o comando citado, você não volta direto ao terminal, tal que seria necessário um Ctrl + C para encerrar o contêiner. Assim, para manter o contêiner rodando e voltar ao terminal, você deve utilizar o &amp; no final do comando.</p>
+<pre class="lang:zsh decode:true">docker run --rm -p 80:80 flaviobarros/shiny &amp;</pre>
+<p style="text-align: justify;">enfim, é possível testar localmente com um comando e também é possível rodar na web imediatamente com um servidor e o docker instalado. Veja que eu usei o ip do servidor no navegador, mas é bem simples apontar um domínio para não precisar do ip.</p>
+<p style="text-align: justify;">Você pode rodar esse app na <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://aws.amazon.com/pt/" target="_blank">Amazon Web Services</a></span>, no <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://cloud.google.com/" target="_blank">Google Cloud</a></span> e na <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://azure.microsoft.com/pt-br/" target="_blank">Microsoft Azure</a></span>, já que todos eles já oferecem suporte ao docker. Entretanto minha sugestão é que você comece com o <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a> que é muito mais fácil de usar.</p>
+<p style="text-align: justify;">IMPORTANTE: acessando qualquer link dessa página para o <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a>, ao fazer o cadastro você vai ganhar U$10,00 de crédito sem compromisso de manter o serviço. Com esse crédito você poderá manter um VPS simples, com 512Mb de RAM, por dois meses de graça! Use os links desse post.</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2015/04/30/dockerizando-shiny-apps/feed/index.html</wfw:commentRss>
+		<slash:comments>4</slash:comments>
+		</item>
+		<item>
+		<title>Ganhe U$100,00 de créditos no Digital Ocean!</title>
+		<link>./../../../2014/12/15/ganhe-u10000-de-creditos-no-digital-ocean/index.html</link>
+		<pubDate>Mon, 15 Dec 2014 23:16:11 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Digital Ocean]]></category>
+		<category><![CDATA[Linux]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=462</guid>
+		<description><![CDATA[Essa é uma super dica para estudantes! Existe um projeto do Github chamado Student Developer Pack por meio do qual o Github Education oferece diversos serviços gratuitos para estudantes que estejam trabalhando com desenvolvimento. São diversos serviços que você pode verificar no link, mas com alguns destaques: uma conta com 5 repositórios privados no Github e U$100,00 de créditos no Digital Ocean! Para fazer o cadastro você precisa de um e-mail institucional; pode ser de uma...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">Essa é uma super dica para estudantes! Existe um projeto do <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://github.com/">Github</a></span> chamado <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://education.github.com/pack">Student Developer Pack</a></span> por meio do qual o <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://education.github.com/">Github Education</a></span> oferece diversos serviços gratuitos para estudantes que estejam trabalhando com desenvolvimento. São diversos serviços que você pode verificar no link, mas com alguns destaques: uma conta com 5 repositórios privados no Github e U$100,00 de créditos no <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://www.digitalocean.com/?refcode=c3521662d5e6">Digital Ocean!</a></span></p>
+<p style="text-align: justify;"><span id="more-462"></span></p>
+<p><a href="./../../../wp-content/uploads/2014/12/Github-Student-Pack.png"><img class="aligncenter wp-image-487 size-full" src="./../../../wp-content/uploads/2014/12/Github-Student-Pack.png" width="750" height="400" srcset="./../../../wp-content/uploads/2014/12/Github-Student-Pack.png 750w, ./../../../wp-content/uploads/2014/12/Github-Student-Pack-300x160.png 300w, ./../../../wp-content/uploads/2014/12/Github-Student-Pack-624x332.png 624w" sizes="(max-width: 750px) 100vw, 750px" /></a></p>
+<p style="text-align: justify;">Para fazer o cadastro você precisa de um e-mail institucional; pode ser de uma escola ou de uma universidade, e você precisa se cadastrar primeiro no Github. Tanto faz se você está na educação básica ou no doutorado, basta ter um e-mail institucional para ter acesso. Após o cadastro você vai na página dos serviços e na linha do <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://www.digitalocean.com/?refcode=c3521662d5e6">Digital Ocean</a></span> você clica e pega o código da promoção, como na figura abaixo:</p>
+<p><a href="./../../../wp-content/uploads/2014/12/do_promo.png"><img class="aligncenter wp-image-488 size-full" src="./../../../wp-content/uploads/2014/12/do_promo.png" width="873" height="221" srcset="./../../../wp-content/uploads/2014/12/do_promo.png 873w, ./../../../wp-content/uploads/2014/12/do_promo-300x75.png 300w, ./../../../wp-content/uploads/2014/12/do_promo-624x157.png 624w" sizes="(max-width: 873px) 100vw, 873px" /></a></p>
+<p>&nbsp;</p>
+<p style="text-align: justify;">E pronto! Agora só falta você criar a sua conta no Digital Ocean. <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://www.digitalocean.com/?refcode=c3521662d5e6">Após se cadastrar</a></span>, além dos U$10,00 que vai ganhar do programa &#8220;referral&#8221; (disponível em todos os links do DO nesse post!) você vai inserir o seu código da promoção <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://cloud.digitalocean.com/user_payment_profiles">aqui</a></span>. Só para você ter certeza que funciona, como sou estudante de pós-graduação, fiz o cadastro e ganhei os U$100,00:</p>
+<p><a href="./../../../wp-content/uploads/2014/12/u100_do.png"><img class="aligncenter wp-image-489 size-full" src="./../../../wp-content/uploads/2014/12/u100_do.png" width="799" height="405" srcset="./../../../wp-content/uploads/2014/12/u100_do.png 799w, ./../../../wp-content/uploads/2014/12/u100_do-300x152.png 300w, ./../../../wp-content/uploads/2014/12/u100_do-624x316.png 624w" sizes="(max-width: 799px) 100vw, 799px" /></a></p>
+<p>&nbsp;</p>
+<p style="text-align: justify;">Para quem quiser começar com o <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://www.digitalocean.com/?refcode=c3521662d5e6">Digital Ocean</a></span> eu fiz um tutorial com um overview da plataforma e como instalar o <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://br.wordpress.org/">WordPress</a></span> com alguns cliques:</p>
+<p><span style="color: #0000ff;"><a style="color: #0000ff;" href="http://www.flaviobarros.net/2014/12/03/wordpress-do-digital-ocean/">Como instalar o WordPress no Digital Ocean</a></span></p>
+<p>Boa sorte!</p>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>WordPress do Digital Ocean</title>
+		<link>./../../../2014/12/03/wordpress-do-digital-ocean/index.html</link>
+		<comments>./../../../2014/12/03/wordpress-do-digital-ocean/index.html#comments</comments>
+		<pubDate>Wed, 03 Dec 2014 20:18:47 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Digital Ocean]]></category>
+		<category><![CDATA[Linux]]></category>
+		<category><![CDATA[Wordpress]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=463</guid>
+		<description><![CDATA[Atualização IMPORTANTE: Para quem quiser experimentar com o  DIGITAL OCEAN, eu ATUALIZEI todos os links para o programa de “referral” deles. O que é isso? Se você se cadastrar por um destes links vai ganhar U$10,00 em créditos para brincar com o Digital Ocean! Isto representa 2 meses de um máquina virtual mais simples. Participe! Só para testar eu fiz a inscrição usando o e-mail da universidade: Naturalmente eu não vou confirmar o e-mail uma vez...]]></description>
+				<content:encoded><![CDATA[<p>Atualização IMPORTANTE: Para quem quiser experimentar com o  <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://www.digitalocean.com/?refcode=c3521662d5e6">DIGITAL OCEAN</a></span>, eu ATUALIZEI todos os links para o programa de “referral” deles. O que é isso? Se você se cadastrar por um destes links vai ganhar U$10,00 em créditos para brincar com o <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://www.digitalocean.com/?refcode=c3521662d5e6">Digital Ocean</a></span>! Isto representa 2 meses de um máquina virtual mais simples. Participe! Só para testar eu fiz a inscrição usando o e-mail da universidade:</p>
+<p><span id="more-463"></span></p>
+<p><a href="./../../../wp-content/uploads/2014/12/creditoDO1.png"><img class="aligncenter wp-image-464 size-full" src="./../../../wp-content/uploads/2014/12/creditoDO1.png" width="829" height="367" srcset="./../../../wp-content/uploads/2014/12/creditoDO1.png 829w, ./../../../wp-content/uploads/2014/12/creditoDO1-300x132.png 300w, ./../../../wp-content/uploads/2014/12/creditoDO1-624x276.png 624w" sizes="(max-width: 829px) 100vw, 829px" /></a></p>
+<p>Naturalmente eu não vou confirmar o e-mail uma vez que sou cliente da plataforma há mais de 6 meses. Só enviei mesmo para mostrar que a promoção é válida. Happy coding!</p>
+<p>Aqui nesse tutorial vou mostrar brevemente como funciona o <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://www.digitalocean.com/?refcode=c3521662d5e6">Digital Ocean</a></span> e como você pode criar em minutos uma instalação do WordPress em seu próprio VPS (Vritual Private Server). Eu dividi o tutorial em duas partes, sendo que na primeira eu mostro como funciona a interface do Digital Ocean e na segunda eu mostro a instalação do WordPress.</p>
+<p>Eu optei por colocar esse tutorial em vídeo, uma vez que é bem mais simples para ver e entender o processo. Mas, de qualquer forma, no próprio site da <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://www.digitalocean.com/?refcode=c3521662d5e6">Digital Ocean</a></span> existem tutoriais escritos para ajuda-lo em qualquer dúvida. Por fim, se você gostou do tutorial e pretende criar suas aplicações no <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://www.digitalocean.com/?refcode=c3521662d5e6">Digital Ocean</a></span>, use qualquer link neste post tal que você ganhará U$10,00 de créditos.</p>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/jOD-Xy9mP_Y?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/xPo5onhpSiA?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<p>LEMBRANDO, SE QUISER EXPERIMENTAR O <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://www.digitalocean.com/?refcode=c3521662d5e6">DIGITAL OCEAN</a></span> USE OS LINKS DESTE POST OK?</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2014/12/03/wordpress-do-digital-ocean/feed/index.html</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+	</channel>
+</rss>

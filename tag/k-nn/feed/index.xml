@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>k-nn &#8211; R Mining</title>
+	<atom:link href="./index.html" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Mineração de Dados, Estatística, Tecnologia</description>
+	<lastBuildDate>Tue, 17 Jan 2017 10:04:59 +0000</lastBuildDate>
+	<language>pt-BR</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.7.1</generator>
+	<item>
+		<title>Handwritten digit recognition &#8211; Part1</title>
+		<link>./../../../2014/12/22/handwritten-digit-recognition-part1/index.html</link>
+		<comments>./../../../2014/12/22/handwritten-digit-recognition-part1/index.html#comments</comments>
+		<pubDate>Mon, 22 Dec 2014 19:00:13 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Data Mining]]></category>
+		<category><![CDATA[English]]></category>
+		<category><![CDATA[Machine Learning]]></category>
+		<category><![CDATA[R e RStudio]]></category>
+		<category><![CDATA[r-bloggers]]></category>
+		<category><![CDATA[handwritten recognition]]></category>
+		<category><![CDATA[k-nn]]></category>
+		<category><![CDATA[machine learning]]></category>
+		<category><![CDATA[mnist]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=509</guid>
+		<description><![CDATA[OBS: There is a version in portuguese. Handwritten digit recognition task was one of first great successes of machine learning methods. Nowadays, the task can be carried out by multiple specialized libraries with very high accuracy (&#62; 97% of correct answers), such that many times, despite of indirectly we use these features in tablets and smartphones, in general we do not know exactly how the method works. Thinking about it, as I worked with this...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">OBS: There is a version in <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://www.flaviobarros.net/2014/12/22/reconhecimento-de-digitos-escritos-mao-parte-1/">portuguese</a></span>.</p>
+<p style="text-align: justify;">Handwritten digit recognition task was one of first <a href="http://en.wikipedia.org/wiki/Handwriting_recognition"><span style="color: #0000ff;">great successes</span></a> of machine learning methods. Nowadays, the task can be carried out by multiple <a href="http://opencv.org/"><span style="color: #0000ff;">specialized libraries</span></a> with very high accuracy (&gt; 97% of correct answers), such that many times, despite of indirectly we use these features in tablets and smartphones, in general we do not know exactly how the method works.<a href="http://www.flaviobarros.net/wp-content/uploads/2014/12/3_032.BMP.png"><br />
+</a></p>
+<p style="text-align: justify;">Thinking about it, as I worked with this problem before, I will demonstrate in this post how the process works, the techniques used and how to implement it with R language. To begin, we will work with the problem of recognizing digits 0,1,2 , 3,4,5,6,7,8, or 9, i.e. a classification problem with 10 categories.</p>
+<p style="text-align: justify;">I&#8217;ll try to work here implementing all the modeling only with R base functions and a few extra packages with the required functions and algorithms; in the next post, I can try to use other packages to automate the various modeling tasks.</p>
+<p style="text-align: justify;"><span id="more-509"></span></p>
+<h3 style="text-align: justify;">1. READING DATA</h3>
+<p style="text-align: justify;">The dataset is images of the type <a href="http://en.wikipedia.org/wiki/Netpbm_format"><span style="color: #0000ff;">PGM</span></a>, with 64 x 64 pixels per image, where each pixel has a value of 1 or 0, indicating whether the pixel is black or white. Each image has a name as X_ yyy.BMP.in.pgm, where X represents the digit drawn in the image. The data are divided into a training set and a test set and can be downloaded from the following links: <a href="http://www.flaviobarros.net/wp-content/uploads/2014/12/teste.zip">teste</a>  e <a href="http://www.flaviobarros.net/wp-content/uploads/2014/12/treino.zip">treino</a> (test and trainning; save with any name you want).</p>
+<p style="text-align: justify;">Thus, the first part of the problem is reading the data. For this I will use <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://cran.r-project.org/web/packages/pixmap/index.html">pixmap</a></span> package with which you can read and manipulate PGM images. Next, the process of reading the images and creation of an array with the labels, that is, the number that is written in the image.</p>
+<pre class="lang:r decode:true">## Load pixmap
+library(pixmap)
+
+## Def working directory
+path_treino &lt;- '/sua/pasta/treino/'
+
+## Set wd
+setwd(path_treino)
+
+## Read files
+files &lt;- dir()
+
+## Getting classes from file names
+classes &lt;- as.factor(substring(files,first=1,last=1))
+
+## Trainning data.frame
+treino &lt;- as.data.frame(matrix(rep(0,length(files)*64*64), nrow=length(files)))
+
+## Reading trainning dataset
+for (i in 1:length(files)) {
+
+  ## Reading images
+  x &lt;- read.pnm(files[i])
+
+  ## Slot 'grey' with pixels; the matrix is vectorized
+  treino[i,] &lt;- as.vector(x@grey, mode='integer')
+}
+
+## Same for test set
+path_teste &lt;- '/sua/pasta/teste/'
+
+## Same for teste set
+setwd(path_teste)
+
+## Same for test set
+files &lt;- dir()
+
+## Classes
+predic &lt;- as.factor(substring(files,first=1,last=1))
+
+## Data.frame for test set
+teste &lt;- as.data.frame(matrix(rep(0,length(files)*64*64), nrow=length(files)))
+
+## Reading test set
+for (i in 1:length(files)) {
+  x &lt;- read.pnm(files[i])
+  teste[i,] &lt;- as.vector(x@grey, mode='integer')
+}</pre>
+<p style="text-align: justify;">Note that the pixel array is stored @grey slot, and after reading, it is transformed into a vector, such that the final data.frame has 64&#215;64 columns and 1949 rows (images total). The test set is only 50 images, so the data.frame will stay with 64&#215;64 columns and only 50 lines. In summary, each column is a pixel and each line is an image.</p>
+<h3 style="text-align: justify;"> 2. MODELLING WITH k-nn</h3>
+<p style="text-align: justify;">At this step we will create models with the k-nn algorithm (nearest neighbors) without any data preprocessing. The algorithm works by assigning classes to images, using the known values of the closest neighbors. So, lets say k = 3, the algorithm looks for the three nearest images, checks the majority class of these images and assign this class to the image without label. It is important to choose an odd k to prevent draw, for example, two neighbors of a class and another two from other, in the case of k = 4.</p>
+<pre class="lang:r decode:true">## Package with knn
+library(class)
+
+## knn model with k=3
+predito &lt;- knn(train=treino, test=teste, cl=classes, k=3, prob=T)
+
+## Results
+result &lt;- data.frame(cbind(predic, predito, acerto = predic==predito))
+
+## Accuracy
+sum(result$acerto)/nrow(result)
+
+[1] 0.56</pre>
+<p>And with k = 3 we got a success rate of only 56%, far short of what can be achieved. So let&#8217;s run the algorithm with different k values and see if we can get a result a little better.</p>
+<pre class="lang:r decode:true">## Data.frame all results
+resultado &lt;- data.frame(k = rep(0,101), taxa=rep(0.00,101))
+
+for (i in seq(from=1, to=101, by=2)) {
+  
+  ## Print k values 
+  print(i)
+  
+  ## Predicted images
+  predito &lt;- knn(train=treino, test=teste, cl=classes, k=i, prob=T)
+  
+  ## Save data.frame
+  result &lt;- data.frame(cbind(predic, predito, acerto = predic==predito))
+  
+  ## Accuracy; store at the data.frame
+  resultado[i,] &lt;- c(i,sum(result$acerto)/nrow(result))
+}
+
+## Get rid of blank lines
+resultado &lt;- subset(resultado, subset=resultado$taxa!=0)
+
+## Ploting results for all k's
+plot(resultado$taxa~resultado$k, main='Taxa de Acerto para o k-nn', xlab='Valores de K', ylab='Taxa de acerto')</pre>
+<p>We got something like 78% with k = 1, but it is still a very poor result close to what can be achieved. It is also worth noting that increasing K does not help much in the end, but it is important to be aware that a very small k can lead to overfitting.</p>
+<h3 style="text-align: justify;">CONCLUSION</h3>
+<p style="text-align: justify;"> Apparently handwriting recognition works well using a simple algorithm, without any treatment. HOWEVER, we can do better. In Part 2 we will automate some tasks with <a href="http://caret.r-forge.r-project.org/"><span style="color: #0000ff;">caret</span></a> package and we will also explore other better algorithms such as <a href="http://en.wikipedia.org/wiki/Support_vector_machine"><span style="color: #0000ff;">SVM</span></a> and <a href="http://en.wikipedia.org/wiki/Random_forest"><span style="color: #0000ff;">RandomForest</span></a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2014/12/22/handwritten-digit-recognition-part1/feed/index.html</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+		<item>
+		<title>Reconhecimento de dígitos escritos a mão &#8211; Parte 1</title>
+		<link>./../../../2014/12/22/reconhecimento-de-digitos-escritos-mao-parte-1/index.html</link>
+		<comments>./../../../2014/12/22/reconhecimento-de-digitos-escritos-mao-parte-1/index.html#comments</comments>
+		<pubDate>Mon, 22 Dec 2014 18:58:00 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Aprendizado de Máquina]]></category>
+		<category><![CDATA[Estatística]]></category>
+		<category><![CDATA[Mineração de Dados]]></category>
+		<category><![CDATA[Preparação de Dados]]></category>
+		<category><![CDATA[R e RStudio]]></category>
+		<category><![CDATA[k-nn]]></category>
+		<category><![CDATA[mnist]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=493</guid>
+		<description><![CDATA[A tarefa de reconhecimento de dígitos escritos a mão foi um dos primeiro grandes sucessos dos métodos de aprendizado de máquina. Hoje em dia, a tarefa pode ser realizada por diversas bibliotecas especializadas com altíssima acurácia (&#62; 97% de acertos), tal que muitas vezes, apesar de utilizarmos indiretamente esses recursos em tablets e smartphones, em geral não sabemos exatamente como o método funciona. Pensando nisso, como já trabalhei com esse problema antes, vou demonstrar nesse post...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">A tarefa de reconhecimento de dígitos escritos a mão foi um dos primeiro <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://en.wikipedia.org/wiki/Handwriting_recognition">grandes sucessos</a></span> dos métodos de aprendizado de máquina. Hoje em dia, a tarefa pode ser realizada por diversas <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://opencv.org/">bibliotecas especializadas</a> </span>com altíssima acurácia (&gt; 97% de acertos), tal que muitas vezes, apesar de utilizarmos indiretamente esses recursos em tablets e smartphones, em geral não sabemos exatamente como o método funciona.</p>
+<p style="text-align: justify;"><a href="./../../../wp-content/uploads/2014/12/3_032.BMP.png" rel="attachment wp-att-506"><img class="aligncenter size-full wp-image-506" src="./../../../wp-content/uploads/2014/12/3_032.BMP.png" alt="3_032.BMP" width="64" height="64" /></a></p>
+<p style="text-align: justify;">Pensando nisso, como já trabalhei com esse problema antes, vou demonstrar nesse post como o processo funciona, as técnicas utilizadas e como implementar tudo na linguagem R. Para começar, vamos trabalhar com o problema de reconhecer se o dígito é 0,1,2,3,4,5,6,7,8,ou 9, isto é, um problema de classificação com 10 categorias.</p>
+<p style="text-align: justify;">Vou tentar trabalhar aqui implementando toda a modelagem somente com as funções do pacote base e uns poucos pacotes extras com as funções e algoritmos necessários; em um próximo post, posso tentar utilizar outros pacotes para automatizar as diversas etapas da modelagem.</p>
+<p style="text-align: justify;"><span id="more-493"></span></p>
+<h3 style="text-align: justify;">1. LEITURA</h3>
+<p style="text-align: justify;">Os dados do problema são imagens do tipo <a href="http://en.wikipedia.org/wiki/Netpbm_format"><span style="color: #0000ff;">PGM</span></a>, com 64 x 64 pixels por imagem, onde cada pixel tem valor 1 ou 0, indicando se o pixel é preto ou branco. Cada imagem tem um nome no formato X_ yyy.BMP.inv.pgm, onde o X representa o dígito desenhado na imagem. Os dados estão divididos em um conjunto de treino e um conjunto de teste e podem ser baixados nos seguintes links: <a href="./../../../wp-content/uploads/2016/03/teste.zip">teste</a>  e <a href="./../../../wp-content/uploads/2016/03/treino.zip">treino</a></p>
+<p style="text-align: justify;">Assim a primeira parte do problema é efetuar a leitura dos dados. Para isso me utilizarei do pacote <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://cran.r-project.org/web/packages/pixmap/index.html">pixmap</a></span> com o qual é possível ler e manipular imagens PGM. A seguir, o processo de leitura das imagens e a criação de um vetor com as respostas, isto é, com o número do dígito que está escrito na imagem.</p>
+<pre class="lang:r decode:true">## Carregando o pacote pixmap
+library(pixmap)
+
+## Definindo o diretório com as imagens de treino
+path_treino &lt;- '/sua/pasta/treino/'
+
+## Define como diretório de trabalho
+setwd(path_treino)
+
+## Lê os nomes dos arquivos
+files &lt;- dir()
+
+## Retira as classes dos nomes dos arquivos
+classes &lt;- as.factor(substring(files,first=1,last=1))
+
+## Cria data.frame para armazenar dados de treino
+treino &lt;- as.data.frame(matrix(rep(0,length(files)*64*64), nrow=length(files)))
+
+## Efetua leitura dos dados de treino
+for (i in 1:length(files)) {
+
+  ## Lendo as imagens
+  x &lt;- read.pnm(files[i])
+
+  ## No slot 'grey' está a matriz de pixels que é retirada e vetorizada
+  treino[i,] &lt;- as.vector(x@grey, mode='integer')
+}
+
+## Define como diretório de trabalho o local das imagens para teste
+path_teste &lt;- '/sua/pasta/teste/'
+
+## Diretório de trabalho
+setwd(path_teste)
+
+## Lê os nomes dos arquivos
+files &lt;- dir()
+
+## Classes
+predic &lt;- as.factor(substring(files,first=1,last=1))
+
+## Cria data.frame para armazenar conjunto de teste
+teste &lt;- as.data.frame(matrix(rep(0,length(files)*64*64), nrow=length(files)))
+
+## Leitura do conjunto de teste
+for (i in 1:length(files)) {
+  x &lt;- read.pnm(files[i])
+  teste[i,] &lt;- as.vector(x@grey, mode='integer')
+}</pre>
+<p style="text-align: justify;">É importante observar que a matriz de pixels fica armazenada no slot @grey, e que após a leitura é transformada em um vetor, tal que o data.frame final fica com 64&#215;64 colunas e 1949 linhas (o total de imagens). O conjunto de  teste tem somente 50 imagens, logo o data.frame vai ficar com 64&#215;64 colunas e somente 50 linhas. Em suma, cada coluna é um píxel e cada linha uma das diferentes imagens.</p>
+<h3> 2. MODELAGEM COM k-nn</h3>
+<p style="text-align: justify;">Nessa etapa será realizado o aprendizado com o algoritmo k-nn (vizinhos mais próximos) sem nenhum tratamento dos dados. O algoritmo funciona atribuindo as classes às imagens, utilizando os valores conhecidos dos vizinhos mais próximos. Assim, digamos que k=3, o algoritmo busca as três imagens mais próximas, verifica qual é a classe majoritária dessas imagens e atribui essa classe à imagem sem label. É importante escolher um k ímpar para não ocorrer empates, por exemplo 2 vizinhos de uma classe e 2 de outra no caso de k=4.</p>
+<pre class="lang:r decode:true">## Carrega pacote class com o k-nn
+library(class)
+
+## Utilizando o k-nn para previsão do dígitos nas imagens de teste
+predito &lt;- knn(train=treino, test=teste, cl=classes, k=3, prob=T)
+
+## Resultado
+result &lt;- data.frame(cbind(predic, predito, acerto = predic==predito))
+
+## Cálculo da taxa de acerto
+sum(result$acerto)/nrow(result)
+
+[1] 0.56</pre>
+<p>E com um k=3 obtivemos uma taxa de acerto de somente 56%, muito aquém do que pode ser obtido. Assim, vamos rodar o algoritmo com diversos valores de k e verificar se conseguimos obter um resultado um pouco melhor.</p>
+<pre class="lang:r decode:true">## Data.frame com todos os resultados
+resultado &lt;- data.frame(k = rep(0,101), taxa=rep(0.00,101))
+
+for (i in seq(from=1, to=101, by=2)) {
+  
+  ## Imprime o valor de k para controle
+  print(i)
+  
+  ## Obtém os valores preditos para as imagens
+  predito &lt;- knn(train=treino, test=teste, cl=classes, k=i, prob=T)
+  
+  ## Salva em um data.frame
+  result &lt;- data.frame(cbind(predic, predito, acerto = predic==predito))
+  
+  ## Calcula a taxa de acerto e armazena no data.frame
+  resultado[i,] &lt;- c(i,sum(result$acerto)/nrow(result))
+}
+
+## Elimina linhas com 0
+resultado &lt;- subset(resultado, subset=resultado$taxa!=0)
+
+## Plota o resultado para todos os k's
+plot(resultado$taxa~resultado$k, main='Taxa de Acerto para o k-nn', xlab='Valores de K', ylab='Taxa de acerto')</pre>
+<p>Obtendo o seguinte resultado:</p>
+<p><a href="http://www.flaviobarros.net/wp-content/uploads/2014/12/valores_k.png"><img class="aligncenter size-full wp-image-502" src="http://www.flaviobarros.net/wp-content/uploads/2014/12/valores_k.png" alt="valores_k" width="480" height="480" srcset="./../../../wp-content/uploads/2014/12/valores_k.png 480w, ./../../../wp-content/uploads/2014/12/valores_k-150x150.png 150w, ./../../../wp-content/uploads/2014/12/valores_k-300x300.png 300w, ./../../../wp-content/uploads/2014/12/valores_k-90x90.png 90w, ./../../../wp-content/uploads/2014/12/valores_k-130x130.png 130w" sizes="(max-width: 480px) 100vw, 480px" /></a></p>
+<p style="text-align: justify;">Vejam que obtivemos algo em torno de 78% com k=1, mas que ainda é um resultado muito ruim perto do que pode ser alcançado. Também vale notar que aumentar o k não ajuda muito no fim das contas, mas é importante ficar atento pois um k muito pequeno pode levar ao superajustamento ou overfitting.</p>
+<h3>CONCLUSÃO PARCIAL</h3>
+<p style="text-align: justify;"> Ao que tudo indica a classificação de imagens funciona bem utilizando um algoritmo simples, sem nenhum tipo de tratamento. ENTRETANTO, é possível fazer muito melhor. Na Parte 2 vamos automatizar algumas tarefas com pacote <a href="http://caret.r-forge.r-project.org/"><span style="color: #0000ff;">caret</span></a> e também vamos explorar outros algoritmos melhores como o <a href="http://en.wikipedia.org/wiki/Support_vector_machine"><span style="color: #0000ff;">SVM</span></a> e o <a href="http://en.wikipedia.org/wiki/Random_forest"><span style="color: #0000ff;">RandomForest</span></a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2014/12/22/reconhecimento-de-digitos-escritos-mao-parte-1/feed/index.html</wfw:commentRss>
+		<slash:comments>3</slash:comments>
+		</item>
+	</channel>
+</rss>

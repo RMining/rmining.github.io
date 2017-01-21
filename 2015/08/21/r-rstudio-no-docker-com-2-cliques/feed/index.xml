@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>Comentários sobre: R &#038; RStudio no Docker com 2 cliques!</title>
+	<atom:link href="./index.html" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Mineração de Dados, Estatística, Tecnologia</description>
+	<lastBuildDate>Thu, 22 Dec 2016 18:35:36 +0000</lastBuildDate>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.7.1</generator>
+	<item>
+		<title>Por: Novo endereço: www.rmining.net - Flavio Barros</title>
+		<link>./../index.html#comment-100</link>
+		<dc:creator><![CDATA[Novo endereço: www.rmining.net - Flavio Barros]]></dc:creator>
+		<pubDate>Fri, 02 Oct 2015 21:12:41 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=688#comment-100</guid>
+		<description><![CDATA[[&#8230;] R &#038; RStudio no Docker com 2 cliques [&#8230;]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] R &amp; RStudio no Docker com 2 cliques [&#8230;]</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Por: R &#38; RStudio no Docker com 2 cliques - Peguei do</title>
+		<link>./../index.html#comment-85</link>
+		<dc:creator><![CDATA[R &#38; RStudio no Docker com 2 cliques - Peguei do]]></dc:creator>
+		<pubDate>Wed, 26 Aug 2015 07:07:52 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=688#comment-85</guid>
+		<description><![CDATA[[&#8230;] “Um dos principais problemas que eu já tive em cursos onde o R é o ambiente principal utilizado é com relação a uniformidade do ambiente de trabalho dos alunos. Acredito que quem já usou o software alguma vez, com grandes turmas, já deve ter se deparado com o seguinte cenário: você escolhe usar o R pois não tem um software estatístico no laboratório, decide usar um RStudio, ou alguma outra interface gráfica para “facilitar” a vida dos alunos, MAS, INFELIZMENTE, a “informática” da instituição nunca consegue garantir um ambiente 100% para os alunos, e você só descobre o problema na hora da aula, justamente quando os alunos precisam rodar aquele script super importante que você preparou em casa! E não adianta reclamar, pois por mais que você solicite nunca está 100%.” [referência: flaviobarros.net] [&#8230;]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] “Um dos principais problemas que eu já tive em cursos onde o R é o ambiente principal utilizado é com relação a uniformidade do ambiente de trabalho dos alunos. Acredito que quem já usou o software alguma vez, com grandes turmas, já deve ter se deparado com o seguinte cenário: você escolhe usar o R pois não tem um software estatístico no laboratório, decide usar um RStudio, ou alguma outra interface gráfica para “facilitar” a vida dos alunos, MAS, INFELIZMENTE, a “informática” da instituição nunca consegue garantir um ambiente 100% para os alunos, e você só descobre o problema na hora da aula, justamente quando os alunos precisam rodar aquele script super importante que você preparou em casa! E não adianta reclamar, pois por mais que você solicite nunca está 100%.” [referência: flaviobarros.net] [&#8230;]</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

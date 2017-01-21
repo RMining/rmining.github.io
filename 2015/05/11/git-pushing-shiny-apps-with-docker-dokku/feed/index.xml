@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>Comentários sobre: Git pushing Shiny Apps with Docker &#038; Dokku</title>
+	<atom:link href="./index.html" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Mineração de Dados, Estatística, Tecnologia</description>
+	<lastBuildDate>Thu, 22 Dec 2016 18:35:36 +0000</lastBuildDate>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.7.1</generator>
+	<item>
+		<title>Por: Git pushing shiny apps with docker dokku - Flavio Barros</title>
+		<link>./../index.html#comment-105</link>
+		<dc:creator><![CDATA[Git pushing shiny apps with docker dokku - Flavio Barros]]></dc:creator>
+		<pubDate>Sat, 03 Oct 2015 01:49:12 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=636#comment-105</guid>
+		<description><![CDATA[[&#8230;] Git pushing shiny apps with docker and dokku [&#8230;]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] Git pushing shiny apps with docker and dokku [&#8230;]</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Por: Share your Shiny Apps with Docker and Kitematic! - Flavio Barros</title>
+		<link>./../index.html#comment-81</link>
+		<dc:creator><![CDATA[Share your Shiny Apps with Docker and Kitematic! - Flavio Barros]]></dc:creator>
+		<pubDate>Mon, 10 Aug 2015 05:14:58 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=636#comment-81</guid>
+		<description><![CDATA[[&#8230;] 4) Git push you app on your own server. [&#8230;]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] 4) Git push you app on your own server. [&#8230;]</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Por: Flavio Barros</title>
+		<link>./../index.html#comment-72</link>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+		<pubDate>Thu, 14 May 2015 19:09:47 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=636#comment-72</guid>
+		<description><![CDATA[Hi Fabio. Nice to know. Thank you for sharing your experience!]]></description>
+		<content:encoded><![CDATA[<p>Hi Fabio. Nice to know. Thank you for sharing your experience!</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Por: Fabio</title>
+		<link>./../index.html#comment-71</link>
+		<dc:creator><![CDATA[Fabio]]></dc:creator>
+		<pubDate>Thu, 14 May 2015 17:30:00 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=636#comment-71</guid>
+		<description><![CDATA[Hi, I wrote the first post you cited. I deployed my app on the Amazon cloud only because I have the free tier for the first year, but I was thinking of trying Digital Ocean for the future so I think I will save your post for future reference.
+Thank you!!]]></description>
+		<content:encoded><![CDATA[<p>Hi, I wrote the first post you cited. I deployed my app on the Amazon cloud only because I have the free tier for the first year, but I was thinking of trying Digital Ocean for the future so I think I will save your post for future reference.<br />
+Thank you!!</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

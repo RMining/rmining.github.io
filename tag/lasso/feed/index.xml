@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Lasso &#8211; R Mining</title>
+	<atom:link href="./index.html" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Mineração de Dados, Estatística, Tecnologia</description>
+	<lastBuildDate>Tue, 17 Jan 2017 10:04:59 +0000</lastBuildDate>
+	<language>pt-BR</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.7.1</generator>
+	<item>
+		<title>Genetic data, large matrices and glmnet()</title>
+		<link>./../../../2014/02/25/genetic-data-large-matrices-glmnet/index.html</link>
+		<comments>./../../../2014/02/25/genetic-data-large-matrices-glmnet/index.html#comments</comments>
+		<pubDate>Tue, 25 Feb 2014 13:29:25 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[English]]></category>
+		<category><![CDATA[Estatística]]></category>
+		<category><![CDATA[R e RStudio]]></category>
+		<category><![CDATA[r-bloggers]]></category>
+		<category><![CDATA[glmnet]]></category>
+		<category><![CDATA[Lasso]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=359</guid>
+		<description><![CDATA[Recently talking to a colleague, had contact with a problem that I had never worked with before: modeling with genetic data. I have no special knowledge of the subject, but taking a look at some articles in the area knew that one of the most used techniques for this type of data was the lasso. &#160; In R, one of the most used packages for the lasso is glmnet, which unlike most other packages like...]]></description>
+				<content:encoded><![CDATA[<p>Recently talking to a colleague, had contact with a problem that I had never worked with before: modeling with genetic data. I have no special knowledge of the subject, but taking a look at some articles in the area knew that one of the most used techniques for this type of data was the <span style="color: #0000ff;"><a href="http://en.wikipedia.org/wiki/Lasso_(statistics)#Lasso_method"><span style="color: #0000ff;">lasso</span></a></span>.</p>
+<p>&nbsp;</p>
+<p style="text-align: justify;">In R, one of the most used packages for the lasso is <span style="color: #0000ff;"><a href="http://cran.r-project.org/web/packages/glmnet/index.html"><span style="color: #0000ff;">glmnet</span></a></span>, which unlike most other packages like <span style="color: #0000ff;"><a href="https://stat.ethz.ch/R-manual/R-devel/library/stats/html/lm.html"><span style="color: #0000ff;">lm</span></a></span> accepts as input a data.frame. So, before you start modeling, you must perform a pre-processing step passing the data to matrix format. Done it is possible to pass a <span style="color: #0000ff;"><a href="http://stat.ethz.ch/R-manual/R-patched/library/stats/html/formula.html"><span style="color: #0000ff;">formula</span></a></span> or even passing an array with the response variable, plus another with data for the variables.</p>
+<p style="text-align: justify;"><span id="more-359"></span></p>
+<p style="text-align: justify;">The problem with the formula approach is that, in general, genomic data has more columns than observations. The data that I worked in that case had 40,000 columns and only 73 observations. In order to create a small set of test data, run the following code:</p>
+<pre class="lang:r decode:true">data &lt;- matrix(rep(0,50*49000), nrow=50)
+for(i in 1:50) {
+    x = rep(letters[2:8], 7000)
+    y = sample(x=1:49000, size=49000)
+    data[i,] &lt;- x[y]
+}
+
+data &lt;- as.data.frame(data)
+x &lt;- c(rep('A', 20), rep('B', 15), rep('C', 15))
+y &lt;- sample(x=1:50, size=50)
+class = x[y]
+data &lt;- cbind(data, class)</pre>
+<p style="text-align: justify;">So, with this data set we will try to fit a model with glmnet ():</p>
+<pre class="lang:r decode:true">formula &lt;- as.formula(class ~ .)
+X &lt;- model.matrix(formula, data)
+model &lt;- cv.glmnet(X, class, standardize=FALSE, family='multinomial', alpha=1, nfolds=10)</pre>
+<p style="text-align: justify;">And if you do not have a computer with more RAM than mine, you will probably leak memory and give a crash in R. The solution? My first idea was to try <span style="color: #0000ff;"><a href="http://stat.ethz.ch/R-manual/R-devel/library/Matrix/html/sparse.model.matrix.html"><span style="color: #0000ff;">sparse.model.matrix()</span></a></span> that creates a sparse matrix model using the same formula. Unfortunately did not work, because even with sparse matrix, the final model is still too big! Interestingly, this dataset occupies only 24MB from RAM, but when you use the model.matrix the result is an array with more than 1Gb.</p>
+<p style="text-align: justify;">The solution I found was to build the matrix on hand. To do this we encode the array with dummy variables, column by column, and store the result in a sparse matrix. Then we will use this matrix as input to the model and see if it will not leak memory:</p>
+<pre class="lang:r decode:true ">## Cria a matriz de entrada usando a primeira coluna
+X &lt;- sparse.model.matrix(~data[,1]-1)
+
+## Verifica se a coluna tem mais de um nível (tipo factor naturalmente!)
+for (i in 2:ncol(data)) {
+
+## Se tiver mais de um nível aplica codificação dummy
+if (nlevels(data[,i])&gt;1) {
+    coluna &lt;- sparse.model.matrix(~data[,i]-1)
+    X &lt;- cBind(X, coluna)
+}
+## Se tiver um número transforma em factor e depois em numérico.
+else {
+   coluna &lt;- as.numeric(as.factor(data[,i]))
+   X &lt;- cBind(X, coluna)
+}</pre>
+<p style="text-align: justify;">NOTE: Pay attention to how we are using a sparse matrix the Matrix package is required. Also note that the columns are connected using cBind () instead of cbind ().</p>
+<p style="text-align: justify;">The matrix thus generated was much lower: less than 70 Mb when I tested. Fortunately glmnet () supports a sparse matrix and you can run the model:</p>
+<pre class="lang:r decode:true">mod.lasso &lt;- cv.glmnet(X, class, standardize=FALSE, family='multinomial', alpha=1, nfolds=10)</pre>
+<p style="text-align: justify;">So you can create models with this type of data without blowing the memory and without use R packages for large datasets like <span style="color: #0000ff;"><a href="http://www.bigmemory.org/"><span style="color: #0000ff;">bigmemory</span></a></span> and <span style="color: #0000ff;"><a href="http://cran.r-project.org/web/packages/ff/index.html"><span style="color: #0000ff;">ff</span></a></span>.</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2014/02/25/genetic-data-large-matrices-glmnet/feed/index.html</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+		<item>
+		<title>Dados genéticos, grandes matrizes e o glmnet()</title>
+		<link>./../../../2013/08/08/dados-geneticos-grandes-matrizes-e-o-glmnet/index.html</link>
+		<pubDate>Thu, 08 Aug 2013 17:53:02 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Estatística]]></category>
+		<category><![CDATA[R e RStudio]]></category>
+		<category><![CDATA[glmnet]]></category>
+		<category><![CDATA[Lasso]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=237</guid>
+		<description><![CDATA[Recentemente, conversando com um colega, tive contato com um problema com o qual eu nunca tinha trabalhado antes: modelagem com dados genéticos. Não tenho nenhum conhecimento especial do assunto, mas dando uma olhada em alguns artigos da área soube que uma das técnicas mais utilizadas para esse tipo de dado era o lasso. &#160; No R, um dos pacotes mais utilizados para  o lasso é o glmnet, que diferente da maioria dos outros pacotes como...]]></description>
+				<content:encoded><![CDATA[<p>Recentemente, conversando com um colega, tive contato com um problema com o qual eu nunca tinha trabalhado antes: modelagem com dados genéticos. Não tenho nenhum conhecimento especial do assunto, mas dando uma olhada em alguns artigos da área soube que uma das técnicas mais utilizadas para esse tipo de dado era o <span style="color: #0000ff;"><a href="http://en.wikipedia.org/wiki/Least_squares#Lasso_method"><span style="color: #0000ff;">lasso</span></a></span>.</p>
+<p>&nbsp;</p>
+<p style="text-align: justify;">No R, um dos pacotes mais utilizados para  o lasso é o <span style="color: #0000ff;"><a href="http://cran.r-project.org/web/packages/glmnet/index.html"><span style="color: #0000ff;">glmnet</span></a></span>, que diferente da maioria dos outros pacotes como o lm() não aceita como entrada um <span style="color: #0000ff;"><a href="http://www.r-tutor.com/r-introduction/data-frame"><span style="color: #0000ff;">data.frame</span></a></span>. Assim, antes de iniciar a modelagem, é necessário realizar uma etapa de pré-processamento passando os dados para formato matricial. Feito isso é possível passar uma fórmula ou mesmo passar um vetor com a variável resposta, mais uma matriz com os dados das variáveis.</p>
+<p style="text-align: justify;">O problema com a abordagem da fórmula é que, em geral, dados de genoma tem muito mais colunas do que observações. Os dados que eu trabalhei nesse caso tinham 40 mil colunas e somente 73 observações. De forma a criar um pequeno conjunto de dados para teste, rode o código a seguir:</p>
+<p style="text-align: justify;"><span id="more-237"></span></p>
+<pre class="">[sourcecode language="r"]
+data &lt;- matrix(rep(0,50*49000), nrow=50)
+for(i in 1:50) {
+   x = rep(letters[2:8], 7000)
+   y = sample(x=1:49000, size=49000)
+   data[i,] &lt;- x[y]
+}</pre>
+<p>data &lt;- as.data.frame(data)<br />
+x = c(rep(&#8216;A&#8217;, 20), rep(&#8216;B&#8217;, 15), rep(&#8216;C&#8217;, 15))<br />
+y = sample(x=1:50, size=50)<br />
+class = x[y]<br />
+data &lt;- cbind(data, class)<br />
+[/sourcecode]</p>
+<p style="text-align: justify;">Assim, com esse conjunto de dados vamos tentar ajustar um modelo com o glmnet():</p>
+<p>[sourcecode language=&#8221;r&#8221;]<br />
+formula &lt;- as.formula(class ~ .)<br />
+X = model.matrix(formula, data)<br />
+model &lt;- cv.glmnet(X, class, standardize=FALSE, family=&#8217;multinomial&#8217;, alpha=1, nfolds=10)<br />
+[/sourcecode]</p>
+<p style="text-align: justify;">E se você não tiver um computador com muito mais memória RAM do que o meu, provavelmente você vai estourar a memória e dar um crash no R. Qual a solução? Minha primeira ideia foi tentar o <span style="color: #0000ff;"><a href="http://stat.ethz.ch/R-manual/R-devel/library/Matrix/html/sparse.model.matrix.html"><span style="color: #0000ff;">sparse.model.matrix()</span></a></span> que cria uma matriz de modelo esparsa usando a mesma fórmula. Infelizmente também não funcionou, pois mesmo sendo esparsa a matriz de modelo final ainda é muito grande! O interessante é que esse conjunto de dados, na memória, tem somente 24Mb, mas sempre que se usa o model.matrix o resultado é uma matriz com mais de 1Gb.</p>
+<p style="text-align: justify;">A solução que eu encontrei foi fazer a matriz na unha pois nesse caso usei a codificação de 1 000&#8230;000. Para isso vamos decodificar a matriz com <span style="color: #0000ff;"><a href="http://www.ats.ucla.edu/stat/mult_pkg/faq/general/dummy.htm"><span style="color: #0000ff;">variáveis dummy</span></a></span>, coluna por coluna e armazenar o resultado em uma matriz esparsa. Em seguida vamos utilizar essa matriz como entrada para o modelo e ver se não vai estourar a memória:</p>
+<p>[sourcecode language=&#8221;r&#8221;]</p>
+<h2>Cria a matriz de entrada usando a primeira coluna</h2>
+<p>X &lt;- sparse.model.matrix(~data[,1]-1)</p>
+<h2>Verifica se a coluna tem mais de um nível (tipo factor naturalmente!)</h2>
+<p>for (i in 2:ncol(data)) {</p>
+<h2>Se tiver mais de um nível aplica codificação dummy</h2>
+<p>if (nlevels(data[,i])&gt;1) {<br />
+coluna &lt;- sparse.model.matrix(~data[,i]-1)<br />
+X &lt;- cBind(X, coluna)<br />
+}</p>
+<h2>Se tiver um número transforma em factor e depois em numérico.</h2>
+<p>else {<br />
+coluna &lt;- as.numeric(as.factor(data[,i]))<br />
+X &lt;- cBind(X, coluna)<br />
+}<br />
+[/sourcecode]</p>
+<p style="text-align: justify;">OBS: Preste atenção que como estamos utilizando matrizes esparsas o pacote Matrix é necessário. Também observe que as colunas são ligadas usando o cBind() ao invés de cbind().</p>
+<p style="text-align: justify;">A matriz gerada dessa forma ficou muito menor: menos de 70Mb quando eu testei. Felizmente o glmnet() tem suporte a matrizes esparsas e é possível rodar o modelo com:</p>
+<p>[sourcecode language=&#8221;r&#8221;]<br />
+mod.lasso &lt;- cv.glmnet(X, class, standardize=FALSE, family=&#8217;multinomial&#8217;, alpha=1, nfolds=10)<br />
+[/sourcecode]</p>
+<p style="text-align: justify;">Assim é possível criar modelos com esse tipo de dado sem estourar a memória e sem precisar utilizar pacotes para conjuntos grandes de dados como o <span style="color: #0000ff;"><a href="http://www.bigmemory.org/"><span style="color: #0000ff;">bigmemory</span></a></span> ou o <span style="color: #0000ff;"><a href="http://www.bigmemory.org/"><span style="color: #0000ff;">ff</span></a></span>.</p>
+]]></content:encoded>
+			</item>
+	</channel>
+</rss>

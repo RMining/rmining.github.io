@@ -1,0 +1,614 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>English &#8211; R Mining</title>
+	<atom:link href="./index.html" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Mineração de Dados, Estatística, Tecnologia</description>
+	<lastBuildDate>Tue, 17 Jan 2017 10:04:59 +0000</lastBuildDate>
+	<language>pt-BR</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.7.1</generator>
+	<item>
+		<title>Git pushing Shiny Apps with Docker &#038; Dokku</title>
+		<link>./../../../2015/05/11/git-pushing-shiny-apps-with-docker-dokku/index.html</link>
+		<comments>./../../../2015/05/11/git-pushing-shiny-apps-with-docker-dokku/index.html#comments</comments>
+		<pubDate>Tue, 12 May 2015 00:35:26 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Digital Ocean]]></category>
+		<category><![CDATA[Docker]]></category>
+		<category><![CDATA[English]]></category>
+		<category><![CDATA[R e RStudio]]></category>
+		<category><![CDATA[r-bloggers]]></category>
+		<category><![CDATA[Shiny]]></category>
+		<category><![CDATA[deploy]]></category>
+		<category><![CDATA[git]]></category>
+		<category><![CDATA[web]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=636</guid>
+		<description><![CDATA[At this post i will show you how to deploy Shiny Apps easily with a simple git push. But, what&#8217;s a git push? I&#8217;m referring to the git command used with remote repositories. With this command you can deploy apps easily with a PaaS (Platform as a Service) like Heroku. If you never heard about Heroku or know nothing about PaaS, i will show you what is it and how can we use a similar...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">At this post i will show you how to deploy Shiny Apps easily with a simple <a href="http://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes#Pushing-to-Your-Remotes" target="_blank">git push</a>. But, what&#8217;s a git push? I&#8217;m referring to the git command used with <a href="http://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes" target="_blank">remote repositories</a>. With this command you can deploy apps easily with a <a href="http://en.wikipedia.org/wiki/Platform_as_a_service" target="_blank">PaaS</a> (Platform as a Service) like <a href="https://www.heroku.com/" target="_blank">Heroku</a>. If you never heard about Heroku or know nothing about PaaS, i will show you what is it and how can we use a similar resource to easily deploy a Shiny App on <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a> with <a href="http://www.docker.com/" target="_blank">Docker</a>.</p>
+<h2>1.Heroku</h2>
+<p style="text-align: justify;">Anyone who have worked with web know, or at least heard about Heroku. Heroku is a PaaS, an acronym for Platform as a Service. The idea behind Heroku is that the developer does not need to worry about the problems related to the implementation of its software, it simply develops, adds some files in the project, gives a git push to Heroku and he takes care of the rest.</p>
+<p style="text-align: justify;">Heroku is an excellent service, can scale to large apps, is easy to learn and use, BUT it can be very <a href="https://www.heroku.com/pricing" target="_blank">expensive</a>! Just to understand how easy is work with Heroku, i will deploy an example web app made with <a href="https://www.djangoproject.com/" target="_blank">Django</a>; the code can be found <a href="http://tutorial.djangogirls.org/en/index.html" target="_blank">here</a> and you can visit the app here: <a href="http://flavio-django-blog.herokuapp.com/" target="_blank">http://flavio-django-blog.herokuapp.com/</a></p>
+<p>&nbsp;</p>
+<p><script id="asciicast-19469" src="https://asciinema.org/a/19469.js" async="" type="text/javascript"></script></p>
+<h2>2.Docker and Dokku</h2>
+<p style="text-align: justify;">I wrote some time ago about Dockerizing a Shiny App: <a href="http://www.flaviobarros.net/2015/04/30/dockerizing-a-shiny-app/" target="_blank">Dockerizing a Shiny App</a> (read before continue). In fact, i did that because i was researching about a method to easily deploy Shiny Apps just like any regular web app, (ex. Node or Django). Some months ago, i found <a href="https://github.com/btubbs/heroku-buildpack-shiny" target="_blank">this project</a>, where the author claims to be able to run Shiny Apps on Heroku. I tried, but never was able to make it work. Another problem, was that i was searching something that i could host on my own server.</p>
+<p style="text-align: justify;">At the end, after discovering Docker, i started to use <a href="https://github.com/progrium/dokku" target="_blank">Dokku</a> instead of Heroku. Dokku in turn, is a kind of Heroku clone, made from Docker. It works the same way as Heroku, such that for web apps, like those made with Django, deployment is identical. Just so you see how it works, I installed Dokku on <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a> and implemented the same previous application made in Django. You can check the app here: <a href="http://djangogirls.flaviobarros.net/" target="_blank">http://djangogirls.flaviobarros.net/</a></p>
+<p><script id="asciicast-19472" src="https://asciinema.org/a/19472.js" async="" type="mce-mce-mce-mce-mce-mce-mce-mce-mce-mce-mce-mce-mce-text/javascript"></script></p>
+<p style="text-align: justify;">In my opinian Dokku is one of the best apps made with Docker. With it we can deploy multiple technologies at the very same server. In fact, you can build a cheaper version of Heroku, for about U$5,00 as is the case of <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a>. Right now, i&#8217;m running a <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a> Server, hosting this WordPress installation, two Django Web Apps and a Shiny App and there is plenty of space for much more, all for a 10 bucks VPS on Digital Ocean <img src="https://s.w.org/images/core/emoji/2.2.1/72x72/1f609.png" alt="😉" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+<h2>3.Git pushing the Wordcloud Shiny App</h2>
+<p style="text-align: justify;">Some time ago, Dokku featured <a href="https://docs.docker.com/reference/builder/" target="_blank">Dockerfile</a> build support. With this feature becomes possible to git push any app that could be builded from a Dockerfile.  A Dockerfile, is nothing more then a recipe to build Docker Images, something like the <a href="https://registry.hub.docker.com/u/flaviobarros/shiny-wordcloud/" target="_blank">Word Cloud</a> image that i released at <a href="https://hub.docker.com/" target="_blank">Docker Hub</a>.</p>
+<p style="text-align: justify;">With this in mind, i thought: why don&#8217;t change the official <a href="https://registry.hub.docker.com/u/rocker/shiny/" target="_blank">Shiny Server docker image</a> to host a single Shiny App? I just needed an image that:</p>
+<p style="text-align: justify;">1) Exposes 80 PORT;</p>
+<p style="text-align: justify;">2) Serves just an app;</p>
+<p style="text-align: justify;">3) Could be builded from a Dockerfile;</p>
+<p style="text-align: justify;">In fact, to build <a href="https://github.com/flaviobarros/shiny-wordcloud" target="_blank">shiny-wordcloud</a>, i forked <a href="https://github.com/rocker-org/shiny" target="_blank">rocker/shiny</a>  and implemented this features by means of some modifications on the Dockerfile (commits: <a href="https://github.com/flaviobarros/shiny-wordcloud/commit/451346b4c806cef84b214661e6caf664a57abc44" target="_blank">1</a>, <a href="https://github.com/flaviobarros/shiny-wordcloud/commit/ef16a049b8b32943f3ed568ada61e1def148b505" target="_blank">2</a>  and <a href="https://github.com/flaviobarros/shiny-wordcloud/commit/ab394841c30fd9bfe90fbeb0a89f012f216679c4" target="_blank">3</a>) and a <a href="https://github.com/flaviobarros/shiny-wordcloud/blob/master/shiny-server.conf" target="_blank">conf file</a>. Now i have fully working Dockerfile that i can use to git push Shiny Apps to Dokku! From now on, i will show you how you can install Dokku at <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a> and how i deployed the Wordcloud Shiny App at my server with a simple git push!</p>
+<h3>3.1 Git pushing to my server</h3>
+<p style="text-align: justify;">Just follow the video. You can visit the app here: <a href="http://wordcloud.flaviobarros.net/" target="_blank">http://wordcloud.flaviobarros.net/</a></p>
+<p><script id="asciicast-8qi8v3vc7mu90s066hy81fowj" src="https://asciinema.org/a/8qi8v3vc7mu90s066hy81fowj.js" async="" type="text/javascript"></script></p>
+<h3>3.2 Installing Dokku on Digital Ocean</h3>
+<p style="text-align: justify;">Follow this screencast. In the end you will have your server available at an IP. If you want a domain, will have to register it (ex. Godaddy) and point it to <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a> DNS. You can follow <a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-a-host-name-with-digitalocean" target="_blank">this tutorial</a> to setup a DNS on <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a>. If you have any problem let me know.</p>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/pOaZ7QwuxKU?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<h3 style="text-align: justify;">3.3 Important details</h3>
+<p style="text-align: justify;">I have used a SSH key that i have stored at <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a>. Usually, when you spin up your <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a> droplets, you get an email as soon as the process completes, letting you know the droplet’s IP address and password. Although this email is convenient, there is a more secure (and faster) way of gaining access to your server <i>without the need for email</i>. This can be done by setting up SSH keys. Follow this <a href="https://www.digitalocean.com/community/tutorials/how-to-use-ssh-keys-with-digitalocean-droplets" target="_blank">tutorial</a> to get this done.</p>
+<h2 style="text-align: justify;">Conclusion</h2>
+<p style="text-align: justify;">Recently i saw two interesting blog posts about Shiny App deployment:</p>
+<p style="text-align: justify;">1) <a href="http://www.r-bloggers.com/run-shiny-app-on-a-ubuntu-server-on-the-amazon-cloud/" target="_blank">Run Shiny app on a Ubuntu server on the Amazon Cloud</a></p>
+<p style="text-align: justify;">2) <a href="http://www.r-bloggers.com/how-to-get-your-very-own-rstudio-server-and-shiny-server-with-digitalocean/" target="_blank">How to get your very own RStudio Server and Shiny Server with DigitalOcean</a></p>
+<p style="text-align: justify;">In both scenarios this approach has several advantages:</p>
+<p style="text-align: justify;"> &#8211; You can replicate this dokku installation on Amazon and have the same functionality.</p>
+<p style="text-align: justify;">&#8211; When you are running multiple Shiny Apps on the same Shiny Server, you are using a <a href="http://www.r-bloggers.com/shiny-server-open-source-edition-solution-for-cpu-bound-apps/" target="_blank">single R instance</a>. SO, if you have more then one app deployed your server can slow down. With this solution, each app is isolated with your own Shiny Server instance, which is more reliable.</p>
+<p style="text-align: justify;">&#8211; The deployment process is easier. Once dokku is installed you don&#8217;t need to connect to the server to deploy an app. Just use git push!</p>
+<p style="text-align: justify;">&#8211; You can deploy multiple Shiny Apps, and multiple Web Apps. You can have Shiny, WordPress, Django and etc, on the same server.</p>
+<p style="text-align: justify;">&#8211; With <a href="https://github.com/dokku-alt/dokku-alt" target="_blank">dokku-alt</a> (an improved fork of Dokku) you can <a href="https://github.com/dokku-alt/dokku-alt#http-basic-auth-support" target="_blank">setup passwords</a> to access your Shiny Apps, something that is only available on Shiny Server Pro.</p>
+<p style="text-align: justify;">IMPORTANT: through any link to <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a> in this post,  you will earn U$10.00 credit without commitment to keep up the service. With this credit you can keep a simple VPS with 512MB RAM, for two months for free!</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2015/05/11/git-pushing-shiny-apps-with-docker-dokku/feed/index.html</wfw:commentRss>
+		<slash:comments>4</slash:comments>
+		</item>
+		<item>
+		<title>Dockerizing a Shiny App</title>
+		<link>./../../../2015/04/30/dockerizing-a-shiny-app/index.html</link>
+		<comments>./../../../2015/04/30/dockerizing-a-shiny-app/index.html#comments</comments>
+		<pubDate>Thu, 30 Apr 2015 23:16:57 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Digital Ocean]]></category>
+		<category><![CDATA[Docker]]></category>
+		<category><![CDATA[English]]></category>
+		<category><![CDATA[R e RStudio]]></category>
+		<category><![CDATA[r-bloggers]]></category>
+		<category><![CDATA[Shiny]]></category>
+		<category><![CDATA[deployment]]></category>
+		<category><![CDATA[shiny]]></category>
+		<category><![CDATA[web]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=592</guid>
+		<description><![CDATA[After a long pause of more than four months, I am finally back to post here. Unfortunately, many commitments prevented me keep posting, but coming back, i changed the deployment (now this blog runs entirely within a docker container with some other cool things I intend to post more forward) and wrote this post. 1. R e apps Shiny If you are reading this post here, you probably know what Shiny is. OK, but in...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">After a long pause of more than four months, I am finally back to post here. Unfortunately, many commitments prevented me keep posting, but coming back, i changed the deployment (now this blog runs entirely within a docker container with some other cool things I intend to post more forward) and wrote this post.</p>
+<h2 style="text-align: justify;">1. R e apps Shiny</h2>
+<p>If you are reading this post here, you probably know what Shiny is. OK, but in the case you don&#8217;t, you can see it in action! This is the App that i dockerized. Soon you will able to run it at any computer with docker installed.</p>
+<div class="wpview-body" contenteditable="false">
+<div class="wpview-content wpview-type-embedURL"><span class="embed-youtube"><iframe width="640" height="390" class="youtube-player" type="text/html" src="http://www.youtube.com/embed/CWWPvA6SK6k?version=3&amp;rel=1&amp;fs=1&amp;showsearch=0&amp;showinfo=1&amp;iv_load_policy=1&amp;wmode=transparent" allowfullscreen="allowfullscreen" frameborder="0"></iframe></span></div>
+</div>
+<div class="wpview-overlay"></div>
+<h2 style="text-align: justify;">2. Docker</h2>
+<p style="text-align: justify;">If you somehow accompanies the open source world news then you probably have heard of <a style="color: #0000ff;" href="http://www.docker.com/" target="_blank">Docker</a>. Docker is a fantastic tool for creating software containers, totally isolated from the host operating system. It works like a virtual machine, but it&#8217;s much lighter.</p>
+<p style="text-align: justify;">The idea behind docker is that the developer creates a container with all dependencies that he wants, make sure that everything works and done. The staff responsible for software deployment does not need to know what is inside the container, it just needs to be able to run container on the server. While this feature could be achieved with virtual machines, they ended up coming with much more than necessary, so the VM files are too large and the host system becomes very slow.</p>
+<p style="text-align: justify;">On the other hand, docker does not use a full OS, it shares the same host kernel (yes, it needs to run on Linux) but is a completely isolated environment. So run a docker containers is much lighter than run a virtual machine. Docker features do not stop there, it also allows a kind of versioning and has a kind of github for containers, the <a style="color: #0000ff;" href="https://hub.docker.com/account/signup/" target="_blank">Docker Hub</a>, where the user can download and use ready images  for various software, such as MySQL, Postgres , LAMP, WordPress, RStudio, among others. If you want to better understand what is Docker, watch this video.</p>
+<div class="wpview-body" contenteditable="false">
+<div class="wpview-content wpview-type-embedURL"><span class="embed-youtube"><iframe width="640" height="390" class="youtube-player" type="text/html" src="http://www.youtube.com/embed/Q5POuMHxW-0?version=3&amp;rel=1&amp;fs=1&amp;showsearch=0&amp;showinfo=1&amp;iv_load_policy=1&amp;wmode=transparent" allowfullscreen="allowfullscreen" frameborder="0"></iframe></span></div>
+</div>
+<div class="wpview-overlay"></div>
+<h2 style="text-align: justify;">3. Dockerizing a Shiny app</h2>
+<p style="text-align: justify;">I just showed you an example of a Shiny app running on RStudio locally. For development it&#8217;s ok, but if I want to make it available to anyone? One solution is send the project files. For a basic shiny application just two files are needed (ui.R and server.R).</p>
+<p style="text-align: justify;">But what if I want to put on the web? There are two alternatives:</p>
+<p style="text-align: justify;">1) A <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://www.rstudio.com/products/shiny/shiny-server/" target="_blank">Shiny Server</a></span></p>
+<p style="text-align: justify;">2) The PaaS <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://www.shinyapps.io/" target="_blank">shinyapps.io</a></span></p>
+<p style="text-align: justify;">Option 1) can be very complicated for some users, sometimes not workable, due to the need to install and configure a server.</p>
+<p style="text-align: justify;">Option 2) is more interesting, however you it can be expensive, since the free plan can be very limited for some needs.</p>
+<p style="text-align: justify;">How docker can help? Initially with the docker you can create a shiny server  using one command. This greatly simplifies deployment of a server. See this short video:</p>
+<div class="wpview-body" contenteditable="false">
+<div class="wpview-content wpview-type-embedURL"><span class="embed-youtube"><iframe width="640" height="390" class="youtube-player" type="text/html" src="http://www.youtube.com/embed/H94eSQrPoYI?version=3&amp;rel=1&amp;fs=1&amp;showsearch=0&amp;showinfo=1&amp;iv_load_policy=1&amp;wmode=transparent" allowfullscreen="allowfullscreen" frameborder="0"></iframe></span></div>
+</div>
+<div class="wpview-overlay"></div>
+<p>You just need:</p>
+<pre class="lang:zsh decode:true">docker run --rm -p 3838:3838 rocker/shiny</pre>
+<p><strong> WINDOWS AND MAC USERS:</strong> You will need <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://boot2docker.io/" target="_blank">boot2docker</a></span> to reproduce this.</p>
+<p style="text-align: justify;">This solution seems to solve the problem. However you can still find several problems such as:</p>
+<p style="text-align: justify;">1) How can i put my apps on the server?</p>
+<p style="text-align: justify;">2) How can i get a url directly to my app?</p>
+<p style="text-align: justify;">3) And this 3838, how can i change it?</p>
+<p style="text-align: justify;">4) How can i create an image for my app?</p>
+<p style="text-align: justify;">To solve these problems I created a sample container, with a sample app, which appears in the browser as the image is running. Its available at Docker Hub, and it&#8217;s ready to test and use. The source code is on <a style="color: #0000ff;" href="https://github.com/flaviobarros/shiny-wordcloud" target="_blank">Github</a>.</p>
+<p style="text-align: justify;">At the following videos i show you how to deploy this app locally and on <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a>. First local:</p>
+<div class="wpview-body" contenteditable="false">
+<div class="wpview-content wpview-type-embedURL"><span class="embed-youtube"><iframe width="640" height="390" class="youtube-player" type="text/html" src="http://www.youtube.com/embed/nhslu5WZy6I?version=3&amp;rel=1&amp;fs=1&amp;showsearch=0&amp;showinfo=1&amp;iv_load_policy=1&amp;wmode=transparent" allowfullscreen="allowfullscreen" frameborder="0"></iframe></span></div>
+</div>
+<div class="wpview-overlay"></div>
+<p>And on Digital Ocean:</p>
+<div class="wpview-body" contenteditable="false">
+<div class="wpview-content wpview-type-embedURL"><span class="embed-youtube"><iframe width="640" height="390" class="youtube-player" type="text/html" src="http://www.youtube.com/embed/X68N_efY0KU?version=3&amp;rel=1&amp;fs=1&amp;showsearch=0&amp;showinfo=1&amp;iv_load_policy=1&amp;wmode=transparent" allowfullscreen="allowfullscreen" frameborder="0"></iframe></span></div>
+</div>
+<div class="wpview-overlay"></div>
+<p style="text-align: justify;">Note that when using the aforementioned command, you do not returns straight to the terminal and you will need a Ctrl + C to close the container. So, to keep the container running and return to the terminal, you should use &amp;.</p>
+<pre class="lang:zsh decode:true">docker run --rm -p 80:80 flaviobarros/shiny &amp;</pre>
+<p style="text-align: justify;">You can run this app on <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://aws.amazon.com/pt/" target="_blank">Amazon Web Services</a></span>, <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://cloud.google.com/" target="_blank">Google Cloud</a></span> and <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://azure.microsoft.com/pt-br/" target="_blank">Microsoft Azure</a></span>, as all of them have support for docker. However, my suggestion is <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a> that is a lot easier to use.</p>
+<p style="text-align: justify;">IMPORTANT: through any link to <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a> in this post,  you will earn U$10.00 credit without commitment to keep up the service. With this credit you can keep a simple VPS with 512MB RAM, for two months for free!</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2015/04/30/dockerizing-a-shiny-app/feed/index.html</wfw:commentRss>
+		<slash:comments>9</slash:comments>
+		</item>
+		<item>
+		<title>Handwritten digit recognition &#8211; Part1</title>
+		<link>./../../../2014/12/22/handwritten-digit-recognition-part1/index.html</link>
+		<comments>./../../../2014/12/22/handwritten-digit-recognition-part1/index.html#comments</comments>
+		<pubDate>Mon, 22 Dec 2014 19:00:13 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Data Mining]]></category>
+		<category><![CDATA[English]]></category>
+		<category><![CDATA[Machine Learning]]></category>
+		<category><![CDATA[R e RStudio]]></category>
+		<category><![CDATA[r-bloggers]]></category>
+		<category><![CDATA[handwritten recognition]]></category>
+		<category><![CDATA[k-nn]]></category>
+		<category><![CDATA[machine learning]]></category>
+		<category><![CDATA[mnist]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=509</guid>
+		<description><![CDATA[OBS: There is a version in portuguese. Handwritten digit recognition task was one of first great successes of machine learning methods. Nowadays, the task can be carried out by multiple specialized libraries with very high accuracy (&#62; 97% of correct answers), such that many times, despite of indirectly we use these features in tablets and smartphones, in general we do not know exactly how the method works. Thinking about it, as I worked with this...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">OBS: There is a version in <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://www.flaviobarros.net/2014/12/22/reconhecimento-de-digitos-escritos-mao-parte-1/">portuguese</a></span>.</p>
+<p style="text-align: justify;">Handwritten digit recognition task was one of first <a href="http://en.wikipedia.org/wiki/Handwriting_recognition"><span style="color: #0000ff;">great successes</span></a> of machine learning methods. Nowadays, the task can be carried out by multiple <a href="http://opencv.org/"><span style="color: #0000ff;">specialized libraries</span></a> with very high accuracy (&gt; 97% of correct answers), such that many times, despite of indirectly we use these features in tablets and smartphones, in general we do not know exactly how the method works.<a href="http://www.flaviobarros.net/wp-content/uploads/2014/12/3_032.BMP.png"><br />
+</a></p>
+<p style="text-align: justify;">Thinking about it, as I worked with this problem before, I will demonstrate in this post how the process works, the techniques used and how to implement it with R language. To begin, we will work with the problem of recognizing digits 0,1,2 , 3,4,5,6,7,8, or 9, i.e. a classification problem with 10 categories.</p>
+<p style="text-align: justify;">I&#8217;ll try to work here implementing all the modeling only with R base functions and a few extra packages with the required functions and algorithms; in the next post, I can try to use other packages to automate the various modeling tasks.</p>
+<p style="text-align: justify;"><span id="more-509"></span></p>
+<h3 style="text-align: justify;">1. READING DATA</h3>
+<p style="text-align: justify;">The dataset is images of the type <a href="http://en.wikipedia.org/wiki/Netpbm_format"><span style="color: #0000ff;">PGM</span></a>, with 64 x 64 pixels per image, where each pixel has a value of 1 or 0, indicating whether the pixel is black or white. Each image has a name as X_ yyy.BMP.in.pgm, where X represents the digit drawn in the image. The data are divided into a training set and a test set and can be downloaded from the following links: <a href="http://www.flaviobarros.net/wp-content/uploads/2014/12/teste.zip">teste</a>  e <a href="http://www.flaviobarros.net/wp-content/uploads/2014/12/treino.zip">treino</a> (test and trainning; save with any name you want).</p>
+<p style="text-align: justify;">Thus, the first part of the problem is reading the data. For this I will use <span style="color: #0000ff;"><a style="color: #0000ff;" href="http://cran.r-project.org/web/packages/pixmap/index.html">pixmap</a></span> package with which you can read and manipulate PGM images. Next, the process of reading the images and creation of an array with the labels, that is, the number that is written in the image.</p>
+<pre class="lang:r decode:true">## Load pixmap
+library(pixmap)
+
+## Def working directory
+path_treino &lt;- '/sua/pasta/treino/'
+
+## Set wd
+setwd(path_treino)
+
+## Read files
+files &lt;- dir()
+
+## Getting classes from file names
+classes &lt;- as.factor(substring(files,first=1,last=1))
+
+## Trainning data.frame
+treino &lt;- as.data.frame(matrix(rep(0,length(files)*64*64), nrow=length(files)))
+
+## Reading trainning dataset
+for (i in 1:length(files)) {
+
+  ## Reading images
+  x &lt;- read.pnm(files[i])
+
+  ## Slot 'grey' with pixels; the matrix is vectorized
+  treino[i,] &lt;- as.vector(x@grey, mode='integer')
+}
+
+## Same for test set
+path_teste &lt;- '/sua/pasta/teste/'
+
+## Same for teste set
+setwd(path_teste)
+
+## Same for test set
+files &lt;- dir()
+
+## Classes
+predic &lt;- as.factor(substring(files,first=1,last=1))
+
+## Data.frame for test set
+teste &lt;- as.data.frame(matrix(rep(0,length(files)*64*64), nrow=length(files)))
+
+## Reading test set
+for (i in 1:length(files)) {
+  x &lt;- read.pnm(files[i])
+  teste[i,] &lt;- as.vector(x@grey, mode='integer')
+}</pre>
+<p style="text-align: justify;">Note that the pixel array is stored @grey slot, and after reading, it is transformed into a vector, such that the final data.frame has 64&#215;64 columns and 1949 rows (images total). The test set is only 50 images, so the data.frame will stay with 64&#215;64 columns and only 50 lines. In summary, each column is a pixel and each line is an image.</p>
+<h3 style="text-align: justify;"> 2. MODELLING WITH k-nn</h3>
+<p style="text-align: justify;">At this step we will create models with the k-nn algorithm (nearest neighbors) without any data preprocessing. The algorithm works by assigning classes to images, using the known values of the closest neighbors. So, lets say k = 3, the algorithm looks for the three nearest images, checks the majority class of these images and assign this class to the image without label. It is important to choose an odd k to prevent draw, for example, two neighbors of a class and another two from other, in the case of k = 4.</p>
+<pre class="lang:r decode:true">## Package with knn
+library(class)
+
+## knn model with k=3
+predito &lt;- knn(train=treino, test=teste, cl=classes, k=3, prob=T)
+
+## Results
+result &lt;- data.frame(cbind(predic, predito, acerto = predic==predito))
+
+## Accuracy
+sum(result$acerto)/nrow(result)
+
+[1] 0.56</pre>
+<p>And with k = 3 we got a success rate of only 56%, far short of what can be achieved. So let&#8217;s run the algorithm with different k values and see if we can get a result a little better.</p>
+<pre class="lang:r decode:true">## Data.frame all results
+resultado &lt;- data.frame(k = rep(0,101), taxa=rep(0.00,101))
+
+for (i in seq(from=1, to=101, by=2)) {
+  
+  ## Print k values 
+  print(i)
+  
+  ## Predicted images
+  predito &lt;- knn(train=treino, test=teste, cl=classes, k=i, prob=T)
+  
+  ## Save data.frame
+  result &lt;- data.frame(cbind(predic, predito, acerto = predic==predito))
+  
+  ## Accuracy; store at the data.frame
+  resultado[i,] &lt;- c(i,sum(result$acerto)/nrow(result))
+}
+
+## Get rid of blank lines
+resultado &lt;- subset(resultado, subset=resultado$taxa!=0)
+
+## Ploting results for all k's
+plot(resultado$taxa~resultado$k, main='Taxa de Acerto para o k-nn', xlab='Valores de K', ylab='Taxa de acerto')</pre>
+<p>We got something like 78% with k = 1, but it is still a very poor result close to what can be achieved. It is also worth noting that increasing K does not help much in the end, but it is important to be aware that a very small k can lead to overfitting.</p>
+<h3 style="text-align: justify;">CONCLUSION</h3>
+<p style="text-align: justify;"> Apparently handwriting recognition works well using a simple algorithm, without any treatment. HOWEVER, we can do better. In Part 2 we will automate some tasks with <a href="http://caret.r-forge.r-project.org/"><span style="color: #0000ff;">caret</span></a> package and we will also explore other better algorithms such as <a href="http://en.wikipedia.org/wiki/Support_vector_machine"><span style="color: #0000ff;">SVM</span></a> and <a href="http://en.wikipedia.org/wiki/Random_forest"><span style="color: #0000ff;">RandomForest</span></a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2014/12/22/handwritten-digit-recognition-part1/feed/index.html</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+		<item>
+		<title>Data Preparation – Part II</title>
+		<link>./../../../2014/03/27/data-preparation-part-ii/index.html</link>
+		<comments>./../../../2014/03/27/data-preparation-part-ii/index.html#comments</comments>
+		<pubDate>Thu, 27 Mar 2014 20:43:45 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[English]]></category>
+		<category><![CDATA[Estatística]]></category>
+		<category><![CDATA[R e RStudio]]></category>
+		<category><![CDATA[r-bloggers]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=394</guid>
+		<description><![CDATA[This time i will talk about how to deal with large text files in chuncks with R. Just to provide some real data to work with download Airlines data, relative to 1988; from now on i will work with this file. To work with this data i will use  iterators package. This package allow you pass the file, line by line, or chunck by chunk, without really load all file to memory. As you can feel the idea...]]></description>
+				<content:encoded><![CDATA[<p>This time i will talk about how to deal with large text files in chuncks with R. Just to provide some real data to work with download <span style="color: #0000ff;"><a href="http://stat-computing.org/dataexpo/2009/the-data.html"><span style="color: #0000ff;">Airlines</span></a> </span>data, relative to 1988; from now on i will work with this file.</p>
+<p><img class="alignnone" src="http://cloudtimes.org/wp-content/uploads/2011/02/big-data.jpg" alt="" width="800" height="600" /></p>
+<p>To work with this data i will use  <span style="color: #0000ff;"><a href="http://cran.r-project.org/web/packages/iterators/index.html"><span style="color: #0000ff;">iterators</span></a></span><span style="color: #0000ff;"><span style="color: #0000ff;"> </span></span>package. This package allow you pass the file, line by line, or chunck by chunk, without really load all file to memory. As you can feel the idea try this code:</p>
+<pre class="lang:r decode:true ">install.packages('iterators')
+library(iterators)
+con &lt;- bzfile('1988.csv.bz2', 'r')</pre>
+<p>OK, now you have a connection to your file. Let&#8217;s create a iterator:</p>
+<pre class="lang:r decode:true ">it &lt;- ireadLines(con, n=1)
+nextElem(it)
+nextElem(it)</pre>
+<p>As you can see you are printing line by line. So, you can work with one line, or a chunk of data even with a large file. If you want to read line by line till the end of the file you can use something like this:</p>
+<pre class="lang:r decode:true ">tryCatch(expr=nextElem(it), error=function(e) return(FALSE))</pre>
+<p>that returns a FALSE at the end of the file. This a very useful trick in data preparation with large text files.</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2014/03/27/data-preparation-part-ii/feed/index.html</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+		<item>
+		<title>MOOCs and courses to learn R</title>
+		<link>./../../../2014/03/14/online-multimedia-resources-learn-r/index.html</link>
+		<comments>./../../../2014/03/14/online-multimedia-resources-learn-r/index.html#comments</comments>
+		<pubDate>Fri, 14 Mar 2014 17:02:31 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Educação]]></category>
+		<category><![CDATA[English]]></category>
+		<category><![CDATA[MOOCS]]></category>
+		<category><![CDATA[R e RStudio]]></category>
+		<category><![CDATA[r-bloggers]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=376</guid>
+		<description><![CDATA[Inspired by this article i thought about gather here all multimedia resources that i know to learn use R. Today there is a lot of online courses, some MOOC&#8217;s too, that offer reasonable resources to start with R. I will just list the materials in sequence and offer my evaluation about them. Of course your evaluation can be different; this case fell free to comment. In the future i can update the material. Let&#8217;s begin:...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">Inspired by <span style="color: #0000ff;"><a href="http://www.r-bloggers.com/an-r-meta-book/"><span style="color: #0000ff;">this article</span></a></span> i thought about gather here all multimedia resources that i know to learn use R. Today there is a lot of online courses, some MOOC&#8217;s too, that offer reasonable resources to start with R.</p>
+<p style="text-align: justify;">I will just list the materials in sequence and offer my evaluation about them. Of course your evaluation can be different; this case fell free to comment. In the future i can update the material. Let&#8217;s begin:</p>
+<p><span style="color: #0000ff;">1. </span><a style="color: #0000ff;" href="https://www.coursera.org/course/compdata">Computing for Data Analysis</a></p>
+<p style="text-align: justify;">This course was offered multiple times from 2012 to 2014. I did the course at 2013 and the course was very well formatted, with good exercises and lots of resources. It was offered on Coursera platform, that i particularly think excellent, and take an average effort to finish. There is quiz questions and program assignments. The course is free.</p>
+<p><span style="color: #0000ff;"><span style="color: #0000ff;">2. </span></span><span style="color: #0000ff;"><a href="https://www.coursera.org/course/rprog"><span style="color: #0000ff;">R Programming</span></a></span></p>
+<p style="text-align: justify;">This course is offered at coursera too, from the same instructor as Computing for Data Analysis. According to course syllabus: &#8220;The course covers practical issues in statistical computing which includes programming in R, reading data into R, accessing R packages, writing R functions, debugging, and organizing and commenting R code. Topics in statistical data analysis and optimization will provide working examples.&#8221;</p>
+<p style="text-align: justify;">Well, once that there is now the coursera specializations, i thinks that this course is &#8220;Computing for Data Analysis&#8221; rebuilded. SO, if you already did the first course i don&#8217;t see any advantage doing this one, unless you want to get the specialization certificate.</p>
+<p><span style="color: #0000ff;"><span style="color: #0000ff;">3. </span></span><span style="color: #0000ff;"><a href="https://www.coursera.org/course/dataanalysis"><span style="color: #0000ff;">Data Analysis</span></a></span></p>
+<p style="text-align: justify;">This course was about the practical aspect of data analysis with R. All activities was in R, but the course wasn&#8217;t about R itself. But it was very good and you can learn a lot of R with it. The course is free and offered on Cousera platform.</p>
+<p style="text-align: justify;">OBS: Both, Computing for Data Analysis and Data Analysis, can be replaced for other courses on <span style="color: #0000ff;"><a href="https://www.coursera.org/specialization/jhudatascience/1?utm_medium=listingPage"><span style="color: #0000ff;">coursera specialization</span></a></span>. I won&#8217;t comment now about these new courses because some of them are being offered now and other will be offered on the  next months. Anyway both course materials are avaliable on youtube.</p>
+<p><span style="color: #0000ff;"><span style="color: #0000ff;">4. </span></span><span style="color: #0000ff;"><a href="https://www.coursera.org/specialization/jhudatascience/1?utm_medium=listingPage"><span style="color: #0000ff;">Introduction to Data Analysis with R</span></a></span></p>
+<p style="text-align: justify;">This course is being offered at bigdatauniversity platform. The course is a good starting point but i don&#8217;t this platform like so much. But the pros of this course is that you can do it on your pace and it have less material to cover. It&#8217;s a quick introduction  to R.</p>
+<p><span style="color: #0000ff;"><span style="color: #0000ff;">5. </span></span><span style="color: #0000ff;"><a href="http://bigdatauniversity.com/bdu-wp/bdu-course/data-mining-with-r-let-r-rattle-you/"><span style="color: #0000ff;">Data Mining with R</span></a></span></p>
+<p style="text-align: justify;">This course will be too offered at bigdatauniversity, but it&#8217;s not avaliable right now. It will be recorded, and you can participate through live stream from bigdatauniversity, and released on that platform. The course doesn&#8217;t have a syllabus available, but i think that the content of <span style="color: #0000ff;"><a href="http://www.amazon.com/Data-Mining-Rattle-Excavating-Knowledge/dp/1441998896/ref=sr_1_2?ie=UTF8&amp;qid=1394813754&amp;sr=8-2&amp;keywords=data+mining+with+R"><span style="color: #0000ff;">this book</span></a></span>, will probably be the topics discussed.</p>
+<p style="text-align: justify;"><span style="color: #0000ff;"><a href="http://rattle.togaware.com/"><span style="color: #0000ff;">Rattle</span></a></span> is a GUI for datamining that uses R as backend. It&#8217;s very intuitive and resembles Weka interface. While it&#8217;s not as flexible as use R directly it provides a quick way to explore and buid models with R. With Rattle() every step taken is saved on a log that you can use as scripts to automate tasks.</p>
+<p><span style="color: #0000ff;"><span style="color: #0000ff;">6. </span></span><span style="color: #0000ff;"><a href="http://bigdatauniversity.com/bdu-wp/bdu-course/using-r-with-databases/"><span style="color: #0000ff;">Using R with Databases</span></a></span></p>
+<p style="text-align: justify;">This course is too being offered at bigdatauniversity. It&#8217;s supposing you have some R skills and is about the use of databases with R. It uses IBM DB2 specifically, but you can  apply the concepts to others databases as well. It&#8217;s free and i liked it.</p>
+<p><span style="color: #0000ff;"><span style="color: #0000ff;">7. </span></span><span style="color: #0000ff;"><a href="http://online.stanford.edu/course/statistical-learning-winter-2014"><span style="color: #0000ff;">Statistical Learning</span></a></span></p>
+<p style="text-align: justify;">I&#8217;m taking this course right now and i will write a post specifically about it. BUT, just to clarify, it&#8217;s a course about machine learning (or statiscical learning if you want) based on the introductory book <span style="color: #0000ff;"><a href="http://www-bcf.usc.edu/~gareth/ISL/"><span style="color: #0000ff;">Introduction to Statistical Learning</span></a><span style="color: #0000ff;">. </span></span></p>
+<p style="text-align: justify;">The course isn&#8217;t about R itself but all the techniques are implemented using R. This course is a easy way to read the book. The course is free and is offered at openedX platform, that is a wonderful platform for MOOCs.</p>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/2wLfFB_6SKI?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<p><span style="color: #0000ff;"><span style="color: #0000ff;">8. </span></span><span style="color: #0000ff;"><a href="https://www.udemy.com/introduction-to-r/?sl=E0YSdzFTKn5uFFkoCkA%3D&amp;dtcode=n7fuldbm"><span style="color: #0000ff;">Introduction to R</span></a></span></p>
+<p style="text-align: justify;">This course is offered at <span style="color: #0000ff;"><a href="https://www.udemy.com/courses/"><span style="color: #0000ff;">Udemy</span></a></span> platform. Udemy is a great platform both to create your own course as to take a course. The course is not free, but it has good reviews of users and you have 30 days to evaluate the material and be refounded.</p>
+<p style="text-align: justify;">The author claim that you can learn the basics with 2 days of course.</p>
+<p><span style="color: #0000ff;"><span style="color: #0000ff;">9. </span></span><span style="color: #0000ff;"><a href="https://www.edx.org/course/kix/kix-kiexplorx-explore-statistics-r-1524"><span style="color: #0000ff;">Explore Statistics with R</span></a></span></p>
+<p style="text-align: justify;">This course will be released at september on edX. So no further comments.</p>
+<p><span style="color: #0000ff;"><span style="color: #0000ff;">10. </span></span><span style="color: #0000ff;"><a href="Build Web Apps in R with Shiny"><span style="color: #0000ff;">Build Web Apps in R with Shiny</span></a></span></p>
+<p style="text-align: justify;">This is another Udemy course. Worth of checking.</p>
+<p style="text-align: justify;">Obs: Coursera will offer <span style="color: #0000ff;"><a href="https://www.coursera.org/course/devdataprod"><span style="color: #0000ff;">Developing Data Products</span></a></span> for free next june. This course is about the very same topics. So maybe it&#8217;s worth wait.<span style="color: #0000ff;"><br />
+</span></p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2014/03/14/online-multimedia-resources-learn-r/feed/index.html</wfw:commentRss>
+		<slash:comments>7</slash:comments>
+		</item>
+		<item>
+		<title>Genetic data, large matrices and glmnet()</title>
+		<link>./../../../2014/02/25/genetic-data-large-matrices-glmnet/index.html</link>
+		<comments>./../../../2014/02/25/genetic-data-large-matrices-glmnet/index.html#comments</comments>
+		<pubDate>Tue, 25 Feb 2014 13:29:25 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[English]]></category>
+		<category><![CDATA[Estatística]]></category>
+		<category><![CDATA[R e RStudio]]></category>
+		<category><![CDATA[r-bloggers]]></category>
+		<category><![CDATA[glmnet]]></category>
+		<category><![CDATA[Lasso]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=359</guid>
+		<description><![CDATA[Recently talking to a colleague, had contact with a problem that I had never worked with before: modeling with genetic data. I have no special knowledge of the subject, but taking a look at some articles in the area knew that one of the most used techniques for this type of data was the lasso. &#160; In R, one of the most used packages for the lasso is glmnet, which unlike most other packages like...]]></description>
+				<content:encoded><![CDATA[<p>Recently talking to a colleague, had contact with a problem that I had never worked with before: modeling with genetic data. I have no special knowledge of the subject, but taking a look at some articles in the area knew that one of the most used techniques for this type of data was the <span style="color: #0000ff;"><a href="http://en.wikipedia.org/wiki/Lasso_(statistics)#Lasso_method"><span style="color: #0000ff;">lasso</span></a></span>.</p>
+<p>&nbsp;</p>
+<p style="text-align: justify;">In R, one of the most used packages for the lasso is <span style="color: #0000ff;"><a href="http://cran.r-project.org/web/packages/glmnet/index.html"><span style="color: #0000ff;">glmnet</span></a></span>, which unlike most other packages like <span style="color: #0000ff;"><a href="https://stat.ethz.ch/R-manual/R-devel/library/stats/html/lm.html"><span style="color: #0000ff;">lm</span></a></span> accepts as input a data.frame. So, before you start modeling, you must perform a pre-processing step passing the data to matrix format. Done it is possible to pass a <span style="color: #0000ff;"><a href="http://stat.ethz.ch/R-manual/R-patched/library/stats/html/formula.html"><span style="color: #0000ff;">formula</span></a></span> or even passing an array with the response variable, plus another with data for the variables.</p>
+<p style="text-align: justify;"><span id="more-359"></span></p>
+<p style="text-align: justify;">The problem with the formula approach is that, in general, genomic data has more columns than observations. The data that I worked in that case had 40,000 columns and only 73 observations. In order to create a small set of test data, run the following code:</p>
+<pre class="lang:r decode:true">data &lt;- matrix(rep(0,50*49000), nrow=50)
+for(i in 1:50) {
+    x = rep(letters[2:8], 7000)
+    y = sample(x=1:49000, size=49000)
+    data[i,] &lt;- x[y]
+}
+
+data &lt;- as.data.frame(data)
+x &lt;- c(rep('A', 20), rep('B', 15), rep('C', 15))
+y &lt;- sample(x=1:50, size=50)
+class = x[y]
+data &lt;- cbind(data, class)</pre>
+<p style="text-align: justify;">So, with this data set we will try to fit a model with glmnet ():</p>
+<pre class="lang:r decode:true">formula &lt;- as.formula(class ~ .)
+X &lt;- model.matrix(formula, data)
+model &lt;- cv.glmnet(X, class, standardize=FALSE, family='multinomial', alpha=1, nfolds=10)</pre>
+<p style="text-align: justify;">And if you do not have a computer with more RAM than mine, you will probably leak memory and give a crash in R. The solution? My first idea was to try <span style="color: #0000ff;"><a href="http://stat.ethz.ch/R-manual/R-devel/library/Matrix/html/sparse.model.matrix.html"><span style="color: #0000ff;">sparse.model.matrix()</span></a></span> that creates a sparse matrix model using the same formula. Unfortunately did not work, because even with sparse matrix, the final model is still too big! Interestingly, this dataset occupies only 24MB from RAM, but when you use the model.matrix the result is an array with more than 1Gb.</p>
+<p style="text-align: justify;">The solution I found was to build the matrix on hand. To do this we encode the array with dummy variables, column by column, and store the result in a sparse matrix. Then we will use this matrix as input to the model and see if it will not leak memory:</p>
+<pre class="lang:r decode:true ">## Cria a matriz de entrada usando a primeira coluna
+X &lt;- sparse.model.matrix(~data[,1]-1)
+
+## Verifica se a coluna tem mais de um nível (tipo factor naturalmente!)
+for (i in 2:ncol(data)) {
+
+## Se tiver mais de um nível aplica codificação dummy
+if (nlevels(data[,i])&gt;1) {
+    coluna &lt;- sparse.model.matrix(~data[,i]-1)
+    X &lt;- cBind(X, coluna)
+}
+## Se tiver um número transforma em factor e depois em numérico.
+else {
+   coluna &lt;- as.numeric(as.factor(data[,i]))
+   X &lt;- cBind(X, coluna)
+}</pre>
+<p style="text-align: justify;">NOTE: Pay attention to how we are using a sparse matrix the Matrix package is required. Also note that the columns are connected using cBind () instead of cbind ().</p>
+<p style="text-align: justify;">The matrix thus generated was much lower: less than 70 Mb when I tested. Fortunately glmnet () supports a sparse matrix and you can run the model:</p>
+<pre class="lang:r decode:true">mod.lasso &lt;- cv.glmnet(X, class, standardize=FALSE, family='multinomial', alpha=1, nfolds=10)</pre>
+<p style="text-align: justify;">So you can create models with this type of data without blowing the memory and without use R packages for large datasets like <span style="color: #0000ff;"><a href="http://www.bigmemory.org/"><span style="color: #0000ff;">bigmemory</span></a></span> and <span style="color: #0000ff;"><a href="http://cran.r-project.org/web/packages/ff/index.html"><span style="color: #0000ff;">ff</span></a></span>.</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2014/02/25/genetic-data-large-matrices-glmnet/feed/index.html</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+		<item>
+		<title>Data Preparation &#8211; Part I</title>
+		<link>./../../../2013/10/31/data-preparation-tricks-part-i/index.html</link>
+		<comments>./../../../2013/10/31/data-preparation-tricks-part-i/index.html#comments</comments>
+		<pubDate>Thu, 31 Oct 2013 17:22:05 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Aprendizado de Máquina]]></category>
+		<category><![CDATA[Data Mining]]></category>
+		<category><![CDATA[English]]></category>
+		<category><![CDATA[Estatística]]></category>
+		<category><![CDATA[Machine Learning]]></category>
+		<category><![CDATA[Mineração de Dados]]></category>
+		<category><![CDATA[R e RStudio]]></category>
+		<category><![CDATA[r-bloggers]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=281</guid>
+		<description><![CDATA[The R language provides tools for modeling and visualization, but is still an excellent tool for handling/preparing data. As C++ or python, there is some tricks that bring performance, make the code clean or both, but especially with R these choices can have a huge impact on performance and the &#8220;size&#8221; of your code. A seasoned R user can manage this effectively, but this can be a headache to a new user. SO, in this...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">The R language provides tools for modeling and visualization, but is still an excellent tool for handling/preparing data. As C++ or python, there is some tricks that bring performance, make the code clean or both, but especially with R these choices can have a huge impact on performance and the &#8220;size&#8221; of your code. A seasoned R user can manage this effectively, but this can be a headache to a new user. SO, in this series of posts i will present some data preparation techniques that anyone should know about, at least the ones i know!</p>
+<h2 style="text-align: justify;">1. Using apply, lappy, tapply</h2>
+<p style="text-align: justify;">Sometimes the apply&#8217;s can make your code faster, sometimes just cleaner. BUT the fact is that, at least in R, is recommended <span style="color: #0000ff;"><a href="http://stackoverflow.com/questions/2908822/speed-up-the-loop-operation-in-r"><span style="color: #0000ff;">avoid for loops</span></a></span>. So, instead of using loops, you can iterate over matrixes, lists and vectors using these functions. As an example see this code:</p>
+<pre class="lang:r decode:true ">matriz &lt;- matrix(round(runif(9,1,10),0),nrow=3)
+apply(matriz, 1, sum) ## sum by row
+apply(matriz, 2, sum) ## sum by column</pre>
+<p>Particularly in this example there is no gain on performance, but you get a cleaner code.</p>
+<p>Talking about means, sometimes tapply can be very usefull in this regard. Let&#8217;s say you want to get means by group, you can have this with one line too. For example, considering the mtcars dataset:</p>
+<pre tabindex="0">mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+Datsun 710          22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+Hornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+Valiant             18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+Duster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
+Merc 240D           24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+Merc 230            22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+Merc 280            19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
+Merc 280C           17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4
+Merc 450SE          16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3
+Merc 450SL          17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3
+Merc 450SLC         15.2   8 275.8 180 3.07 3.780 18.00  0  0    3    3
+Cadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4
+Lincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4
+Chrysler Imperial   14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4
+Fiat 128            32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+Honda Civic         30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+Toyota Corolla      33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+Toyota Corona       21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+Dodge Challenger    15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2
+AMC Javelin         15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2
+Camaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4
+Pontiac Firebird    19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2
+Fiat X1-9           27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+Porsche 914-2       26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+Lotus Europa        30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+Ford Pantera L      15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4
+Ferrari Dino        19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6
+Maserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8
+Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2</pre>
+<p>so</p>
+<pre class="lang:r decode:true ">tapply(mtcars$hp, mtcars$cyl, mean)</pre>
+<p>and you can have the mean power by cylinder capacity. This function is very usefull on descriptive analysis. BUT sometimes you have lists, not vectors. In this case just use lappy or sapply (simplify the output). Let&#8217;s generate some data:</p>
+<pre class="lang:r decode:true ">lista &lt;- list(a=c('one', 'tow', 'three'), b=c(1,2,3), c=c(12, 'a'))</pre>
+<p>Each element of this list is a vector. Let&#8217;s say you want to know how many elements there is in each vector:</p>
+<pre class="lang:r decode:true ">lapply(lista, length) ## return a list
+sapply(lista, length) ## coerce to a vector</pre>
+<p>&nbsp;</p>
+<pre tabindex="0">$a
+[1] 3
+
+$b
+[1] 3
+
+$c
+[1] 2</pre>
+<pre tabindex="0">a b c 
+3 3 2</pre>
+<h2>2. Split, apply and recombine</h2>
+<p style="text-align: justify;">This technique you must know. Basically we split the data, apply a function and combine the results. There is a <span style="color: #0000ff;"><a href="http://cran.r-project.org/web/packages/plyr/index.html"><span style="color: #0000ff;">package</span></a></span> created with this in mind. But we will use just base R functions: split, *apply and cbind() ou rbind() when needed. Looking again at mtcars dataset, let&#8217;s say we want fit a model of mpg against disp, grouped by gears,  and compare the regression coefficients.</p>
+<p style="text-align: justify;"><a href="http://www.flaviobarros.net/wp-content/uploads/2013/10/mpg1.png"><img class="aligncenter size-full wp-image-323" src="http://www.flaviobarros.net/wp-content/uploads/2013/10/mpg1.png" alt="mpg" width="480" height="480" srcset="./../../../wp-content/uploads/2013/10/mpg1.png 480w, ./../../../wp-content/uploads/2013/10/mpg1-150x150.png 150w, ./../../../wp-content/uploads/2013/10/mpg1-300x300.png 300w, ./../../../wp-content/uploads/2013/10/mpg1-90x90.png 90w" sizes="(max-width: 480px) 100vw, 480px" /></a></p>
+<pre class="lang:r decode:true ">data &lt;- split(mtcars, mtcars$gear) ## split
+fits &lt;- lapply(data, function(x) return(lm(x$mpg~x$disp)$coef)) ## apply
+do.call(rbind, fits) ## recombine</pre>
+<p>&nbsp;</p>
+<pre tabindex="0">  (Intercept)      x$disp
+3    24.51557 -0.02577046
+4    39.56753 -0.12221268
+5    31.66095 -0.05077512</pre>
+<p>This technique is powerfull. You can use at different contexts.</p>
+<p>Next part i will talk about some tricks with dates.</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2013/10/31/data-preparation-tricks-part-i/feed/index.html</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+		<item>
+		<title>ANOVA and Tukey&#8217;s test on R</title>
+		<link>./../../../2013/06/13/anova-and-tukey-test-on-r/index.html</link>
+		<comments>./../../../2013/06/13/anova-and-tukey-test-on-r/index.html#comments</comments>
+		<pubDate>Thu, 13 Jun 2013 22:38:26 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[English]]></category>
+		<category><![CDATA[R e RStudio]]></category>
+		<category><![CDATA[r-bloggers]]></category>
+		<category><![CDATA[ANOVA]]></category>
+		<category><![CDATA[R code]]></category>
+		<category><![CDATA[statistical test]]></category>
+		<category><![CDATA[statistics]]></category>
+		<category><![CDATA[Tukey]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=155</guid>
+		<description><![CDATA[OBS: This is a full translation of a portuguese version. In many different types of experiments, with one or more treatments, one of the most widely used statistical methods is analysis of variance or simply ANOVA . The simplest ANOVA can be called &#8220;one way&#8221; or &#8220;single-classification&#8221; and involves the analysis of data sampled from more then one population or data from experiments with more than two treatments. It&#8217;s not my intent to study in...]]></description>
+				<content:encoded><![CDATA[<p>OBS: This is a full translation of a <span style="color: #0000ff;"><a href="http://www.flaviobarros.net/2013/06/10/anova-e-teste-de-tukey-no-r/"><span style="color: #0000ff;">portuguese version</span></a>.</span></p>
+<p style="text-align: justify;">In many different types of experiments, with one or more treatments, one of the most widely used statistical methods is analysis of variance or simply <span style="color: #0000ff;"><a href="https://en.wikipedia.org/wiki/Analysis_of_variance"><span style="color: #0000ff;">ANOVA</span></a></span> . The simplest ANOVA can be called &#8220;one way&#8221; or &#8220;single-classification&#8221; and involves the analysis of data sampled from more then one population or data from experiments with more than two treatments.</p>
+<p style="text-align: justify;">It&#8217;s not my intent to study in depth the ANOVA, but to show how to apply the procedure in R and apply a &#8220;post-hoc&#8221; test called <span style="color: #0000ff;"><a href="http://en.wikipedia.org/wiki/Tukey%27s_range_test"><span style="color: #0000ff;">Tukey&#8217;s test</span></a></span>. When we are conducting an analysis of variance, the null hypothesis considered is that there is no difference in treatments mean, so once rejected the null hypothesis, the question is what treatment differ.</p>
+<p style="text-align: justify;">To illustrate the procedure we consider an experimental situation where a company is applying a sensory test for a set of 15 panelists in three different brands of chocolate. Three brands are compared, one being the reference, and the goal is to verify the difference of marks with the control. In this experiment we have two factors, the brand and the tasters, and we hope that there is no significant effect of tasters. At each assessment the assessor must determine the difference on a scale 0-7.</p>
+<pre class="lang:r decode:true">data.frame(
+Sabor =
+c(5, 7, 3,
+4, 2, 6,
+5, 3, 6,
+5, 6, 0,
+7, 4, 0,
+7, 7, 0,
+6, 6, 0,
+4, 6, 1,
+6, 4, 0,
+7, 7, 0,
+2, 4, 0,
+5, 7, 4,
+7, 5, 0,
+4, 5, 0,
+6, 6, 3
+),
+Tipo = factor(rep(c("A", "B", "C"), 15)),
+Provador = factor(rep(1:15, rep(3, 15))))</pre>
+<p style="text-align: justify;">The average grade for types A, B and C were respectively 5.33 5.27 and 1.53. Clearly C, the control, was not different for most of the tasters, as expected. One way to easily obtain these averages per group is using <strong><a href="http://stat.ethz.ch/R-manual/R-devel/library/base/html/tapply.html"><span style="color: #0000ff;">tapply</span></a>.</strong></p>
+<pre class="lang:r decode:true">tapply(chocolate$Sabor, chocolate$Tipo, mean)</pre>
+<p style="text-align: justify;">Finally we run ANOVA and assess whether there are differences between brands and tasters.</p>
+<pre class="lang:r decode:true">ajuste &lt;- lm(chocolate$Sabor ~ chocolate$Tipo + chocolate$Provador)
+summary(ajuste)
+anova(ajuste)</pre>
+<p>what results:</p>
+<pre tabindex="0">Analysis of Variance Table
+
+Response: chocolate$Sabor
+                   Df  Sum Sq Mean Sq F value    Pr(&gt;F)    
+chocolate$Tipo      2 141.911  70.956   19.21 5.598e-06 ***
+chocolate$Provador 14  32.578   2.327    0.63    0.8175    
+Residuals          28 103.422   3.694                      
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</pre>
+<p style="text-align: justify;">From the output we see that the p-value is 0.8175 for tasters indicating that the assessors have no significant effect on the response. This is desirable since it is expected that the testers can discern correctly the marks of  chocolate. Also in the table we see that the ANOVA p-value for the type of chocolate is highly significant, indicating the difference between the marks. So from now on we can make the Tukey test to see where the differences lie.</p>
+<pre class="lang:r decode:true">a1 &lt;- aov(chocolate$Sabor ~ chocolate$Tipo + chocolate$Provador)
+posthoc &lt;- TukeyHSD(x=a1, 'chocolate$Tipo', conf.level=0.95)</pre>
+<p>that results:</p>
+<pre tabindex="0">  Tukey multiple comparisons of means
+    95% family-wise confidence level
+
+Fit: aov(formula = chocolate$Sabor ~ chocolate$Tipo + chocolate$Provador)
+
+$`chocolate$Tipo`
+           diff       lwr       upr     p adj
+B-A -0.06666667 -1.803101  1.669768 0.9950379
+C-A -3.80000000 -5.536435 -2.063565 0.0000260
+C-B -3.73333333 -5.469768 -1.996899 0.0000337</pre>
+<p style="text-align: justify;">This output indicates that the differences C-A and C-B are significant , while B-A is not significant. A more &#8220;easy&#8221; way to interpret this output is visualizing the confidence intervals for the mean differences.</p>
+<pre class="lang:r decode:true">plot(a1)</pre>
+<p><a href="./../../../wp-content/uploads/2013/06/Rplot.jpeg"><img class="aligncenter wp-image-106 size-full" src="./../../../wp-content/uploads/2013/06/Rplot.jpeg" width="727" height="442" srcset="./../../../wp-content/uploads/2013/06/Rplot.jpeg 727w, ./../../../wp-content/uploads/2013/06/Rplot-300x182.jpeg 300w, ./../../../wp-content/uploads/2013/06/Rplot-624x379.jpeg 624w" sizes="(max-width: 727px) 100vw, 727px" /></a></p>
+<p style="text-align: justify;">One can see that only the confidence interval for B-A contain 0. Thus, it appears that the marks A and B do not differ among themselves, but are different from brand control.</p>
+<p style="text-align: justify;">Finally an alternative way to evaluate the differences in a way more similar to the <span style="color: #0000ff;"><a href="http://www.sas.com/"><span style="color: #0000ff;">SAS</span></a></span> is using the package <a href="http://cran.r-project.org/web/packages/agricolae/index.html"><span style="color: #0000ff;"><strong>agricolae</strong></span></a>. With it we will apply the same procedure, but the output is slightly different.</p>
+<pre class="lang:r decode:true ">library(agricolae)
+HSD.test(ajuste, 'chocolate$Tipo')</pre>
+<pre tabindex="0">Study:
+
+HSD Test for chocolate$Sabor 
+
+Mean Square Error:  3.693651 
+
+chocolate$Tipo,  means
+
+  chocolate.Sabor   std.err  r Min. Max.
+A        5.333333 0.3737413 15    2    7
+B        5.266667 0.4078593 15    2    7
+C        1.533333 0.5844547 15    0    6
+
+alpha: 0.05 ; Df Error: 28 
+Critical Value of Studentized Range: 3.49926 
+
+Honestly Significant Difference: 1.736435 
+
+Means with the same letter are not significantly different.
+
+Groups, Treatments and means
+a    A   5.333 
+a    B   5.267 
+b    C   1.533</pre>
+<p style="text-align: justify;">where the final output indicates that both A and B belong to the same group, the &#8216;a&#8217;, and C is different from the other two, belongs to the group &#8216;b&#8217;.</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2013/06/13/anova-and-tukey-test-on-r/feed/index.html</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+		</item>
+	</channel>
+</rss>

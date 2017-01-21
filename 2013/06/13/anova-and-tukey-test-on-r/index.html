@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="./../../../../xmlrpc.php">
+
+<title>ANOVA and Tukey&#8217;s test on R &#8211; R Mining</title>
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Feed para R Mining &raquo;" href="./../../../../feed/index.html" />
+<link rel="alternate" type="application/rss+xml" title="Feed de comentários para R Mining &raquo;" href="./../../../../comments/feed/index.html" />
+<link rel="alternate" type="application/rss+xml" title="Feed de comentários para R Mining &raquo; ANOVA and Tukey&#8217;s test on R" href="./feed/index.html" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/svg\/","svgExt":".svg","source":{"concatemoji":".\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.7.1"}};
+			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),!(j.toDataURL().length<3e3)&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,65039,8205,55356,57096),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,55356,57096),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55357,56425,55356,57341,8205,55357,56507),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55357,56425,55356,57341,55357,56507),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='profitmag-font-awesome-css'  href='./../../../../wp-content/themes/profitmag/css/font-awesome.min.css?ver=4.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-bxslider-style-css'  href='./../../../../wp-content/themes/profitmag/css/jquery.bxslider.css?ver=4.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-ticker-style-css'  href='./../../../../wp-content/themes/profitmag/css/ticker-style.css?ver=4.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-noivolightbox-style-css'  href='./../../../../wp-content/themes/profitmag/css/nivo-lightbox.css?ver=4.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-scrollcss-css'  href='./../../../../wp-content/themes/profitmag/css/jquery.mCustomScrollbar.css?ver=4.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-google-font-css'  href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic&#038;subset=latin,latin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-style-css'  href='./../../../../wp-content/themes/profitmag/style.css?ver=4.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-responsive-css'  href='./../../../../wp-content/themes/profitmag/css/responsive.css?ver=4.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='profitmag-color-scheme-css'  href='./../../../../wp-content/themes/profitmag/css/orange.css' type='text/css' media='all' />
+<script type='text/javascript' src='./../../../../wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='./../../../../wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript' src='./../../../../wp-content/themes/profitmag/js/nivo-lightbox.min.js?ver=4.7.1'></script>
+<script type='text/javascript' src='./../../../../wp-content/themes/profitmag/js/jquery.slicknav.min.js?ver=4.7.1'></script>
+<script type='text/javascript' src='./../../../../wp-content/themes/profitmag/js/modernizr.min.js?ver=2.6.2'></script>
+<link rel='https://api.w.org/' href='./../../../../wp-json/index.html' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="./../../../../xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="./../../../../wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='ANOVA e  teste de Tukey no R' href='./../../10/anova-e-teste-de-tukey-no-r/index.html' />
+<link rel='next' title='Dados genéticos, grandes matrizes e o glmnet()' href='./../../../08/08/dados-geneticos-grandes-matrizes-e-o-glmnet/index.html' />
+<meta name="generator" content="WordPress 4.7.1" />
+<link rel="canonical" href="./index.html" />
+<link rel='shortlink' href='./../../../../index.html?p=155' />
+<link rel="alternate" type="application/json+oembed" href="./../../../../wp-json/oembed/1.0/embed/index.html?url=http%3A%2F%2F%2F2013%2F06%2F13%2Fanova-and-tukey-test-on-r%2F" />
+<link rel="alternate" type="text/xml+oembed" href="./../../../../wp-json/oembed/1.0/embed/index.html?url=http%3A%2F%2F%2F2013%2F06%2F13%2Fanova-and-tukey-test-on-r%2F&#038;format=xml" />
+<style type="text/css"></style></head>
+
+<body class="post-template-default single single-post postid-155 single-format-standard group-blog right_sidebar">
+
+<div id="page" class="hfeed site">
+	
+
+	<header id="masthead" class="site-header clearfix" role="banner">
+        <div class="top-header-block clearfix">
+            <div class="wrapper">
+                        
+                        <div class="right-header f-right">
+                                                    </div>
+             </div>          
+         </div><!-- .top-header-block -->
+
+        <div class="wrapper header-wrapper clearfix">
+        		<div class="header-container"> 
+                
+                    
+                    
+                    <div class="site-branding clearfix">
+            			<div class="site-logo f-left">
+                           
+                                
+                                     <a href="./../../../../index.html" rel="home" class="site-title">
+
+                                        R Mining                                    </a> 
+                                    
+                                        <p class="site-description">Mineração de Dados, Estatística, Tecnologia</p>
+
+                                                               
+                        </div>
+                        
+                                                			
+            		</div>
+
+                                
+            		<nav id="site-navigation" class="main-navigation home-nav-icon clearfix menu-left" role="navigation" >
+            			<div class="desktop-menu clearfix">
+                                                        <div class="home-icon">
+                                    <a href="./../../../../index.html" title="R Mining"><i class="fa fa-home"></i></a>
+                                </div>
+                                <div class="menu-links-container"><ul id="menu-links" class="menu"><li id="menu-item-173" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-173"><a href="http://www.r-bloggers.com/">R-Bloggers! Dicas e códigos para R.</a></li>
+<li id="menu-item-846" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-846"><a href="./../../../../sobre-mim/index.html">Sobre mim</a></li>
+<li id="menu-item-822" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-822"><a href="./../../../../newsletter/index.html">newsletter</a></li>
+</ul></div>
+                        <div class="search-block">
+                                                            <form role="search" method="get" id="searchform" class="searchform" action="./../../../../index.html" >
+    <div><label class="screen-reader-text" for="s"></label>
+    <input type="text" value="" name="s" id="s" placeholder="Search" />
+    <input type="submit" id="searchsubmit" value="Search" />
+    </div>
+    </form>                                                    </div>
+                        </div>
+                        <div class="responsive-slick-menu clearfix"></div>
+                        
+            		</nav><!-- #site-navigation -->
+        
+                </div> <!-- .header-container -->
+        </div><!-- header-wrapper-->
+        
+	</header><!-- #masthead -->
+    
+
+    <div class="wrapper content-wrapper clearfix">
+
+        <div class="slider-feature-wrap clearfix">
+            <!-- Slider -->
+                        
+            <!-- Featured Post Beside Slider -->
+                    	
+                    </div>    
+            <div id="content" class="site-content">
+    
+   
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+
+		            
+			
+<article id="post-155" class="post-155 post type-post status-publish format-standard has-post-thumbnail hentry category-english category-r-e-rstudio category-r-bloggers tag-anova tag-r-code tag-statistical-test tag-statistics tag-tukey">
+	<header class="entry-header">
+		<h1 class="entry-title">ANOVA and Tukey&#8217;s test on R</h1>
+		<div class="entry-meta">
+			<span class="posted-on">Posted on <a href="./index.html" rel="bookmark"><time class="entry-date published" datetime="2013-06-13T19:38:26+00:00">junho 13, 2013</time><time class="updated" datetime="2017-01-17T07:56:42+00:00">janeiro 17, 2017</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="./../../../../author/flavio/index.html">Flavio Barros</a></span></span>		</div><!-- .entry-meta -->
+	</header><!-- .entry-header -->
+
+	<div class="single-feat clearfix">
+        <figure class="single-thumb">
+            <img width="320" height="277" src="./../../../../wp-content/uploads/2013/06/ANOVA.png" class="attachment-single-thumb size-single-thumb wp-post-image" alt="" srcset="./../../../../wp-content/uploads/2013/06/ANOVA.png 320w, ./../../../../wp-content/uploads/2013/06/ANOVA-300x260.png 300w" sizes="(max-width: 320px) 100vw, 320px" />        </figure>
+        
+        <div class="related-post">
+            <h2 class="block-title"><span class="bordertitle-red"></span>Related Post</h2>
+            <ul>                
+                    <li><a href="./../../../../2016/10/15/usando-r-com-o-monetdb/index.html" title="Usando R com o MonetDB">Usando R com o MonetDB</a></li> 
+                   
+                    
+                    <li><a href="./../../../../2016/09/27/como-fazer-um-carometro-em-shiny/index.html" title="Como fazer um carômetro em Shiny">Como fazer um carômetro em Shiny</a></li> 
+                   
+                    
+                    <li><a href="./../../../../2016/03/14/reconhecimento-de-digitos-escritos-mao-parte-3/index.html" title="RECONHECIMENTO DE DÍGITOS ESCRITOS A MÃO – PARTE 3">RECONHECIMENTO DE DÍGITOS ESCRITOS A MÃO – PARTE 3</a></li> 
+                   
+                    
+                    <li><a href="./../../../../2016/03/12/livros-recomendados-data-science/index.html" title="Livros recomendados &#8211; Data Science">Livros recomendados &#8211; Data Science</a></li> 
+                   
+                    
+                    <li><a href="./../../../../2016/03/01/regras-de-associacao-vendas-cruzadas-e-recomendacao/index.html" title="Regras de associação: vendas cruzadas e recomendação">Regras de associação: vendas cruzadas e recomendação</a></li> 
+                   
+    </ul>    
+                <ul>
+                
+            </ul>
+        </div>
+    </div>
+    
+    <div class="entry-content">
+		
+        <figure></figure>
+        <p>OBS: This is a full translation of a <span style="color: #0000ff;"><a href="http://www.flaviobarros.net/2013/06/10/anova-e-teste-de-tukey-no-r/"><span style="color: #0000ff;">portuguese version</span></a>.</span></p>
+<p style="text-align: justify;">In many different types of experiments, with one or more treatments, one of the most widely used statistical methods is analysis of variance or simply <span style="color: #0000ff;"><a href="https://en.wikipedia.org/wiki/Analysis_of_variance"><span style="color: #0000ff;">ANOVA</span></a></span> . The simplest ANOVA can be called &#8220;one way&#8221; or &#8220;single-classification&#8221; and involves the analysis of data sampled from more then one population or data from experiments with more than two treatments.</p>
+<p style="text-align: justify;">It&#8217;s not my intent to study in depth the ANOVA, but to show how to apply the procedure in R and apply a &#8220;post-hoc&#8221; test called <span style="color: #0000ff;"><a href="http://en.wikipedia.org/wiki/Tukey%27s_range_test"><span style="color: #0000ff;">Tukey&#8217;s test</span></a></span>. When we are conducting an analysis of variance, the null hypothesis considered is that there is no difference in treatments mean, so once rejected the null hypothesis, the question is what treatment differ.</p>
+<p style="text-align: justify;">To illustrate the procedure we consider an experimental situation where a company is applying a sensory test for a set of 15 panelists in three different brands of chocolate. Three brands are compared, one being the reference, and the goal is to verify the difference of marks with the control. In this experiment we have two factors, the brand and the tasters, and we hope that there is no significant effect of tasters. At each assessment the assessor must determine the difference on a scale 0-7.</p>
+<pre class="lang:r decode:true">data.frame(
+Sabor =
+c(5, 7, 3,
+4, 2, 6,
+5, 3, 6,
+5, 6, 0,
+7, 4, 0,
+7, 7, 0,
+6, 6, 0,
+4, 6, 1,
+6, 4, 0,
+7, 7, 0,
+2, 4, 0,
+5, 7, 4,
+7, 5, 0,
+4, 5, 0,
+6, 6, 3
+),
+Tipo = factor(rep(c("A", "B", "C"), 15)),
+Provador = factor(rep(1:15, rep(3, 15))))</pre>
+<p style="text-align: justify;">The average grade for types A, B and C were respectively 5.33 5.27 and 1.53. Clearly C, the control, was not different for most of the tasters, as expected. One way to easily obtain these averages per group is using <strong><a href="http://stat.ethz.ch/R-manual/R-devel/library/base/html/tapply.html"><span style="color: #0000ff;">tapply</span></a>.</strong></p>
+<pre class="lang:r decode:true">tapply(chocolate$Sabor, chocolate$Tipo, mean)</pre>
+<p style="text-align: justify;">Finally we run ANOVA and assess whether there are differences between brands and tasters.</p>
+<pre class="lang:r decode:true">ajuste &lt;- lm(chocolate$Sabor ~ chocolate$Tipo + chocolate$Provador)
+summary(ajuste)
+anova(ajuste)</pre>
+<p>what results:</p>
+<pre tabindex="0">Analysis of Variance Table
+
+Response: chocolate$Sabor
+                   Df  Sum Sq Mean Sq F value    Pr(&gt;F)    
+chocolate$Tipo      2 141.911  70.956   19.21 5.598e-06 ***
+chocolate$Provador 14  32.578   2.327    0.63    0.8175    
+Residuals          28 103.422   3.694                      
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</pre>
+<p style="text-align: justify;">From the output we see that the p-value is 0.8175 for tasters indicating that the assessors have no significant effect on the response. This is desirable since it is expected that the testers can discern correctly the marks of  chocolate. Also in the table we see that the ANOVA p-value for the type of chocolate is highly significant, indicating the difference between the marks. So from now on we can make the Tukey test to see where the differences lie.</p>
+<pre class="lang:r decode:true">a1 &lt;- aov(chocolate$Sabor ~ chocolate$Tipo + chocolate$Provador)
+posthoc &lt;- TukeyHSD(x=a1, 'chocolate$Tipo', conf.level=0.95)</pre>
+<p>that results:</p>
+<pre tabindex="0">  Tukey multiple comparisons of means
+    95% family-wise confidence level
+
+Fit: aov(formula = chocolate$Sabor ~ chocolate$Tipo + chocolate$Provador)
+
+$`chocolate$Tipo`
+           diff       lwr       upr     p adj
+B-A -0.06666667 -1.803101  1.669768 0.9950379
+C-A -3.80000000 -5.536435 -2.063565 0.0000260
+C-B -3.73333333 -5.469768 -1.996899 0.0000337</pre>
+<p style="text-align: justify;">This output indicates that the differences C-A and C-B are significant , while B-A is not significant. A more &#8220;easy&#8221; way to interpret this output is visualizing the confidence intervals for the mean differences.</p>
+<pre class="lang:r decode:true">plot(a1)</pre>
+<p><a href="./../../../../wp-content/uploads/2013/06/Rplot.jpeg"><img class="aligncenter wp-image-106 size-full" src="./../../../../wp-content/uploads/2013/06/Rplot.jpeg" width="727" height="442" srcset="./../../../../wp-content/uploads/2013/06/Rplot.jpeg 727w, ./../../../../wp-content/uploads/2013/06/Rplot-300x182.jpeg 300w, ./../../../../wp-content/uploads/2013/06/Rplot-624x379.jpeg 624w" sizes="(max-width: 727px) 100vw, 727px" /></a></p>
+<p style="text-align: justify;">One can see that only the confidence interval for B-A contain 0. Thus, it appears that the marks A and B do not differ among themselves, but are different from brand control.</p>
+<p style="text-align: justify;">Finally an alternative way to evaluate the differences in a way more similar to the <span style="color: #0000ff;"><a href="http://www.sas.com/"><span style="color: #0000ff;">SAS</span></a></span> is using the package <a href="http://cran.r-project.org/web/packages/agricolae/index.html"><span style="color: #0000ff;"><strong>agricolae</strong></span></a>. With it we will apply the same procedure, but the output is slightly different.</p>
+<pre class="lang:r decode:true">library(agricolae)
+HSD.test(ajuste, 'chocolate$Tipo')</pre>
+<pre tabindex="0">Study:
+
+HSD Test for chocolate$Sabor 
+
+Mean Square Error:  3.693651 
+
+chocolate$Tipo,  means
+
+  chocolate.Sabor   std.err  r Min. Max.
+A        5.333333 0.3737413 15    2    7
+B        5.266667 0.4078593 15    2    7
+C        1.533333 0.5844547 15    0    6
+
+alpha: 0.05 ; Df Error: 28 
+Critical Value of Studentized Range: 3.49926 
+
+Honestly Significant Difference: 1.736435 
+
+Means with the same letter are not significantly different.
+
+Groups, Treatments and means
+a    A   5.333 
+a    B   5.267 
+b    C   1.533</pre>
+<p style="text-align: justify;">where the final output indicates that both A and B belong to the same group, the &#8216;a&#8217;, and C is different from the other two, belongs to the group &#8216;b&#8217;.</p>
+			</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		
+						<span class="cat-links">
+				Posted in <a href="./../../../../category/english/index.html" rel="category tag">English</a>, <a href="./../../../../category/r-e-rstudio/index.html" rel="category tag">R e RStudio</a>, <a href="./../../../../category/r-bloggers/index.html" rel="category tag">r-bloggers</a>			</span>
+			
+						<span class="tags-links">
+				Tagged <a href="./../../../../tag/anova/index.html" rel="tag">ANOVA</a>, <a href="./../../../../tag/r-code/index.html" rel="tag">R code</a>, <a href="./../../../../tag/statistical-test/index.html" rel="tag">statistical test</a>, <a href="./../../../../tag/statistics/index.html" rel="tag">statistics</a>, <a href="./../../../../tag/tukey/index.html" rel="tag">Tukey</a>			</span>
+					     
+	
+
+			</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+
+			
+	<nav class="navigation post-navigation" role="navigation">
+		<h2 class="screen-reader-text">Navegação de Post</h2>
+		<div class="nav-links"><div class="nav-previous"><a href="./../../10/anova-e-teste-de-tukey-no-r/index.html" rel="prev">ANOVA e  teste de Tukey no R</a></div><div class="nav-next"><a href="./../../../08/08/dados-geneticos-grandes-matrizes-e-o-glmnet/index.html" rel="next">Dados genéticos, grandes matrizes e o glmnet()</a></div></div>
+	</nav>
+			
+<div id="comments" class="comments-area">
+
+	
+			<h2 class="comments-title">
+			<span class="bordertitle-red"></span>			
+			COMMENTS		</h2>
+
+		
+		<ul class="comment-list">
+			    <li class="pingback even thread-even depth-1" id="comment-3">
+        <div id="div-comment-3" class="comment-body clearfix">
+        <div class="comment-author vcard">
+        <cite class="fn"><a href='http://www.pearltrees.com/alanyeung/models/id6789678#pearl81459537&#038;show=reveal,6' rel='external nofollow' class='url'>Models | Pearltrees</a></cite>    </div>
+    
+    <div class="comment-meta commentmetadata"><a href="./index.html#comment-3">
+        <i class="fa fa-clock-o"></i>
+junho 19, 2013 at 4:12 pm</a>    </div>
+
+    <p>[&#8230;] ANOVA and Tukey&#039;s test on R | Flavio Barros [&#8230;]</p>
+
+    <div class="reply">
+    <i class="fa fa-thumbs-up"></i>
+    <i class="fa fa-thumbs-down"></i>
+        </div>
+        </div>
+    </li><!-- #comment-## -->
+    <li class="trackback odd alt thread-odd thread-alt depth-1" id="comment-17">
+        <div id="div-comment-17" class="comment-body clearfix">
+        <div class="comment-author vcard">
+        <cite class="fn"><a href='http://cheap-desktop-utilities.com/' rel='external nofollow' class='url'>cheap mac utilities</a></cite>    </div>
+    
+    <div class="comment-meta commentmetadata"><a href="./index.html#comment-17">
+        <i class="fa fa-clock-o"></i>
+março 18, 2014 at 1:15 am</a>    </div>
+
+    <p><strong>&#8230;Trackback: More Informations on that topic</strong></p>
+<p>[&#8230;]you make blogging glance[&#8230;]</p>
+
+    <div class="reply">
+    <i class="fa fa-thumbs-up"></i>
+    <i class="fa fa-thumbs-down"></i>
+        </div>
+        </div>
+    </li><!-- #comment-## -->
+		</ul><!-- .comment-list -->
+
+		
+	
+			<p class="no-comments">Comments are closed.</p>
+	
+	
+</div><!-- #comments -->
+                        
+            
+            
+		
+		</main><!-- #main -->
+	</div><!-- #primary -->
+
+
+    
+            <div id="secondary-right" class="widget-area secondary-sidebar f-right clearfix" role="complementary">
+                        <div id="sidebar-section-top" class="widget-area sidebar clearfix">
+                 		<aside id="profitmag-popular-posts-3" class="widget profitmag_widget_popular_entries">		<h3 class="widget-title"><span>Popular</span></h3>		<ul>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./../../../../2016/09/27/como-fazer-um-carometro-em-shiny/index.html"><img src="./../../../../wp-content/uploads/2016/09/tiririca.jpg" alt="Como fazer um carômetro em Shiny" title="Como fazer um carômetro em Shiny" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./../../../../2016/09/27/como-fazer-um-carometro-em-shiny/index.html">Como fazer um carômetro em Shiny</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>setembro 27, 2016</div>
+			
+			</li>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./../../../../2016/03/12/livros-recomendados-data-science/index.html"><img src="./../../../../wp-content/uploads/2016/03/data_smart.jpg" alt="Livros recomendados &#8211; Data Science" title="Livros recomendados &#8211; Data Science" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./../../../../2016/03/12/livros-recomendados-data-science/index.html">Livros recomendados &#8211; Data Science</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>março 12, 2016</div>
+			
+			</li>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./../../10/anova-e-teste-de-tukey-no-r/index.html"><img src="./../../../../wp-content/uploads/2013/06/ANOVA-193x112.png" alt="ANOVA e  teste de Tukey no R" title="ANOVA e  teste de Tukey no R" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./../../10/anova-e-teste-de-tukey-no-r/index.html">ANOVA e  teste de Tukey no R</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>junho 10, 2013</div>
+			
+			</li>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./../../../../2014/10/14/como-fazer-mapas-eleitorais/index.html"><img src="./../../../../wp-content/uploads/2014/10/sampa.png" alt="Como fazer mapas eleitorais" title="Como fazer mapas eleitorais" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./../../../../2014/10/14/como-fazer-mapas-eleitorais/index.html">Como fazer mapas eleitorais</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>outubro 14, 2014</div>
+			
+			</li>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./../../../../2014/02/25/genetic-data-large-matrices-glmnet/index.html"><img src="./../../../../wp-content/uploads/2014/02/geneticdata-193x112.jpg" alt="Genetic data, large matrices and glmnet()" title="Genetic data, large matrices and glmnet()" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./../../../../2014/02/25/genetic-data-large-matrices-glmnet/index.html">Genetic data, large matrices and glmnet()</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>fevereiro 25, 2014</div>
+			
+			</li>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./../../../../2015/04/30/dockerizando-shiny-apps/index.html"><img src="./../../../../wp-content/uploads/2017/01/shiny-193x112.png" alt="Dockerizando Shiny Apps" title="Dockerizando Shiny Apps" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./../../../../2015/04/30/dockerizando-shiny-apps/index.html">Dockerizando Shiny Apps</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>abril 30, 2015</div>
+			
+			</li>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./../../../../2016/10/15/usando-r-com-o-monetdb/index.html"><img src="./../../../../wp-content/uploads/2016/10/monetdb-final-500.png" alt="Usando R com o MonetDB" title="Usando R com o MonetDB" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./../../../../2016/10/15/usando-r-com-o-monetdb/index.html">Usando R com o MonetDB</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>outubro 15, 2016</div>
+			
+			</li>
+					<li>
+				<figure class="widget-image popular-image clearfix">
+                                                                            <a href="./../../../../2015/04/30/dockerizing-a-shiny-app/index.html"><img src="./../../../../wp-content/uploads/2017/01/shiny-193x112.png" alt="Dockerizing a Shiny App" title="Dockerizing a Shiny App" /></a>
+                                    </figure>
+                
+                <p class="post-desc">
+                    <a href="./../../../../2015/04/30/dockerizing-a-shiny-app/index.html">Dockerizing a Shiny App</a>                    
+                </p>
+                <div class="post-date"><i class="fa fa-calendar"></i>abril 30, 2015</div>
+			
+			</li>
+				</ul>
+		</aside><aside id="categories-7" class="widget widget_categories"><h3 class="widget-title"><span>Categorias</span></h3>		<ul>
+	<li class="cat-item cat-item-41"><a href="./../../../../category/aprendizado-de-maquina/index.html" >Aprendizado de Máquina</a>
+</li>
+	<li class="cat-item cat-item-58"><a href="./../../../../category/data-mining/index.html" >Data Mining</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="./../../../../category/digital-ocean/index.html" >Digital Ocean</a>
+</li>
+	<li class="cat-item cat-item-49"><a href="./../../../../category/django/index.html" >Django</a>
+</li>
+	<li class="cat-item cat-item-46"><a href="./../../../../category/docker/index.html" >Docker</a>
+</li>
+	<li class="cat-item cat-item-6"><a href="./../../../../category/educacao/index.html" >Educação</a>
+</li>
+	<li class="cat-item cat-item-13"><a href="./../../../../category/english/index.html" >English</a>
+</li>
+	<li class="cat-item cat-item-4"><a href="./../../../../category/estatistica/index.html" >Estatística</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="./../../../../category/git-github/index.html" >Git &amp; Github</a>
+</li>
+	<li class="cat-item cat-item-67"><a href="./../../../../category/linux/index.html" >Linux</a>
+</li>
+	<li class="cat-item cat-item-57"><a href="./../../../../category/machine-learning/index.html" >Machine Learning</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="./../../../../category/mineracao-de-dados/index.html" >Mineração de Dados</a>
+</li>
+	<li class="cat-item cat-item-74"><a href="./../../../../category/monetdb/index.html" >MonetDB</a>
+</li>
+	<li class="cat-item cat-item-2"><a href="./../../../../category/moocs/index.html" >MOOCS</a>
+</li>
+	<li class="cat-item cat-item-72"><a href="./../../../../category/politica/index.html" >Política</a>
+</li>
+	<li class="cat-item cat-item-56"><a href="./../../../../category/preparacao-de-dados/index.html" >Preparação de Dados</a>
+</li>
+	<li class="cat-item cat-item-5"><a href="./../../../../category/r-e-rstudio/index.html" >R e RStudio</a>
+</li>
+	<li class="cat-item cat-item-14"><a href="./../../../../category/r-bloggers/index.html" >r-bloggers</a>
+</li>
+	<li class="cat-item cat-item-73"><a href="./../../../../category/sgbd/index.html" >SGBD</a>
+</li>
+	<li class="cat-item cat-item-50"><a href="./../../../../category/shiny/index.html" >Shiny</a>
+</li>
+	<li class="cat-item cat-item-38"><a href="./../../../../category/wordpress/index.html" >Wordpress</a>
+</li>
+		</ul>
+</aside><aside id="tag_cloud-7" class="widget widget_tag_cloud"><h3 class="widget-title"><span>Tags</span></h3><div class="tagcloud"><a href='./../../../../tag/anova/index.html' class='tag-link-8 tag-link-position-1' title='2 tópicos' style='font-size: 12.581818181818pt;'>ANOVA</a>
+<a href='./../../../../tag/boas-praticas/index.html' class='tag-link-54 tag-link-position-2' title='1 tópico' style='font-size: 8pt;'>boas práticas</a>
+<a href='./../../../../tag/comparacoes-multiplas/index.html' class='tag-link-10 tag-link-position-3' title='1 tópico' style='font-size: 8pt;'>Comparações múltiplas</a>
+<a href='./../../../../tag/controle-de-versao/index.html' class='tag-link-53 tag-link-position-4' title='1 tópico' style='font-size: 8pt;'>controle de versão</a>
+<a href='./../../../../tag/coursera/index.html' class='tag-link-22 tag-link-position-5' title='2 tópicos' style='font-size: 12.581818181818pt;'>Coursera</a>
+<a href='./../../../../tag/data-table/index.html' class='tag-link-34 tag-link-position-6' title='1 tópico' style='font-size: 8pt;'>data.table</a>
+<a href='./../../../../tag/data-science/index.html' class='tag-link-66 tag-link-position-7' title='1 tópico' style='font-size: 8pt;'>Data Science</a>
+<a href='./../../../../tag/deploy/index.html' class='tag-link-51 tag-link-position-8' title='2 tópicos' style='font-size: 12.581818181818pt;'>deploy</a>
+<a href='./../../../../tag/deployment/index.html' class='tag-link-45 tag-link-position-9' title='1 tópico' style='font-size: 8pt;'>deployment</a>
+<a href='./../../../../tag/edx/index.html' class='tag-link-20 tag-link-position-10' title='1 tópico' style='font-size: 8pt;'>edX</a>
+<a href='./../../../../tag/ensino-a-distancia/index.html' class='tag-link-12 tag-link-position-11' title='1 tópico' style='font-size: 8pt;'>ensino à distância</a>
+<a href='./../../../../tag/ggplot2/index.html' class='tag-link-36 tag-link-position-12' title='1 tópico' style='font-size: 8pt;'>ggplot2</a>
+<a href='./../../../../tag/git/index.html' class='tag-link-48 tag-link-position-13' title='2 tópicos' style='font-size: 12.581818181818pt;'>git</a>
+<a href='./../../../../tag/glmnet/index.html' class='tag-link-29 tag-link-position-14' title='2 tópicos' style='font-size: 12.581818181818pt;'>glmnet</a>
+<a href='./../../../../tag/handwritten-recognition/index.html' class='tag-link-39 tag-link-position-15' title='1 tópico' style='font-size: 8pt;'>handwritten recognition</a>
+<a href='./../../../../tag/ibge/index.html' class='tag-link-33 tag-link-position-16' title='1 tópico' style='font-size: 8pt;'>IBGE</a>
+<a href='./../../../../tag/implantacao/index.html' class='tag-link-47 tag-link-position-17' title='2 tópicos' style='font-size: 12.581818181818pt;'>implantação</a>
+<a href='./../../../../tag/k-nn/index.html' class='tag-link-63 tag-link-position-18' title='2 tópicos' style='font-size: 12.581818181818pt;'>k-nn</a>
+<a href='./../../../../tag/lasso/index.html' class='tag-link-28 tag-link-position-19' title='2 tópicos' style='font-size: 12.581818181818pt;'>Lasso</a>
+<a href='./../../../../tag/machine-learning/index.html' class='tag-link-40 tag-link-position-20' title='1 tópico' style='font-size: 8pt;'>machine learning</a>
+<a href='./../../../../tag/mapas/index.html' class='tag-link-35 tag-link-position-21' title='1 tópico' style='font-size: 8pt;'>mapas</a>
+<a href='./../../../../tag/mnist/index.html' class='tag-link-60 tag-link-position-22' title='2 tópicos' style='font-size: 12.581818181818pt;'>mnist</a>
+<a href='./../../../../tag/mooc/index.html' class='tag-link-19 tag-link-position-23' title='1 tópico' style='font-size: 8pt;'>MOOC</a>
+<a href='./../../../../tag/moodle/index.html' class='tag-link-7 tag-link-position-24' title='1 tópico' style='font-size: 8pt;'>moodle</a>
+<a href='./../../../../tag/pnad/index.html' class='tag-link-32 tag-link-position-25' title='1 tópico' style='font-size: 8pt;'>PNAD</a>
+<a href='./../../../../tag/post-hoc/index.html' class='tag-link-11 tag-link-position-26' title='1 tópico' style='font-size: 8pt;'>post-hoc</a>
+<a href='./../../../../tag/r-code/index.html' class='tag-link-16 tag-link-position-27' title='1 tópico' style='font-size: 8pt;'>R code</a>
+<a href='./../../../../tag/shiny/index.html' class='tag-link-43 tag-link-position-28' title='2 tópicos' style='font-size: 12.581818181818pt;'>shiny</a>
+<a href='./../../../../tag/statistical-test/index.html' class='tag-link-17 tag-link-position-29' title='1 tópico' style='font-size: 8pt;'>statistical test</a>
+<a href='./../../../../tag/statistics/index.html' class='tag-link-15 tag-link-position-30' title='1 tópico' style='font-size: 8pt;'>statistics</a>
+<a href='./../../../../tag/tukey/index.html' class='tag-link-9 tag-link-position-31' title='2 tópicos' style='font-size: 12.581818181818pt;'>Tukey</a>
+<a href='./../../../../tag/udacity/index.html' class='tag-link-21 tag-link-position-32' title='1 tópico' style='font-size: 8pt;'>Udacity</a>
+<a href='./../../../../tag/web/index.html' class='tag-link-44 tag-link-position-33' title='6 tópicos' style='font-size: 22pt;'>web</a></div>
+</aside>                </div>
+                
+                
+        
+                    
+                    
+            
+                    
+                
+        
+        
+                
+                
+        </div>      
+
+    
+
+
+	</div><!-- #content -->
+    </div><!-- content-wrapper-->
+
+	<footer id="colophon" class="site-footer clearrfix" role="contentinfo">
+        <div class="wrapper footer-wrapper clearfix">
+
+                <div class="top-bottom clearfix">
+                		<div id="footer-top">
+                                                
+                        </div><!-- #foter-top -->
+                        
+                        <div id="footer-bottom">    
+                                                     
+                        </div><!-- #foter-bottom -->
+                </div><!-- top-bottom-->
+                <div class="footer-copyright border t-center">
+                    <p>                        
+                                    Copyright 2016. All rights reserved                                                </p>
+                    <div class="site-info">
+                        <a href="https://wordpress.org/">Proudly powered by WordPress</a>
+                        <span class="sep"> | </span>
+                        Profitmag by <a href="http://rigorousthemes.com/" rel="designer">Rigorous Themes</a>                    </div><!-- .site-info -->
+                    
+                </div>
+                
+
+        </div><!-- footer-wrapper-->
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+<script type='text/javascript' src='./../../../../wp-content/themes/profitmag/js/jquery.bxslider.js?ver=4.7.1'></script>
+<script type='text/javascript' src='./../../../../wp-content/themes/profitmag/js/jquery.ticker.js?ver=4.7.1'></script>
+<script type='text/javascript' src='./../../../../wp-content/themes/profitmag/js/jquery.mCustomScrollbar.min.js?ver=1.0.0'></script>
+<script type='text/javascript' src='./../../../../wp-content/themes/profitmag/js/jquery.mousewheel.min.js?ver=2.0.19'></script>
+<script type='text/javascript' src='./../../../../wp-content/themes/profitmag/js/navigation.js?ver=20120206'></script>
+<script type='text/javascript' src='./../../../../wp-content/themes/profitmag/js/custom.js?ver=1.0'></script>
+<script type='text/javascript' src='./../../../../wp-includes/js/wp-embed.min.js?ver=4.7.1'></script>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>Comentários sobre: Como fazer mapas eleitorais</title>
+	<atom:link href="./index.html" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Mineração de Dados, Estatística, Tecnologia</description>
+	<lastBuildDate>Thu, 22 Dec 2016 18:35:36 +0000</lastBuildDate>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.7.1</generator>
+	<item>
+		<title>Por: Dica R do Dia &#8211; Mapas &#124; De Gustibus Non Est Disputandum</title>
+		<link>./../index.html#comment-45</link>
+		<dc:creator><![CDATA[Dica R do Dia &#8211; Mapas &#124; De Gustibus Non Est Disputandum]]></dc:creator>
+		<pubDate>Wed, 15 Oct 2014 00:14:39 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=452#comment-45</guid>
+		<description><![CDATA[[&#8230;] Criaram um grupo no Facebook que está ótimo. Olha a dica de hoje. [&#8230;]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] Criaram um grupo no Facebook que está ótimo. Olha a dica de hoje. [&#8230;]</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Por: Flavio Barros</title>
+		<link>./../index.html#comment-44</link>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+		<pubDate>Tue, 14 Oct 2014 17:34:00 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=452#comment-44</guid>
+		<description><![CDATA[Oi Julio, obrigado pela informação. Mas meu objetivo aqui era simplesmente mostrar como fazer o mapa e colorir as regiões, mapeando os dados às propriedades do mapa. Existe também o pacote ggmap com o qual é possível fazer mapas mais sofisticados que eu não explorei aqui. Talvez escreva algo sobre ele no futuro. Abç!]]></description>
+		<content:encoded><![CDATA[<p>Oi Julio, obrigado pela informação. Mas meu objetivo aqui era simplesmente mostrar como fazer o mapa e colorir as regiões, mapeando os dados às propriedades do mapa. Existe também o pacote ggmap com o qual é possível fazer mapas mais sofisticados que eu não explorei aqui. Talvez escreva algo sobre ele no futuro. Abç!</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Por: Julio Trecenti</title>
+		<link>./../index.html#comment-42</link>
+		<dc:creator><![CDATA[Julio Trecenti]]></dc:creator>
+		<pubDate>Tue, 14 Oct 2014 16:30:00 +0000</pubDate>
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=452#comment-42</guid>
+		<description><![CDATA[Eu ja usei essa base de dados DISTRITO.shp e precisa tomar cuidado, pois as coordenadas de latitude/longitude dela não são as coordenadas como conhecemos; por exemplo, se for colocar alguma coisa sobre o mapa (pontos, linhas, polígonos, etc).]]></description>
+		<content:encoded><![CDATA[<p>Eu ja usei essa base de dados DISTRITO.shp e precisa tomar cuidado, pois as coordenadas de latitude/longitude dela não são as coordenadas como conhecemos; por exemplo, se for colocar alguma coisa sobre o mapa (pontos, linhas, polígonos, etc).</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

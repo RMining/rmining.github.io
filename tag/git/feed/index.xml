@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>git &#8211; R Mining</title>
+	<atom:link href="./index.html" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Mineração de Dados, Estatística, Tecnologia</description>
+	<lastBuildDate>Tue, 17 Jan 2017 10:04:59 +0000</lastBuildDate>
+	<language>pt-BR</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.7.1</generator>
+	<item>
+		<title>Git pushing Shiny Apps with Docker &#038; Dokku</title>
+		<link>./../../../2015/05/11/git-pushing-shiny-apps-with-docker-dokku/index.html</link>
+		<comments>./../../../2015/05/11/git-pushing-shiny-apps-with-docker-dokku/index.html#comments</comments>
+		<pubDate>Tue, 12 May 2015 00:35:26 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Digital Ocean]]></category>
+		<category><![CDATA[Docker]]></category>
+		<category><![CDATA[English]]></category>
+		<category><![CDATA[R e RStudio]]></category>
+		<category><![CDATA[r-bloggers]]></category>
+		<category><![CDATA[Shiny]]></category>
+		<category><![CDATA[deploy]]></category>
+		<category><![CDATA[git]]></category>
+		<category><![CDATA[web]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=636</guid>
+		<description><![CDATA[At this post i will show you how to deploy Shiny Apps easily with a simple git push. But, what&#8217;s a git push? I&#8217;m referring to the git command used with remote repositories. With this command you can deploy apps easily with a PaaS (Platform as a Service) like Heroku. If you never heard about Heroku or know nothing about PaaS, i will show you what is it and how can we use a similar...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">At this post i will show you how to deploy Shiny Apps easily with a simple <a href="http://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes#Pushing-to-Your-Remotes" target="_blank">git push</a>. But, what&#8217;s a git push? I&#8217;m referring to the git command used with <a href="http://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes" target="_blank">remote repositories</a>. With this command you can deploy apps easily with a <a href="http://en.wikipedia.org/wiki/Platform_as_a_service" target="_blank">PaaS</a> (Platform as a Service) like <a href="https://www.heroku.com/" target="_blank">Heroku</a>. If you never heard about Heroku or know nothing about PaaS, i will show you what is it and how can we use a similar resource to easily deploy a Shiny App on <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a> with <a href="http://www.docker.com/" target="_blank">Docker</a>.</p>
+<h2>1.Heroku</h2>
+<p style="text-align: justify;">Anyone who have worked with web know, or at least heard about Heroku. Heroku is a PaaS, an acronym for Platform as a Service. The idea behind Heroku is that the developer does not need to worry about the problems related to the implementation of its software, it simply develops, adds some files in the project, gives a git push to Heroku and he takes care of the rest.</p>
+<p style="text-align: justify;">Heroku is an excellent service, can scale to large apps, is easy to learn and use, BUT it can be very <a href="https://www.heroku.com/pricing" target="_blank">expensive</a>! Just to understand how easy is work with Heroku, i will deploy an example web app made with <a href="https://www.djangoproject.com/" target="_blank">Django</a>; the code can be found <a href="http://tutorial.djangogirls.org/en/index.html" target="_blank">here</a> and you can visit the app here: <a href="http://flavio-django-blog.herokuapp.com/" target="_blank">http://flavio-django-blog.herokuapp.com/</a></p>
+<p>&nbsp;</p>
+<p><script id="asciicast-19469" src="https://asciinema.org/a/19469.js" async="" type="text/javascript"></script></p>
+<h2>2.Docker and Dokku</h2>
+<p style="text-align: justify;">I wrote some time ago about Dockerizing a Shiny App: <a href="http://www.flaviobarros.net/2015/04/30/dockerizing-a-shiny-app/" target="_blank">Dockerizing a Shiny App</a> (read before continue). In fact, i did that because i was researching about a method to easily deploy Shiny Apps just like any regular web app, (ex. Node or Django). Some months ago, i found <a href="https://github.com/btubbs/heroku-buildpack-shiny" target="_blank">this project</a>, where the author claims to be able to run Shiny Apps on Heroku. I tried, but never was able to make it work. Another problem, was that i was searching something that i could host on my own server.</p>
+<p style="text-align: justify;">At the end, after discovering Docker, i started to use <a href="https://github.com/progrium/dokku" target="_blank">Dokku</a> instead of Heroku. Dokku in turn, is a kind of Heroku clone, made from Docker. It works the same way as Heroku, such that for web apps, like those made with Django, deployment is identical. Just so you see how it works, I installed Dokku on <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a> and implemented the same previous application made in Django. You can check the app here: <a href="http://djangogirls.flaviobarros.net/" target="_blank">http://djangogirls.flaviobarros.net/</a></p>
+<p><script id="asciicast-19472" src="https://asciinema.org/a/19472.js" async="" type="mce-mce-mce-mce-mce-mce-mce-mce-mce-mce-mce-mce-mce-text/javascript"></script></p>
+<p style="text-align: justify;">In my opinian Dokku is one of the best apps made with Docker. With it we can deploy multiple technologies at the very same server. In fact, you can build a cheaper version of Heroku, for about U$5,00 as is the case of <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a>. Right now, i&#8217;m running a <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a> Server, hosting this WordPress installation, two Django Web Apps and a Shiny App and there is plenty of space for much more, all for a 10 bucks VPS on Digital Ocean <img src="https://s.w.org/images/core/emoji/2.2.1/72x72/1f609.png" alt="😉" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+<h2>3.Git pushing the Wordcloud Shiny App</h2>
+<p style="text-align: justify;">Some time ago, Dokku featured <a href="https://docs.docker.com/reference/builder/" target="_blank">Dockerfile</a> build support. With this feature becomes possible to git push any app that could be builded from a Dockerfile.  A Dockerfile, is nothing more then a recipe to build Docker Images, something like the <a href="https://registry.hub.docker.com/u/flaviobarros/shiny-wordcloud/" target="_blank">Word Cloud</a> image that i released at <a href="https://hub.docker.com/" target="_blank">Docker Hub</a>.</p>
+<p style="text-align: justify;">With this in mind, i thought: why don&#8217;t change the official <a href="https://registry.hub.docker.com/u/rocker/shiny/" target="_blank">Shiny Server docker image</a> to host a single Shiny App? I just needed an image that:</p>
+<p style="text-align: justify;">1) Exposes 80 PORT;</p>
+<p style="text-align: justify;">2) Serves just an app;</p>
+<p style="text-align: justify;">3) Could be builded from a Dockerfile;</p>
+<p style="text-align: justify;">In fact, to build <a href="https://github.com/flaviobarros/shiny-wordcloud" target="_blank">shiny-wordcloud</a>, i forked <a href="https://github.com/rocker-org/shiny" target="_blank">rocker/shiny</a>  and implemented this features by means of some modifications on the Dockerfile (commits: <a href="https://github.com/flaviobarros/shiny-wordcloud/commit/451346b4c806cef84b214661e6caf664a57abc44" target="_blank">1</a>, <a href="https://github.com/flaviobarros/shiny-wordcloud/commit/ef16a049b8b32943f3ed568ada61e1def148b505" target="_blank">2</a>  and <a href="https://github.com/flaviobarros/shiny-wordcloud/commit/ab394841c30fd9bfe90fbeb0a89f012f216679c4" target="_blank">3</a>) and a <a href="https://github.com/flaviobarros/shiny-wordcloud/blob/master/shiny-server.conf" target="_blank">conf file</a>. Now i have fully working Dockerfile that i can use to git push Shiny Apps to Dokku! From now on, i will show you how you can install Dokku at <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a> and how i deployed the Wordcloud Shiny App at my server with a simple git push!</p>
+<h3>3.1 Git pushing to my server</h3>
+<p style="text-align: justify;">Just follow the video. You can visit the app here: <a href="http://wordcloud.flaviobarros.net/" target="_blank">http://wordcloud.flaviobarros.net/</a></p>
+<p><script id="asciicast-8qi8v3vc7mu90s066hy81fowj" src="https://asciinema.org/a/8qi8v3vc7mu90s066hy81fowj.js" async="" type="text/javascript"></script></p>
+<h3>3.2 Installing Dokku on Digital Ocean</h3>
+<p style="text-align: justify;">Follow this screencast. In the end you will have your server available at an IP. If you want a domain, will have to register it (ex. Godaddy) and point it to <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a> DNS. You can follow <a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-a-host-name-with-digitalocean" target="_blank">this tutorial</a> to setup a DNS on <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a>. If you have any problem let me know.</p>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/pOaZ7QwuxKU?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<h3 style="text-align: justify;">3.3 Important details</h3>
+<p style="text-align: justify;">I have used a SSH key that i have stored at <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a>. Usually, when you spin up your <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a> droplets, you get an email as soon as the process completes, letting you know the droplet’s IP address and password. Although this email is convenient, there is a more secure (and faster) way of gaining access to your server <i>without the need for email</i>. This can be done by setting up SSH keys. Follow this <a href="https://www.digitalocean.com/community/tutorials/how-to-use-ssh-keys-with-digitalocean-droplets" target="_blank">tutorial</a> to get this done.</p>
+<h2 style="text-align: justify;">Conclusion</h2>
+<p style="text-align: justify;">Recently i saw two interesting blog posts about Shiny App deployment:</p>
+<p style="text-align: justify;">1) <a href="http://www.r-bloggers.com/run-shiny-app-on-a-ubuntu-server-on-the-amazon-cloud/" target="_blank">Run Shiny app on a Ubuntu server on the Amazon Cloud</a></p>
+<p style="text-align: justify;">2) <a href="http://www.r-bloggers.com/how-to-get-your-very-own-rstudio-server-and-shiny-server-with-digitalocean/" target="_blank">How to get your very own RStudio Server and Shiny Server with DigitalOcean</a></p>
+<p style="text-align: justify;">In both scenarios this approach has several advantages:</p>
+<p style="text-align: justify;"> &#8211; You can replicate this dokku installation on Amazon and have the same functionality.</p>
+<p style="text-align: justify;">&#8211; When you are running multiple Shiny Apps on the same Shiny Server, you are using a <a href="http://www.r-bloggers.com/shiny-server-open-source-edition-solution-for-cpu-bound-apps/" target="_blank">single R instance</a>. SO, if you have more then one app deployed your server can slow down. With this solution, each app is isolated with your own Shiny Server instance, which is more reliable.</p>
+<p style="text-align: justify;">&#8211; The deployment process is easier. Once dokku is installed you don&#8217;t need to connect to the server to deploy an app. Just use git push!</p>
+<p style="text-align: justify;">&#8211; You can deploy multiple Shiny Apps, and multiple Web Apps. You can have Shiny, WordPress, Django and etc, on the same server.</p>
+<p style="text-align: justify;">&#8211; With <a href="https://github.com/dokku-alt/dokku-alt" target="_blank">dokku-alt</a> (an improved fork of Dokku) you can <a href="https://github.com/dokku-alt/dokku-alt#http-basic-auth-support" target="_blank">setup passwords</a> to access your Shiny Apps, something that is only available on Shiny Server Pro.</p>
+<p style="text-align: justify;">IMPORTANT: through any link to <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a> in this post,  you will earn U$10.00 credit without commitment to keep up the service. With this credit you can keep a simple VPS with 512MB RAM, for two months for free!</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2015/05/11/git-pushing-shiny-apps-with-docker-dokku/feed/index.html</wfw:commentRss>
+		<slash:comments>4</slash:comments>
+		</item>
+		<item>
+		<title>Git push no Django com o Dokku &#8211; básico</title>
+		<link>./../../../2015/05/02/git-push-no-django-com-o-dokku-basico/index.html</link>
+		<comments>./../../../2015/05/02/git-push-no-django-com-o-dokku-basico/index.html#comments</comments>
+		<pubDate>Sat, 02 May 2015 22:28:20 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Digital Ocean]]></category>
+		<category><![CDATA[Django]]></category>
+		<category><![CDATA[Docker]]></category>
+		<category><![CDATA[Linux]]></category>
+		<category><![CDATA[git]]></category>
+		<category><![CDATA[implantação]]></category>
+		<category><![CDATA[web]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=613</guid>
+		<description><![CDATA[1. Introdução Quem trabalha com web, se não conhece, pelo menos já ouviu falar do Heroku. O Heroku é um PaaS, uma sigla para (Platform as a Service) ou Plataforma como Serviço. A ideia por detrás do Heroku é que o desenvolvedor não precise se preocupar mais com os problemas relacionados à implantação do seu software, ele simplesmente desenvolve, adiciona alguns arquivos no projeto, dá um git push para o Heroku e ele coloca no...]]></description>
+				<content:encoded><![CDATA[<h2 style="text-align: justify;">1. Introdução</h2>
+<p style="text-align: justify;">Quem trabalha com web, se não conhece, pelo menos já ouviu falar do <a href="https://www.heroku.com/" target="_blank">Heroku</a>. O Heroku é um PaaS, uma sigla para (Platform as a Service) ou Plataforma como Serviço. A ideia por detrás do Heroku é que o desenvolvedor não precise se preocupar mais com os problemas relacionados à implantação do seu software, ele simplesmente desenvolve, adiciona alguns arquivos no projeto, dá um <a href="http://git-scm.com/book/pt-br/v1/Git-Essencial-Trabalhando-com-Remotos" target="_blank">git push</a> para o Heroku e ele coloca no ar para você.</p>
+<p style="text-align: justify;">Isso é praticamente o sonho para quem trabalha com web, principalmente por conta da dor de cabeça que é configurar e manter um servidor. Outra vantagem é que você usa um sistema de controle de versões para o seu código (o <a href="http://git-scm.com/book/pt-br/v1/Primeiros-passos-Uma-Breve-Hist%C3%B3ria-do-Git" target="_blank">git</a> no caso) e você tem muito mais controle sobre seu projeto. Por fim, se o tráfego crescer, é simples escalar com Heroku, basta ir adicionando os <a href="https://devcenter.heroku.com/articles/dynos" target="_blank">dynos</a>. Parece ótimo, MAS tem alguma desvantagem nisso? SIM, o <a href="https://www.heroku.com/pricing" target="_blank">PREÇO</a>!</p>
+<p style="text-align: justify;">Só para você entender do que eu estou falando, eu vou fazer o deploy de uma aplicação <a href="https://www.djangoproject.com/" target="_blank">Django</a>. É um projeto que eu fiz seguindo o tutorial do <a href="http://tutorial.djangogirls.org/en/index.html" target="_blank">djangogirls</a>; o código fonte está disponível <a href="https://github.com/flaviobarros/djangogirls" target="_blank">aqui</a> no Github caso queira reproduzir.</p>
+<p><script id="asciicast-19469" src="https://asciinema.org/a/19469.js" async="" type="text/javascript"></script></p>
+<div class="post-single-content box mark-links" style="text-align: justify;">
+<p>Você pode visitar a aplicação nesse domínio: <a href="http://flavio-django-blog.herokuapp.com/" target="_blank">http://flavio-django-blog.herokuapp.com/</a></p>
+<h2>2. Docker e Dokku</h2>
+<p>Se você de alguma forma acompanha notícias do mundo open source então você provavelmente já ouviu falar do <a href="http://www.docker.com/" target="_blank">Docker</a>. O Docker é uma ferramenta fantástica que permite criar contêineres de software, totalmente isolados do sistema operacional hospedeiro. Ele funciona como uma máquina virtual, mas é simplesmente muito mais leve. A ideia por trás do docker é que o desenvolvedor cria um contêiner com todas as bilbiotecas e dependêcias que desejar garantindo que tudo funciona. O responsável pela implantação do software não precisa saber o que há dentro do contêiner, ele só precisa ser capaz de rodar contêineres no servidor.</p>
+<p>Ainda que uma funcionalidade como essa pudesse ser obtida com máquinas virtuais, elas acabavam vindo com muito mais que o necessário, tal que os arquivos eram muito grandes (&gt;&gt;1Gb) e tornavam o sistema hospedeiro muito lento. O docker por outro lado, não usa um SO completo, ele compartilha o mesmo Kernel do hospedeiro (sim, atualmente ele precisa rodar no Linux) mas é um ambiente completamente isolado. Assim, rodar contêineres do docker é muito, mas muito mais leve que rodar uma máquina virtual. Os recursos do docker não param por ai, ele também permite uma espécie de versionamento de contêineres e tem uma espécie de github para contêineres, o <a href="https://hub.docker.com/account/signup/" target="_blank">Docker Hub</a>, de onde o usuário pode baixar e usar imagens prontas para diversos softwares, como o MySQL, Postgres, LAMP, WordPress, dentre outros.</p>
+<p>O <a href="http://progrium.com/blog/2013/06/19/dokku-the-smallest-paas-implementation-youve-ever-seen/" target="_blank">Dokku</a> por sua vez, foi o “killer app” do Docker. Foi com esse projeto que muitas pessoas conseguiram ver o tamanho do potencial dessa ferramenta. De fato, como vamos ver aqui, com ele é possível ter praticamente a mesma funcionalidade do Heroku, só que a um custo muito mais baixo, uma vez que o <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a>, oferece um VPS básico (Virtual Private Server, ou Servidor Privado Virtual) por U$5,00 ou R$15,00 aproximadamente. E não é um hardware qualquer, mas com 512Mb de RAM e 20Gb em SSD! Isso é mais do que suficiente para rodar diversas instalações do WordPress, não somente uma.</p>
+<h2>3. Instalando o Dokku no Digital Ocean</h2>
+<p>Inicialmente, já vou alerta-lo que, ao invés do <a href="https://github.com/progrium/dokku" target="_blank">dokku</a> original, eu vou instalar e usar um fork, o <a href="https://github.com/dokku-alt/dokku-alt" target="_blank">dokku-alt</a>. Mas por quê? Bem, simplesmente porque o dokku-alt já vem com diversos recursos e <a href="http://progrium.viewdocs.io/dokku/plugins" target="_blank">plugins</a> instalados que eu precisaria instalar na unha caso quisesse o dokku original. Para facilitar para o leitor, ao invés dos comandos, no screencast abaixo eu mostro a instalação do dokku em um droplet do <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a>.</p>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/PwvEOdXR3q4?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<p>A etapa final da instalação exige que você tenha uma chave SSH pública. Caso você não tenha, siga <a href="http://Atualmente/ eu já uso o dokku para hospedar esta instalação do WordPress. Assim, eu vou exp" target="_blank">esse tutorial</a>. Veja o comando e um exemplo do que você vai copiar e colar:</p>
+<pre class="lang:sh decode:true">$ cat ~/.ssh/id_rsa.pub</pre>
+<p>e a saída vai ser algo assim:</p>
+<pre class="lang:r decode:true ">ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAklOUpkDHrfHY17SbrmTIpNLTGK9Tjom/BWDSU
+GPl+nafzlHDTYW7hdI4yZ5ew18JH4JW9jbhUFrviQzM7xlELEVf4h9lFX5QVkbPppSwg0cda3
+Pbv7kOdJ/MTyBlWXFCR+HAo3FXRitBqxiX1nKhXpHAZsMciLq8V6RjsNAQwdsdMFvSlVK/7XA
+t3FaoJoAsncM1Q9x5+3V0Ww68/eIFmb1zuUFljQJKprrX88XypNDvjYNby6vw/Pb0rwert/En
+mZ+AW4OZPnTPI89ZPmVMLuayrD2cE86Z/il8b+gw3r3+1nKatmIkjn2so1d01QraTlMqVSsbx
+NrRFi9wrf+M7Q== schacon@agadorlaptop.local</pre>
+<p>que você deve copiar e colar na janela do navegador, no último passo da instalação do dokku-alt.</p>
+<h2>4. Git push com Django</h2>
+<p>Atualmente eu já uso o dokku para hospedar esta instalação do WordPress. Assim, eu vou experimentar o mesmo processo utilizado anteriormente no Heroku, só que no meu próprio PaaS com o dokku-alt, que já está configurado no domínio desse site.</p>
+<p><script id="asciicast-19472" src="https://asciinema.org/a/19472.js" async="" type="mce-mce-mce-mce-mce-mce-mce-mce-mce-mce-mce-mce-mce-text/javascript"></script><br />
+Agora você pode visitar a aplicação no domínio: <a href="http://djangogirls.flaviobarros.net/">http://djangogirls.flaviobarros.net/</a></p>
+<p>Veja que o procedimento foi idêntico ao Heroku e dessa forma é possível replicar a mesma funcionalidade por um custo muito menor.</p>
+<h2>5. Detalhes importantes</h2>
+<p>Você deve gerar um Procfile dentro do seu projeto. No caso desse repositório, o arquivo já existia uma vez que foi preparado para isso, mas caso estiver criando um projeto do zero, você deve adicionar esse arquivo. O mesmo vale para o requirements.txt. Para todos os efeitos, os seguinte comandos geram estes arquivos:</p>
+<pre class="lang:r decode:true ">pip freeze &gt; requirements.txt</pre>
+<pre class="lang:sh decode:true ">echo "web: gunicorn djangogirls.wsgi" &gt; Procfile</pre>
+<p>Outro detalhe importante é que eu estou usando o sqlite3 como banco de dados. Assim, eu gerei o arquivo do banco localmente, o db.sqlite3, tal que este arquivo foi junto no git push. EM GERAL VOCÊ NÃO VAI FAZER ISSO. O que você devia fazer é uma configuração alternativa local, com o SQlite3, e uma configuração em produção, utilizando o Postgres por exemplo.</p>
+<p>No caso do Postgres ou do MySQL, o dokku-alt já conta com plugins para a criação desses bancos e comandos para linkar o banco a sua aplicação. Em outro post posso mostrar mais detalhes.</p>
+<h2> Conclusão</h2>
+<p>Se você já usa o Heroku, passar a utilizar o Dokku é simples. Basta preparar um servidor e você pode trabalhar normalmente, como se estivesse usando o Heroku. Caso você nunca tenha utilizado o Heroku minha sugestão é que você teste as duas formas de instalação.</p>
+<p>IMPORTANTE: acessando qualquer link dessa página para o <a href="https://www.digitalocean.com/?refcode=c3521662d5e6" target="_blank">Digital Ocean</a>, ao fazer o cadastro você vai ganhar U$10,00 de crédito sem compromisso de manter o serviço. Com esse crédito você poderá manter um VPS simples, com 512Mb de RAM, por dois meses de graça! Use os links desse post.</p>
+</div>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2015/05/02/git-push-no-django-com-o-dokku-basico/feed/index.html</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+		</item>
+	</channel>
+</rss>

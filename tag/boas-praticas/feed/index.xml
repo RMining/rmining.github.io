@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>boas práticas &#8211; R Mining</title>
+	<atom:link href="./index.html" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Mineração de Dados, Estatística, Tecnologia</description>
+	<lastBuildDate>Tue, 17 Jan 2017 10:04:59 +0000</lastBuildDate>
+	<language>pt-BR</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.7.1</generator>
+	<item>
+		<title>Criando repositórios no Github a partir shell</title>
+		<link>./../../../2015/05/14/criando-repositorios-no-github-a-partir-shell/index.html</link>
+		<comments>./../../../2015/05/14/criando-repositorios-no-github-a-partir-shell/index.html#comments</comments>
+		<pubDate>Thu, 14 May 2015 17:52:34 +0000</pubDate>
+		<dc:creator><![CDATA[Flavio Barros]]></dc:creator>
+				<category><![CDATA[Git & Github]]></category>
+		<category><![CDATA[Linux]]></category>
+		<category><![CDATA[boas práticas]]></category>
+		<category><![CDATA[controle de versão]]></category>
+		<category><![CDATA[web]]></category>
+
+		<guid isPermaLink="false">http://www.flaviobarros.net/?p=656</guid>
+		<description><![CDATA[Esse vai ser um post curto, com um dica rápida. É algo que eu uso e acho bem útil, portanto vou compartilhar. Bom, inicialmente, para quem não sabe, o Github é um Web Hosting para projetos que utilizam o sistema de controle de versões git. O Github é excelente e você pode criar projetos open source, ou mesmo pagar pelo serviço para ter repositórios privados. O Github é hoje o padrão em termos de repositório...]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">Esse vai ser um post curto, com um dica rápida. É algo que eu uso e acho bem útil, portanto vou compartilhar. Bom, inicialmente, para quem não sabe, o <a href="https://github.com/" target="_blank">Github</a> é um Web Hosting para projetos que utilizam o sistema de controle de versões <a href="http://git-scm.com/" target="_blank">git</a>. O Github é excelente e você pode criar projetos open source, ou mesmo pagar pelo serviço para ter repositórios privados. O Github é hoje o padrão em termos de repositório de projetos de código fonte aberto. A maior parte dos grandes projetos open source é desenvolvida por lá, e só para citar alguns dos grandes, estão lá por exemplo: o <a href="https://github.com/torvalds/linux" target="_blank">Linux</a>, o <a href="https://github.com/WordPress/WordPress" target="_blank">WordPress</a>, vários projetos da fundação <a href="https://github.com/apache" target="_blank">Apache</a>,  <a href="https://github.com/dotnet" target="_blank">.NET</a>, <a href="https://github.com/django/django" target="_blank">Django</a>, <a href="https://github.com/rails/rails" target="_blank">Rails</a>, o <a href="https://github.com/docker/docker" target="_blank">Docker</a> dentre muitos outros.</p>
+<p style="text-align: justify;">Eu uso em diversos projetos meus, a maioria de código fonte aberto. MAS, uma coisa que me incomodava, era a necessidade de entrar na interface web, logar e ter que criar lá o novo repositório. Só depois disso que eu poderia voltar para o terminal e adicionar o repositório remoto com um <a href="http://git-scm.com/book/pt-br/v1/Git-Essencial-Trabalhando-com-Remotos" target="_blank">git remote</a>. De fato, o que eu gostaria mesmo era de fazer tudo do terminal: criar um repositório novo com o git, criar um projeto no github, adicionar o remoto e já dar um git push, sem navegador, sem interface web!</p>
+<p style="text-align: justify;">Fazer isso é possível, pois o Github conta com uma <a href="https://developer.github.com/v3/" target="_blank">API</a> que pode ser utilizada por outras aplicações. Aliás, a bem da verdade, o Github tem GUI&#8217;s completas para o <a href="https://windows.github.com/" target="_blank">Windows</a> e para o <a href="https://mac.github.com/" target="_blank">MAC</a>, sem contar as <a href="http://git-scm.com/downloads/guis" target="_blank">muitas outras</a> que existem por ai, mas eu queria simplesmente um comando. Pensando nisso eu fiz o comando eu mesmo com o <a href="https://www.python.org/" target="_blank">Python</a>: o código fonte você encontra <a href="https://github.com/flaviobarros/create_git_repo" target="_blank">aqui</a>.</p>
+<pre class="lang:python decode:true ">#!/usr/bin/env python
+# This Python file uses the following encoding: utf-8
+
+import os
+
+usuario = "seu_usuario"
+
+print 'Defina o título do projeto: '
+projectname = raw_input()
+
+print 'Defina a descrição do projeto: '
+description = raw_input()
+
+comando = 'curl -u ' + usuario + ' https://api.github.com/user/repos ' + "'" + '-d' + '{"name":"' + projectname + '","description":"' + description + '"}' + "'"
+
+print(comando)
+os.system(comando)</pre>
+<p style="text-align: justify;">Não é ciência de foguete, mas supre a demanda. Basta trocar o &#8220;seu_usuario&#8221; pelo seu usuário no Github, colocar esse arquivo no PATH do seu Sistema Operacional e o comando ficará disponível na linha de comando. O fluxo de trabalho fica muito simples:</p>
+<p>1) crie um repositório do git do zero;</p>
+<pre class="lang:sh decode:true">git init</pre>
+<p>2) adicione os arquivos;</p>
+<pre class="lang:r decode:true">git add -A .</pre>
+<p>3) dê o primeiro commit;</p>
+<pre class="lang:sh decode:true">git commit -am "Primeiro commit"</pre>
+<p>4) Use o novo comando create_git_repo e crie o repositório no github;</p>
+<pre class="lang:sh decode:true">create_git_repo</pre>
+<p>5) Adicione o remoto;</p>
+<pre class="lang:sh decode:true ">git remote add origin git@github.com:seu_usuario/seu_projeto.git</pre>
+<p>6) Envie tudo para o remoto;</p>
+<pre class="lang:sh decode:true ">git push origin master</pre>
+<p>Enfim, você não precisa sair do terminal!</p>
+<p style="text-align: justify;">Um detalhe importante é que na primeira pergunta o script lhe pede o título do projeto. Coloque o título da forma como vai querer o &#8220;seu_proejto.git&#8221;, i.e, se quiser com underline já coloque underline, ou qualquer outro caractere.</p>
+]]></content:encoded>
+			<wfw:commentRss>./../../../2015/05/14/criando-repositorios-no-github-a-partir-shell/feed/index.html</wfw:commentRss>
+		<slash:comments>5</slash:comments>
+		</item>
+	</channel>
+</rss>
